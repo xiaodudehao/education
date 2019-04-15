@@ -1,0 +1,21 @@
+@import "base";
+@background-color: yellow;
+
+.head{
+    height: 200px;
+    background-color:aqua;
+}
+.content{
+    height: 500px;
+    background-color:aquamarine;
+    .contentChild {
+        width: 1200px;
+        margin: 0 auto;
+        height: 500px;
+        background-color: @background-color;
+    }
+}
+.footer{
+    height: 300px;
+    background-color:chartreuse;
+}

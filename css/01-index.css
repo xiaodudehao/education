@@ -1,0 +1,49 @@
+/**
+ * 循环初始字体大小:
+ *     @end   : 结束字体大小(数字),必须输;
+ *     @begin : 开始字体大小(数字),可以省略;
+ *     @un    : 字体单位(字符串),可以省略;
+ *     例子   : .base-fonts(28);
+ */
+/**
+ * 循环初始默认样式:
+ *     @name  : 样式前缀名,必须输;
+ *    @style : 设置样式,必须输;
+ *    @end   : 结束样式,必须输;
+ *    @begin : 开始样式,可以省略;
+ *    @mult  : 循环累加倍数,可以省略;
+ *     @un    : 字体单位(字符串),可以省略;
+ *     例子   : .base-styles(mb,margin-bottom,30,5);
+ */
+/* 强制折行 */
+/**
+ * css3动画,只能写在调用页面,配合.css3( @style,@frames )使用;
+ * 例子 :  
+ * .keyframes(starts,{
+        0% {transform:rotate(0deg)}
+        100%{transform:rotate(360deg)}
+    });
+    .className{.css3(animation,starts 8s linear infinite .3s );}
+ */
+.red {
+  background-color: red;
+  height: 100px;
+}
+.head {
+  height: 200px;
+  background-color: aqua;
+}
+.content {
+  height: 500px;
+  background-color: aquamarine;
+}
+.content .contentChild {
+  width: 1200px;
+  margin: 0 auto;
+  height: 500px;
+  background-color: #ffff00;
+}
+.footer {
+  height: 300px;
+  background-color: chartreuse;
+}

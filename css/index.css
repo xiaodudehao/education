@@ -1,0 +1,332 @@
+.banxin {
+  margin: 0 auto;
+  width: 1200px;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  height: 90px;
+}
+.header .logo {
+  display: block;
+  width: 116px;
+  height: 90px;
+  float: left;
+  background-color: lime;
+}
+.header ul {
+  list-style: none;
+}
+.header ul li {
+  margin-left: 62px;
+  float: left;
+  line-height: 90px;
+}
+.header ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.header ul li:nth-child(1) a {
+  color: #32b251;
+}
+.header .search {
+  margin-left: 60px;
+  float: left;
+  height: 60px;
+}
+.header .search .searchicon {
+  float: left;
+  width: 30px;
+  height: 40px;
+  background-color: hotpink;
+  margin-top: 25px;
+}
+.header .search input {
+  float: left;
+  width: 250px;
+  height: 40px;
+  outline-style: none;
+  border: 0px;
+  margin-top: 25px;
+  border-radius: 20px;
+  padding-left: 18px;
+  border: 1px solid #999;
+}
+.header .login {
+  margin-top: 25px;
+  float: right;
+  background-color: antiquewhite;
+  width: 186px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+}
+.header .login .loginicon {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+.header .login .log {
+  float: right;
+  width: 70px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #33b150;
+  border-radius: 20px 0px 0 20px;
+}
+.header .login .register {
+  float: right;
+  width: 70px;
+  height: 40px;
+  background-color: #80c47f;
+  border-radius: 0px 20px 20px 0px;
+}
+.banner {
+  height: 600px;
+  background-color: lightblue;
+  position: relative;
+  overflow: hidden;
+}
+.banner .slide {
+  width: 2000px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.banner .slide .carousel-indicators li {
+  background-color: #656766;
+}
+.banner .slide .carousel-indicators .active {
+  background-color: #33b14e;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 1px;
+}
+.banner .slide .carousel-inner .item img {
+  width: 2000px;
+  height: 600px;
+}
+.banner .catalogue {
+  position: absolute;
+  width: 300px;
+  height: 600px;
+  background-color: rgba(129, 210, 131, 0.4);
+  z-index: 1;
+}
+.banner .catalogue ul {
+  list-style: none;
+  margin: 0;
+}
+.banner .catalogue ul a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.banner .catalogue .next {
+  background-color: #81d283;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+.headline {
+  height: 164px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headline .line {
+  height: 1px;
+  width: 200px;
+  background-color: #666;
+}
+.headline .font {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  background-color: #fafafa;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 24px;
+}
+.headline .viewmore {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  color: #32b251;
+  text-decoration: none;
+  font-size: 18px;
+}
+.content {
+  background-color: #fafafa;
+  padding-bottom: 90px;
+}
+.content ul {
+  list-style: none;
+  display: block;
+  width: 1280px;
+}
+.content ul li {
+  margin-right: 80px;
+  margin-bottom: 20px;
+  float: left;
+}
+.content ul li a {
+  width: 240px;
+  height: 300px;
+  background-color: #f5f5f5;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  border-radius: 7px;
+  overflow: hidden;
+  transition: all 1s;
+}
+.content ul li a img {
+  width: 240px;
+  height: 180px;
+  display: block;
+  background-color: lime;
+}
+.content ul li a .title {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  color: #67be79;
+}
+.content ul li a .schoolname {
+  width: 240px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 14px;
+  box-sizing: border-box;
+  color: #999999;
+}
+.content ul li a .schoolname div {
+  width: 22px;
+  height: 18px;
+  background-color: lime;
+  float: left;
+}
+.content ul li a .numberofpeople {
+  position: absolute;
+  height: 18px;
+  right: 20px;
+  bottom: 10px;
+  color: #999999;
+}
+.content ul li a .numberofpeople span {
+  color: #67be79;
+}
+.content ul li a:hover {
+  box-shadow: 0px 0px 20px 5px #999;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+.school {
+  height: 410px;
+  background-color: #ddefdf;
+}
+.school .font {
+  background-color: #ddefdf;
+}
+.school .schoolname {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.school .schoolname li {
+  background-color: burlywood;
+  width: 165px;
+  height: 168px;
+}
+.school .schoolname li img {
+  display: block;
+  width: 165px;
+  height: 114px;
+  background-color: #80c47f;
+}
+.school .schoolname li .name {
+  text-align: center;
+}
+.corporation {
+  height: 240px;
+  background-color: #fafafa;
+}
+.corporation .friendfather {
+  position: relative;
+}
+.corporation .friendfather .friend {
+  top: 50px;
+  position: absolute;
+}
+.corporation .friendfather .friend li {
+  list-style: none;
+}
+.corporation .friendfather .friend li a {
+  text-decoration: none;
+  color: #000;
+}
+.corporation .friendfather .center {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 104px;
+}
+.corporation .friendfather .link {
+  padding-top: 32px;
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.corporation .friendfather .link li {
+  list-style: none;
+  float: left;
+}
+.corporation .friendfather .link li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+.corporation .friendfather .link li:nth-child(2n) {
+  color: #77c685;
+}
+.footer {
+  height: 120px;
+  background-color: #33b150;
+  margin-bottom: 30px;
+}
+.footer .footerbanxin {
+  height: 120px;
+  position: relative;
+}
+.footer .footerbanxin .footercenter {
+  width: 414px;
+  height: 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  line-height: 30px;
+}

@@ -1,0 +1,380 @@
+.banxin{
+    margin: 0 auto;
+    width: 1200px;
+}
+// 清浮动
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+// 头部开始
+.header{
+    height: 90px;
+    .logo{
+        display: block;
+        width: 116px;
+        height: 90px;
+        float: left;
+        background-color: lime;
+    }
+    ul{
+        list-style: none;
+        li{
+            margin-left: 62px;
+            float: left;
+            line-height: 90px;
+            a{
+                color: #000;
+                text-decoration: none;
+            }
+        }
+        li:nth-child(1) a {
+            color: #32b251;
+        }
+    }
+    .search{
+        margin-left: 60px;
+        float: left;
+        height: 60px;
+       
+        
+        .searchicon {
+            float: left;
+            width: 30px;
+            height: 40px;
+            background-color: hotpink;
+            margin-top: 25px;
+        }
+        input{
+            float: left;
+            width: 250px;
+            height: 40px;
+            // 去除默认边框
+            outline-style:none;
+            border: 0px;
+            // border: transparent;
+            margin-top: 25px;
+            border-radius: 20px;
+            padding-left: 18px;
+            border: 1px solid #999;
+        }
+    }
+    .login{
+        margin-top: 25px;
+        float: right;
+        background-color: antiquewhite;
+        width: 186px;
+        height: 40px;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        .loginicon{
+            width: 40px;
+            height: 40px;
+            float:left;
+        }
+        .log{
+            float: right;
+            width: 70px;
+            height: 40px;
+            border-radius: 20px;
+            background-color:#33b150;
+
+            border-radius: 20px 0px 0 20px;
+            
+        }
+        .register{
+            float: right;
+            width: 70px;
+            height: 40px;
+            background-color: #80c47f;
+
+            border-radius: 0px 20px 20px 0px;
+        }
+
+
+    }
+}
+// 头部结束
+// 大轮播图开始
+.banner{
+    height: 600px;
+    background-color: lightblue;
+    position: relative;
+    // 设置overflow可以让轮播图的宽度一直小于屏幕的宽度。不会出现横向滚动条。
+    overflow: hidden;
+    .slide {
+    //设置轮播图的宽度，这样就不会随着banner的宽度改变而改变图片的长宽比了。
+       width: 2000px;
+       position: absolute;
+       transform: translate(-50%,-50%);
+       left: 50%;
+       top: 50%;
+       .carousel-indicators li{
+            background-color: #656766;
+       }
+    //    修改bootstrap默认的小圆点的大小
+       .carousel-indicators .active{
+           background-color: #33b14e;
+           width: 10px;
+           height: 10px;
+           margin-bottom: 1px;
+       }
+      .carousel-inner .item img{
+          width: 2000px;
+           height: 600px;
+       }
+    }
+    .catalogue{
+        position: absolute;
+        width: 300px;
+        height: 600px;
+        background-color: rgba(129,210,131,0.4);
+        // opacity: 0.3;
+        z-index: 1;
+        ul {
+            list-style: none;
+            // ul默认会有下外边距
+            margin: 0;
+            a{
+                display: block;
+                text-decoration: none;
+                color: #fff;
+                font-size: 20px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+            }
+        }
+        .next{
+            background-color: #81d283;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+        }
+    }
+}
+// 大轮播图结束
+// 带横杠的标题开始
+.headline{
+    height: 164px;
+    position: relative;
+    // flex布局只能用在标准流中，如果子元素设置absolute在ie11就不作用了。
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //  线条宽度固定用的是绝对定位。
+    .line{
+        height: 1px;
+        width: 200px;
+        background-color: #666;
+    }
+    // 文字宽度不固定，用的是flex布局固定，用position:absolute;让字体出现在线条上方。
+    .font{
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+        background-color: #fafafa;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 24px;
+    }
+    .viewmore{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        color: #32b251;
+        text-decoration: none;
+        font-size: 18px;
+    }
+}
+// 带横杠的标题结束
+// 课程列表开始
+.content{
+    // 这个高度暂定
+    // height:1020px;
+    background-color: #fafafa;
+    padding-bottom: 90px;
+    ul{
+        list-style: none;
+        display: block;
+        width: 1280px;
+        li{
+            margin-right: 80px;
+            margin-bottom: 20px;
+            float: left;
+            a {
+                width: 240px;
+                height: 300px;
+                background-color: #f5f5f5;
+                display: block;
+                position: relative;
+                text-decoration: none;
+                border-radius: 7px;
+                overflow: hidden;
+                transition: all 1s;
+               img{
+                   width: 240px;
+                   height: 180px;
+                   display: block;
+                   background-color: lime;
+               }
+               .title{
+                   text-align: center;
+                   font-size: 18px;
+                   margin-top: 10px;
+                   color: #67be79;
+               }
+               .schoolname{
+                   width: 240px;
+                   padding-left: 20px;
+                   padding-right: 20px;
+                   margin-top: 14px;
+                   box-sizing: border-box;
+                   color: #999999;
+                   div{
+                       width: 22px;
+                       height: 18px;
+                       background-color: lime;
+                       float: left;
+                   }
+               }
+               .numberofpeople{
+                   position:absolute;
+                //    width: 40px;
+                   height: 18px;
+                //    background-color: pink;
+                   right: 20px;
+                   bottom: 10px;
+                   color: #999999;
+                   span{
+                       color: #67be79;
+                   }
+               }
+
+            }
+            a:hover {
+                box-shadow: 0px 0px 20px 5px #999;
+                margin-top: -5px;
+                // 因为margin-top上移了5px，所以下面要添加5px，否则如果分两层
+                // 底下的里布局会乱。
+                margin-bottom: 5px;
+            }
+        }
+
+    }
+}
+// 课程列表结束
+// 学校展示开始
+.school{
+    height:410px;
+    background-color: #ddefdf;
+    .font{
+        background-color: #ddefdf;
+    }
+    .schoolname{
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        li{
+            background-color: burlywood;
+            width: 165px;
+            height: 168px;
+            img{            
+                display: block;
+                width: 165px;
+                height: 114px;
+                background-color: #80c47f;
+            }
+            .name {
+                text-align: center;
+            }
+        }
+    }
+}
+// 学校展示结束
+// 公司信息开始
+.corporation{
+    height: 240px;
+    background-color: #fafafa;
+    .friendfather{
+        position: relative;
+        .friend{
+            top: 50px;
+            position: absolute;
+            li{
+                list-style: none;
+                a{
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+        }
+        .center {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 104px;
+        }
+        .link {
+            padding-top: 32px;
+            width: 500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            li {
+                list-style: none;
+                float: left;
+                a{
+                    display: block;
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+            li:nth-child(2n) {
+                
+                    color: #77c685;
+                
+            }
+        }
+    }
+
+}
+// 公司信息结束
+// 底部开始
+.footer{
+    height: 120px;
+    background-color: #33b150;
+    margin-bottom: 30px;
+   
+    .footerbanxin{
+        height: 120px;
+        position: relative;
+        .footercenter{
+            width: 414px;
+            height: 30px;
+            // background-color: rgb(66, 66, 60);
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left:50%;
+            line-height: 30px;
+        }
+    }
+
+}
+// 底部结束
