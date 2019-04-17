@@ -16,15 +16,18 @@
 }
 .header {
   height: 90px;
+  font-size: 18px;
 }
 .header .logo {
   display: block;
-  width: 116px;
-  height: 90px;
+  width: 115px;
+  height: 51px;
   float: left;
   background-color: lime;
+  margin-top: 10px;
 }
 .header ul {
+  display: block;
   list-style: none;
 }
 .header ul li {
@@ -46,10 +49,11 @@
 }
 .header .search .searchicon {
   float: left;
-  width: 30px;
+  width: 20px;
   height: 40px;
   background-color: hotpink;
   margin-top: 25px;
+  margin-right: 10px;
 }
 .header .search input {
   float: left;
@@ -65,7 +69,6 @@
 .header .login {
   margin-top: 25px;
   float: right;
-  background-color: antiquewhite;
   width: 186px;
   height: 40px;
   color: #fff;
@@ -73,7 +76,7 @@
   line-height: 40px;
 }
 .header .login .loginicon {
-  width: 40px;
+  width: 26px;
   height: 40px;
   float: left;
 }
@@ -99,7 +102,7 @@
   overflow: hidden;
 }
 .banner .slide {
-  width: 2000px;
+  width: 1920px;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -115,7 +118,7 @@
   margin-bottom: 1px;
 }
 .banner .slide .carousel-inner .item img {
-  width: 2000px;
+  width: 1920px;
   height: 600px;
 }
 .banner .catalogue {
@@ -156,7 +159,7 @@
 .headline .line {
   height: 1px;
   width: 200px;
-  background-color: #666;
+  background-color: #ccc;
 }
 .headline .font {
   position: absolute;
@@ -199,9 +202,9 @@
   text-decoration: none;
   border-radius: 7px;
   overflow: hidden;
-  transition: all 1s;
+  transition: all 0.3s;
 }
-.content ul li a img {
+.content ul li a .courseimg {
   width: 240px;
   height: 180px;
   display: block;
@@ -220,12 +223,22 @@
   margin-top: 14px;
   box-sizing: border-box;
   color: #999999;
+  position: relative;
+}
+.content ul li a .schoolname .imgicon {
+  width: 20px;
+  height: 20px;
 }
 .content ul li a .schoolname div {
   width: 22px;
   height: 18px;
   background-color: lime;
   float: left;
+}
+.content ul li a .schoolname span {
+  position: absolute;
+  top: 2px;
+  left: 43px;
 }
 .content ul li a .numberofpeople {
   position: absolute;
@@ -245,39 +258,61 @@
 .school {
   height: 410px;
   background-color: #ddefdf;
+  padding-top: 35px;
 }
 .school .font {
   background-color: #ddefdf;
 }
-.school .schoolname {
+.school .nameofinstitution {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  margin-top: -40px;
 }
-.school .schoolname li {
-  background-color: burlywood;
+.school .nameofinstitution li {
   width: 165px;
   height: 168px;
 }
-.school .schoolname li img {
+.school .nameofinstitution li a {
+  text-decoration: none;
+  display: block;
+  height: 150px;
+}
+.school .nameofinstitution li a .images {
+  width: 164px;
+  height: 137px;
+  position: relative;
+  overflow: hidden;
+}
+.school .nameofinstitution li a .images img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: block;
   width: 165px;
-  height: 114px;
-  background-color: #80c47f;
+  height: 137px;
+  transition: all 0.3s;
 }
-.school .schoolname li .name {
+.school .nameofinstitution li a .name {
+  color: #000;
   text-align: center;
+  font-size: 18px;
+}
+.school .nameofinstitution li a:hover img {
+  width: 198px;
+  height: 164.4px;
 }
 .corporation {
-  height: 240px;
+  height: 262px;
   background-color: #fafafa;
 }
 .corporation .friendfather {
   position: relative;
+  padding-top: 60px;
 }
 .corporation .friendfather .friend {
-  top: 50px;
-  position: absolute;
+  float: left;
 }
 .corporation .friendfather .friend li {
   list-style: none;
@@ -285,36 +320,52 @@
 .corporation .friendfather .friend li a {
   text-decoration: none;
   color: #000;
+  height: 30px;
+  line-height: 32px;
+  font-size: 14px;
 }
-.corporation .friendfather .center {
-  width: 500px;
-  margin: 0 auto;
-  text-align: center;
+.corporation .friendfather .right {
+  float: right;
+  margin-top: 43px;
   box-sizing: border-box;
-  padding-top: 104px;
 }
-.corporation .friendfather .link {
+.corporation .friendfather .right .center {
+  position: relative;
+  box-sizing: border-box;
+}
+.corporation .friendfather .right .center img {
+  margin-left: 170px;
+  display: block;
+  position: absolute;
+  left: 170px;
+}
+.corporation .friendfather .right .center div {
+  float: left;
+  height: 26px;
+  line-height: 26px;
+  margin-left: 10px;
+}
+.corporation .friendfather .right .link {
   padding-top: 32px;
   width: 500px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
-.corporation .friendfather .link li {
+.corporation .friendfather .right .link li {
   list-style: none;
   float: left;
 }
-.corporation .friendfather .link li a {
+.corporation .friendfather .right .link li a {
   display: block;
   text-decoration: none;
   color: #000;
 }
-.corporation .friendfather .link li:nth-child(2n) {
+.corporation .friendfather .right .link li:nth-child(2n) {
   color: #77c685;
 }
 .footer {
   height: 120px;
-  background-color: #33b150;
+  background-color: #b2dfb3;
   margin-bottom: 30px;
 }
 .footer .footerbanxin {

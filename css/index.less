@@ -16,18 +16,20 @@
     padding: 0;
 }
 
-
 // 头部开始
 .header{
     height: 90px;
+    font-size: 18px;
     .logo{
         display: block;
-        width: 116px;
-        height: 90px;
+        width: 115px;
+        height: 51px;
         float: left;
         background-color: lime;
+        margin-top: 10px;
     }
     ul{
+        display: block;
         list-style: none;
         li{
             margin-left: 62px;
@@ -50,10 +52,11 @@
         
         .searchicon {
             float: left;
-            width: 30px;
+            width: 20px;
             height: 40px;
             background-color: hotpink;
             margin-top: 25px;
+            margin-right: 10px;
         }
         input{
             float: left;
@@ -72,14 +75,14 @@
     .login{
         margin-top: 25px;
         float: right;
-        background-color: antiquewhite;
+        // background-color: antiquewhite;
         width: 186px;
         height: 40px;
         color: #fff;
         text-align: center;
         line-height: 40px;
         .loginicon{
-            width: 40px;
+            width: 26px;
             height: 40px;
             float:left;
         }
@@ -115,7 +118,7 @@
     overflow: hidden;
     .slide {
     //设置轮播图的宽度，这样就不会随着banner的宽度改变而改变图片的长宽比了。
-       width: 2000px;
+       width: 1920px;
        position: absolute;
        transform: translate(-50%,-50%);
        left: 50%;
@@ -129,9 +132,11 @@
            width: 10px;
            height: 10px;
            margin-bottom: 1px;
+
+
        }
       .carousel-inner .item img{
-          width: 2000px;
+          width: 1920px;
            height: 600px;
        }
     }
@@ -179,7 +184,7 @@
     .line{
         height: 1px;
         width: 200px;
-        background-color: #666;
+        background-color: #ccc;
     }
     // 文字宽度不固定，用的是flex布局固定，用position:absolute;让字体出现在线条上方。
     .font{
@@ -225,8 +230,8 @@
                 text-decoration: none;
                 border-radius: 7px;
                 overflow: hidden;
-                transition: all 1s;
-               img{
+                transition: all 0.3s;
+               .courseimg{
                    width: 240px;
                    height: 180px;
                    display: block;
@@ -245,12 +250,23 @@
                    margin-top: 14px;
                    box-sizing: border-box;
                    color: #999999;
+                   position: relative;
+                   .imgicon{
+                       width: 20px;
+                       height: 20px;
+
+                   }
                    div{
                        width: 22px;
                        height: 18px;
                        background-color: lime;
                        float: left;
                    }
+                   span{
+                       position: absolute;
+                       top: 2px;
+                       left: 43px;
+                    }
                }
                .numberofpeople{
                    position:absolute;
@@ -282,25 +298,52 @@
 .school{
     height:410px;
     background-color: #ddefdf;
+    padding-top: 35px;
     .font{
         background-color: #ddefdf;
     }
-    .schoolname{
+    .nameofinstitution{
         list-style: none;
         display: flex;
         justify-content: space-between;
+        margin-top: -40px;
         li{
-            background-color: burlywood;
+            // background-color: burlywood;
             width: 165px;
             height: 168px;
-            img{            
+            a{
+                text-decoration: none;
                 display: block;
-                width: 165px;
-                height: 114px;
-                background-color: #80c47f;
+                height: 150px;
+                .images{
+                    width: 164px;
+                    height: 137px;
+                    position:relative;
+                    overflow: hidden;
+                    img{            
+                        position: absolute;
+                        left: 50%;
+                        top:50%;
+                        transform: translate(-50%,-50%);
+                        display: block;
+                        width: 165px;
+                        height: 137px;
+                        transition:all 0.3s;
+                        // background-color: #80c47f;
+                    }
+                }
+
+                .name {
+                    color: #000;
+                    text-align: center;
+                    font-size: 18px;
+                }
             }
-            .name {
-                text-align: center;
+            a:hover{
+                img{
+                    width: 165*1.2px;
+                    height: 137*1.2px;
+                }
             }
         }
     }
@@ -308,47 +351,67 @@
 // 学校展示结束
 // 公司信息开始
 .corporation{
-    height: 240px;
+    height: 262px;
     background-color: #fafafa;
     .friendfather{
         position: relative;
+        padding-top: 60px;
         .friend{
-            top: 50px;
-            position: absolute;
+            float:left;
+          
             li{
                 list-style: none;
                 a{
                     text-decoration: none;
                     color: #000;
+                    height: 30px;
+                    line-height: 32px;
+                    font-size: 14px;
                 }
             }
         }
-        .center {
-            width: 500px;
-            margin: 0 auto;
-            text-align: center;
+        .right{
+            float: right;
+            margin-top: 43px;
             box-sizing: border-box;
-            padding-top: 104px;
-        }
-        .link {
-            padding-top: 32px;
-            width: 500px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            li {
-                list-style: none;
-                float: left;
-                a{
+            .center {
+                position: relative;
+               
+                box-sizing: border-box;
+                img{
+                    margin-left: 170px;
                     display: block;
-                    text-decoration: none;
-                    color: #000;
+                 
+                    position: absolute;
+                    left: 170px;
                 }
+                div{
+                    float: left;
+                    height: 26px;
+                    line-height: 26px;
+                    margin-left: 10px;
+                }
+    
             }
-            li:nth-child(2n) {
-                
-                    color: #77c685;
-                
+            .link {
+                padding-top: 32px;
+                width: 500px;
+                display: flex;
+                justify-content: space-between;
+                li {
+                    list-style: none;
+                    float: left;
+                    a{
+                        display: block;
+                        text-decoration: none;
+                        color: #000;
+                    }
+                }
+                li:nth-child(2n) {
+                    
+                        color: #77c685;
+                    
+                }
             }
         }
     }
@@ -358,7 +421,7 @@
 // 底部开始
 .footer{
     height: 120px;
-    background-color: #33b150;
+    background-color: #b2dfb3;
     margin-bottom: 30px;
    
     .footerbanxin{

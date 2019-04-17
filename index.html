@@ -10,13 +10,11 @@
     
 </head>
 <body>
-    <div class="container">
-        
-    </div>
+
     <!-- 头部导航栏开始 -->
     <div class="header">
         <div class="banxin">
-            <img src="" class="logo" alt="">
+            <img src="img/未标题-10.png" class="logo" alt="">
             <ul>
                 <li><a href="">首页</a></li>
                 <li><a href="">课程</a></li>
@@ -24,14 +22,15 @@
                 <li><a href="">立体教材</a></li>
             </ul>
             <div class="search">
-                <div class="searchicon" ></div>
+                <img class="searchicon" src="img/未标题-1.png" ></img>
                 <input type="text" placeholder="搜索课程或学校">
             </div>
             <div class="login">
-                <div class="loginicon"></div>
+                <img class="loginicon" src="img/未标题-2.png"></img>
                 <!-- 这里的模态框用js实现 -->
                 <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
-                <div class="log">登录</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
             </div>
         </div>
     </div>
@@ -41,9 +40,9 @@
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <!-- <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
             </ol>
             
             <!-- Wrapper for slides -->
@@ -73,7 +72,7 @@
         <div class="banxin">
             <div class="catalogue">
                 <ul>
-                    <a href=""><li>农林牧渔类</li></a>
+                    <!-- <a href=""><li>农林牧渔类</li></a>
                     <a href=""><li>资源环境类</li></a>
                     <a href=""><li>能源与新能源类</li></a>
                     <a href=""><li>土木水利类</li></a>
@@ -81,7 +80,7 @@
                     <a href=""><li>石油化工类</li></a>
                     <a href=""><li>轻纺食品类</li></a>
                     <a href=""><li>交通运输类</li></a>
-                    <a href=""><li>信息技术类</li></a>
+                    <a href="#"><li>信息技术类</li></a> -->
                 </ul>
                 <!-- 点击这个下一页重新渲染上面的分类 -->
                 <div class="next">
@@ -102,7 +101,7 @@
                     <a href="" class="viewmore"> 查看更多</a>
                 </div>
                 <ul class="hot clearfix" >
-                    <li>
+                    <!-- <li>
                         <a href="">
                             <img src="" alt="">
                             <div>
@@ -145,7 +144,7 @@
                                 <div class="numberofpeople"></div> 
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div>
@@ -154,10 +153,10 @@
                     <div class="font">最新课程</div>
                     <a href="" class="viewmore"> 查看更多</a>
                 </div>
-                <ul  class="clearfix">
-                    <li>
+                <ul  class="clearfix new">
+                    <!-- <li>
                         <a href="">
-                            <img src="" alt="">
+                            <img class="courseimg" src="" alt="">
                             <div>
                                 <div class="title">建筑材料性能检测</div>
                                 <div class="schoolname"><div></div>上海市城市科技学校</div>
@@ -168,7 +167,7 @@
                     </li>
                     <li>
                         <a href="">
-                            <img src="" alt="">
+                            <img class="courseimg" src="" alt="">
                             <div>
                                 <div class="title">建筑材料性能检测</div>
                                 <div class="schoolname"><div></div>上海市城市科技学校</div>
@@ -179,7 +178,7 @@
                     </li>
                     <li>
                         <a href="">
-                            <img src="" alt="">
+                            <img class="courseimg" src="" alt="">
                             <div>
                                 <div class="title">建筑材料性能检测</div>
                                 <div class="schoolname"><div></div>上海市城市科技学校</div>
@@ -190,7 +189,7 @@
                     </li>
                     <li>
                         <a href="">
-                            <img src="" alt="">
+                            <img class="courseimg" src="" alt="">
                             <div>
                                 <div class="title">建筑材料性能检测</div>
                                 <div class="schoolname"><div></div>上海市城市科技学校</div>
@@ -198,7 +197,7 @@
                                 <div class="numberofpeople"></div> 
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -213,26 +212,51 @@
                     <div class="font">合作院校</div>
                     <a href="" class="viewmore"> 查看更多</a>
                 </div>
-                <ul class="schoolname">
+                <ul class="nameofinstitution">
                     <li>
-                        <img src="" alt="">
-                        <div class="name">上海市城市科技学校</div>
+                        <a href="">
+                            <div class="images">
+                                <img src="img/未标题-12.png" alt="">
+                               
+                            </div>
+                            <div class="name">上海市城市科技学校</div>
+                        </a>
                     </li>
                     <li>
-                        <img src="" alt="">
-                        <div class="name">上海市城市科技学校</div>
+                        <a href="">
+                            <div class="images">
+                                <img src="img/未标题-14.png" alt="">
+                                
+                            </div>
+                            <div class="name">上海市城市科技学校</div>
+                        </a>
                     </li>
                     <li>
-                        <img src="" alt="">
-                        <div class="name">上海市城市科技学校</div>
+                        <a href="">
+                            <div class="images">
+                                <img src="img/未标题-12.png" alt="">
+                                
+                            </div>
+                            <div class="name">上海市城市科技学校</div>
+                        </a>
                     </li>
                     <li>
-                        <img src="" alt="">
-                        <div class="name">上海市城市科技学校</div>
+                        <a href="">
+                            <div class="images">
+                                <img src="img/未标题-14.png" alt="">
+                                
+                            </div>
+                            <div class="name">上海市城市科技学校</div>
+                        </a>
                     </li>
                     <li>
-                        <img src="" alt="">
-                        <div class="name">上海市城市科技学校</div>
+                        <a href="">
+                            <div class="images">
+                                <img src="img/未标题-14.png" alt="">
+                                
+                            </div>
+                            <div class="name">上海市城市科技学校</div>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -243,26 +267,30 @@
     <div class="corporation">
         <div class="banxin friendfather">
             <ul class="friend">
-                <li><a href="">中华人民共和国教育部</a></li>
-                <li><a href="">中国高职高专教育网</a></li>
-                <li><a href="">上海市中等职业学校精品课程平台</a></li>
-                <li><a href="">上海职教在线</a></li>
-                <li><a href="">上海市职业教育中心</a></li>
+                <li><a href="http://www.moe.gov.cn/"  target="_blank">中华人民共和国教育部</a></li>
+                <li><a href="https://www.tech.net.cn/"  target="_blank">中国高职高专教育网</a></li>
+                <li><a href="http://jpkc.shedu.net/" target="_blank">上海市中等职业学校精品课程平台</a></li>
+                <li><a href="http://www.shedu.net.cn/shedu_new/main/xxzc.aspx"  target="_blank">上海职教在线</a></li>
+                <li><a href="http://erchome.shedu.net/"  target="_blank">上海市职业教育中心</a></li>
             </ul>
-            <div class="center">
-                <div></div>上海兰鸿信息科技有限公司
+            <div class="right">
+                <div class="center">
+                    <img src="img/未标题-8.png" alt=""> 
+                    <div>上海兰鸿信息科技有限公司</div>
+                </div>
+                <ul class="link">
+                    <li><a href="">关于我们</a></li>
+                    <li>|</li>
+                    <li><a href="">联系我们</a></li>
+                    <li>|</li>
+                    <li><a href="">平台简介</a></li>
+                    <li>|</li>
+                    <li><a href="">知识产权</a></li>
+                    <li>|</li>
+                    <li><a href="">免责声明</a></li>
+                </ul>
             </div>
-            <ul class="link">
-                <li><a href="">关于我们</a></li>
-                <li>|</li>
-                <li><a href="">联系我们</a></li>
-                <li>|</li>
-                <li><a href="">平台简介</a></li>
-                <li>|</li>
-                <li><a href="">知识产权</a></li>
-                <li>|</li>
-                <li><a href="">免责声明</a></li>
-            </ul>
+
 
         </div>
 
@@ -277,7 +305,7 @@
         </div>
     </div>
     <!-- 底部结束 -->
-    <!-- 模态框开始 -->
+    <!-- 注册模态框开始 -->
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -298,38 +326,38 @@
           </div>
         </div>
       </div>
-    <!-- 模态框结束 -->
-    <!-- 热门课程模板开始 -->
-    <div id="app"></div>
-   
-    <script id="main" type="text/html">
-        <ul>
-           {{each list}}
-                <li>{{$value}}</li>
-            {{/each}}
-        </ul>
-        
-    </script>
-    <script id="test" type="text/html">
-        <div>
-            <ul>
-                {{each person}}
-                    <li>{{$value.name}}</li>
-                {{/each}}
-            </ul>
-            {{include 'main' a}}
+    <!-- 注册模态框结束 -->
+    <!-- 登录模态框开始 -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal1 title</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="username" >
+                <input type="text" class="password">
+                <input type="text" class="telephonenum">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
         </div>
-    </script>
-
+    </div>
+    <!-- 登录模态框结束 -->
+    <!-- 热门课程模板开始 -->
     <script id="hot" type="text/html">
         {{each person}}
             <li>
                 <a href="{{$value.href}}">
-                    <img src="{{$value.src}}" alt="图片显示不了">
+                    <img class="courseimg" src="{{$value.src}}" alt="图片显示不了">
                     <div>
                         <div class="title">{{$value.title}}</div>
-                        <div class="schoolname"><div></div>{{$value.shcoolname}}</div>
-                        <div class="schoolname"><div></div>{{$value.teacher}}</div>
+                        <div class="schoolname"><img class="imgicon" src="img/未标题-3.png" alt=""><span>{{$value.shcoolname}}</span></div>
+                        <div class="schoolname"><img class="imgicon" src="img/未标题-4.png" alt=""><span>{{$value.teacher}}</span></div>
                         <div class="numberofpeople"><span>{{$value.num}}</span>人已报</div> 
                     </div>
                 </a>
@@ -337,7 +365,73 @@
         {{/each}}
     </script>
     <!-- 热门课程模板结束 -->
+    <!-- 最新课程模板开始 -->
+    <script id="new" type="text/html">
+        {{each person}}
+            <li>
+                <a href="{{$value.href}}">
+                    <img class="courseimg" src="{{$value.src}}" alt="图片显示不了">
+                    <div>
+                        <div class="title">{{$value.title}}</div>
+                        <div class="schoolname"><img class="imgicon" src="img/未标题-3.png" alt=""><span>{{$value.shcoolname}}</span></div>
+                        <div class="schoolname"><img class="imgicon" src="img/未标题-4.png" alt=""><span>{{$value.teacher}}</span></div>
+                        <div class="numberofpeople"><span>{{$value.num}}</span>人已报</div> 
+                    </div>
+                </a>
+            </li>
+        {{/each}}
+    </script>
+    <!-- 最新课程模板结束 -->
+    <!-- 轮播图开始 -->
+    <script id="slideshow" type="text/html" >
+        {{each}}
+        {{if $value.id === 1}}
+            <div class="item active">
+                <img  src="{{$value.src}}" alt="...">
+            </div>
+            {{else}}
+            <div class="item">
+                <img  src="{{$value.src}}" alt="...">
+            </div>
+            {{/if}}
+        {{/each}}
+    </script>
 
+    <!-- 轮播图结束 -->
+    <!-- 轮播图小圆点开始 -->
+    <script id="slideshowdot" type="text/html" >
+        {{each}}
+        <!-- 注意这里是$value.id，不是$value.src -->
+            {{if $value.id === 1}}
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                {{else}}
+                <li data-target="#carousel-example-generic" data-slide-to="{{$value.id-1}}"></li>
+            {{/if}}
+        {{/each}}
+    </script>
+    <!-- 轮播图小圆点结束 -->
+    <!-- 分类的模板开始 -->
+    <script id="classify" type="text/html" >
+        {{each}}
+        <a href="{{$value.href}}"><li>{{$value.txt}}</li></a>
+        {{/each}}
+    </script>
+    <!-- 分类的模板结束 -->
+    <!-- 学校的模板开始 -->
+    <script id="schoolmodal" type="text/html">
+        {{each}}
+        <li>
+            <a href="{{$value.href}}">
+                <div class="images">
+                    <img src="{{$value.src}}" alt="">
+                    
+                </div>
+                <div class="name">{{$value.name}}</div>
+            </a>
+        </li>
+        {{/each}}
+    </script>
+    <!-- 学校的模板结束 -->
 </body>
 <script src="node_modules/jquery/dist/jquery.js" ></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
