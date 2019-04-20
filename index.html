@@ -213,7 +213,7 @@
                     <a href="" class="viewmore"> 查看更多</a>
                 </div>
                 <ul class="nameofinstitution">
-                    <li>
+                    <!-- <li>
                         <a href="">
                             <div class="images">
                                 <img src="img/未标题-12.png" alt="">
@@ -257,7 +257,7 @@
                             </div>
                             <div class="name">上海市城市科技学校</div>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -276,7 +276,7 @@
             <div class="right">
                 <div class="center">
                     <img src="img/未标题-8.png" alt=""> 
-                    <div>上海兰鸿信息科技有限公司</div>
+                    <div class="science">上海兰鸿信息科技有限公司</div>
                 </div>
                 <ul class="link">
                     <li><a href="">关于我们</a></li>
@@ -310,7 +310,23 @@
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+              <div class="registertitle">
+                    用户注册
+              </div>
+              <form class="registerform" action="">
+                  <input id="username" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                  <input placeholder="输入用户名" class="username" type="text">
+                  <input id="password" placeholder="输入密码" class="password" type="text">
+                  <div class="registerbutton">立即注册</div>
+                  <div class="else">
+                    <span>其它登录方式</span>  
+
+                      <img  src="img/weibo.png" alt="">
+                      <img src="img/qq.png" alt="">
+                      <img src="img/weixin.png" alt="">
+                  </div>
+              </form>
+            <!-- <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">Modal title</h4>
             </div>
@@ -322,7 +338,9 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </div> -->
+           
+            
           </div>
         </div>
       </div>
@@ -436,6 +454,7 @@
 <script src="node_modules/jquery/dist/jquery.js" ></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
 <script src="node_modules/art-template/lib/template-web.js" ></script>
+<script src="node_modules/jquery-validation/dist/jquery.validate.js" ></script>
 <script src="node_modules/requirejs/require.js" defer async="true" data-main="js/index.js"></script>
 <!-- <script src="js/index.js" ></script> -->
 </html>

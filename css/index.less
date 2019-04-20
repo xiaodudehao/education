@@ -1,114 +1,56 @@
-.banxin{
-    margin: 0 auto;
-    width: 1200px;
-}
-// 清浮动
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}
-*{
-    margin: 0;
-    padding: 0;
-}
+@import "public.less";
 
-// 头部开始
-.header{
-    height: 90px;
-    font-size: 18px;
-    .logo{
-        display: block;
-        width: 115px;
-        height: 51px;
-        float: left;
-        background-color: lime;
-        margin-top: 10px;
-    }
-    ul{
-        display: block;
-        list-style: none;
-        li{
-            margin-left: 62px;
-            float: left;
-            line-height: 90px;
-            a{
-                color: #000;
-                text-decoration: none;
-            }
-        }
-        li:nth-child(1) a {
-            color: #32b251;
-        }
-    }
-    .search{
-        margin-left: 60px;
-        float: left;
-        height: 60px;
-       
-        
-        .searchicon {
-            float: left;
-            width: 20px;
-            height: 40px;
-            background-color: hotpink;
-            margin-top: 25px;
-            margin-right: 10px;
-        }
-        input{
-            float: left;
-            width: 250px;
-            height: 40px;
-            // 去除默认边框
-            outline-style:none;
-            border: 0px;
-            // border: transparent;
-            margin-top: 25px;
-            border-radius: 20px;
-            padding-left: 18px;
-            border: 1px solid #999;
-        }
-    }
-    .login{
-        margin-top: 25px;
-        float: right;
-        // background-color: antiquewhite;
-        width: 186px;
-        height: 40px;
-        color: #fff;
+// 注册模态框开始
+.modal-content{
+    width: 500px;
+    height: 500px;
+    .registertitle{
+        height: 100px;
+        line-height: 100px;
         text-align: center;
-        line-height: 40px;
-        .loginicon{
-            width: 26px;
-            height: 40px;
-            float:left;
+        font-size: 25px;
+        color: #000;
+    }
+    input[type="text"] {
+                    // 去除默认边框
+                    outline-style:none;
+        display: block;
+        width: 400px;
+        height: 50px;
+        border: 1px solid #33b150;
+        border-radius: 15px;
+        padding-left: 20px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+    }
+   .registerbutton{
+        width:400px;
+        height:50px;
+        border-radius: 15px;
+        background-color: #33b150;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+        font-size: 18px;
+        margin: 0 auto;
+    }
+    .else{
+        width:400px;
+        position: relative;
+        margin: 0 auto;
+        margin-top:67px;
+        span{
+            margin-right: 20px;
         }
-        .log{
-            float: right;
-            width: 70px;
+        img{
+            width: 40px; 
             height: 40px;
-            border-radius: 20px;
-            background-color:#33b150;
-
-            border-radius: 20px 0px 0 20px;
-            
+            margin-left: 10px;
         }
-        .register{
-            float: right;
-            width: 70px;
-            height: 40px;
-            background-color: #80c47f;
-
-            border-radius: 0px 20px 20px 0px;
-        }
-
-
     }
 }
-// 头部结束
+// 注册模态框结束
+
 // 大轮播图开始
 .banner{
     height: 600px;
@@ -116,6 +58,7 @@
     position: relative;
     // 设置overflow可以让轮播图的宽度一直小于屏幕的宽度。不会出现横向滚动条。
     overflow: hidden;
+    min-width: 1200px;
     .slide {
     //设置轮播图的宽度，这样就不会随着banner的宽度改变而改变图片的长宽比了。
        width: 1920px;
@@ -182,6 +125,10 @@
     align-items: center;
     //  线条宽度固定用的是绝对定位。
     .line{
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
         height: 1px;
         width: 200px;
         background-color: #ccc;
@@ -192,7 +139,7 @@
         transform: translate(-50%,-50%);
         left: 50%;
         top: 50%;
-        background-color: #fafafa;
+        background-color: @background-color;
         padding-left: 20px;
         padding-right: 20px;
         font-size: 24px;
@@ -201,7 +148,7 @@
         position: absolute;
         right: 0;
         top: 50%;
-        color: #32b251;
+        color: @font-color;
         text-decoration: none;
         font-size: 18px;
     }
@@ -211,12 +158,16 @@
 .content{
     // 这个高度暂定
     // height:1020px;
-    background-color: #fafafa;
+    background-color: @background-color;
     padding-bottom: 90px;
+    // 因为当超小屏幕的时候，背景色只有一个屏幕的宽度，
+    // 当滑动条向右滚动就会出现有部分没有背景色的尴尬事情。
+    //所以写下面这一行。
+    min-width: 1200px;
     ul{
         list-style: none;
         display: block;
-        width: 1280px;
+        // width: 1200px;
         li{
             margin-right: 80px;
             margin-bottom: 20px;
@@ -224,7 +175,7 @@
             a {
                 width: 240px;
                 height: 300px;
-                background-color: #f5f5f5;
+                background-color: @background-color;
                 display: block;
                 position: relative;
                 text-decoration: none;
@@ -241,7 +192,7 @@
                    text-align: center;
                    font-size: 18px;
                    margin-top: 10px;
-                   color: #67be79;
+                   color: @font-color;
                }
                .schoolname{
                    width: 240px;
@@ -277,7 +228,7 @@
                    bottom: 10px;
                    color: #999999;
                    span{
-                       color: #67be79;
+                       color: @font-color;
                    }
                }
 
@@ -286,9 +237,12 @@
                 box-shadow: 0px 0px 20px 5px #999;
                 margin-top: -5px;
                 // 因为margin-top上移了5px，所以下面要添加5px，否则如果分两层
-                // 底下的里布局会乱。
+                // 底下的布局会乱。
                 margin-bottom: 5px;
             }
+        }
+        li:last-child{
+            margin-right: 0;
         }
 
     }
@@ -299,18 +253,21 @@
     height:410px;
     background-color: #ddefdf;
     padding-top: 35px;
+    min-width: 1200px;
     .font{
         background-color: #ddefdf;
     }
     .nameofinstitution{
         list-style: none;
-        display: flex;
-        justify-content: space-between;
+        // display: flex;
+        // justify-content: space-between;
         margin-top: -40px;
         li{
             // background-color: burlywood;
             width: 165px;
             height: 168px;
+            float: left;
+            margin-right: 93px;
             a{
                 text-decoration: none;
                 display: block;
@@ -346,98 +303,12 @@
                 }
             }
         }
+        li:last-child{
+            margin-right: 0;
+        }
     }
 }
 // 学校展示结束
-// 公司信息开始
-.corporation{
-    height: 262px;
-    background-color: #fafafa;
-    .friendfather{
-        position: relative;
-        padding-top: 60px;
-        .friend{
-            float:left;
-          
-            li{
-                list-style: none;
-                a{
-                    text-decoration: none;
-                    color: #000;
-                    height: 30px;
-                    line-height: 32px;
-                    font-size: 14px;
-                }
-            }
-        }
-        .right{
-            float: right;
-            margin-top: 43px;
-            box-sizing: border-box;
-            .center {
-                position: relative;
-               
-                box-sizing: border-box;
-                img{
-                    margin-left: 170px;
-                    display: block;
-                 
-                    position: absolute;
-                    left: 170px;
-                }
-                div{
-                    float: left;
-                    height: 26px;
-                    line-height: 26px;
-                    margin-left: 10px;
-                }
-    
-            }
-            .link {
-                padding-top: 32px;
-                width: 500px;
-                display: flex;
-                justify-content: space-between;
-                li {
-                    list-style: none;
-                    float: left;
-                    a{
-                        display: block;
-                        text-decoration: none;
-                        color: #000;
-                    }
-                }
-                li:nth-child(2n) {
-                    
-                        color: #77c685;
-                    
-                }
-            }
-        }
-    }
 
-}
-// 公司信息结束
-// 底部开始
-.footer{
-    height: 120px;
-    background-color: #b2dfb3;
-    margin-bottom: 30px;
-   
-    .footerbanxin{
-        height: 120px;
-        position: relative;
-        .footercenter{
-            width: 414px;
-            height: 30px;
-            // background-color: rgb(66, 66, 60);
-            position: absolute;
-            transform: translate(-50%,-50%);
-            top: 50%;
-            left:50%;
-            line-height: 30px;
-        }
-    }
 
-}
-// 底部结束
+

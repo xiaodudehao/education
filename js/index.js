@@ -82,4 +82,44 @@ require([],function(){
     var html4 = template("schoolmodal",data3);
     $(".nameofinstitution").html(html4);
 
+
+
+    // $.ajax({
+    //     type:"GET",
+    //     url:"http://localhost:3000/posts",
+    //     dataType:"json",
+    //     success:function(data3){
+
+    //         console.log(data3);
+    //         var html4 = template("schoolmodal",data3);
+    //         $(".nameofinstitution").html(html4);
+    //         // 注意数据格式，返回来的数据是个数组，不是对象。
+    //         // $("#data").html(data[0].name);
+    //         // var obj = {posts: data}
+    //         // var result =  template("ifPersonTemplate",data);
+
+    //         // //将返回的模板结果添加到界面中
+    //         // var ifBox = document.getElementById("ifBox");
+    //         // ifBox.innerHTML = result
+    //     },
+    //     error:function(jqXHR){
+    //          $("#data").html("发生错误:"+jqXHR.status);
+    //     }
+    // });    
+
+    // 从网上抄的bootstrap模态框居中代码
+        $('#myModal').on('show.bs.modal', function (e) {
+            // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
+            $(this).css('display', 'block');
+            var modalHeight=$(window).height() / 2 - $('#myModal .modal-dialog').height() / 2;
+            $(this).find('.modal-dialog').css({
+                'margin-top': modalHeight
+            });
+        });
+    // 点击用户注册隐藏模态框    
+        $(".registerbutton").on("click",function(){
+            console.log(33);
+            // $('#myModal').modal('hide')
+
+        })
 })

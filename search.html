@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+    <!-- 头部导航栏开始 -->
+    <div class="header">
+        <div class="banxin">
+            <img src="img/未标题-10.png" class="logo" alt="">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">院校</a></li>
+                <li><a href="">立体教材</a></li>
+            </ul>
+            <div class="search">
+                <img class="searchicon" src="img/未标题-1.png" ></img>
+                <input type="text" placeholder="搜索课程或学校">
+            </div>
+            <div class="login">
+                <img class="loginicon" src="img/未标题-2.png"></img>
+                <!-- 这里的模态框用js实现 -->
+                <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航栏结束 -->
+    <!-- 显示搜索多少条开始 -->
+    <div class="mainpart">
+        <div class="banxin">
+            <div class="searchnum">
+                共有<span>1</span>条结果
+            </div>
+        </div>
+        <div class="searchresult">
+            <div class="courselearning" >
+                <a class="courselearningchild">
+                    <div class="banxin">
+                        <img class="searchimg" src="images/kecheng.png" alt="">
+                        <div class="searchright">
+                            <div class="searchtitle">建筑材料性能检测</div>
+                            <div class="searchschool"> <img class="locationicon" src="img/未标题-15.png" alt=""> 上海市材料工程学校</div>
+                            <div class="searchnarrate">
+                                <span class="wareNameText" id="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空
+                                沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生
+                                栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="courselearning" >
+                <a class="courselearningchild">
+                    <div class="banxin">
+                        <img class="searchimg" src="images/kecheng.png" alt="">
+                        <div class="searchright">
+                            <div class="searchtitle">建筑材料性能检测</div>
+                            <div class="searchschool"> <img class="locationicon" src="img/未标题-15.png" alt=""> 上海市材料工程学校</div>
+                            <div class="searchnarrate">
+                                <span class="wareNameText" id="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空
+                                沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生
+                                栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> 
+
+    <!-- 显示搜索多少条结束 -->
+
+    <!-- 底部开始 -->
+    <div class="footer">
+        <div class="banxin footerbanxin">
+            <div class="footercenter">
+                沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+            </div>
+        </div>
+    </div>
+    <!-- 底部结束 -->
+</body>
+<script src="node_modules/jquery/dist/jquery.js" ></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
+<script src="node_modules/art-template/lib/template-web.js" ></script>
+<script src="node_modules/requirejs/require.js" defer async="true" data-main="js/search.js"></script>
+</html>

@@ -17,6 +17,7 @@
 .header {
   height: 90px;
   font-size: 18px;
+  min-width: 1200px;
 }
 .header .logo {
   display: block;
@@ -40,6 +41,9 @@
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {
+  color: #32b251;
+}
+.header ul li:hover a {
   color: #32b251;
 }
 .header .search {
@@ -95,11 +99,138 @@
   background-color: #80c47f;
   border-radius: 0px 20px 20px 0px;
 }
+.corporation {
+  height: 262px;
+  background-color: #fafafa;
+  min-width: 1200px;
+}
+.corporation .friendfather {
+  position: relative;
+  padding-top: 60px;
+}
+.corporation .friendfather .friend {
+  float: left;
+}
+.corporation .friendfather .friend li {
+  list-style: none;
+}
+.corporation .friendfather .friend li a {
+  text-decoration: none;
+  color: #000;
+  height: 30px;
+  line-height: 32px;
+  font-size: 14px;
+}
+.corporation .friendfather .right {
+  float: right;
+  margin-top: 43px;
+  box-sizing: border-box;
+}
+.corporation .friendfather .right .center {
+  position: relative;
+  box-sizing: border-box;
+}
+.corporation .friendfather .right .center img {
+  display: block;
+  position: absolute;
+  left: 170px;
+}
+.corporation .friendfather .right .center .science {
+  position: absolute;
+  left: 195px;
+  height: 26px;
+  line-height: 26px;
+}
+.corporation .friendfather .right .link {
+  padding-top: 45px;
+  width: 500px;
+}
+.corporation .friendfather .right .link li {
+  list-style: none;
+  float: left;
+}
+.corporation .friendfather .right .link li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+.corporation .friendfather .right .link li:nth-child(2n) {
+  color: #32b251;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.footer {
+  height: 120px;
+  background-color: #b2dfb3;
+  margin-bottom: 30px;
+  min-width: 1200px;
+}
+.footer .footerbanxin {
+  height: 120px;
+  position: relative;
+}
+.footer .footerbanxin .footercenter {
+  width: 414px;
+  height: 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  line-height: 30px;
+}
+.modal-content {
+  width: 500px;
+  height: 500px;
+}
+.modal-content .registertitle {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 25px;
+  color: #000;
+}
+.modal-content input[type="text"] {
+  outline-style: none;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border: 1px solid #33b150;
+  border-radius: 15px;
+  padding-left: 20px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+.modal-content .registerbutton {
+  width: 400px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #33b150;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
+}
+.modal-content .else {
+  width: 400px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 67px;
+}
+.modal-content .else span {
+  margin-right: 20px;
+}
+.modal-content .else img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
 .banner {
   height: 600px;
   background-color: lightblue;
   position: relative;
   overflow: hidden;
+  min-width: 1200px;
 }
 .banner .slide {
   width: 1920px;
@@ -157,6 +288,10 @@
   align-items: center;
 }
 .headline .line {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
   height: 1px;
   width: 200px;
   background-color: #ccc;
@@ -182,11 +317,11 @@
 .content {
   background-color: #fafafa;
   padding-bottom: 90px;
+  min-width: 1200px;
 }
 .content ul {
   list-style: none;
   display: block;
-  width: 1280px;
 }
 .content ul li {
   margin-right: 80px;
@@ -196,7 +331,7 @@
 .content ul li a {
   width: 240px;
   height: 300px;
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   display: block;
   position: relative;
   text-decoration: none;
@@ -214,7 +349,7 @@
   text-align: center;
   font-size: 18px;
   margin-top: 10px;
-  color: #67be79;
+  color: #32b251;
 }
 .content ul li a .schoolname {
   width: 240px;
@@ -248,30 +383,34 @@
   color: #999999;
 }
 .content ul li a .numberofpeople span {
-  color: #67be79;
+  color: #32b251;
 }
 .content ul li a:hover {
   box-shadow: 0px 0px 20px 5px #999;
   margin-top: -5px;
   margin-bottom: 5px;
 }
+.content ul li:last-child {
+  margin-right: 0;
+}
 .school {
   height: 410px;
   background-color: #ddefdf;
   padding-top: 35px;
+  min-width: 1200px;
 }
 .school .font {
   background-color: #ddefdf;
 }
 .school .nameofinstitution {
   list-style: none;
-  display: flex;
-  justify-content: space-between;
   margin-top: -40px;
 }
 .school .nameofinstitution li {
   width: 165px;
   height: 168px;
+  float: left;
+  margin-right: 93px;
 }
 .school .nameofinstitution li a {
   text-decoration: none;
@@ -303,81 +442,6 @@
   width: 198px;
   height: 164.4px;
 }
-.corporation {
-  height: 262px;
-  background-color: #fafafa;
-}
-.corporation .friendfather {
-  position: relative;
-  padding-top: 60px;
-}
-.corporation .friendfather .friend {
-  float: left;
-}
-.corporation .friendfather .friend li {
-  list-style: none;
-}
-.corporation .friendfather .friend li a {
-  text-decoration: none;
-  color: #000;
-  height: 30px;
-  line-height: 32px;
-  font-size: 14px;
-}
-.corporation .friendfather .right {
-  float: right;
-  margin-top: 43px;
-  box-sizing: border-box;
-}
-.corporation .friendfather .right .center {
-  position: relative;
-  box-sizing: border-box;
-}
-.corporation .friendfather .right .center img {
-  margin-left: 170px;
-  display: block;
-  position: absolute;
-  left: 170px;
-}
-.corporation .friendfather .right .center div {
-  float: left;
-  height: 26px;
-  line-height: 26px;
-  margin-left: 10px;
-}
-.corporation .friendfather .right .link {
-  padding-top: 32px;
-  width: 500px;
-  display: flex;
-  justify-content: space-between;
-}
-.corporation .friendfather .right .link li {
-  list-style: none;
-  float: left;
-}
-.corporation .friendfather .right .link li a {
-  display: block;
-  text-decoration: none;
-  color: #000;
-}
-.corporation .friendfather .right .link li:nth-child(2n) {
-  color: #77c685;
-}
-.footer {
-  height: 120px;
-  background-color: #b2dfb3;
-  margin-bottom: 30px;
-}
-.footer .footerbanxin {
-  height: 120px;
-  position: relative;
-}
-.footer .footerbanxin .footercenter {
-  width: 414px;
-  height: 30px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  line-height: 30px;
+.school .nameofinstitution li:last-child {
+  margin-right: 0;
 }
