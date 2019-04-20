@@ -178,3 +178,81 @@
   left: 50%;
   line-height: 30px;
 }
+.modal-content {
+  width: 500px;
+  height: 500px;
+}
+.modal-content .registertitle {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 25px;
+  color: #000;
+}
+.modal-content .telephone,
+.modal-content .username,
+.modal-content .password {
+  outline-style: none;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border: 1px solid #33b150;
+  border-radius: 15px;
+  padding-left: 20px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+.modal-content .codefather {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.modal-content .codefather .code {
+  float: left;
+  outline-style: none;
+  display: block;
+  width: 200px;
+  height: 50px;
+  border: 1px solid #33b150;
+  border-radius: 15px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+.modal-content .codefather .codeimg {
+  float: left;
+  width: 100px;
+  height: 37px;
+  background-color: pink;
+  display: block;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+.modal-content .codefather .check {
+  float: right;
+  line-height: 50px;
+  color: #009944;
+}
+.modal-content .registerbutton {
+  width: 400px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #33b150;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
+}
+.modal-content .else {
+  width: 400px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 67px;
+}
+.modal-content .else span {
+  margin-right: 20px;
+}
+.modal-content .else img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}

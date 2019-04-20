@@ -25,20 +25,15 @@ require([],function(){
     // 原生js结束
 
     // jq开始
-$("body").on("click",function(){
-    console.log("5555555555");
-    
-})
-    $('#myModal').on('shown.bs.modal', function (e) {
-        // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
-        console.log("aa");
-        
-        $(this).css('display', 'block');
-        var modalHeight=$(window).height() / 2 - $('#myModal .modal-dialog').height() / 2;
-        $(this).find('.modal-dialog').css({
-            'margin-top': modalHeight
+        // 从网上抄的bootstrap模态框居中代码
+        $('#myModal').on('show.bs.modal', function (e) {
+            // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
+            $(this).css('display', 'block');
+            var modalHeight=$(window).height() / 2 - $('#myModal .modal-dialog').height() / 2;
+            $(this).find('.modal-dialog').css({
+                'margin-top': modalHeight
+            });
         });
-    });
 
     // jq结束
 })

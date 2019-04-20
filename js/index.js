@@ -106,8 +106,7 @@ require([],function(){
     //          $("#data").html("发生错误:"+jqXHR.status);
     //     }
     // });    
-
-    // 从网上抄的bootstrap模态框居中代码
+        // 从网上抄的bootstrap模态框居中代码
         $('#myModal').on('show.bs.modal', function (e) {
             // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
             $(this).css('display', 'block');
@@ -116,6 +115,7 @@ require([],function(){
                 'margin-top': modalHeight
             });
         });
+
     // 点击用户注册隐藏模态框    
         $(".registerbutton").on("click",function(){
             console.log(33);
