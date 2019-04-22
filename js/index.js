@@ -1,9 +1,9 @@
-require([],function(){
+$(function(){
     // $('#myModal').modal({
     //     keyboard: false
     //   })
      // 热门课程的数据和模板
-      var data = {
+     var data = {
         person:[
             {title:"jack",num:18,href:"l",src:"img/未标题-7.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
             {title:"ross",num:18,href:"m",src:"img/未标题-7.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
@@ -106,20 +106,13 @@ require([],function(){
     //          $("#data").html("发生错误:"+jqXHR.status);
     //     }
     // });    
-        // 从网上抄的bootstrap模态框居中代码
-        $('#myModal').on('show.bs.modal', function (e) {
-            // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
-            $(this).css('display', 'block');
-            var modalHeight=$(window).height() / 2 - $('#myModal .modal-dialog').height() / 2;
-            $(this).find('.modal-dialog').css({
-                'margin-top': modalHeight
-            });
-        });
 
-    // 点击用户注册隐藏模态框    
-        $(".registerbutton").on("click",function(){
-            console.log(33);
-            // $('#myModal').modal('hide')
+        //bootstrap模态框居中代码
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
 
-        })
+        // 单击隐藏模态框，这个代码应该放在登录和注册的代码中，而且应在公共js中。
+        
+        
 })
+
