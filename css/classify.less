@@ -1,0 +1,61 @@
+@import "public.less";
+// 分类院校和专业开始
+.mainpart{
+    background-color: #f2f2f2;
+    // 不设置底内边距，会有白色空隙难看。
+    padding-bottom: 1px;
+    .classify{
+        padding-top: 50px;
+        padding-bottom: 35px;
+        .major{
+            position: relative;
+            .majortitle{
+              float: left;  
+              font-size: 23px;
+              height: 40px;
+              line-height: 40px;
+            }
+            .majorchild{
+                float: left;  
+                margin-left: 40px;
+                // 如果不设置宽度，这个左浮动盒子，等里面的a排到第二行时就会下移整个盒子
+                width: 1114px;
+                a{
+                    display: block;
+                    float: left;
+                    font-size: 20px;
+                    margin-right: 40px;
+                    height: 4opx;
+                    line-height: 40px;
+                    text-decoration: none;
+                    text-align: center;
+                    color: #666;
+      
+                        font-family : 宋体;
+
+                }
+                a:first-child{
+                    margin-left: 80px;
+                }
+                a:hover{
+                    color: @font-color;
+                }
+            }
+            .all{
+                position: absolute;
+                height: 40px;
+                border-radius: 10px;
+                text-align: center;
+                line-height: 40px;
+                left: 68px;
+                padding-left: 20px;
+                padding-right: 20px;
+                background-color: #81d282;
+                color: #fff;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+// 分类院校和专业结束

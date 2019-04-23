@@ -71,7 +71,7 @@
 
         <div class="banxin">
             <div class="catalogue">
-                <ul>
+                <ul class="box">
                     <!-- <a href=""><li>农林牧渔类</li></a>
                     <a href=""><li>资源环境类</li></a>
                     <a href=""><li>能源与新能源类</li></a>
@@ -316,14 +316,14 @@
               <form class="registerform" action="">
                   <input id="username" placeholder="输入邮箱或手机号" class="telephone" type="text">
                   <input placeholder="输入用户名" class="username" type="text">
-                  <input id="password" placeholder="输入密码" class="password" type="text">
+                  <input id="password" placeholder="输入密码" class="password" type="password">
                   <div class="registerbutton">立即注册</div>
                   <div class="else">
                     <span>其它登录方式</span>  
-
-                      <img  src="img/weibo.png" alt="">
+                    
                       <img src="img/qq.png" alt="">
                       <img src="img/weixin.png" alt="">
+                      <img  src="img/xinlang.png" alt="">
                   </div>
               </form>
             <!-- <div class="modal-header">
@@ -353,8 +353,8 @@
                             用户登录
                       </div>
                       <form class="registerform" action="">
-                          <input  placeholder="输入邮箱或手机号" class="telephone" type="text">
-                          <input placeholder="输入用户名" class="username" type="text">
+                          <input  placeholder="输入用户名" class="telephone" type="text">
+                          <input placeholder="输入密码" class="username" type="password">
                           <div class="codefather clearfix">
                                 <input  placeholder="输入验证码" class="code" type="text">
                                 <img src="img/code.png" class="codeimg"></img>
@@ -365,9 +365,10 @@
                           <div class="else">
                             <span>其它登录方式</span>  
         
-                              <img  src="img/weibo.png" alt="">
+                              
                               <img src="img/qq.png" alt="">
                               <img src="img/weixin.png" alt="">
+                              <img  src="img/xinlang.png" alt="">
                           </div>
                       </form>
             <!-- <div class="modal-header">
@@ -450,10 +451,11 @@
     </script>
     <!-- 轮播图小圆点结束 -->
     <!-- 分类的模板开始 -->
-    <script id="classify" type="text/html" >
-        {{each}}
-        <a href="{{$value.href}}"><li>{{$value.txt}}</li></a>
-        {{/each}}
+    <script id="classif" type="text/html" >
+        <% for(var i = 0 ; i < person.length ; i ++){%>
+             <% var data = person[i] %>
+        <a href="<%= data.href%>"><li><%= data.txt %> </li></a>
+        <%};%>
     </script>
     <!-- 分类的模板结束 -->
     <!-- 学校的模板开始 -->

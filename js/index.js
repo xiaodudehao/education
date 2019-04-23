@@ -53,19 +53,45 @@ $(function(){
     //  $(location).prop('href', 'http://www.jb51.net')
 
     // 分类九个数据的渲染
-    var data2 = [
-        {href:"a",txt:"农林牧渔类"},
-        {href:"a",txt:"资源环境类"},
-        {href:"a",txt:"能源与新能源类"},
-        {href:"a",txt:"土木水利类"},
-        {href:"a",txt:"加工制造类"},
-        {href:"a",txt:"石油化工类"},
-        {href:"a",txt:"轻纺食品类"},
-        {href:"a",txt:"交通运输类"},
-        {href:"a",txt:"信息技术类"}
-    ]
-    var html3 = template("classify",data2);
-    $(".catalogue ul").html(html3);
+    var data2 ={
+        person:[
+            {href:"a",txt:"农林牧渔类"},
+            {href:"a",txt:"资源环境类"},
+            {href:"a",txt:"能源与新能源类"},
+            {href:"a",txt:"土木水利类"},
+            {href:"a",txt:"加工制造类"},
+            {href:"a",txt:"石油化工类"},
+            {href:"a",txt:"轻纺食品类"},
+            {href:"a",txt:"交通运输类"},
+            {href:"a",txt:"信息技术类"}
+        ]
+    } 
+    var htmlx = template("classif",data2);
+    $(".catalogue ul").html(htmlx);
+    // var catelogue = document.querySelector(".catalogue")
+    // var ul =  catelogue.querySelector('ul');
+    // console.log(catelogue);
+    // console.log(ul);
+    // console.log(htmlx);
+    // console.log(data2.person);
+    // ul.innerHTML=htmlx;
+
+
+
+    /*准备数据*/
+    // var dataa = {
+    //     list:[
+    //         {name:'xjj1',age:10},
+    //         {name:'xjj2',age:12},
+    //         {name:'xjj3',age:16},
+    //         {name:'xjj4',age:40}
+    //     ]
+    // }
+    // /*解析数据成html  {model:''}*/
+    // var htmlx = template('xjj',dataa);
+
+    // document.querySelector('.box').innerHTML = htmlx;
+    
     $(".next").on("click",function(){
         console.log("单击了下一页按钮");
         
@@ -82,6 +108,7 @@ $(function(){
     var html4 = template("schoolmodal",data3);
     $(".nameofinstitution").html(html4);
 
+    
 
 
     // $.ajax({

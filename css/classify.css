@@ -316,16 +316,55 @@
   margin-top: -5px;
 }
 .mainpart {
-  height: 1180px;
-  background-color: #fafafa;
-  min-width: 1200px;
+  background-color: #f2f2f2;
+  padding-bottom: 1px;
 }
-.mainpart .searchnum {
-  height: 114px;
-  line-height: 114px;
-  padding-left: 40px;
-  font-size: 16px;
+.mainpart .classify {
+  padding-top: 50px;
+  padding-bottom: 35px;
 }
-.mainpart .searchnum span {
+.mainpart .classify .major {
+  position: relative;
+}
+.mainpart .classify .major .majortitle {
+  float: left;
+  font-size: 23px;
+  height: 40px;
+  line-height: 40px;
+}
+.mainpart .classify .major .majorchild {
+  float: left;
+  margin-left: 40px;
+  width: 1114px;
+}
+.mainpart .classify .major .majorchild a {
+  display: block;
+  float: left;
+  font-size: 20px;
+  margin-right: 40px;
+  height: 4opx;
+  line-height: 40px;
+  text-decoration: none;
+  text-align: center;
+  color: #666;
+  font-family: 宋体;
+}
+.mainpart .classify .major .majorchild a:first-child {
+  margin-left: 80px;
+}
+.mainpart .classify .major .majorchild a:hover {
   color: #32b251;
+}
+.mainpart .classify .major .all {
+  position: absolute;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 40px;
+  left: 68px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #81d282;
+  color: #fff;
+  font-size: 20px;
 }

@@ -181,6 +181,8 @@
 .modal-content {
   width: 500px;
   height: 500px;
+  font-size: 20px;
+  background-color: #f2f2f2;
 }
 .modal-content .registertitle {
   height: 100px;
@@ -201,10 +203,12 @@
   padding-left: 20px;
   margin: 0 auto;
   margin-bottom: 25px;
+  background-color: transparent;
 }
 .modal-content .codefather {
   padding-left: 50px;
   padding-right: 50px;
+  position: relative;
 }
 .modal-content .codefather .code {
   float: left;
@@ -216,6 +220,7 @@
   border-radius: 15px;
   padding-left: 20px;
   margin-bottom: 25px;
+  background-color: transparent;
 }
 .modal-content .codefather .codeimg {
   float: left;
@@ -230,6 +235,13 @@
   float: right;
   line-height: 50px;
   color: #009944;
+}
+.modal-content .codefather .codeerr {
+  position: absolute;
+  top: 48px;
+  left: 71;
+  color: red;
+  display: none;
 }
 .modal-content .registerbutton {
   width: 400px;
@@ -255,6 +267,53 @@
   width: 40px;
   height: 40px;
   margin-left: 10px;
+}
+.searchresult .courselearning {
+  position: relative;
+  height: 210px;
+  margin-bottom: 40px;
+}
+.searchresult .courselearning .courselearningchild {
+  display: block;
+  height: 210px;
+  position: absolute;
+  transition: all 0.3s;
+  width: 100%;
+  color: #000;
+}
+.searchresult .courselearning .courselearningchild .searchimg {
+  display: block;
+  float: left;
+  width: 300px;
+  height: 210px;
+  background-color: purple;
+}
+.searchresult .courselearning .courselearningchild .searchright {
+  float: left;
+  height: 210px;
+  width: 634px;
+  margin-left: 55px;
+}
+.searchresult .courselearning .courselearningchild .searchright .searchtitle {
+  font-size: 23px;
+  margin-top: 35px;
+  height: 35px;
+  line-height: 35px;
+}
+.searchresult .courselearning .courselearningchild .searchright .searchschool {
+  height: 23px;
+  font-size: 18px;
+  line-height: 23px;
+}
+.searchresult .courselearning .courselearningchild .searchright .searchnarrate {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #999;
+}
+.searchresult .courselearning .courselearningchild:hover {
+  background: linear-gradient(to right, #b2dfb3, #ffffff);
+  box-shadow: 0px 20px 20px -17px #999999;
+  margin-top: -5px;
 }
 .banner {
   height: 600px;
@@ -303,13 +362,18 @@
   line-height: 60px;
   text-align: center;
 }
-.banner .catalogue .next {
+.banner .catalogue ul a:hover {
   background-color: #81d283;
+}
+.banner .catalogue .next {
   height: 60px;
   line-height: 60px;
   text-align: center;
   color: #fff;
   font-size: 20px;
+}
+.banner .catalogue .next:hover {
+  background-color: #81d283;
 }
 .headline {
   height: 164px;
