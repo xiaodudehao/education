@@ -462,12 +462,12 @@
     <script id="schoolmodal" type="text/html">
         {{each}}
         <li>
-            <a href="{{$value.href}}">
+            <a href="<%= $value.href %>">
                 <div class="images">
-                    <img src="{{$value.src}}" alt="">
+                    <img src="<%= $value.src %>" alt="">
                     
                 </div>
-                <div class="name">{{$value.name}}</div>
+                <div class="name"><%= $value.name %></div>
             </a>
         </li>
         {{/each}}
