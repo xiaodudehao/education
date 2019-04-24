@@ -15,7 +15,7 @@ $(function(){
     var html = template("hot",data);
     $(".hot").html(html);
      // 最新课程的数据和模板
-     var data = {
+     var datax = {
         person:[
             {title:"jack",num:18,href:"l",src:"img/未标题-9.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
             {title:"ross",num:18,href:"m",src:"img/未标题-9.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
@@ -24,16 +24,18 @@ $(function(){
         ],
     };
 
-    var html = template("new",data);
-    $(".new").html(html);
+    var htmlz = template("new",datax);
+    $(".new").html(htmlz);
 
     // 轮播图的数据和模板
-    var data1 = [
-        {src: "img/banner1.jpg",id:1},
-        {src: "img/banner2.jpg",id:2},
-        {src: "img/banner3.jpg",id:3},
-        {src: "img/banner4.jpg",id:4}
-    ]
+    var data1 ={
+        person: [
+            {src: "img/banner1.jpg",id:1},
+            {src: "img/banner2.jpg",id:2},
+            {src: "img/banner3.jpg",id:3},
+            {src: "img/banner4.jpg",id:4}
+        ]
+    } 
     var html1 = template("slideshow",data1);
     $(".carousel-inner").html(html1);        
     // 轮播图小圆点
@@ -98,13 +100,15 @@ $(function(){
     })
 
     // 学校模板的渲染
-    var data3 = [
-        {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"},
-        {href:"a",src:"img/未标题-14.png",name:"上海市城市科技学校"},
-        {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"},
-        {href:"a",src:"img/未标题-14.png",name:"上海市城市科技学校"},
-        {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"}
-    ]
+    var data3 ={
+        person :  [
+            {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-14.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-14.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"}
+        ]
+    }
     var html4 = template("schoolmodal",data3);
     $(".nameofinstitution").html(html4);
 

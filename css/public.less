@@ -213,12 +213,159 @@
 }
 
 // 底部结束
-// 注册模态框开始
+// 注册和登录模态框开始
 .modal-content{
     width: 500px;
     height: 500px;
     font-size: 20px;
     background-color: #f2f2f2;
+    margin: 0 auto;
+    .registerform{
+        margin-top: -30px;
+        .form-group{
+            width: 400px;
+            margin-left: 50px;
+            margin-top: 30px;
+            // 去除右边的小叉号
+            .form-control-feedback {
+                color: #f2f2f2;
+            }
+            .telephone,
+            .username,
+            .password {
+                            // 去除默认边框
+                outline-style:none;
+                display: block;
+                width: 400px;
+                height: 50px;
+                border: 1px solid #33b150;
+                border-radius: 15px;
+                padding-left: 20px;
+                margin: 0 auto;
+                
+                background-color: transparent;
+            }
+        }
+        .form-group:first-child{
+            margin-top: 0;
+        }
+        
+    
+        .codefather{
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-top: 30px;
+            position: relative;
+
+            .code {
+                float: left;
+                outline-style:none;
+                display: block;
+                width: 200px;
+                height: 50px;
+                border: 1px solid #33b150;
+                border-radius: 15px;
+                padding-left: 20px;
+                margin-bottom: 25px;
+                background-color: transparent;
+            }
+            .codeimg{
+                float: left;
+                width: 100px;
+                height: 37px;
+                background-color: pink;
+                display:block;
+                margin-top: 6px;
+                margin-left: 20px;
+            }
+            .check{
+                float: right;
+                line-height: 50px;
+                color: #009944;
+            }
+            .codeerr{
+                position: absolute;
+                top: 61px;
+                left: 71;
+                color: red;
+                // display: none;
+            }
+        }
+    
+    
+       .registerbutton{
+            width:400px;
+            height:50px;
+            border-radius: 15px;
+            background-color: #33b150;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            font-size: 18px;
+            margin: 0 auto;
+        }
+        .loginbutton{
+            width:400px;
+            height:50px;
+            border-radius: 15px;
+            background-color: #33b150;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            font-size: 18px;
+            margin: 0 auto;
+            position: relative;
+            top: 22px;
+        }
+        .else{
+            width:400px;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 67px;
+            position: relative;
+            .linkregister{
+                position: absolute;
+                left: 0;
+                top: -44px;
+                font-size: 20px;
+                color: @font-color;
+            }
+            .forget{
+                position: absolute;
+                right: 0;
+                top: -44px;
+                font-size: 20px;
+                color: @font-color;
+
+            }
+            span{
+                margin-right: 20px;
+            }
+            img{
+                width: 40px; 
+                height: 40px;
+                margin-left: 10px;
+            }
+        }
+        .elseregister{
+        
+            width:400px;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 50px;
+            span{
+                margin-right: 20px;
+            }
+            img{
+                width: 40px; 
+                height: 40px;
+                margin-left: 10px;
+            }
+        }
+    }
+    .loginform{
+        padding-top: 30px;
+    }
     .registertitle{
         height: 100px;
         line-height: 100px;
@@ -226,88 +373,9 @@
         font-size: 25px;
         color: #000;
     }
-    .telephone,
-    .username,
-    .password {
-                    // 去除默认边框
-        outline-style:none;
-        display: block;
-        width: 400px;
-        height: 50px;
-        border: 1px solid #33b150;
-        border-radius: 15px;
-        padding-left: 20px;
-        margin: 0 auto;
-        margin-bottom: 25px;
-        background-color: transparent;
-    }
-    .codefather{
-        padding-left: 50px;
-        padding-right: 50px;
-        position: relative;
-        .code {
-            float: left;
-            outline-style:none;
-            display: block;
-            width: 200px;
-            height: 50px;
-            border: 1px solid #33b150;
-            border-radius: 15px;
-            padding-left: 20px;
-            margin-bottom: 25px;
-            background-color: transparent;
-        }
-        .codeimg{
-            float: left;
-            width: 100px;
-            height: 37px;
-            background-color: pink;
-            display:block;
-            margin-top: 6px;
-            margin-left: 20px;
-        }
-        .check{
-            float: right;
-            line-height: 50px;
-            color: #009944;
-        }
-        .codeerr{
-            position: absolute;
-            top: 48px;
-            left: 71;
-            color: red;
-            display: none;
-        }
-    }
-
-
-   .registerbutton{
-        width:400px;
-        height:50px;
-        border-radius: 15px;
-        background-color: #33b150;
-        color: #fff;
-        line-height: 50px;
-        text-align: center;
-        font-size: 18px;
-        margin: 0 auto;
-    }
-    .else{
-        width:400px;
-        position: relative;
-        margin: 0 auto;
-        margin-top:67px;
-        span{
-            margin-right: 20px;
-        }
-        img{
-            width: 40px; 
-            height: 40px;
-            margin-left: 10px;
-        }
-    }
+ 
 }
-// 注册模态框结束
+// 注册和登录模态框结束
 
 
 .searchresult{

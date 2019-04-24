@@ -183,17 +183,22 @@
   height: 500px;
   font-size: 20px;
   background-color: #f2f2f2;
+  margin: 0 auto;
 }
-.modal-content .registertitle {
-  height: 100px;
-  line-height: 100px;
-  text-align: center;
-  font-size: 25px;
-  color: #000;
+.modal-content .registerform {
+  margin-top: -30px;
 }
-.modal-content .telephone,
-.modal-content .username,
-.modal-content .password {
+.modal-content .registerform .form-group {
+  width: 400px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.modal-content .registerform .form-group .form-control-feedback {
+  color: #f2f2f2;
+}
+.modal-content .registerform .form-group .telephone,
+.modal-content .registerform .form-group .username,
+.modal-content .registerform .form-group .password {
   outline-style: none;
   display: block;
   width: 400px;
@@ -202,15 +207,18 @@
   border-radius: 15px;
   padding-left: 20px;
   margin: 0 auto;
-  margin-bottom: 25px;
   background-color: transparent;
 }
-.modal-content .codefather {
+.modal-content .registerform .form-group:first-child {
+  margin-top: 0;
+}
+.modal-content .registerform .codefather {
   padding-left: 50px;
   padding-right: 50px;
+  margin-top: 30px;
   position: relative;
 }
-.modal-content .codefather .code {
+.modal-content .registerform .codefather .code {
   float: left;
   outline-style: none;
   display: block;
@@ -222,7 +230,7 @@
   margin-bottom: 25px;
   background-color: transparent;
 }
-.modal-content .codefather .codeimg {
+.modal-content .registerform .codefather .codeimg {
   float: left;
   width: 100px;
   height: 37px;
@@ -231,19 +239,18 @@
   margin-top: 6px;
   margin-left: 20px;
 }
-.modal-content .codefather .check {
+.modal-content .registerform .codefather .check {
   float: right;
   line-height: 50px;
   color: #009944;
 }
-.modal-content .codefather .codeerr {
+.modal-content .registerform .codefather .codeerr {
   position: absolute;
-  top: 48px;
+  top: 61px;
   left: 71;
   color: red;
-  display: none;
 }
-.modal-content .registerbutton {
+.modal-content .registerform .registerbutton {
   width: 400px;
   height: 50px;
   border-radius: 15px;
@@ -254,19 +261,70 @@
   font-size: 18px;
   margin: 0 auto;
 }
-.modal-content .else {
+.modal-content .registerform .loginbutton {
   width: 400px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #33b150;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
   position: relative;
+  top: 22px;
+}
+.modal-content .registerform .else {
+  width: 400px;
   margin: 0 auto;
   margin-top: 67px;
+  position: relative;
 }
-.modal-content .else span {
+.modal-content .registerform .else .linkregister {
+  position: absolute;
+  left: 0;
+  top: -44px;
+  font-size: 20px;
+  color: #32b251;
+}
+.modal-content .registerform .else .forget {
+  position: absolute;
+  right: 0;
+  top: -44px;
+  font-size: 20px;
+  color: #32b251;
+}
+.modal-content .registerform .else span {
   margin-right: 20px;
 }
-.modal-content .else img {
+.modal-content .registerform .else img {
   width: 40px;
   height: 40px;
   margin-left: 10px;
+}
+.modal-content .registerform .elseregister {
+  width: 400px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.modal-content .registerform .elseregister span {
+  margin-right: 20px;
+}
+.modal-content .registerform .elseregister img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.modal-content .loginform {
+  padding-top: 30px;
+}
+.modal-content .registertitle {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 25px;
+  color: #000;
 }
 .searchresult .courselearning {
   position: relative;
