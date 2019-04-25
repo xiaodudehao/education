@@ -54,22 +54,7 @@ $(function(){
     //  $(window).attr('location','http://www.jb51.net');
     //  $(location).prop('href', 'http://www.jb51.net')
 
-    // 分类九个数据的渲染
-    var data2 ={
-        person:[
-            {href:"a",txt:"农林牧渔类"},
-            {href:"a",txt:"资源环境类"},
-            {href:"a",txt:"能源与新能源类"},
-            {href:"a",txt:"土木水利类"},
-            {href:"a",txt:"加工制造类"},
-            {href:"a",txt:"石油化工类"},
-            {href:"a",txt:"轻纺食品类"},
-            {href:"a",txt:"交通运输类"},
-            {href:"a",txt:"信息技术类"}
-        ]
-    } 
-    var htmlx = template("classif",data2);
-    $(".catalogue ul").html(htmlx);
+
     // var catelogue = document.querySelector(".catalogue")
     // var ul =  catelogue.querySelector('ul');
     // console.log(catelogue);

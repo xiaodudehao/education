@@ -19,7 +19,8 @@
     margin: 0;
     padding: 0;
 }
-
+// 去除ie的默认input框样式
+input::-ms-clear{display:none;}
 
 // 头部开始
 .header{
@@ -321,19 +322,19 @@
             width:400px;
             position: relative;
             margin: 0 auto;
-            margin-top: 67px;
+            margin-top: 65px;
             position: relative;
             .linkregister{
                 position: absolute;
                 left: 0;
-                top: -44px;
+                top: -32px;
                 font-size: 20px;
                 color: @font-color;
             }
             .forget{
                 position: absolute;
                 right: 0;
-                top: -44px;
+                top: -32px;
                 font-size: 20px;
                 color: @font-color;
 
@@ -352,7 +353,7 @@
             width:400px;
             position: relative;
             margin: 0 auto;
-            margin-top: 50px;
+            margin-top: 46px;
             span{
                 margin-right: 20px;
             }

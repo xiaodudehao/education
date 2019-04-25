@@ -94,6 +94,12 @@ for(var j=0;j<wareName1.length;j++){
             // 在单击这个按钮时，如果没有验证通过就提示内容
             $('.registerbutton').on('click',function(){
                 
+
+
+
+
+
+                
                 $('#registerform').data('bootstrapValidator').validate()
                 if($('.form-group').height()>50){
                     console.log('aaaaaaaaaaa');
@@ -152,19 +158,20 @@ for(var j=0;j<wareName1.length;j++){
             // })
 
 
-            // 为了尽量不影响提示文字的display：none;属性，只能改变间距或定位。
-            // 当高度大于50时
+        // 为了尽量不影响提示文字的display：none;属性，只能改变间距或定位。
+        // 当高度大于50时
 
 $('.telephone').on('input',function(){
-    if($('.form-group').height()>50){
+    if($(this).parent().height()>50){
         console.log('aaaaaaaaaaa');
         $('.form-group').css({"height":'50px'});
-        $('.form-control-feedback').css({"display":'none'});
+        $('.form-control-feedback .bv-no-label .glyphicon .glyphicon-ok').css({"display":'none'});
         // $('.form-group .help-block').css({'margin-top':'-3px'})
     }
 })
 $('.username').on('input',function(){
-    if($('.form-group').height()>50){
+    
+    if($(this).parent().height()>50){
         console.log('aaaaaaaaaaa');
         $('.form-group').css({"height":'50px'});
         $('.form-control-feedback').css({"display":'none'});
@@ -172,7 +179,7 @@ $('.username').on('input',function(){
     }
 })
 $('.password').on('input',function(){
-    if($('.form-group').height()>50){
+    if($(this).parent().height()>50){
         console.log('aaaaaaaaaaa');
         $('.form-group').css({"height":'50px'});
         $('.form-control-feedback').css({"display":'none'});

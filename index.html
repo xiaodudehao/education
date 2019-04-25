@@ -210,18 +210,21 @@
                       </div>
                       <form class="registerform loginform" id="loginform" action="">
                           <div class="form-group">
-                          <input  placeholder="输入用户名" class="telephone" type="text">
+                          <input  placeholder="输入用户名" name="username" class="telephone" type="text">
                           </div>
                           <div class="form-group">
-                                <input placeholder="输入密码" class="username" type="password">
+                                <input placeholder="输入密码" name="password" class="username" type="password">
                           </div>
 
                           <div class="codefather clearfix">
-                                <input  placeholder="输入验证码" class="code" type="text">
+                                <input  placeholder="输入验证码" name="code" class="code" type="text">
                                 <img src="img/code.png" class="codeimg"></img>
                                 <div class="check">换一张</div>
-                                <div class="codeerr">
+                                <!-- <div class="codeerr">
                                     ⓧ 用户名或密码错误
+                                </div> -->
+                                <div class="codeerr">
+                                    ⓧ 验证码码错误
                                 </div>
                           </div>
 
@@ -323,12 +326,20 @@
     <!-- 轮播图小圆点结束 -->
     <!-- 分类的模板开始 -->
     <script id="classif" type="text/html" >
-        <% for(var i = 0 ; i < person.length ; i ++){%>
-             <% var data = person[i] %>
-        <a href="<%= data.href%>"><li><%= data.txt %> </li></a>
-        <%};%>
+        <% if (length-num>9){ %>
+            <% for(var i = num ; i < num+9; i ++){%>
+                <% var data = person[i] %>
+            <a href="<%= data.href%>"><li><%= data.txt %></li></a>
+            <%};%>
+        <%}else{%>
+            <% for(var i = num ; i < length+1; i ++){%>
+                <% var data = person[i] %>
+            <a href="<%= data.href%>"><li><%= data.txt %></li></a>
+            <%};%>     
+        <%}%>
     </script>
     <!-- 分类的模板结束 -->
+
 
     <!-- 学校的模板开始 -->
     <script id="schoolmodal" type="text/html">
@@ -357,4 +368,219 @@
 <script src="js/public.js" ></script>
 <script src="js/index.js" ></script>
 <!-- <script src="js/index.js" ></script> -->
+<script>
+    // 分类九个数据的渲染
+    var data2;
+
+    // 用来解决点击翻页的函数
+    var click = 0;
+    function clickNext(data2){
+        var shuzi = data2.length/9;
+        
+        // 如果超过了页数，就让页数重头开始
+        if(click> shuzi){
+            click =0;
+        }
+        // 让页数从9的倍数开始
+        data2.num = click*9; 
+        var htmlx = template("classif",data2);
+        $(".catalogue ul").html(htmlx);
+        click++;
+    }
+
+// 一开始ajax请求获取的分类数据，并渲染。
+    // $.ajax({
+    //     type:"GET",
+    //     url:"http://localhost:3000/posts",
+    //     dataType:"json",
+    //     success:function(result){
+
+    //         console.log(result);
+    //         data2 = result
+    //     },
+    //     error:function(jqXHR){
+    //         console.log("发生错误:"+jqXHR.status);
+    //     }
+    // });    
+
+    data2 ={
+        person:[
+            {href:"a",txt:"农林牧渔类"},
+            {href:"a",txt:"资源环境类"},
+            {href:"a",txt:"能源与新能源类"},
+            {href:"a",txt:"土木水利类"},
+            {href:"a",txt:"加工制造类"},
+            {href:"a",txt:"石油化工类"},
+            {href:"a",txt:"轻纺食品类"},
+            {href:"a",txt:"交通运输类"},
+            {href:"a",txt:"信息技术类"},
+
+            {href:"a",txt:"农林牧渔类1"},
+            {href:"a",txt:"资源环境类1"},
+            {href:"a",txt:"能源与新能源类1"},
+            {href:"a",txt:"土木水利类1"},
+            {href:"a",txt:"加工制造类1"},
+            {href:"a",txt:"石油化工类1"},
+            {href:"a",txt:"轻纺食品类1"},
+            {href:"a",txt:"交通运输类1"},
+            {href:"a",txt:"信息技术类1"},
+
+            {href:"a",txt:"信息技术类2"},
+            {href:"a",txt:"土木水利类2"},
+            {href:"a",txt:"加工制造类2"},
+            {href:"a",txt:"农林牧渔类"},
+            {href:"a",txt:"资源环境类"},
+            {href:"a",txt:"能源与新能源类"},
+            {href:"a",txt:"土木水利类"}
+        ],
+        length:24
+    }
+    // 总共有几页
+    
+    // 要开始的下标
+    // data2.num = 0;
+    clickNext(data2)
+
+//单击下一页按钮
+    $(".next").on("click",function(){
+        clickNext(data2)
+    })
+
+
+    // 轮播图数据ajax
+        $.ajax({
+        type:"GET",
+        url:"http://localhost:3000/posts",
+        dataType:"json",
+        success:function(result){
+
+            console.log(result);
+            data1 = result
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });    
+    // 轮播图的数据获取
+    var data1 ={
+        person: [
+            {src: "img/banner1.jpg",id:1},
+            {src: "img/banner2.jpg",id:2},
+            {src: "img/banner3.jpg",id:3},
+            {src: "img/banner4.jpg",id:4}
+        ]
+    } 
+    var html1 = template("slideshow",data1);
+    $(".carousel-inner").html(html1);        
+    // 轮播图小圆点
+    var html2 = template("slideshowdot",data1);
+    $(".carousel-indicators").html(html2);      
+
+    // 热门课程数据
+    $.ajax({
+        type:"GET",
+        url:"http://localhost:3000/posts",
+        dataType:"json",
+        success:function(result){
+
+            console.log(result);
+            data = result
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });    
+
+    // 最新课程的数据
+    $.ajax({
+        type:"GET",
+        url:"http://localhost:3000/posts",
+        dataType:"json",
+        success:function(result){
+
+            console.log(result);
+            datax = result
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });    
+
+    //学校的数据
+    $.ajax({
+        type:"GET",
+        url:"http://localhost:3000/posts",
+        dataType:"json",
+        success:function(result){
+
+            console.log(result);
+            data3 = result
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });    
+
+        // 在单击这个按钮时，如果没有验证通过就提示内容
+        $('.registerbutton').on('click',function(){
+        
+        $('#registerform').data('bootstrapValidator').validate()
+        // 如果在表单校验后出现错误提示，就监听form-group（也就是提示文字）的高度，变化了就改为原来的高度。
+        if($('.form-group').height()>50){
+            console.log('aaaaaaaaaaa');
+            $('.form-group').css({"height":'50px'});
+            // $('.form-group .help-block').css({'margin-top':'-3px'})
+        }
+        console.log($('#registerform').serialize());
+        
+            $.ajax({
+                //几个参数需要注意一下
+                    type: "POST",//方法类型
+                    dataType: "json",//预期服务器返回的数据类型
+                    url: "/users/login" ,//url
+                    data: $('#registerform').serialize(),
+                    success: function (result) {
+                        console.log(result);//打印服务端返回的数据(调试用)
+                        if (result.resultCode == 200) {
+                            alert("SUCCESS");
+                        }
+                        ;
+                    },
+                    error : function() {
+                        alert("异常！");
+                    }
+                });
+        })
+
+        // 登录表单的
+        $('.loginbutton').on('click',function(){
+        alert('登录');
+        // 如果在表单校验后出现错误提示，就监听form-group（也就是提示文字）的高度，变化了就改为原来的高度。
+        if($('.form-group').height()>50){
+            console.log('aaaaaaaaaaa');
+            $('.form-group').css({"height":'50px'});
+            // $('.form-group .help-block').css({'margin-top':'-3px'})
+        }
+        console.log($('#loginform').serialize());
+        
+            $.ajax({
+                //几个参数需要注意一下
+                    type: "POST",//方法类型
+                    dataType: "json",//预期服务器返回的数据类型
+                    url: "/users/login" ,//url
+                    data: $('#loginform').serialize(),
+                    success: function (result) {
+                        console.log(result);//打印服务端返回的数据(调试用)
+                        if (result.resultCode == 200) {
+                            alert("SUCCESS");
+                        }
+                        ;
+                    },
+                    error : function() {
+                        alert("异常！");
+                    }
+                });
+        })
+
+</script>
 </html>
