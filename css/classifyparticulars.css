@@ -390,3 +390,92 @@ input::-ms-clear {
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
 }
+.contentbox {
+  background-color: #fafafa;
+}
+.contentbox .coursehead {
+  height: 290px;
+  background-color: #fafafa;
+  margin-top: 60px;
+  overflow: hidden;
+}
+.contentbox .coursehead .courseheadchild {
+  height: 290px;
+}
+.contentbox .coursehead .courseheadchild .leftimg {
+  float: left;
+}
+.contentbox .coursehead .courseheadchild .leftimg .bigimg {
+  display: block;
+  width: 360px;
+  height: 240px;
+}
+.contentbox .coursehead .courseheadchild .leftimg .share {
+  margin-top: 20px;
+}
+.contentbox .coursehead .courseheadchild .leftimg .share .sharetxt {
+  margin-top: 5px;
+  float: left;
+  margin-right: 20px;
+  font-size: 18px;
+}
+.contentbox .coursehead .courseheadchild .leftimg .share .shareqq,
+.contentbox .coursehead .courseheadchild .leftimg .share .shareweixin,
+.contentbox .coursehead .courseheadchild .leftimg .share .sharexinlang {
+  float: left;
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+}
+.contentbox .coursehead .courseheadchild .righttxt {
+  float: right;
+  width: 795px;
+  position: relative;
+}
+.contentbox .coursehead .courseheadchild .righttxt .righttitle {
+  font-size: 28px;
+  margin-top: 16px;
+}
+.contentbox .coursehead .courseheadchild .righttxt .rightschool {
+  margin-top: 45px;
+  font-size: 18px;
+}
+.contentbox .coursehead .courseheadchild .righttxt .rightteach {
+  font-size: 18px;
+}
+.contentbox .coursehead .courseheadchild .righttxt .rightclassify {
+  margin-top: 40px;
+  font-size: 16px;
+}
+.contentbox .coursehead .courseheadchild .righttxt .addclassify {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #81d282;
+  color: #fff;
+  font-size: 22px;
+  border-radius: 20px;
+}
+.contentbox .mainpart {
+  background-color: #fafafa;
+  height: 800px;
+}
+.contentbox .mainpart .mainpartchild {
+  height: 800px;
+  background-color: violet;
+}
+.contentbox .mainpart .mainpartchild .mainpartleft {
+  width: 860px;
+  float: left;
+  height: 800px;
+}
+.contentbox .mainpart .mainpartchild .mainpartright {
+  width: 340px;
+  float: left;
+  height: 800px;
+}

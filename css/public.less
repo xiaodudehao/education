@@ -223,6 +223,7 @@ input::-ms-clear{display:none;}
     margin: 0 auto;
     .registerform{
         margin-top: -30px;
+       
         .form-group{
             width: 400px;
             margin-left: 50px;
@@ -246,7 +247,13 @@ input::-ms-clear{display:none;}
                 
                 background-color: transparent;
             }
+
+            .help-block {
+                // 我也不知道为什么，设置了这个属性，表单校验就不会乱了。
+                position: absolute;
+            }
         }
+  
         .form-group:first-child{
             margin-top: 0;
         }
@@ -289,7 +296,7 @@ input::-ms-clear{display:none;}
                 top: 61px;
                 left: 71;
                 color: red;
-                // display: none;
+                display: none;
             }
         }
     
@@ -304,6 +311,7 @@ input::-ms-clear{display:none;}
             text-align: center;
             font-size: 18px;
             margin: 0 auto;
+            margin-top: 37px;
         }
         .loginbutton{
             width:400px;
@@ -362,6 +370,12 @@ input::-ms-clear{display:none;}
                 height: 40px;
                 margin-left: 10px;
             }
+            .nameexist{
+                position: absolute;
+                top: -128px;
+                color: red;
+                display: none;
+            }
         }
     }
     .loginform{
@@ -380,6 +394,7 @@ input::-ms-clear{display:none;}
 
 
 .searchresult{
+    overflow: hidden;
     //每一个课程选项开始
     .courselearning{
         position: relative;

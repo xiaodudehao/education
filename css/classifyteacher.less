@@ -1,0 +1,64 @@
+@import "public.less";
+.header{
+    ul{
+        li:nth-child(1) a{
+            color: #000;
+        }
+        li:nth-child(2) a{
+            color: @font-color;
+        }
+    }
+
+}
+
+// 分类院校和专业开始
+.mainpart{
+    // 教师介绍开始
+    background-color: #fafafa;
+    .teach{
+        padding-top: 60px;
+        height: 340px;
+        // background-color: lightblue;
+        .teachleft{
+            width: 363px;
+            height: 240px;
+            // background-color: lavenderblush;
+            float: left;
+        }
+        .teachright{
+            width: 790px;
+            margin-left: 30px;
+            // background-color: lemonchiffon;
+            float: right;
+            .teachtitle{
+                height: 50px;
+                // background-color: lime;
+                line-height: 50px;
+                font-size: 28px;
+                .teachname{
+                    float: left;
+                }
+                .teachschool{
+                    margin-left: 50px;
+                    float: left;
+                }
+            }
+            .teachintroduce{
+                margin-top: 50px;
+                font-size: 20px;
+            }
+        }
+    }
+    // 教师介绍结束
+
+    .more{
+        height: 30px;
+        line-height: 30px;
+        margin-top: 76px;
+        font-size: 28px;
+        color: @font-color;
+        margin-bottom: 40px;
+    }
+}
+
+// 分类院校和专业结束

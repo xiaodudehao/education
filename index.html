@@ -172,7 +172,7 @@
             
                         <input id="password" name="password" placeholder="输入密码" class="password" type="password">
                   </div>
-                  <button type="submit" ></button>
+                  <!-- <div class="nameexist">该用户名已存在</div> -->
                   <div class="registerbutton">立即注册</div>
                   <div class="elseregister">
                     <span>其它登录方式</span>  
@@ -180,6 +180,7 @@
                       <img src="img/qq.png" alt="">
                       <img src="img/weixin.png" alt="">
                       <img  src="img/xinlang.png" alt="">
+                      <div class="nameexist">该用户名已存在</div>
                   </div>
               </form>
             <!-- <div class="modal-header">
@@ -220,10 +221,10 @@
                                 <input  placeholder="输入验证码" name="code" class="code" type="text">
                                 <img src="img/code.png" class="codeimg"></img>
                                 <div class="check">换一张</div>
-                                <!-- <div class="codeerr">
+                                <div class="codeerr uperr">
                                     ⓧ 用户名或密码错误
-                                </div> -->
-                                <div class="codeerr">
+                                </div>
+                                <div class="codeerr cerr">
                                     ⓧ 验证码码错误
                                 </div>
                           </div>
@@ -325,21 +326,29 @@
     </script>
     <!-- 轮播图小圆点结束 -->
     <!-- 分类的模板开始 -->
+    <!-- <script id="classif" type="text/html" >
+
+            <% for(var i = 0 ; i < arr.length; i ++){%>
+                <% var data = arr[i] %>
+            <a href="<%= data.href%>"><li><%= data.txt %></li></a>
+            <%};%>
+
+    </script> -->
+    <!-- 分类的模板结束 -->
+
     <script id="classif" type="text/html" >
-        <% if (length-num>9){ %>
+        <% if (arr.length-num>9){ %>
             <% for(var i = num ; i < num+9; i ++){%>
-                <% var data = person[i] %>
+                <% var data = arr[i] %>
             <a href="<%= data.href%>"><li><%= data.txt %></li></a>
             <%};%>
         <%}else{%>
-            <% for(var i = num ; i < length+1; i ++){%>
-                <% var data = person[i] %>
+            <% for(var i = num ; i < arr.length; i ++){%>
+                <% var data = arr[i] %>
             <a href="<%= data.href%>"><li><%= data.txt %></li></a>
             <%};%>     
         <%}%>
     </script>
-    <!-- 分类的模板结束 -->
-
 
     <!-- 学校的模板开始 -->
     <script id="schoolmodal" type="text/html">
@@ -369,25 +378,29 @@
 <script src="js/index.js" ></script>
 <!-- <script src="js/index.js" ></script> -->
 <script>
-    // 分类九个数据的渲染
-    var data2;
-
-    // 用来解决点击翻页的函数
+$(function(){
+    // 点击下一页按钮的函数
     var click = 0;
-    function clickNext(data2){
-        var shuzi = data2.length/9;
+    function clickNext(data){
+        console.log(data);
+        
+        var shuzi = data.arr.length/9;
         
         // 如果超过了页数，就让页数重头开始
         if(click> shuzi){
             click =0;
         }
         // 让页数从9的倍数开始
-        data2.num = click*9; 
-        var htmlx = template("classif",data2);
+        data.num = click*9; 
+        console.log(data);
+        var htmlx = template("classif",data);
         $(".catalogue ul").html(htmlx);
         click++;
-    }
 
+        
+    }
+    var data2 = {};
+    var arr = [];
 // 一开始ajax请求获取的分类数据，并渲染。
     // $.ajax({
     //     type:"GET",
@@ -395,16 +408,16 @@
     //     dataType:"json",
     //     success:function(result){
 
-    //         console.log(result);
-    //         data2 = result
+            
+           
+    //         console.log(data2);
+            
     //     },
     //     error:function(jqXHR){
     //         console.log("发生错误:"+jqXHR.status);
     //     }
     // });    
-
-    data2 ={
-        person:[
+    result = [
             {href:"a",txt:"农林牧渔类"},
             {href:"a",txt:"资源环境类"},
             {href:"a",txt:"能源与新能源类"},
@@ -431,14 +444,10 @@
             {href:"a",txt:"农林牧渔类"},
             {href:"a",txt:"资源环境类"},
             {href:"a",txt:"能源与新能源类"},
-            {href:"a",txt:"土木水利类"}
-        ],
-        length:24
-    }
-    // 总共有几页
-    
-    // 要开始的下标
-    // data2.num = 0;
+            {href:"a",txt:"土木水利类"}];
+            console.log(result);
+            data2.arr = result;
+        
     clickNext(data2)
 
 //单击下一页按钮
@@ -447,20 +456,6 @@
     })
 
 
-    // 轮播图数据ajax
-        $.ajax({
-        type:"GET",
-        url:"http://localhost:3000/posts",
-        dataType:"json",
-        success:function(result){
-
-            console.log(result);
-            data1 = result
-        },
-        error:function(jqXHR){
-            console.log("发生错误:"+jqXHR.status);
-        }
-    });    
     // 轮播图的数据获取
     var data1 ={
         person: [
@@ -476,6 +471,7 @@
     var html2 = template("slideshowdot",data1);
     $(".carousel-indicators").html(html2);      
 
+
     // 热门课程数据
     $.ajax({
         type:"GET",
@@ -490,6 +486,17 @@
             console.log("发生错误:"+jqXHR.status);
         }
     });    
+         // 热门课程的数据和模板
+    var data = {
+        person:[
+            {title:"jack",num:18,href:"l",src:"img/未标题-7.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+            {title:"ross",num:18,href:"m",src:"img/未标题-7.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+            {title:"tomer",num:18,href:"n",src:"img/未标题-7.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+            {title:"jerry",num:18,href:"o",src:"img/未标题-7.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+        ],
+    };
+    var html = template("hot",data);
+    $(".hot").html(html);
 
     // 最新课程的数据
     $.ajax({
@@ -505,6 +512,18 @@
             console.log("发生错误:"+jqXHR.status);
         }
     });    
+         // 最新课程的数据和模板
+    var datax = {
+        person:[
+            {title:"jack",num:18,href:"l",src:"img/未标题-9.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+            {title:"ross",num:18,href:"m",src:"img/未标题-9.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+            {title:"tomer",num:18,href:"n",src:"img/未标题-9.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+            {title:"jerry",num:18,href:"o",src:"img/未标题-9.png",shcoolname:"上海市城市科技学校",teacher: "王翠湖"},
+        ],
+    };
+
+    var htmlz = template("new",datax);
+    $(".new").html(htmlz);
 
     //学校的数据
     $.ajax({
@@ -520,19 +539,28 @@
             console.log("发生错误:"+jqXHR.status);
         }
     });    
+    // 学校模板的渲染
+    var data3 ={
+        person :  [
+            {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-14.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-14.png",name:"上海市城市科技学校"},
+            {href:"a",src:"img/未标题-12.png",name:"上海市城市科技学校"}
+        ]
+    }
+    var html4 = template("schoolmodal",data3);
+    $(".nameofinstitution").html(html4);
+
+
 
         // 在单击这个按钮时，如果没有验证通过就提示内容
         $('.registerbutton').on('click',function(){
-        
-        $('#registerform').data('bootstrapValidator').validate()
-        // 如果在表单校验后出现错误提示，就监听form-group（也就是提示文字）的高度，变化了就改为原来的高度。
-        if($('.form-group').height()>50){
-            console.log('aaaaaaaaaaa');
-            $('.form-group').css({"height":'50px'});
-            // $('.form-group .help-block').css({'margin-top':'-3px'})
-        }
-        console.log($('#registerform').serialize());
-        
+            $('#registerform').data('bootstrapValidator').validate()
+            // 如果在表单校验后出现错误提示，就监听form-group（也就是提示文字）的高度，变化了就改为原来的高度。
+            if($('.form-group').height()>50){
+                $('.form-group').css({"height":'50px'});
+            }
             $.ajax({
                 //几个参数需要注意一下
                     type: "POST",//方法类型
@@ -542,19 +570,17 @@
                     success: function (result) {
                         console.log(result);//打印服务端返回的数据(调试用)
                         if (result.resultCode == 200) {
-                            alert("SUCCESS");
-                        }
-                        ;
+                           console.log(正常);
+                        };
                     },
                     error : function() {
-                        alert("异常！");
+                        console.log(失败);
                     }
                 });
         })
 
         // 登录表单的
         $('.loginbutton').on('click',function(){
-        alert('登录');
         // 如果在表单校验后出现错误提示，就监听form-group（也就是提示文字）的高度，变化了就改为原来的高度。
         if($('.form-group').height()>50){
             console.log('aaaaaaaaaaa');
@@ -573,14 +599,21 @@
                         console.log(result);//打印服务端返回的数据(调试用)
                         if (result.resultCode == 200) {
                             alert("SUCCESS");
-                        }
-                        ;
+                        };
                     },
                     error : function() {
                         alert("异常！");
                     }
                 });
         })
+        // 验证码错误与否
+        // $('.cerr').css({"display":"block"})
+        // 用户名密码错误与否
+        $('.uperr').css({"display":"none"})
+        
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+})
 
 </script>
 </html>

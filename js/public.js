@@ -45,7 +45,7 @@ for(var j=0;j<wareName1.length;j++){
 
 
  
-
+// 注册模态框的校验规则
  $('#registerform').bootstrapValidator({
     　　　　　　　　message: 'This value is not valid',
                 　feedbackIcons: {
@@ -61,7 +61,7 @@ for(var j=0;j<wareName1.length;j++){
                                 message: 'ⓧ 手机号或邮箱不能为空'
                             },
                             regexp: {
-                                regexp: /(1[3-9]\d{9})|(^\w+@\w+(\.[a-z]+)+$)/,
+                                regexp: /(0?(11|13|14|15|17|18|19)[0-9]{9})|(^\w+@\w+(\.[a-z]+)+$)/,
                                 message: 'ⓧ 请输入正确的手机号或邮箱'
                             }
                         }
@@ -91,22 +91,67 @@ for(var j=0;j<wareName1.length;j++){
                     }
                 }
             })
+// 登录模态框的校验规则
+$('#loginform').bootstrapValidator({
+    　　　　　　　　message: 'This value is not valid',
+                　feedbackIcons: {
+                    　　　　　　　　valid: 'glyphicon glyphicon-ok',
+                    　　　　　　　　invalid: 'glyphicon glyphicon-remove',
+                    　　　　　　　　validating: 'glyphicon glyphicon-refresh'
+                　　　　　　　　   },
+                fields: {
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: 'ⓧ 用户名不能为空'
+                            }
+                        }
+                    },
+                    password:{
+                        validators: {
+                            notEmpty: {
+                                message: 'ⓧ 用户密码不能为空'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 16,
+                                message: 'ⓧ 密码长度必须在6到16位之间'
+                            },
+                            regexp: {
+                                regexp: /^[^\u4e00-\u9fa5]{0,}$/,
+                                message: 'ⓧ 密码不能有汉字'
+                            }
+                        }
+                    }
+                }
+            })
             // 在单击这个按钮时，如果没有验证通过就提示内容
             $('.registerbutton').on('click',function(){
+
+               $('#registerform').data('bootstrapValidator').validate()
+               
+                    // if($('.telephone ').height()>50){
+                    //     console.log('aaaaaaaaaaa');
+                    //     $(' .form-group').css({"height":'50px'});
+    
+                    //     // $('.form-group .help-block').css({'margin-top':'-3px'})
+                    // }
+                    // console.log($('.username ').height());
+                    
+                    // if($('.username ').height()>50){
+                    //     console.log('aaaaaaaaaaa');
+                    //     $('username ').css({"height":'50px'});
+                        
+                    //     // $('.form-group .help-block').css({'margin-top':'-3px'})
+                    // }
+                    // if($('.password ').height()>50){
+                    //     console.log('aaaaaaaaaaa');
+                    //     $('.password ').css({"height":'50px'});
+                        
+                    //     // $('.form-group .help-block').css({'margin-top':'-3px'})
+                    // }
                 
 
-
-
-
-
-                
-                $('#registerform').data('bootstrapValidator').validate()
-                if($('.form-group').height()>50){
-                    console.log('aaaaaaaaaaa');
-                    $('.form-group').css({"height":'50px'});
-                    // $('.form-group .help-block').css({'margin-top':'-3px'})
-                }
-                console.log($('#registerform').serialize());
                 
                     $.ajax({
                         //几个参数需要注意一下
@@ -118,6 +163,8 @@ for(var j=0;j<wareName1.length;j++){
                                 console.log(result);//打印服务端返回的数据(调试用)
                                 if (result.resultCode == 200) {
                                     alert("SUCCESS");
+                                    console.log("成功");
+                                    
                                 }
                                 ;
                             },
@@ -200,3 +247,21 @@ $('.password').on('input',function(){
 // 用户名注册1.点击注册按钮，然后向后台发送表单。后台注册成功返回一个ID
 // 并将模态框内容清空，而且关闭模态框。
 // 如果失败返回一个字符。然后提示用该户名已存在。
+
+// 获取地址栏信息
+function getSearch (k) {
+    // 获取地址栏内容
+    var str = location.search;
+    // 解码成中文
+    str = decodeURI(str);
+    str = str.slice(1);
+    var arr = str.split("&");
+    var obj = {};
+    // 获取键和值
+    arr.forEach(function( v,i) {
+        var key = v.split("=")[0];
+        var value = v.split("=")[1];
+        obj[ key ] = value;
+    })
+    return obj[ k ];
+}

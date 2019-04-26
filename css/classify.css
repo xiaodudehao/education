@@ -212,6 +212,9 @@ input::-ms-clear {
   margin: 0 auto;
   background-color: transparent;
 }
+.modal-content .registerform .form-group .help-block {
+  position: absolute;
+}
 .modal-content .registerform .form-group:first-child {
   margin-top: 0;
 }
@@ -252,6 +255,7 @@ input::-ms-clear {
   top: 61px;
   left: 71;
   color: red;
+  display: none;
 }
 .modal-content .registerform .registerbutton {
   width: 400px;
@@ -263,6 +267,7 @@ input::-ms-clear {
   text-align: center;
   font-size: 18px;
   margin: 0 auto;
+  margin-top: 37px;
 }
 .modal-content .registerform .loginbutton {
   width: 400px;
@@ -319,6 +324,12 @@ input::-ms-clear {
   height: 40px;
   margin-left: 10px;
 }
+.modal-content .registerform .elseregister .nameexist {
+  position: absolute;
+  top: -128px;
+  color: red;
+  display: none;
+}
 .modal-content .loginform {
   padding-top: 30px;
 }
@@ -328,6 +339,9 @@ input::-ms-clear {
   text-align: center;
   font-size: 25px;
   color: #000;
+}
+.searchresult {
+  overflow: hidden;
 }
 .searchresult .courselearning {
   position: relative;
