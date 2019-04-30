@@ -13,6 +13,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "微软雅黑";
 }
 input::-ms-clear {
   display: none;
@@ -42,6 +43,7 @@ input::-ms-clear {
 .header ul li a {
   color: #000;
   text-decoration: none;
+  font-weight: 600;
 }
 .header ul li:nth-child(1) a {
   color: #32b251;
@@ -173,7 +175,7 @@ input::-ms-clear {
   position: relative;
 }
 .footer .footerbanxin .footercenter {
-  width: 414px;
+  width: 454px;
   height: 30px;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -330,9 +332,6 @@ input::-ms-clear {
   color: red;
   display: none;
 }
-.modal-content .loginform {
-  padding-top: 30px;
-}
 .modal-content .registertitle {
   height: 100px;
   line-height: 100px;
@@ -342,6 +341,7 @@ input::-ms-clear {
 }
 .searchresult {
   overflow: hidden;
+  padding-top: 5px;
 }
 .searchresult .courselearning {
   position: relative;

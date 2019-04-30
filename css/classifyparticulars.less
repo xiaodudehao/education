@@ -1,4 +1,17 @@
 @import "public.less";
+// 头部开始
+.header{
+
+    ul{
+        li:nth-child(1) a {
+            color: #000;
+        }
+        li:nth-child(2) a {
+            color: @font-color;
+        }
+    }
+}
+// 头部结束
 .contentbox{
     background-color: #fafafa;
     .coursehead{
@@ -74,19 +87,149 @@
     .mainpart{
         background-color:  #fafafa;
         height: 800px;
+        margin-top: 80px;
         .mainpartchild{
             height: 800px;
-            background-color: violet;
+            // background-color: violet;
             .mainpartleft{
                 width: 860px;
                 float: left;
                 height: 800px;
+                // background-color: azure;
+                padding-right: 62px;
+                .coursebutton{
+                    margin-bottom: 37px;
+                    .introductionbutton{
+                        display: block;
+                        width: 120px;
+                        height: 40px;
+                        line-height: 40px;
+                        background-color: #33b150;
+                        float: left;
+                        border-radius: 20px 0 0 20px ;
+                        text-align: center;
+                        color:#fff;
+                        font-size: 20px;
+                        text-decoration: none;
+                    }
+                    .cataloguebutton{
+                        display: block;
+                        margin-left: 1px;
+                        float: left;
+                        width: 120px;
+                        height: 40px;
+                        line-height: 40px;
+                        background-color: #81d282;    
+                        border-radius: 0 20px 20px 0;
+                        text-align: center;
+                        color: #fff;      
+                        font-size: 20px;      
+                        text-decoration: none;        
+                    }
+                }
+                .maincontent{
+                    font-size: 19px;
+                    line-height: 38px;
+                    .synopsis{
+                        margin-top: 35px;
+                        margin-bottom: 15px;
+                        .synopsiscontent{
+                            text-indent: 2em;
+                        }
+                    }
+                }
             }
             .mainpartright{
+                padding-bottom: 80px;
                 width: 340px;
                 float: left;
-                height: 800px;
+                min-height: 800px;
+                // background-color: navajowhite;
+                .teachteam{
+                    font-size: 24px;
+                    color: #81d282;
+                }
+                .teachmember{
+                    display: block;
+                    text-decoration: none;
+                    color: #000;
+                    margin-top: 52px;
+                    overflow: hidden;
+                    .teachimg{
+                        width: 200px;
+                        height: 200px;
+                        display: block;
+                        margin: 0 auto;
+                    }
+                    .teachname{
+                        margin-top: 34px;
+                        font-size: 25px;
+                        text-align: center;
+                    }
+                    .teachexplain{
+                        font-size: 16px;
+                        color: #999;
+                        margin-top: 12px;
+                    }
+                }
             }
         }
     }
+    // 课程目录开始
+    .maincatalogue{
+        .project{
+            margin-bottom: 26px;
+            .projecttitle{
+                font-size: 22px;
+                margin-bottom: 30px;
+            }
+            .task{
+                margin-top: 16px;
+                margin-bottom: 16px;
+                .taskbox{
+                    position: relative;
+                    .triangle{
+                        width: 0;
+                        height: 0;
+                        border-left: 20px solid  #5bc072 ;
+                        border-top: 10px solid transparent;
+                        border-bottom: 10px solid transparent;
+                        float: left;
+                        position: absolute;
+                        transition: all 0.3s;
+                    }
+                    // .triangle:hover{
+                    //     transform: rotate(-90deg);
+                    // }
+                    .tasktitle{
+                        float: left;
+                        font-size: 20px;
+                        line-height: 20px;
+                        margin-left: 25px;
+                    }
+                }
+                .detail{
+                    font-size: 20px;
+                    .detailtitle{
+                        display: block;
+                        color: #666;
+                        text-decoration: none;
+                        padding-left: 86px;
+                        margin-top: 16px;
+                        // font-weight: 500;
+                        span{
+                            margin-right: 50px;
+                            color: #33b150;
+                        }
+                    }
+                }
+
+                
+
+            }
+
+        }
+    }
+
+    // 课程目录结束    
 }

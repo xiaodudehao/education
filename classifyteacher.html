@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/classifyteacher.css">
     <link rel="stylesheet" href="package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    
 </head>
 <body>
     <!-- 头部导航栏开始 -->
@@ -99,7 +100,7 @@
         </div>
     </div>
     <!-- 底部结束 -->
-        <!-- 注册模态框开始 -->
+    <!-- 注册模态框开始 -->
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -107,33 +108,29 @@
                   <div class="registertitle">
                         用户注册
                   </div>
-                  <form class="registerform" action="">
-                      <input id="username" placeholder="输入邮箱或手机号" class="telephone" type="text">
-                      <input placeholder="输入用户名" class="username" type="text">
-                      <input id="password" placeholder="输入密码" class="password" type="text">
+                  <form id="registerform" name="register"  class="registerform" action="">
+                      <div class="form-group">
+                           
+                            <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                      </div>
+                      <div class="form-group">
+                            
+                            <input name="username" placeholder="输入用户名" class="username" type="text">
+                      </div>
+                      <div class="form-group">
+                
+                            <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                      </div>
+                      <!-- <div class="nameexist">该用户名已存在</div> -->
                       <div class="registerbutton">立即注册</div>
-                      <div class="else">
+                      <div class="elseregister">
                         <span>其它登录方式</span>  
-                          <img src="img/qq.png" alt="">
-                          <img src="img/weixin.png" alt="">
-                          <img  src="img/xinlang.png" alt="">
+                          <a href=""><img src="img/qq.png" alt=""></a>
+                          <a href=""><img src="img/weixin.png" alt=""></a>
+                          <a href=""><img  src="img/xinlang.png" alt=""></a>
+                          <div class="nameexist">该用户名已存在</div>
                       </div>
                   </form>
-                <!-- <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" class="username" >
-                    <input type="text" class="password">
-                    <input type="text" class="telephonenum">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div> -->
-               
-                
               </div>
             </div>
           </div>
@@ -145,39 +142,39 @@
                         <div class="registertitle">
                                 用户登录
                           </div>
-                          <form id="validatedForm" class="registerform" action="">
-                              <input  placeholder="输入邮箱或手机号"  class="telephone" type="text">
-                              <input placeholder="输入用户名" name="username" class="username" type="text">
+                          <form class="registerform loginform" id="loginform" action="">
+                              <div class="form-group">
+                              <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                              </div>
+                              <div class="form-group">
+                                    <input placeholder="输入密码" name="password" class="username" type="password">
+                              </div>
+    
                               <div class="codefather clearfix">
-                                    <input  placeholder="输入验证码" class="code" type="text">
+                                    <input  placeholder="输入验证码" name="code" class="code" type="text">
                                     <img src="img/code.png" class="codeimg"></img>
                                     <div class="check">换一张</div>
-                                    <div class="codeerr" id="codeerr">ⓧ验证码错误</div>
-                                </div>
+                                    <div class="codeerr uperr">
+                                        ⓧ 用户名或密码错误
+                                    </div>
+                                    <div class="codeerr cerr">
+                                        ⓧ 验证码错误
+                                    </div>
+                              </div>
     
-                              <div class="registerbutton">立即登录</div>
+                              <div class="loginbutton">立即登录</div>
                               <div class="else">
+    
+                                <div class="linkregister">注册</div>
+                                <div class="forget">忘记密码</div>
                                 <span>其它登录方式</span>  
             
-                              
-                                  <img src="img/qq.png" alt="">
-                                  <img src="img/weixin.png" alt="">
-                                  <img  src="img/xinlang.png" alt="">
+                                  
+                                 <a href=""><img src="img/qq.png" alt=""></a>
+                                 <a href=""> <img src="img/weixin.png" alt=""></a>
+                                 <a href=""><img  src="img/xinlang.png" alt=""></a>   
                               </div>
                           </form>
-                <!-- <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal1 title</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" class="username" >
-                    <input type="text" class="password">
-                    <input type="text" class="telephonenum">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div> -->
                 </div>
             </div>
         </div>
@@ -189,5 +186,10 @@
 <script src="node_modules/jquery-validation/dist/jquery.validate.js" ></script>
 <script src="package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js"></script>
 <script src="js/public.js"></script>
-<script src="js/classify.js" ></script>
+<!-- <script src="js/classify.js" ></script> -->
+<script>
+    //bootstrap模态框居中代码
+    modalCenter('#myModal')
+    modalCenter('#myModal1')
+</script>
 </html>

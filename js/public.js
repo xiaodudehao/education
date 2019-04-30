@@ -20,7 +20,32 @@ function modalhidden(click,modalId){
 
     // 原生js开始
 //计算内容的高度 来判断是多少行
-//    var wareName=document.getElementById('wareNameText');
+//设置行高的函数。
+function line(clas,hei){
+    console.log(333);
+    
+    var wareName1 = document.querySelectorAll(clas);
+    for(var j=0;j<wareName1.length;j++){
+     var wareNameText = wareName1[j].innerHTML;//获取内容
+     console.log(j);
+     
+     var  heig = wareName1[j].clientHeight;//获取内容当前的高度
+        if(heig>hei){//这个71数字是两行的时候的高度，根据你设定的字体大小有关
+       for(var i=0;heig>hei;i++){
+       	  //每次删掉最后一个然后返回
+       wareNameText = wareNameText.substring(0,wareNameText.length-1);
+       //重新返回的字符在写在span里面 ，计算新的高度
+       wareName1[j].innerHTML = wareNameText;
+       heig = wareName1[j].clientHeight;
+       }
+       //得到正好符合高度的字符，删除最后一个变为省略号 填充在页面里
+       newText = wareNameText.substring(0,wareNameText.length-1)+'...';
+       wareName1[j].innerHTML = newText;
+       }
+    }
+}
+
+
 var wareName1 = document.querySelectorAll('.wareNameText');
 for(var j=0;j<wareName1.length;j++){
  var wareNameText = wareName1[j].innerHTML;//获取内容
@@ -40,7 +65,6 @@ for(var j=0;j<wareName1.length;j++){
    wareName1[j].innerHTML = newText;
    }
 }
-
  // 原生js结束
 
 
@@ -127,32 +151,7 @@ $('#loginform').bootstrapValidator({
             })
             // 在单击这个按钮时，如果没有验证通过就提示内容
             $('.registerbutton').on('click',function(){
-
                $('#registerform').data('bootstrapValidator').validate()
-               
-                    // if($('.telephone ').height()>50){
-                    //     console.log('aaaaaaaaaaa');
-                    //     $(' .form-group').css({"height":'50px'});
-    
-                    //     // $('.form-group .help-block').css({'margin-top':'-3px'})
-                    // }
-                    // console.log($('.username ').height());
-                    
-                    // if($('.username ').height()>50){
-                    //     console.log('aaaaaaaaaaa');
-                    //     $('username ').css({"height":'50px'});
-                        
-                    //     // $('.form-group .help-block').css({'margin-top':'-3px'})
-                    // }
-                    // if($('.password ').height()>50){
-                    //     console.log('aaaaaaaaaaa');
-                    //     $('.password ').css({"height":'50px'});
-                        
-                    //     // $('.form-group .help-block').css({'margin-top':'-3px'})
-                    // }
-                
-
-                
                     $.ajax({
                         //几个参数需要注意一下
                             type: "POST",//方法类型
@@ -163,8 +162,7 @@ $('#loginform').bootstrapValidator({
                                 console.log(result);//打印服务端返回的数据(调试用)
                                 if (result.resultCode == 200) {
                                     alert("SUCCESS");
-                                    console.log("成功");
-                                    
+                                    console.log("成功"); 
                                 }
                                 ;
                             },
@@ -173,7 +171,9 @@ $('#loginform').bootstrapValidator({
                             }
                         });
             })
-
+            $('.linkregister').on("click",function(){
+                
+            })
             // 在单击这个按钮时，如果没有验证通过就提示内容
             // $('.loginbutton').on('click',function(){
             //     // 根据返回回来的数据来打印
@@ -265,3 +265,6 @@ function getSearch (k) {
     })
     return obj[ k ];
 }
+
+
+

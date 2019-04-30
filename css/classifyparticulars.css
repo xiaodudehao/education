@@ -13,6 +13,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "微软雅黑";
 }
 input::-ms-clear {
   display: none;
@@ -42,6 +43,7 @@ input::-ms-clear {
 .header ul li a {
   color: #000;
   text-decoration: none;
+  font-weight: 600;
 }
 .header ul li:nth-child(1) a {
   color: #32b251;
@@ -173,7 +175,7 @@ input::-ms-clear {
   position: relative;
 }
 .footer .footerbanxin .footercenter {
-  width: 414px;
+  width: 454px;
   height: 30px;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -330,9 +332,6 @@ input::-ms-clear {
   color: red;
   display: none;
 }
-.modal-content .loginform {
-  padding-top: 30px;
-}
 .modal-content .registertitle {
   height: 100px;
   line-height: 100px;
@@ -342,6 +341,7 @@ input::-ms-clear {
 }
 .searchresult {
   overflow: hidden;
+  padding-top: 5px;
 }
 .searchresult .courselearning {
   position: relative;
@@ -389,6 +389,12 @@ input::-ms-clear {
   background: linear-gradient(to right, #b2dfb3, #ffffff);
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
+}
+.header ul li:nth-child(1) a {
+  color: #000;
+}
+.header ul li:nth-child(2) a {
+  color: #32b251;
 }
 .contentbox {
   background-color: #fafafa;
@@ -464,18 +470,132 @@ input::-ms-clear {
 .contentbox .mainpart {
   background-color: #fafafa;
   height: 800px;
+  margin-top: 80px;
 }
 .contentbox .mainpart .mainpartchild {
   height: 800px;
-  background-color: violet;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft {
   width: 860px;
   float: left;
   height: 800px;
+  padding-right: 62px;
+}
+.contentbox .mainpart .mainpartchild .mainpartleft .coursebutton {
+  margin-bottom: 37px;
+}
+.contentbox .mainpart .mainpartchild .mainpartleft .coursebutton .introductionbutton {
+  display: block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #33b150;
+  float: left;
+  border-radius: 20px 0 0 20px ;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+.contentbox .mainpart .mainpartchild .mainpartleft .coursebutton .cataloguebutton {
+  display: block;
+  margin-left: 1px;
+  float: left;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #81d282;
+  border-radius: 0 20px 20px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+.contentbox .mainpart .mainpartchild .mainpartleft .maincontent {
+  font-size: 19px;
+  line-height: 38px;
+}
+.contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis {
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+.contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis .synopsiscontent {
+  text-indent: 2em;
 }
 .contentbox .mainpart .mainpartchild .mainpartright {
+  padding-bottom: 80px;
   width: 340px;
   float: left;
-  height: 800px;
+  min-height: 800px;
+}
+.contentbox .mainpart .mainpartchild .mainpartright .teachteam {
+  font-size: 24px;
+  color: #81d282;
+}
+.contentbox .mainpart .mainpartchild .mainpartright .teachmember {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  margin-top: 52px;
+  overflow: hidden;
+}
+.contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachimg {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+.contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachname {
+  margin-top: 34px;
+  font-size: 25px;
+  text-align: center;
+}
+.contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachexplain {
+  font-size: 16px;
+  color: #999;
+  margin-top: 12px;
+}
+.contentbox .maincatalogue .project {
+  margin-bottom: 26px;
+}
+.contentbox .maincatalogue .project .projecttitle {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+.contentbox .maincatalogue .project .task {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.contentbox .maincatalogue .project .task .taskbox {
+  position: relative;
+}
+.contentbox .maincatalogue .project .task .taskbox .triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid  #5bc072 ;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  float: left;
+  position: absolute;
+  transition: all 0.3s;
+}
+.contentbox .maincatalogue .project .task .taskbox .tasktitle {
+  float: left;
+  font-size: 20px;
+  line-height: 20px;
+  margin-left: 25px;
+}
+.contentbox .maincatalogue .project .task .detail {
+  font-size: 20px;
+}
+.contentbox .maincatalogue .project .task .detail .detailtitle {
+  display: block;
+  color: #666;
+  text-decoration: none;
+  padding-left: 86px;
+  margin-top: 16px;
+}
+.contentbox .maincatalogue .project .task .detail .detailtitle span {
+  margin-right: 50px;
+  color: #33b150;
 }
