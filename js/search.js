@@ -33,12 +33,12 @@ $(function(){
     //     }
     // })
 
-    $(function(){
+  
         $("img.lazy").lazyload({
             // 该插件api地址：http://www.jq22.com/jquery-info390
-            placeholder: "img/qq.png",// 占位的图片， 写占图片的地址
+            placeholder: "img/teach.png",// 占位的图片， 写占图片的地址
         });
-    })
+
    var data3;
     var html4 = template("search",data3);
     $(".searchresult").html(html4);

@@ -549,13 +549,13 @@
                         success: function (result) {
                             console.log(result);//打印服务端返回的数据(调试用)
                             if (result.resultCode == 200) {
-                            console.log(正常);
+                            console.log("正常");
                             };
                             // 如果注册成功的话关闭模态框
                             modalhidden(".registerbutton","#myModal1");
                         },
                         error : function() {
-                            console.log(失败);
+                            console.log("失败");
                         }
                     });
             })
@@ -613,6 +613,7 @@
             $(window).keyup(function(event){
                     if(event.which == 13) {
                         // 此处写ajax请求
+
                         console.log("向后台发请求"+$('.searchinput').val());
                         
                     }
@@ -625,6 +626,7 @@
             $(".searchicon").on("click",function(){
                 var val = $('.searchinput').val();
                 // 此处写ajax请求
+
                 console.log("被单击了"+val)
 
             })

@@ -1,4 +1,19 @@
 @import "public.less";
+// 头部开始
+.header{
+
+    ul{
+        li:nth-child(1) a {
+            color: #000;
+        }
+        // 为了解决课程页导航栏中的首页两个字没有hover效果。
+        li:hover a {
+            color: @font-color;
+        }
+
+    }
+}
+// 头部结束
 .mainpart{
     // height: 1180px;
     background-color: @background-color;

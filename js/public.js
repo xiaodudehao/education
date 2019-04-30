@@ -13,7 +13,7 @@ function modalCenter(modalId){
 // 点击按钮让bootstrap模态框消失
 function modalhidden(click,modalId){
     $(click).on("click",function(){
-        console.log(33);
+      
         $(modalId).modal('hide')
     })
 }
