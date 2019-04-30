@@ -602,20 +602,36 @@
             // 用户名密码错误与否
             $('.uperr').css({"display":"none"})
             
+            // 模态框居中
             modalCenter('#myModal')
             modalCenter('#myModal1')
 
-            var that = '';
-            $('.searchinput').on("input",function(){
-                // console.log(6666666666);
-                 that = $(this).val()
-                $(window).keyup(function(event){
+
+            
+            // 用input触发会有触发多次的问题，所以该为click
+            $(".searchinput").on("click",function(){
+            $(window).keyup(function(event){
                     if(event.which == 13) {
-                        console.log("向后台发请求"+that[that.length-1]);
+                        // 此处写ajax请求
+                        console.log("向后台发请求"+$('.searchinput').val());
                         
                     }
                 });
             })
+
+
+
+            // 当搜索图标被单击后发送请求，并携带数据。
+            $(".searchicon").on("click",function(){
+                var val = $('.searchinput').val();
+                // 此处写ajax请求
+                console.log("被单击了"+val)
+
+            })
+
+
+
+
     })
 
 

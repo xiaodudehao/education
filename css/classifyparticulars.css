@@ -393,6 +393,9 @@ input::-ms-clear {
 .header ul li:nth-child(1) a {
   color: #000;
 }
+.header ul li:hover a {
+  color: #32b251;
+}
 .header ul li:nth-child(2) a {
   color: #32b251;
 }
