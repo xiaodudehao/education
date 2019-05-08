@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)http://www.17sucai.com/preview/952947/2017-12-29/pagination/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>index</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    
+	
+    <link rel="stylesheet" type="text/css" href="./style.css">
+	
+    <!-- <script type="text/javascript" src="./jquery.min(1).js"></script> -->
+    <script src="../node_modules/jquery/dist/jquery.js" ></script>
+    <script type="text/javascript" src="./pagination.min.js"></script>
+    <style>
+        /* .cib{
+            padding: 5px 8px;
+        }
+        .cib input{
+            vertical-align: bottom;
+            height: 20px;
+            color: #567e84;
+            margin: 2px 0px;
+        }
+        .cib button{
+            vertical-align: bottom;
+            height: 26px;
+            cursor: pointer;
+            background-color: #cbefff;
+            border: 1px solid #44a8d6;
+            color: #567e84;
+            margin: 2px 0px;
+        } */
+        /* .desc{
+            padding-left: 8px;
+            color: #657e9a;
+        } */
+    </style>
+</head>
+<body style="">
+    <div class="desc">总页数为零时，不显示分页插件，可自定义显示文字及css</div>
+
+    <!-- <div id="pagination_1"></div>
+    <br>
+
+    <div id="pagination_2"><div class="whj_jqueryPaginationCss-1"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_firstPage">first</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_previousPage">previous</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="7">7</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="8">8</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="9">9</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="10">10</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="11">11</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">next</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_lastPage">last</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5/page</option><option value="10">10/page</option><option value="15">15/page</option><option value="20">20/page</option></select><div class="whj_padding whj_color">skip</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">go</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">refresh</div><div class="whj_padding whj_color">the total 18 pages</div></div></div>
+    <br>
+
+    <div id="pagination_3"><div class="whj_jqueryPaginationCss-1"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_firstPage">首页</div><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_lastPage">尾页</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5条/页</option><option value="10">10条/页</option><option value="15">15条/页</option><option value="20">20条/页</option></select><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_4"><div class="whj_jqueryPaginationCss-1"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="14">14</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="15">15</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="16">16</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="17">17</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="18">18</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5条/页</option><option value="10">10条/页</option><option value="15">15条/页</option><option value="20">20条/页</option></select><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_5"><div class="whj_jqueryPaginationCss-1"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_6"><div class="whj_jqueryPaginationCss-1"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br> -->
+
+    <div id="pagination_7">
+        <div class="whj_jqueryPaginationCss-1">
+            <div class="whj_border whj_padding whj_bgc whj_hover" name="whj_previousPage">上一页</div>
+            <div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="14">14</div>
+            <div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="15">15</div>
+            <div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="16">16</div>
+            <div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="17">17</div>
+            <div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="18">18</div>
+            <div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_nextPage">下一页</div>
+            <div class="whj_padding whj_color">共18页</div>
+        </div>
+    </div>
+    <br>
+
+    <!-- <div id="pagination_8"><div class="whj_jqueryPaginationCss-1"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div></div></div>
+    <br>
+
+    <div class="desc">当请求服务器返回数据时，需重新设置当前页码及总页数</div>
+    <div class="cib">
+        <input type="text" name="currPage_9" placeholder="当前页码">
+        <input type="text" name="totalPage_9" placeholder="总页数">
+        <button type="button" id="btn_9">设置</button>
+    </div>
+    <div id="pagination_9"><div class="whj_jqueryPaginationCss-1"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_firstPage">首页</div><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_lastPage">尾页</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5条/页</option><option value="10">10条/页</option><option value="15">15条/页</option><option value="20">20条/页</option></select><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_10"><div class="whj_jqueryPaginationCss-2"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_firstPage">首页</div><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_lastPage">尾页</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5条/页</option><option value="10">10条/页</option><option value="15">15条/页</option><option value="20">20条/页</option></select><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_11"><div class="whj_jqueryPaginationCss-3"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_firstPage">首页</div><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_lastPage">尾页</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5条/页</option><option value="10">10条/页</option><option value="15">15条/页</option><option value="20">20条/页</option></select><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_12"><div class="whj_jqueryPaginationCss-4"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_firstPage">首页</div><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_lastPage">尾页</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5条/页</option><option value="10">10条/页</option><option value="15">15条/页</option><option value="20">20条/页</option></select><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_13"><div class="whj_jqueryPaginationCss-5"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_firstPage">首页</div><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_lastPage">尾页</div><select class="whj_border whj_bgc whj_hover" name="whj_pageSize"><option value="5" selected="">5条/页</option><option value="10">10条/页</option><option value="15">15条/页</option><option value="20">20条/页</option></select><div class="whj_padding whj_color">跳至</div><input type="text" class="whj_border whj_color" name="whj_toPage"><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_confirm">确认</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div><div class="whj_padding whj_color">共18页</div></div></div>
+    <br>
+
+    <div id="pagination_14"><div class="whj_jqueryPaginationCss-5"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">上一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">下一页</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_refresh">刷新</div></div></div>
+    <br>
+
+    <div id="pagination_15"><div class="whj_jqueryPaginationCss-2"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">&lt;</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="4">4</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="5">5</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">&gt;</div></div></div>
+    <br>
+
+    <div id="pagination_16"><div class="whj_jqueryPaginationCss-4"><div class="whj_border whj_padding whj_bgc whj_hoverDisable" name="whj_previousPage">&lt;</div><div class="whj_border whj_padding whj_bgc whj_checked" name="whj_page" data-page="1">1</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="2">2</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_page" data-page="3">3</div><div class="whj_border whj_padding whj_bgc whj_hover" name="whj_nextPage">&gt;</div></div></div>
+    <br> -->
+
+    <script type="text/javascript">
+        // $("#pagination_1").pagination({
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_2").pagination({
+        //     pageSizeOpt: [
+        //         {'value': 5, 'text': '5/page', 'selected': true},
+        //         {'value': 10, 'text': '10/page'},
+        //         {'value': 15, 'text': '15/page'},
+        //         {'value': 20, 'text': '20/page'}
+        //     ],
+        //     totalPage: 18,
+        //     showPageNum: 5,
+        //     firstPage: 'first',
+        //     previousPage: 'previous',
+        //     nextPage: 'next',
+        //     lastPage: 'last',
+        //     skip: 'skip',
+        //     confirm: 'go',
+        //     refresh: 'refresh',
+        //     totalPageText: 'the total {} pages',
+        //     isShowFL: true,
+        //     isShowPageSizeOpt: true,
+        //     isShowSkip: true,
+        //     isShowRefresh: true,
+        //     isShowTotalPage: true,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_3").pagination({
+        //     pageSizeOpt: [
+        //         {'value': 5, 'text': '5条/页', 'selected': true},
+        //         {'value': 10, 'text': '10条/页'},
+        //         {'value': 15, 'text': '15条/页'},
+        //         {'value': 20, 'text': '20条/页'}
+        //     ],
+        //     totalPage: 18,
+        //     showPageNum: 5,
+        //     firstPage: '首页',
+        //     previousPage: '上一页',
+        //     nextPage: '下一页',
+        //     lastPage: '尾页',
+        //     skip: '跳至',
+        //     confirm: '确认',
+        //     refresh: '刷新',
+        //     totalPageText: '共{}页',
+        //     isShowFL: true,
+        //     isShowPageSizeOpt: true,
+        //     isShowSkip: true,
+        //     isShowRefresh: true,
+        //     isShowTotalPage: true,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_4").pagination({
+        //     totalPage: 18,
+        //     showPageNum: 5,
+        //     isShowFL: false,
+        //     isShowPageSizeOpt: true,
+        //     isShowSkip: true,
+        //     isShowRefresh: true,
+        //     isShowTotalPage: true,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_5").pagination({
+        //     totalPage: 18,
+        //     showPageNum: 5,
+        //     isShowFL: false,
+        //     isShowPageSizeOpt: false,
+        //     isShowSkip: true,
+        //     isShowRefresh: true,
+        //     isShowTotalPage: true,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_6").pagination({
+        //     totalPage: 18,
+        //     showPageNum: 5,
+        //     isShowFL: false,
+        //     isShowPageSizeOpt: false,
+        //     isShowSkip: false,
+        //     isShowRefresh: true,
+        //     isShowTotalPage: true,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        $("#pagination_7").pagination({
+            totalPage: 18,
+            showPageNum: 5,
+            isShowFL: false,
+            isShowPageSizeOpt: false,
+            isShowSkip: false,
+            isShowRefresh: false,
+            isShowTotalPage: true,
+            isResetPage: false,
+            callBack: function (currPage, pageSize) {
+                console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+            }
+        });
+        // $("#pagination_8").pagination({
+        //     totalPage: 18,
+        //     showPageNum: 5,
+        //     isShowFL: false,
+        //     isShowPageSizeOpt: false,
+        //     isShowSkip: false,
+        //     isShowRefresh: false,
+        //     isShowTotalPage: false,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_9").pagination({
+        //     totalPage: 18,
+        //     isResetPage: true,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#btn_9").click(function () {
+        //     var currPage = +$("input[name='currPage_9']").val();
+        //     var totalPage = +$("input[name='totalPage_9']").val();
+        //     $("#pagination_9").pagination('setPage', currPage, totalPage);
+        //     console.log($("#pagination_9").pagination('getPage'));
+        // });
+        // $("#pagination_10").pagination({
+        //     css: 'css-2',
+        //     totalPage: 18,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_11").pagination({
+        //     css: 'css-3',
+        //     totalPage: 18,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_12").pagination({
+        //     css: 'css-4',
+        //     totalPage: 18,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_13").pagination({
+        //     css: 'css-5',
+        //     totalPage: 18,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_14").pagination({
+        //     css: 'css-5',
+        //     totalPage: 18,
+        //     showPageNum: 0,
+        //     isShowFL: false,
+        //     isShowPageSizeOpt: false,
+        //     isShowSkip: false,
+        //     isShowRefresh: true,
+        //     isShowTotalPage: false,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_15").pagination({
+        //     css: 'css-2',
+        //     totalPage: 18,
+        //     previousPage: '<',
+        //     nextPage: '>',
+        //     isShowFL: false,
+        //     isShowPageSizeOpt: false,
+        //     isShowSkip: false,
+        //     isShowRefresh: false,
+        //     isShowTotalPage: false,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+        // $("#pagination_16").pagination({
+        //     css: 'css-4',
+        //     totalPage: 18,
+        //     showPageNum: 3,
+        //     previousPage: '<',
+        //     nextPage: '>',
+        //     isShowFL: false,
+        //     isShowPageSizeOpt: false,
+        //     isShowSkip: false,
+        //     isShowRefresh: false,
+        //     isShowTotalPage: false,
+        //     isResetPage: false,
+        //     callBack: function (currPage, pageSize) {
+        //         console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+        //     }
+        // });
+    </script>
+
+
+</body></html>

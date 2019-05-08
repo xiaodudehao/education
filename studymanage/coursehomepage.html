@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>课程首页</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../fenye1/style.css">
+    <link rel="stylesheet" href="../css/coursehomepage.css">
+</head>
+<body>
+    <div class="maincontent">
+    <!-- 头部导航栏开始 -->
+    <div class="header">
+        <div class="banxin">
+            <img src="../img/未标题-10.png" class="logo" alt="">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">院校</a></li>
+                <li><a href="">立体教材</a></li>
+            </ul>
+            <div class="search">
+                <img class="searchicon" src="../img/未标题-1.png" ></img>
+                <input type="text" placeholder="搜索课程或学校">
+            </div>
+            <div class="login">
+                <img class="loginicon" src="../img/未标题-2.png"></img>
+                <!-- 这里的模态框用js实现 -->
+                <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航栏结束 -->
+        <div class="mainpartportion">
+            <div class="banxin clearfix">
+                <div class="leftcatalogue">
+                    <div class="schoolnam">
+                        <img src="../img/未标题-8.png" alt="" class="schoollogo">
+                        上海职业技术学院
+                    </div>
+                    <div class="course">
+                        <img src="../images/kecheng1.png" alt="" class="courseimg">
+                        <!-- <div class="coursenam">建筑材料性能检测</div> -->
+                    </div>
+                    <div class="cataloguenam">
+                        <a href="" class="active">课程首页</a>
+                        <a href="" >学习排行</a>
+                        <a href="">系统公告</a>
+                        <a href="">评分标准</a>
+                        <a href="">在线学习</a>
+                        <a href="">作业与测试</a>
+                        <a href="">考试</a>
+                        <a href="">讨论</a>
+                    </div>
+                    <div class="share">
+                        <div></div>
+                        <a href=""></a>
+                    </div>
+                </div>
+                <div class="rightresult">
+                    <div class="righttitle">
+                        课程首页
+                    </div>
+                    <div class="rightcontent">
+                        <div class="courseinformationtop">
+                            <div class="topformationleft fl">
+                                <div class="detail">课程名称： 建筑工程材料性能检测</div>
+                                <div class="detail">课程负责人： 张三</div>
+                                <div class="detail">课程时间： 2018.04.02~2018.12.12</div>
+                                <div class="detail clearfix"><div class="fl">学习进度：</div><div class="fl progressbar "> <div class="offthestocks"></div>  </div><div class="fl progressbarnum">52%</div></div>
+                                <div class="detail">学习时长： 31分钟23秒</div>
+                            </div>
+                            <div class="topformationright fr">
+                                <div class="performance" >您的成绩为</div>
+                                <div class="performancenum" >54</div>
+                                <ul>
+                                    <li><span class="fl">查看课程视频得分</span> <span class="fr">23</span> </li>
+                                    <li><span class="fl">参与讨论情况得分</span> <span class="fr">45</span> </li>
+                                    <li><span class="fl">提交笔记情况得分</span> <span class="fr">23</span> </li>
+                                    <li><span class="fl">参与提问答疑得分</span> <span class="fr">54</span> </li>
+                                    <li><span class="fl">参与考试/测验成绩</span> <span class="fr">3</span> </li>
+                                </ul>
+                            </div>
+                        </div> 
+                        <div class="courseinformationbottom">
+                            <div class="bottomformationleft fl">
+                                <div id="bottomformationleft">
+
+                                </div>
+                                <div class="resource">
+                                    课程资源统计： 共184个
+                                </div>
+                            </div>
+                            <div class="bottomformationright fr">
+                                <div id="bottomformationright">
+
+                                </div>
+                                <div class="examination">
+                                    测试及考试统计： 19次
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+       
+    <!-- 底部开始 -->
+    <div class="footercontenter">
+        <div class="footer">
+            <div class="banxin footerbanxin">
+                <div class="footercenter">
+                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部结束 -->
+</body>
+<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script type="text/javascript">
+$(function(){
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('bottomformationleft'));
+    // 指定图表的配置项和数据
+    var option = {
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        itemStyle: {
+        // 设置柱状图的颜色
+        color: '#8dd68d'
+        },
+        xAxis: {
+            data: ["文档","PPT","视频","音频","图片","其它"]
+        },
+        yAxis: {},
+        series: [{
+            name: '数量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    // 基于准备好的dom，初始化echarts实例
+    var loop = echarts.init(document.getElementById('bottomformationright'));
+    // 指定图表的配置项和数据
+    option1 = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    }, 
+    series: [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+                {value:135, name:'视频广告'},
+                {value:1548, name:'搜索引擎'}
+            ]
+        }
+    ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    loop.setOption(option1);
+
+
+    // $(".cataloguenam li").on("click",function(){
+    //     $(".cataloguenam li").removeClass("active");
+    //     $(this).addClass("active");
+    // })
+    
+
+})
+
+</script>
+</html>

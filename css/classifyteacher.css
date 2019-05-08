@@ -2,6 +2,18 @@
   margin: 0 auto;
   width: 1200px;
 }
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -392,9 +404,6 @@ input::-ms-clear {
 }
 .header ul li:nth-child(1) a {
   color: #000;
-}
-.header ul li:nth-child(2) a {
-  color: #32b251;
 }
 .mainpart {
   background-color: #fafafa;

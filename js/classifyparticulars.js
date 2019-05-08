@@ -5,11 +5,17 @@ $(function(){
     $('.introductionbutton').on("click",function(){
         $(".maincontent").css({"display":"block"})
         $(".maincatalogue").css({"display":"none"})
+        // 改变按钮颜色
+        $(this).css({"background-color":"#33b150"})
+        $('.cataloguebutton').css({"background-color":"#81d282"})
     })
     // 单击课程目录
     $('.cataloguebutton').on("click",function(){
         $(".maincontent").css({"display":"none"})
         $(".maincatalogue").css({"display":"block"})
+        // 改变按钮颜色
+        $(this).css({"background-color":"#33b150"})
+        $('.introductionbutton').css({"background-color":"#81d282"})
     })
     
     var result = {

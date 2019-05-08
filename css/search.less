@@ -1,7 +1,12 @@
 @import "public.less";
 // 头部开始
+.bigbox{
+    // 为了实现小屏幕时底部一直保持在底部
+    min-height: 100%;
+    background-color: #fafafa;
+    position: relative;
 .header{
-
+    background-color: #fff;
     ul{
         li:nth-child(1) a {
             color: #000;
@@ -18,6 +23,7 @@
     // height: 1180px;
     background-color: @background-color;
     min-width: 1200px;
+
     .searchnum{
         height: 114px;
         // background-color: lime;
@@ -28,5 +34,32 @@
             color: #32b251;
         }
     }
+    .next{
+        padding-bottom: 50px;
+        text-align: center;
+        .whj_jqueryPaginationCss-1{
+            .whj_border{
+                border-color: @font-color;
+               
+                margin: 0 20px;
+             
+            }
+            .whj_hover:hover {
+                background-color: #e7f4e7;
+            }
+            .whj_checked{
+                background-color: #e7f4e7;
+            }
+            .whj_padding:nth-last-child(2) {
+                color: @font-color;
+            }
+            .whj_padding:nth-child(1) {
+                color: @font-color;
+
+            }
+        }
+    }
+
+}
 
 }

@@ -368,9 +368,10 @@
             var shuzi = data.arr.length/9;
             
             // 如果超过了页数，就让页数重头开始
-            if(click> shuzi){
+            if(click >= shuzi){
                 click =0;
             }
+            
             // 让页数从9的倍数开始
             data.num = click*9; 
             console.log(data);
@@ -379,7 +380,7 @@
             click++;
         }
         var data2 = {};
-        var arr = [];
+        // var arr = [];
     // 一开始ajax请求获取的分类数据，并渲染。
         // $.ajax({
         //     type:"GET",

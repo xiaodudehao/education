@@ -1,0 +1,112 @@
+@import "public.less";
+.maincontent{
+    min-height: 100%;
+    background-color: #fafafa;
+    min-width: 1200px;
+    .header{
+        background-color: #fff;
+        ul{
+            li:nth-child(1) a {
+                color: #000;
+            }
+            // 为了解决课程页导航栏中的首页两个字没有hover效果。
+            li:hover a {
+                color: @font-color;
+            }
+        }
+    }
+    // 由于担心display：none的页面回流影响性能，所以打算按照分类标题一个一个网页。
+    .mainpartportion{
+        padding-top: 65px;
+        padding-bottom: 350px;
+        overflow: hidden;
+        .leftcatalogue{
+            float: left;
+            width: 298px;
+            // background-color: lightcoral;
+            // height: 800px;
+            .schoolnam{
+                height: 70px;
+                font-size: 18px;
+                line-height: 70px;
+                .schoollogo{
+                    width: 50px;
+                    height: 50px;
+                    background-color: pink;
+                }
+            }
+            .course{
+                position: relative;
+                .courseimg{
+                    height: 198px;
+                    width: 298px;
+                    display: block;
+                    border-radius: 15px; 
+                }
+                .coursenam{
+                    width: 298px;
+                    text-align: center;
+                    font-size: 24px;
+                    bottom: 0;
+                    position: absolute;
+                    height: 46px;
+                    color: #fff;
+                }
+            }
+            .cataloguenam{
+                margin-top: 50px;
+                a{
+                    display: block;
+                    border: 2px solid #999;
+                    box-sizing: border-box;
+                    width: 298px;
+                    height: 78px;
+                    border-radius: 20px;
+                    margin-bottom: 18px;
+                    color: #666;
+                    font-size: 24px;
+                    text-align: center;
+                    line-height: 78px;
+                    text-decoration: none;
+                }
+                a:hover{
+                    color: #31b24e;
+                }
+                .active{
+                    background-color:#81d283;
+                    color: #fff;
+                }
+                .active:hover{
+                    color: #fff;
+                }
+            }
+
+        }
+        .rightresult{
+            float: right;
+            width: 864px;
+            // background-color: lemonchiffon;
+            height: 800px;
+            .righttitle{
+                font-size: 28px;
+                color: #31b24e;
+                border-bottom: 2px solid #31b24e;
+                padding-bottom: 20px;
+
+            }
+            .rightcontent{
+                padding-top: 70px;
+
+
+            }
+        }
+
+    }
+
+}
+.footercontenter{
+    margin-top: -150px;
+    height: 150px;
+    background-color: #fff;
+    min-width: 1200px;
+}
