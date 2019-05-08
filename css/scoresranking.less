@@ -1,17 +1,66 @@
 @import "public.less";
 .righttitle{
-    .studybutton{
+    .studybutton,
+    .scoresbutton{
         display: block;
         color: #fff;
         border-radius: 10px 0 0 10px;
         width: 170px;
         height: 56px;
         background-color: #33b150;
-
+        text-decoration: none;
+        margin-right: 1px;
+        line-height: 56px;
+        font-size: 22px;
+        text-align: center;
     }
     .scoresbutton{
-        width: 170px;
-        height: 56px;
+        border-radius: 0 10px 10px 0;
         background-color: #81d283;
+    }
+
+}
+.rightcontent{
+    padding-top: 40px;
+    
+    .studysearch{
+        position: relative;
+       input{
+           width: 300px;
+           height: 50px;
+           border: 1px solid #666;
+           outline-style:none;
+           border-radius: 10px;
+           font-size: 18px;
+           color: #eee;
+           padding-left: 20px;
+
+       }
+       .searchimg{
+          
+           position: absolute;
+           left: 265px;
+           top: 15px;
+       }
+    }
+    table{
+        margin-top: 40px;
+        tr{
+            height: 55px;
+            th{
+                font-weight: 400;
+            }
+            th,
+            td{
+                text-align: center;
+                font-size: 22px;
+            }
+        }
+    }
+    .scoreranking{
+        display: none;
+    }
+    .pagebox{
+        text-align: center;
     }
 }

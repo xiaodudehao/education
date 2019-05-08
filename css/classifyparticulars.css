@@ -484,16 +484,11 @@ input::-ms-clear {
 }
 .contentbox .mainpart {
   background-color: #fafafa;
-  height: 800px;
   margin-top: 80px;
-}
-.contentbox .mainpart .mainpartchild {
-  height: 800px;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft {
   width: 860px;
   float: left;
-  height: 800px;
   padding-right: 62px;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft .coursebutton {
