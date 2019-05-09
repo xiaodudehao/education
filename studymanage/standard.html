@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>搜索</title>
-    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"> -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="css/page.css">
-    <link rel="stylesheet" href="css/search.css">
+    <title>评分标准</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../fenye1/style.css">
+    <link rel="stylesheet" href="../css/coursehomepage.css">
+    <link rel="stylesheet" href="../css/standard.css">
 </head>
 <body>
-
-<div class="bigbox">
+    <div class="maincontent">
     <!-- 头部导航栏开始 -->
     <div class="header">
         <div class="banxin">
-            <img src="img/未标题-10.png" class="logo" alt="">
+            <img src="../img/未标题-10.png" class="logo" alt="">
             <ul>
                 <li><a href="">首页</a></li>
                 <li><a href="">课程</a></li>
@@ -25,11 +24,11 @@
                 <li><a href="">立体教材</a></li>
             </ul>
             <div class="search">
-                <img class="searchicon" src="img/未标题-1.png" ></img>
+                <img class="searchicon" src="../img/未标题-1.png" ></img>
                 <input type="text" placeholder="搜索课程或学校">
             </div>
             <div class="login">
-                <img class="loginicon" src="img/未标题-2.png"></img>
+                <img class="loginicon" src="../img/未标题-2.png"></img>
                 <!-- 这里的模态框用js实现 -->
                 <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
                 <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
@@ -38,60 +37,76 @@
         </div>
     </div>
     <!-- 头部导航栏结束 -->
-    <!-- 显示搜索多少条开始 -->
-    <div class="mainpart">
-        <div class="banxin">
-            <div class="searchnum">
-                共有<span>2</span>条结果
-            </div>
-        </div>
-        <div class="searchresult">
+        <div class="mainpartportion">
+            <div class="banxin clearfix">
+                <div class="leftcatalogue">
+                    <div class="schoolnam">
+                        <img src="../img/未标题-8.png" alt="" class="schoollogo">
+                        上海职业技术学院
+                    </div>
+                    <div class="course">
+                        <img src="../images/kecheng1.png" alt="" class="courseimg">
+                        <!-- <div class="coursenam">建筑材料性能检测</div> -->
+                    </div>
+                    <div class="cataloguenam">
+                        <a href="" >课程首页</a>
+                        <a href="scoresranking.html" >学习排行</a>
+                        <a href="">系统公告</a>
+                        <a href="" class="active">评分标准</a>
+                        <a href="">在线学习</a>
+                        <a href="">作业与测试</a>
+                        <a href="">考试</a>
+                        <a href="">讨论</a>
+                    </div>
+                    <div class="share">
+                        <div></div>
+                        <a href=""></a>
+                    </div>
+                </div>
+                <div class="rightresult">
+                    <div class="righttitle">
+                        评分标准
+                    </div>
+                    <div class="rightcontent">
 
+                        <div class="standand">
+                            <div class="fullmark">
+                                本课堂满分100分,包含以下内容：
+                            </div>
+                            <div class="detailstandand">
+                                <div>
+                                    ①单元测验： 40%
+                                </div>
+                                <div>
+                                    要求: 以考试的有效成绩的加权平均数为给分基准，各章占比相同。
+                                </div>
+                                <div>
+                                    ②期末测试：60%
+                                </div>
+                                <div>
+                                    要求: 以考试的有效成绩的加权平均数为给分基准，各章占比相同。
+                                </div>
+                            </div>
+                        </div>
 
-        </div>
-        <div class=" banxin">
-            <div class="next">
-                <div class="tcdPageCode">
-
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div> 
-    
-    <!-- 显示搜索多少条结束 -->
-</div>
-
-
+       
+       
     <!-- 底部开始 -->
-    <div class="footer">
-        <div class="banxin footerbanxin">
-            <div class="footercenter">
-                沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+    <div class="footercontenter">
+        <div class="footer">
+            <div class="banxin footerbanxin">
+                <div class="footercenter">
+                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+                </div>
             </div>
         </div>
     </div>
     <!-- 底部结束 -->
-    <script id="search" type="text/html">
-            <% for(var i = 0 ; i < 4; i ++){%>
-                <div class="courselearning" >
-                    <a class="courselearningchild" href="classifyparticulars.html">
-                        <div class="banxin">
-                            <img class="searchimg lazy" src="images/kecheng.png" alt="">
-                            <div class="searchright">
-                                <div class="searchtitle">建筑材料性能检测</div>
-                                <div class="searchschool"> <img class="locationicon" src="img/未标题-15.png" alt=""> 上海市材料工程学校</div>
-                                <div class="searchnarrate">
-                                    <span class="wareNameText" id="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空
-                                    沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生
-                                    栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代</span></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            <%};%>
-    </script>
-    <!-- 注册模态框开始 -->
+        <!-- 注册模态框开始 -->
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -116,9 +131,9 @@
                       <div class="registerbutton">立即注册</div>
                       <div class="elseregister">
                         <span>其它登录方式</span>  
-                          <a href=""><img src="img/qq.png" alt=""></a>
-                          <a href=""><img src="img/weixin.png" alt=""></a>
-                          <a href=""><img  src="img/xinlang.png" alt=""></a>
+                          <a href=""><img src="../img/qq.png" alt=""></a>
+                          <a href=""><img src="../img/weixin.png" alt=""></a>
+                          <a href=""><img  src="../img/xinlang.png" alt=""></a>
                           <div class="nameexist">该用户名已存在</div>
                       </div>
                   </form>
@@ -143,7 +158,7 @@
     
                               <div class="codefather clearfix">
                                     <input  placeholder="输入验证码" name="code" class="code" type="text">
-                                    <img src="img/code.png" class="codeimg"></img>
+                                    <img src="../img/code.png" class="codeimg"></img>
                                     <div class="check">换一张</div>
                                     <div class="codeerr uperr">
                                         ⓧ 用户名或密码错误
@@ -161,9 +176,9 @@
                                 <span>其它登录方式</span>  
             
                                   
-                                 <a href=""><img src="img/qq.png" alt=""></a>
-                                 <a href=""> <img src="img/weixin.png" alt=""></a>
-                                 <a href=""><img  src="img/xinlang.png" alt=""></a>   
+                                 <a href=""><img src="../img/qq.png" alt=""></a>
+                                 <a href=""> <img src="../img/weixin.png" alt=""></a>
+                                 <a href=""><img  src="../img/xinlang.png" alt=""></a>   
                               </div>
                           </form>
                 </div>
@@ -171,31 +186,20 @@
         </div>
         <!-- 登录模态框结束 -->
 </body>
-<!-- <script src="node_modules/jquery/dist/jquery.js" ></script> -->
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script> -->
-<script src="node_modules/art-template/lib/template-web.js" ></script>
-<script src="package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
-<script src="package/jquery.lazyload.js"></script>
-<!-- 分页插件 -->
-<script src="package/jquerypage.js" ></script>
-<script src="js/public.js"></script>
-<script src="js/search.js"></script>
-<script>
-    $(function(){
-        line(".searchnarrate",51);
-        $(".tcdPageCode").createPage({ 
-            pageCount:20, 
-            current:1, 
-            backFn:function(p){ 
-            console.log(p); 
-            } 
-        }); 
-    })
+<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../js/public.js" ></script>
+<script type="text/javascript">
+$(function(){
+    // 模态框居中
+    modalCenter('#myModal')
+    modalCenter('#myModal1')
 
 
     
-    
+})
+
 </script>
 </html>

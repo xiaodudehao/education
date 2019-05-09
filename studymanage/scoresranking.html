@@ -7,7 +7,6 @@
     <title>课程首页</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="../fenye1/style.css">
     <link rel="stylesheet" href="../css/teachpublic.css">
     <link rel="stylesheet" href="../css/scoresranking.css">
     <link rel="stylesheet" href="../css/page.css">
@@ -50,8 +49,8 @@
                         <!-- <div class="coursenam">建筑材料性能检测</div> -->
                     </div>
                     <div class="cataloguenam">
-                        <a href="" >课程首页</a>
-                        <a href="" class="active">学习排行</a>
+                        <a href="coursehomepage.html" >课程首页</a>
+                        <a href="scoresranking.html" class="active">学习排行</a>
                         <a href="">系统公告</a>
                         <a href="">评分标准</a>
                         <a href="">在线学习</a>
@@ -273,14 +272,95 @@
         </div>
     </div>
     <!-- 底部结束 -->
+    <!-- 注册模态框开始 -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="registertitle">
+                    用户注册
+              </div>
+              <form id="registerform" name="register"  class="registerform" action="">
+                  <div class="form-group">
+                       
+                        <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                  </div>
+                  <div class="form-group">
+                        
+                        <input name="username" placeholder="输入用户名" class="username" type="text">
+                  </div>
+                  <div class="form-group">
+            
+                        <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                  </div>
+                  <!-- <div class="nameexist">该用户名已存在</div> -->
+                  <div class="registerbutton">立即注册</div>
+                  <div class="elseregister">
+                    <span>其它登录方式</span>  
+                      <a href=""><img src="../img/qq.png" alt=""></a>
+                      <a href=""><img src="../img/weixin.png" alt=""></a>
+                      <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                      <div class="nameexist">该用户名已存在</div>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    <!-- 注册模态框结束 -->
+    <!-- 登录模态框开始 -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="registertitle">
+                            用户登录
+                      </div>
+                      <form class="registerform loginform" id="loginform" action="">
+                          <div class="form-group">
+                          <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                          </div>
+                          <div class="form-group">
+                                <input placeholder="输入密码" name="password" class="username" type="password">
+                          </div>
+
+                          <div class="codefather clearfix">
+                                <input  placeholder="输入验证码" name="code" class="code" type="text">
+                                <img src="../img/code.png" class="codeimg"></img>
+                                <div class="check">换一张</div>
+                                <div class="codeerr uperr">
+                                    ⓧ 用户名或密码错误
+                                </div>
+                                <div class="codeerr cerr">
+                                    ⓧ 验证码错误
+                                </div>
+                          </div>
+
+                          <div class="loginbutton">立即登录</div>
+                          <div class="else">
+
+                            <div class="linkregister">注册</div>
+                            <div class="forget">忘记密码</div>
+                            <span>其它登录方式</span>  
+        
+                              
+                             <a href=""><img src="../img/qq.png" alt=""></a>
+                             <a href=""> <img src="../img/weixin.png" alt=""></a>
+                             <a href=""><img  src="../img/xinlang.png" alt=""></a>   
+                          </div>
+                      </form>
+            </div>
+        </div>
+    </div>
+    <!-- 登录模态框结束 -->
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
-<script src="../fenye1/pagination.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
 <script> 
  $(".tcdPageCode").createPage({ 
-  pageCount:23, 
+  pageCount:20, 
   current:1, 
   backFn:function(p){ 
    console.log(p); 

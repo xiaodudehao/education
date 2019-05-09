@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>学习排行</title>
+    <title>在线学习</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <link rel="stylesheet" href="../fenye1/style.css">
     <link rel="stylesheet" href="../css/coursehomepage.css">
+    <link rel="stylesheet" href="../css/announcement.css">
+    <link rel="stylesheet" href="../css/page.css">
 </head>
 <body>
     <div class="maincontent">
@@ -48,10 +50,10 @@
                         <!-- <div class="coursenam">建筑材料性能检测</div> -->
                     </div>
                     <div class="cataloguenam">
-                        <a href="" class="active">课程首页</a>
+                        <a href="" >课程首页</a>
                         <a href="scoresranking.html" >学习排行</a>
-                        <a href="">系统公告</a>
-                        <a href="">评分标准</a>
+                        <a href="" class="active">系统公告</a>
+                        <a href="" >评分标准</a>
                         <a href="">在线学习</a>
                         <a href="">作业与测试</a>
                         <a href="">考试</a>
@@ -64,47 +66,69 @@
                 </div>
                 <div class="rightresult">
                     <div class="righttitle">
-                        课程首页
+                        在线学习
                     </div>
                     <div class="rightcontent">
-                        <div class="courseinformationtop">
-                            <div class="topformationleft fl">
-                                <div class="detail">课程名称： 建筑工程材料性能检测</div>
-                                <div class="detail">课程负责人： 张三</div>
-                                <div class="detail">课程时间： 2018.04.02~2018.12.12</div>
-                                <div class="detail clearfix"><div class="fl">学习进度：</div><div class="fl progressbar "> <div class="offthestocks"></div>  </div><div class="fl progressbarnum">52%</div></div>
-                                <div class="detail">学习时长： 31分钟23秒</div>
-                            </div>
-                            <div class="topformationright fr">
-                                <div class="performance" >您的成绩为</div>
-                                <div class="performancenum" >54</div>
-                                <ul>
-                                    <li><span class="fl">查看课程视频得分</span> <span class="fr">23</span> </li>
-                                    <li><span class="fl">参与讨论情况得分</span> <span class="fr">45</span> </li>
-                                    <li><span class="fl">提交笔记情况得分</span> <span class="fr">23</span> </li>
-                                    <li><span class="fl">参与提问答疑得分</span> <span class="fr">54</span> </li>
-                                    <li><span class="fl">参与考试/测验成绩</span> <span class="fr">3</span> </li>
-                                </ul>
-                            </div>
-                        </div> 
-                        <div class="courseinformationbottom">
-                            <div class="bottomformationleft fl">
-                                <div id="bottomformationleft">
 
+                            <div class="project">
+                                    <div class="projecttitle">
+                                       <span>项目一</span>  水泥性能检测
+                                    </div>
+                                    <div class="task">
+                                        <div class="clearfix taskbox">
+                                            <div class="triangle"></div>
+                                            <div class="tasktitle">
+                                                <span>任务一</span>  水泥细度检测
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <a class="detailtitle">
+                                                <span> 看一看</span> 介绍水泥细度步骤豆腐干的高度符合是非得失根深蒂固更大
+                                            </a>
+                                            <a class="detailtitle">
+                                                <span> 看一看</span> 一分钟了解水泥
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="task">
+                                        <div class="clearfix taskbox">
+                                            <div class="triangle"></div>
+                                            <div class="tasktitle">
+                                                <span>任务二</span>  水泥细度检测
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <a class="detailtitle">
+                                                <span> 看一看</span> 介绍水泥细度步骤
+                                            </a>
+                                            <a class="detailtitle">
+                                                <span> 看一看</span> 一分钟了解水泥
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="resource">
-                                    课程资源统计： 共184个
+                                <div class="project">
+                                    <div class="projecttitle">
+                                        <span>项目二</span>  水泥性能检测
+                                    </div>
+                                    <div class="task">
+                                        <div class="clearfix taskbox">
+                                            <div class="triangle"></div>
+                                            <div class="tasktitle">
+                                                <span>任务一</span>  水泥细度检测
+                                            </div>
+                                        </div>
+                                        <div class="detail">
+                                            <a class="detailtitle">
+                                                <span> 看一看</span> 介绍水泥细度步骤
+                                            </a>
+                                            <a class="detailtitle">
+                                                <span> 看一看</span> 一分钟了解水泥
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="bottomformationright fr">
-                                <div id="bottomformationright">
 
-                                </div>
-                                <div class="examination">
-                                    测试及考试统计： 19次
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -207,92 +231,20 @@
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
+<script src="../package/jquerypage.js" ></script>
 <script type="text/javascript">
 $(function(){
-                // 模态框居中
-                modalCenter('#myModal')
-            modalCenter('#myModal1')
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('bottomformationleft'));
-    // 指定图表的配置项和数据
-    var option = {
-        tooltip: {},
-        legend: {
-            data:['销量']
-        },
-        itemStyle: {
-        // 设置柱状图的颜色
-        color: '#8dd68d'
-        },
-        xAxis: {
-            data: ["文档","PPT","视频","音频","图片","其它"]
-        },
-        yAxis: {},
-        series: [{
-            name: '数量',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
+    // 模态框居中
+    modalCenter('#myModal')
+    modalCenter('#myModal1')
 
-    // 基于准备好的dom，初始化echarts实例
-    var loop = echarts.init(document.getElementById('bottomformationright'));
-    // 指定图表的配置项和数据
-    option1 = {
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
-    }, 
-    series: [
-        {
-            name:'访问来源',
-            type:'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-                normal: {
-                    show: false,
-                    position: 'center'
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '30',
-                        fontWeight: 'bold'
-                    }
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            data:[
-                {value:335, name:'直接访问'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1548, name:'搜索引擎'}
-            ]
-        }
-    ]
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    loop.setOption(option1);
-
-
-    // $(".cataloguenam li").on("click",function(){
-    //     $(".cataloguenam li").removeClass("active");
-    //     $(this).addClass("active");
-    // })
-    
-    // 进度条随数字移动的长度
-    var percentage = 0.52;
-    newWidth = 0.52*300;
-    $(".offthestocks").css({"width":newWidth})
-
+ $(".tcdPageCode").createPage({ 
+  pageCount:20, 
+  current:1, 
+  backFn:function(p){ 
+   console.log(p); 
+  } 
+ }); 
     
 })
 

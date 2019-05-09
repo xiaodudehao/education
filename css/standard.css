@@ -503,3 +503,10 @@ input::-ms-clear {
   background-color: #fff;
   min-width: 1200px;
 }
+.fullmark {
+  font-size: 22px;
+}
+.detailstandand div {
+  font-size: 18px;
+  padding-top: 42px;
+}

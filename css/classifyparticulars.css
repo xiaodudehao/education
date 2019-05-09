@@ -408,9 +408,6 @@ input::-ms-clear {
 .header ul li:hover a {
   color: #32b251;
 }
-.header ul li:nth-child(2) a {
-  color: #32b251;
-}
 .contentbox {
   background-color: #fafafa;
 }

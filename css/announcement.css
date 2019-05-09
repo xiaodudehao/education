@@ -503,3 +503,20 @@ input::-ms-clear {
   background-color: #fff;
   min-width: 1200px;
 }
+.standand {
+  margin-bottom: 40px;
+}
+.standand .standlist {
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  color: #666;
+}
+.standand .standlist span {
+  font-size: 22px;
+  font-weight: 400;
+  color: #000;
+}
+.next {
+  text-align: center;
+}

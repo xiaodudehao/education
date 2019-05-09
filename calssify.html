@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>课程</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/classify.css">
 </head>
 <body>
@@ -106,8 +107,10 @@
                 </a>
             </div>
         </div>
-        <div class="next">
-        
+        <div class="next banxin">
+            <div class="tcdPageCode">
+
+            </div>
         </div>
     </div> 
 
@@ -205,13 +208,24 @@
 <script src="node_modules/jquery/dist/jquery.js" ></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
 <script src="node_modules/art-template/lib/template-web.js" ></script>
-<script src="node_modules/jquery-validation/dist/jquery.validate.js" ></script>
 <script src="package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<!-- 分页插件 -->
+<script src="package/jquerypage.js" ></script>
 <script src="js/public.js"></script>
 <script src="js/classify.js" ></script>
 <script>
-    //bootstrap模态框居中代码
-    modalCenter('#myModal')
-    modalCenter('#myModal1')
+    $(function(){
+        $(".tcdPageCode").createPage({ 
+            pageCount:20, 
+            current:1, 
+            backFn:function(p){ 
+            console.log(p); 
+            } 
+        }); 
+        //bootstrap模态框居中代码
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+    })
+
 </script>
 </html>

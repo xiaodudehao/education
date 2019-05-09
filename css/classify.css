@@ -464,3 +464,6 @@ input::-ms-clear {
   color: #fff;
   font-size: 20px;
 }
+.mainpart .next {
+  text-align: center;
+}
