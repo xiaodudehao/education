@@ -397,7 +397,7 @@ input::-ms-clear {
   font-size: 18px;
   color: #999;
 }
-.searchresult .courselearning .courselearningchild:hover {
+.searchresult .courselearning:hover .courselearningchild {
   background: linear-gradient(to right, #b2dfb3, #ffffff);
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
@@ -567,7 +567,7 @@ input::-ms-clear {
 .content ul li a .numberofpeople span {
   color: #32b251;
 }
-.content ul li a:hover {
+.content ul li:hover a {
   box-shadow: 0px 0px 20px 5px #999;
   margin-top: -5px;
   margin-bottom: 5px;

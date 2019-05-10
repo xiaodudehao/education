@@ -7,10 +7,11 @@
     <title>在线学习</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="../fenye1/style.css">
-    <link rel="stylesheet" href="../css/coursehomepage.css">
-    <link rel="stylesheet" href="../css/announcement.css">
+    <link rel="stylesheet" href="../css/teachpublic.css">
+    <!-- <link rel="stylesheet" href="../css/coursehomepage.css">
+    <link rel="stylesheet" href="../css/announcement.css"> -->
     <link rel="stylesheet" href="../css/page.css">
+    <link rel="stylesheet" href="../css/onlinestudy.css">
 </head>
 <body>
     <div class="maincontent">
@@ -245,6 +246,23 @@ $(function(){
    console.log(p); 
   } 
  }); 
+
+     // 让任务中的步骤都隐藏
+     $(".detail").css({"display":"none"});
+    var triangle = 0;
+    // 如果单击按钮就让任务中的东西展示。
+    $('.triangle').on("click",function(){
+        triangle ++;
+        if(triangle == 2){
+            triangle = 0
+        }
+        if(triangle){
+            $(this).css({"transform":"rotate(90deg)"}).parent().next().css({"display":"block"});
+        }else{
+            $(this).css({"transform":"rotate(0deg)"}).parent().next().css({"display":"none"});
+        }
+
+    })
     
 })
 

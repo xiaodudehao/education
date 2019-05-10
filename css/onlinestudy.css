@@ -402,62 +402,153 @@ input::-ms-clear {
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
 }
-.righttitle .studybutton,
-.righttitle .scoresbutton {
-  display: block;
-  color: #fff;
-  border-radius: 10px 0 0 10px;
-  width: 170px;
-  height: 56px;
-  background-color: #33b150;
-  text-decoration: none;
-  margin-right: 1px;
-  line-height: 56px;
-  font-size: 22px;
-  text-align: center;
+.maincontent {
+  min-height: 100%;
+  background-color: #fafafa;
+  min-width: 1200px;
 }
-.righttitle .scoresbutton {
-  border-radius: 0 10px 10px 0;
-  background-color: #81d283;
+.maincontent .header {
+  background-color: #fff;
 }
-.rightcontent {
-  padding-top: 40px;
+.maincontent .header ul li:nth-child(1) a {
+  color: #000;
 }
-.rightcontent .studysearch {
+.maincontent .header ul li:hover a {
+  color: #32b251;
+}
+.maincontent .mainpartportion {
+  padding-top: 65px;
+  padding-bottom: 250px;
+  overflow: hidden;
+}
+.maincontent .mainpartportion .leftcatalogue {
+  float: left;
+  width: 298px;
+}
+.maincontent .mainpartportion .leftcatalogue .schoolnam {
+  height: 70px;
+  font-size: 18px;
+  line-height: 70px;
+}
+.maincontent .mainpartportion .leftcatalogue .schoolnam .schoollogo {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+}
+.maincontent .mainpartportion .leftcatalogue .course {
   position: relative;
 }
-.rightcontent .studysearch input {
-  width: 300px;
-  height: 50px;
-  border: 1px solid #666;
-  outline-style: none;
-  border-radius: 10px;
-  font-size: 18px;
-  color: #eee;
-  padding-left: 20px;
+.maincontent .mainpartportion .leftcatalogue .course .courseimg {
+  height: 198px;
+  width: 298px;
+  display: block;
+  border-radius: 15px;
 }
-.rightcontent .studysearch .searchimg {
+.maincontent .mainpartportion .leftcatalogue .course .coursenam {
+  width: 298px;
+  text-align: center;
+  font-size: 24px;
+  bottom: 0;
   position: absolute;
-  left: 265px;
-  top: 15px;
+  height: 46px;
+  color: #fff;
 }
-.rightcontent table {
-  margin-top: 40px;
+.maincontent .mainpartportion .leftcatalogue .cataloguenam {
+  margin-top: 50px;
 }
-.rightcontent table tr {
-  height: 55px;
-}
-.rightcontent table tr th {
-  font-weight: 400;
-}
-.rightcontent table tr th,
-.rightcontent table tr td {
+.maincontent .mainpartportion .leftcatalogue .cataloguenam a {
+  display: block;
+  border: 2px solid #999;
+  box-sizing: border-box;
+  width: 298px;
+  height: 78px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  color: #666;
+  font-size: 24px;
   text-align: center;
+  line-height: 78px;
+  text-decoration: none;
+}
+.maincontent .mainpartportion .leftcatalogue .cataloguenam a:hover {
+  color: #31b24e;
+}
+.maincontent .mainpartportion .leftcatalogue .cataloguenam .active {
+  background-color: #81d283;
+  color: #fff;
+}
+.maincontent .mainpartportion .leftcatalogue .cataloguenam .active:hover {
+  color: #fff;
+}
+.maincontent .mainpartportion .rightresult {
+  float: right;
+  width: 864px;
+}
+.maincontent .mainpartportion .rightresult .righttitle {
+  font-size: 28px;
+  color: #31b24e;
+  border-bottom: 2px solid #31b24e;
+  padding-bottom: 20px;
+}
+.maincontent .mainpartportion .rightresult .standand {
+  padding: 40px;
+  background-color: #cbeaca;
+  width: 100%;
+  border-radius: 25px;
+}
+.footercontenter {
+  margin-top: -150px;
+  height: 150px;
+  background-color: #fff;
+  min-width: 1200px;
+}
+.rightcontent {
+  padding-top: 60px;
+}
+.rightcontent .project {
+  margin-bottom: 26px;
+}
+.rightcontent .project .projecttitle {
+  height: 50px;
+  line-height: 50px;
+  background: linear-gradient(to right, #fafafa, #81d283);
   font-size: 22px;
+  margin-bottom: 30px;
 }
-.rightcontent .scoreranking {
-  display: none;
+.rightcontent .project .task {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
-.rightcontent .pagebox {
-  text-align: center;
+.rightcontent .project .task .taskbox {
+  position: relative;
+}
+.rightcontent .project .task .taskbox .triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid  #5bc072 ;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  float: left;
+  position: absolute;
+  transition: all 0.3s;
+}
+.rightcontent .project .task .taskbox .tasktitle {
+  float: left;
+  font-size: 20px;
+  line-height: 20px;
+  margin-left: 25px;
+}
+.rightcontent .project .task .detail {
+  font-size: 20px;
+}
+.rightcontent .project .task .detail .detailtitle {
+  display: block;
+  color: #666;
+  text-decoration: none;
+  padding-left: 86px;
+  margin-top: 16px;
+}
+.rightcontent .project .task .detail .detailtitle span {
+  margin-right: 50px;
+  color: #33b150;
 }

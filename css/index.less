@@ -190,13 +190,14 @@
                }
 
             }
-            a:hover {
-                box-shadow: 0px 0px 20px 5px #999;
-                margin-top: -5px;
-                // 因为margin-top上移了5px，所以下面要添加5px，否则如果分两层
-                // 底下的布局会乱。
-                margin-bottom: 5px;
-            }
+
+        }
+        li:hover a {
+            box-shadow: 0px 0px 20px 5px #999;
+            margin-top: -5px;
+            // 因为margin-top上移了5px，所以下面要添加5px，否则如果分两层
+            // 底下的布局会乱。
+            margin-bottom: 5px;
         }
         li:last-child{
             margin-right: 0;

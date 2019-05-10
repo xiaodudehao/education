@@ -185,13 +185,19 @@
 <script>
     $(function(){
         line(".searchnarrate",51);
-        $(".tcdPageCode").createPage({ 
-            pageCount:20, 
+        setTimeout(function(){
+            var num = 111;
+            console.log(num);
+            $(".tcdPageCode").createPage({ 
+            pageCount:num, 
             current:1, 
             backFn:function(p){ 
             console.log(p); 
             } 
         }); 
+        },1000)
+
+
     })
 
 

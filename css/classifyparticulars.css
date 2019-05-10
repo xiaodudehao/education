@@ -397,7 +397,7 @@ input::-ms-clear {
   font-size: 18px;
   color: #999;
 }
-.searchresult .courselearning .courselearningchild:hover {
+.searchresult .courselearning:hover .courselearningchild {
   background: linear-gradient(to right, #b2dfb3, #ffffff);
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
@@ -456,14 +456,13 @@ input::-ms-clear {
   margin-top: 16px;
 }
 .contentbox .coursehead .courseheadchild .righttxt .rightschool {
-  margin-top: 45px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .contentbox .coursehead .courseheadchild .righttxt .rightteach {
-  font-size: 18px;
+  font-size: 16px;
 }
 .contentbox .coursehead .courseheadchild .righttxt .rightclassify {
-  margin-top: 40px;
+  margin-top: 15px;
   font-size: 16px;
 }
 .contentbox .coursehead .courseheadchild .righttxt .addclassify {
@@ -549,6 +548,7 @@ input::-ms-clear {
 .contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachimg {
   width: 200px;
   height: 200px;
+  border-radius: 50%;
   display: block;
   margin: 0 auto;
 }

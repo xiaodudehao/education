@@ -397,7 +397,7 @@ input::-ms-clear {
   font-size: 18px;
   color: #999;
 }
-.searchresult .courselearning .courselearningchild:hover {
+.searchresult .courselearning:hover .courselearningchild {
   background: linear-gradient(to right, #b2dfb3, #ffffff);
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
@@ -418,7 +418,7 @@ input::-ms-clear {
 }
 .maincontent .mainpartportion {
   padding-top: 65px;
-  padding-bottom: 350px;
+  padding-bottom: 250px;
   overflow: hidden;
 }
 .maincontent .mainpartportion .leftcatalogue {
@@ -483,7 +483,6 @@ input::-ms-clear {
 .maincontent .mainpartportion .rightresult {
   float: right;
   width: 864px;
-  height: 800px;
 }
 .maincontent .mainpartportion .rightresult .righttitle {
   font-size: 28px;

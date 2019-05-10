@@ -22,12 +22,12 @@ function modalhidden(click,modalId){
 //计算内容的高度 来判断是多少行
 //设置行高的函数。
 function line(clas,hei){
-    console.log(333);
+    // console.log(333);
     
     var wareName1 = document.querySelectorAll(clas);
     for(var j=0;j<wareName1.length;j++){
      var wareNameText = wareName1[j].innerHTML;//获取内容
-     console.log(j);
+    //  console.log(j);
      
      var  heig = wareName1[j].clientHeight;//获取内容当前的高度
         if(heig>hei){//这个71数字是两行的时候的高度，根据你设定的字体大小有关
@@ -49,7 +49,7 @@ function line(clas,hei){
 var wareName1 = document.querySelectorAll('.wareNameText');
 for(var j=0;j<wareName1.length;j++){
  var wareNameText = wareName1[j].innerHTML;//获取内容
- console.log(j);
+//  console.log(j);
  
  var  heightSome = wareName1[j].clientHeight;//获取内容当前的高度
     if(heightSome>71){//这个71数字是两行的时候的高度，根据你设定的字体大小有关
@@ -210,7 +210,7 @@ $('#loginform').bootstrapValidator({
 
 $('.telephone').on('input',function(){
     if($(this).parent().height()>50){
-        console.log('aaaaaaaaaaa');
+        // console.log('aaaaaaaaaaa');
         $('.form-group').css({"height":'50px'});
         $('.form-control-feedback .bv-no-label .glyphicon .glyphicon-ok').css({"display":'none'});
         // $('.form-group .help-block').css({'margin-top':'-3px'})
@@ -219,7 +219,7 @@ $('.telephone').on('input',function(){
 $('.username').on('input',function(){
     
     if($(this).parent().height()>50){
-        console.log('aaaaaaaaaaa');
+        // console.log('aaaaaaaaaaa');
         $('.form-group').css({"height":'50px'});
         $('.form-control-feedback').css({"display":'none'});
         // $('.form-group .help-block').css({'margin-top':'-3px'})
@@ -227,7 +227,7 @@ $('.username').on('input',function(){
 })
 $('.password').on('input',function(){
     if($(this).parent().height()>50){
-        console.log('aaaaaaaaaaa');
+        // console.log('aaaaaaaaaaa');
         $('.form-group').css({"height":'50px'});
         $('.form-control-feedback').css({"display":'none'});
         // $('.form-group .help-block').css({'margin-top':'-3px'})

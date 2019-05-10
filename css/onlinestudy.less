@@ -1,0 +1,61 @@
+@import "public.less";
+@import "teachpublic";
+
+.rightcontent{
+    padding-top: 60px;
+    .project{
+        margin-bottom: 26px;
+        .projecttitle{
+            height: 50px;
+            line-height: 50px;
+            background: linear-gradient(to right,#fafafa ,#81d283 ); 
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+        .task{
+            margin-top: 16px;
+            margin-bottom: 16px;
+            .taskbox{
+                position: relative;
+                .triangle{
+                    width: 0;
+                    height: 0;
+                    border-left: 20px solid  #5bc072 ;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                    float: left;
+                    position: absolute;
+                    transition: all 0.3s;
+                }
+                // .triangle:hover{
+                //     transform: rotate(-90deg);
+                // }
+                .tasktitle{
+                    float: left;
+                    font-size: 20px;
+                    line-height: 20px;
+                    margin-left: 25px;
+                }
+            }
+            .detail{
+                font-size: 20px;
+                .detailtitle{
+                    display: block;
+                    color: #666;
+                    text-decoration: none;
+                    padding-left: 86px;
+                    margin-top: 16px;
+                    // font-weight: 500;
+                    span{
+                        margin-right: 50px;
+                        color: #33b150;
+                    }
+                }
+            }
+    
+            
+    
+        }
+    
+    }
+}
