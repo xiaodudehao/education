@@ -407,6 +407,7 @@ input::-ms-clear {
 }
 .mainpart {
   background-color: #fafafa;
+  min-height: 1400px;
 }
 .mainpart .teach {
   padding-top: 60px;
