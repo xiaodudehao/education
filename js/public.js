@@ -266,5 +266,7 @@ function getSearch (k) {
     return obj[ k ];
 }
 
-
-
+// $(".loginicon").addClass("checkloginicon");
+// $(".login").append("<div class='exit'>退出</div>")
+// $(".log").css({"display":"none"});
+// $(".register").css({"display":"none"});

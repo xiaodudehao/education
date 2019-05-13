@@ -30,6 +30,9 @@ body {
 input::-ms-clear {
   display: none;
 }
+.containbox {
+  height: 100%;
+}
 .header {
   height: 90px;
   font-size: 18px;
@@ -100,6 +103,19 @@ input::-ms-clear {
   width: 26px;
   height: 40px;
   float: left;
+}
+.header .login .checkloginicon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: -10px;
+}
+.header .login .none {
+  display: none;
+}
+.header .login .exit {
+  color: #999;
 }
 .header .login .log {
   float: right;
@@ -179,7 +195,6 @@ input::-ms-clear {
 .footer {
   height: 120px;
   background-color: #b2dfb3;
-  margin-bottom: 30px;
   min-width: 1200px;
 }
 .footer .footerbanxin {
@@ -427,13 +442,13 @@ input::-ms-clear {
 }
 .maincontent .mainpartportion .leftcatalogue .schoolnam {
   height: 70px;
-  font-size: 18px;
+  font-size: 21px;
   line-height: 70px;
+  padding-left: 16px;
 }
 .maincontent .mainpartportion .leftcatalogue .schoolnam .schoollogo {
   width: 50px;
   height: 50px;
-  background-color: pink;
 }
 .maincontent .mainpartportion .leftcatalogue .course {
   position: relative;
@@ -497,8 +512,7 @@ input::-ms-clear {
   border-radius: 25px;
 }
 .footercontenter {
-  margin-top: -150px;
-  height: 150px;
+  margin-top: -120px;
   background-color: #fff;
   min-width: 1200px;
 }
@@ -689,10 +703,4 @@ input::-ms-clear {
   color: #fff;
   line-height: 40px;
   font-size: 24px;
-}
-.footercontenter {
-  margin-top: -150px;
-  height: 150px;
-  background-color: #fff;
-  min-width: 1200px;
 }
