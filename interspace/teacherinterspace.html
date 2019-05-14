@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>在线学习</title>
+    <title>系统公告</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="../css/teachpublic.css">
-    <!-- <link rel="stylesheet" href="../css/coursehomepage.css">
-    <link rel="stylesheet" href="../css/announcement.css"> -->
+    <!-- <link rel="stylesheet" href="../css/coursehomepage.css"> -->
+    <!-- <link rel="stylesheet" href="../css/announcement.css"> -->
+    <link rel="stylesheet" href="../css/teacherinterspace.css">
     <link rel="stylesheet" href="../css/page.css">
-    <link rel="stylesheet" href="../css/onlinestudy.css">
 </head>
 <body>
     <div class="maincontent">
@@ -42,102 +41,15 @@
     </div>
     <!-- 头部导航栏结束 -->
         <div class="mainpartportion">
+            <div class="teacherheader">
+
+            </div>
             <div class="banxin clearfix">
-                <div class="leftcatalogue">
-                    <div class="schoolnam">
-                        <img src="../img/schoolimg.png" alt="" class="schoollogo">
-                        上海职业技术学院
-                    </div>
-                    <div class="course">
-                        <img src="../images/kecheng1.png" alt="" class="courseimg">
-                        <div class="coursenam">建筑材料性能检测</div>
-                    </div>
-                    <div class="cataloguenam">
-                        <a href="" >课程首页</a>
-                        <a href="scoresranking.html" >学习排行</a>
-                        <a href="" class="active">系统公告</a>
-                        <a href="" >评分标准</a>
-                        <a href="">在线学习</a>
-                        <a href="">作业与测试</a>
-                        <a href="">考试</a>
-                        <a href="">讨论</a>
-                    </div>
-                    <div class="share">
-                        <div></div>
-                        <a href=""></a>
-                    </div>
-                </div>
-                <div class="rightresult">
-                    <div class="righttitle">
-                        在线学习
-                    </div>
-                    <div class="rightcontent">
+                
 
-                            <div class="project">
-                                    <div class="projecttitle">
-                                       <span>项目一</span>  水泥性能检测
-                                    </div>
-                                    <div class="task">
-                                        <div class="clearfix taskbox">
-                                            <div class="triangle"></div>
-                                            <div class="tasktitle">
-                                                <span>任务一</span>  水泥细度检测
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <a class="detailtitle">
-                                                <span> 看一看</span> 介绍水泥细度步骤豆腐干的高度符合是非得失根深蒂固更大
-                                            </a>
-                                            <a class="detailtitle">
-                                                <span> 看一看</span> 一分钟了解水泥
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="task">
-                                        <div class="clearfix taskbox">
-                                            <div class="triangle"></div>
-                                            <div class="tasktitle">
-                                                <span>任务二</span>  水泥细度检测
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <a class="detailtitle">
-                                                <span> 看一看</span> 介绍水泥细度步骤
-                                            </a>
-                                            <a class="detailtitle">
-                                                <span> 看一看</span> 一分钟了解水泥
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project">
-                                    <div class="projecttitle">
-                                        <span>项目二</span>  水泥性能检测
-                                    </div>
-                                    <div class="task">
-                                        <div class="clearfix taskbox">
-                                            <div class="triangle"></div>
-                                            <div class="tasktitle">
-                                                <span>任务一</span>  水泥细度检测
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <a class="detailtitle">
-                                                <span> 看一看</span> 介绍水泥细度步骤
-                                            </a>
-                                            <a class="detailtitle">
-                                                <span> 看一看</span> 一分钟了解水泥
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                    </div>
-                </div>
             </div>
         </div>
     </div>   
-    </div>
        
     <!-- 底部开始 -->
     <div class="footercontenter">
@@ -249,23 +161,6 @@ $(function(){
    console.log(p); 
   } 
  }); 
-
-     // 让任务中的步骤都隐藏
-     $(".detail").css({"display":"none"});
-    var triangle = 0;
-    // 如果单击按钮就让任务中的东西展示。
-    $('.triangle').on("click",function(){
-        triangle ++;
-        if(triangle == 2){
-            triangle = 0
-        }
-        if(triangle){
-            $(this).css({"transform":"rotate(90deg)"}).parent().next().css({"display":"block"});
-        }else{
-            $(this).css({"transform":"rotate(0deg)"}).parent().next().css({"display":"none"});
-        }
-
-    })
     
 })
 
