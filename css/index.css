@@ -630,8 +630,8 @@ input::-ms-clear {
   top: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  width: 165px;
-  height: 137px;
+  width: 80px;
+  height: 80px;
   transition: all 0.3s;
 }
 .school .nameofinstitution li a .name {
@@ -640,8 +640,8 @@ input::-ms-clear {
   font-size: 18px;
 }
 .school .nameofinstitution li a:hover img {
-  width: 198px;
-  height: 164.4px;
+  width: 104px;
+  height: 104px;
 }
 .school .nameofinstitution li:last-child {
   margin-right: 0;

@@ -445,14 +445,14 @@ input::-ms-clear {
   width: 298px;
 }
 .maincontent .mainpartportion .leftcatalogue .schoolnam {
-  height: 70px;
   font-size: 21px;
-  line-height: 70px;
-  padding-left: 16px;
+  line-height: 40px;
+  padding-left: 20px;
+  padding-bottom: 10px;
 }
 .maincontent .mainpartportion .leftcatalogue .schoolnam .schoollogo {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .maincontent .mainpartportion .leftcatalogue .course {
   position: relative;
