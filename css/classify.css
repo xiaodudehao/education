@@ -117,6 +117,10 @@ input::-ms-clear {
 .header .login .exit {
   color: #999;
 }
+.header .login .exit a {
+  text-decoration: none;
+  color: #999;
+}
 .header .login .log {
   float: right;
   width: 70px;

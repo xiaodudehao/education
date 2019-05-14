@@ -136,11 +136,6 @@ $('#loginform').bootstrapValidator({
                             notEmpty: {
                                 message: 'ⓧ 用户密码不能为空'
                             },
-                            stringLength: {
-                                min: 6,
-                                max: 16,
-                                message: 'ⓧ 密码长度必须在6到16位之间'
-                            },
                             regexp: {
                                 regexp: /^[^\u4e00-\u9fa5]{0,}$/,
                                 message: 'ⓧ 密码不能有汉字'
@@ -266,7 +261,10 @@ function getSearch (k) {
     return obj[ k ];
 }
 
+
+
+// 当用户登录之后调用的css
 // $(".loginicon").addClass("checkloginicon");
-// $(".login").append("<div class='exit'>退出</div>")
+// $(".login").append("<div class='exit'><a href=''>退出</a></div>")
 // $(".log").css({"display":"none"});
 // $(".register").css({"display":"none"});
