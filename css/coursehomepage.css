@@ -614,6 +614,7 @@ input::-ms-clear {
   overflow: hidden;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationleft .detail .progressbar .offthestocks {
+  width: 0;
   height: 30px;
   background-color: #33b150;
 }
