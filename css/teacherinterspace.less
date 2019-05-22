@@ -1,2 +1,123 @@
 @import "public.less";
 @import "teachpublic";
+.mainpartportion{
+
+.teacherheader{
+    margin-top: -65px;
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    .backgroundimg{
+        width: 1920px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0%);
+       
+        
+    }
+    .lucency{
+        width: 1920px;
+        height: 420px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0%);
+        background: linear-gradient(to right,transparent, #fafafa); /* 标准的语法 */
+        z-index: 1;
+    }
+    .tintroduce{
+        position: absolute;
+        z-index: 2;
+        width: 1200px;
+        left: 50%;
+        transform: translate(-50%,0%);
+        padding-top: 80px;
+        img{
+            width: 262px;
+            height: 262px;
+            border-radius: 50%;
+            
+        }
+        .teacherna{
+            margin-left: 35px;
+            div:first-child{
+                margin-top: 80px;
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+            div:last-child{
+                 font-size: 20px;
+            }
+
+        }
+        
+
+    }
+}
+.mycourse{
+
+ .rightresult{
+     float:left;
+    .righttitle{
+        border: transparent;
+        margin-top: 40px;
+        .studybutton,
+        .scoresbutton{
+            display: block;
+            color: #fff;
+            border-radius: 10px 0 0 10px;
+            width: 170px;
+            height: 56px;
+            background-color: #33b150;
+            text-decoration: none;
+            margin-right: 1px;
+            line-height: 56px;
+            font-size: 22px;
+            text-align: center;
+        }
+        .scoresbutton{
+            border-radius: 0 10px 10px 0;
+            background-color: #81d283;
+        }
+    
+    }
+    .rightcontent{
+        padding-top: 10px;
+        margin-top: 40px;
+        .schedule{
+            .courseicon{
+                width: 240px;
+                height: 320px;
+                border-radius: 20px;
+                border: 2px dashed #80c47e;
+                position: relative;
+                float: left;
+                color: #80c47e;
+                .add{
+                    text-align: center;
+                    margin-top: 85px;
+                    font-size: 80px;
+                   
+                }
+                .addtext{
+                    position: absolute;
+                    top: 54%;
+                    left: 50%;
+                    transform: translate(-50%,0%);
+                    font-size: 24px;
+                }
+            }
+            
+        }
+ 
+        .scoreranking{
+            display: none;
+        }
+        .pagebox{
+            text-align: center;
+        }
+    }
+
+}
+}
+}

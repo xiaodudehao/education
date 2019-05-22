@@ -42,11 +42,42 @@
     <!-- 头部导航栏结束 -->
         <div class="mainpartportion">
             <div class="teacherheader">
-
+                <img class="backgroundimg" src="../img/interspace.png" alt="">
+                <div class="lucency"></div>
+                <div class="tintroduce">
+                    <img class="fl" src="../img/teach.png" alt="">
+                    <div class="fl teacherna" >
+                        <div>张三</div>
+                        <div>欢迎您来到教师空间!</div>
+                    </div>
+                </div>
             </div>
-            <div class="banxin clearfix">
-                
+            <div class="banxin mycourse clearfix">
+                    <div class="rightresult">
+                        <div class="righttitle clearfix">
+                            <a class="studybutton fl">我的课程</a>
+                            <a class="scoresbutton fl">个人设置</a>
+                        </div>
+                        <div class="rightcontent">
+                            <div class="schedule">
+                                <a class="courseicon">
+                                    <div class="add">+</div>
+                                    <div class="addtext">添加课程</div>
+                                </a>
+                                <a href="" class="courseimg">
 
+                                </a>
+                            </div>
+                            
+                            <div class="scoreranking">
+                                889
+                            </div>
+                            
+                            
+    
+    
+                        </div>
+                    </div>
             </div>
         </div>
     </div>   
@@ -154,13 +185,32 @@ $(function(){
     modalCenter('#myModal')
     modalCenter('#myModal1')
 
- $(".tcdPageCode").createPage({ 
-  pageCount:20, 
-  current:1, 
-  backFn:function(p){ 
-   console.log(p); 
-  } 
- }); 
+    $(".tcdPageCode").createPage({ 
+    pageCount:20, 
+    current:1, 
+    backFn:function(p){ 
+    console.log(p); 
+    } 
+    }); 
+
+   
+    // 单击课程简介
+    $('.scoresbutton').on("click",function(){
+        $(".scoreranking").css({"display":"block"})
+        $(".schedule").css({"display":"none"})
+        // 改变按钮颜色
+        $(this).css({"background-color":"#33b150"})
+        $('.studybutton').css({"background-color":"#81d282"})
+    })
+
+        // 单击课程简介
+        $('.studybutton').on("click",function(){
+        $(".schedule").css({"display":"block"})
+        $(".scoreranking").css({"display":"none"})
+        // 改变按钮颜色
+        $(this).css({"background-color":"#33b150"})
+        $('.scoresbutton').css({"background-color":"#81d282"})
+    })
     
 })
 
