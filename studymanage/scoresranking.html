@@ -473,34 +473,45 @@
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
 <script> 
+    // 总页码数
+    var count = 21
+    // 当前所处的页码数
+
  $(".tcdPageCode").createPage({ 
-  pageCount:20, 
+  pageCount:count, 
   current:1, 
   backFn:function(p){ 
    console.log(p); 
   } 
  }); 
 
-//  学习排行
+ // 判断当前页面是成绩排行还是进度排行
+ var that = 0;
+
+    //  学习排行
     // 在未单击课程目录时
-  
-    // 单击课程简介
+
+    // 学习成绩排行
     $('.scoresbutton').on("click",function(){
         $(".scoreranking").css({"display":"block"})
         $(".schedule").css({"display":"none"})
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.studybutton').css({"background-color":"#81d282"})
+
+        that = 1;
     })
 
-        // 单击课程简介
-        $('.studybutton').on("click",function(){
+        // 学习进度排行
+    $('.studybutton').on("click",function(){
         $(".schedule").css({"display":"block"})
         $(".scoreranking").css({"display":"none"})
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.scoresbutton').css({"background-color":"#81d282"})
+        that = 0;
     })
+
 
 </script> 
 

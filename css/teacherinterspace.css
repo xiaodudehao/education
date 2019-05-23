@@ -595,10 +595,13 @@ input::-ms-clear {
 .mainpartportion .mycourse .rightresult .rightcontent {
   padding-top: 10px;
   margin-top: 40px;
+  width: 1200px;
 }
 .mainpartportion .mycourse .rightresult .rightcontent .schedule .courseicon {
   width: 240px;
   height: 320px;
+  margin-right: 60px;
+  margin-bottom: 40px;
   border-radius: 20px;
   border: 2px dashed #80c47e;
   position: relative;
@@ -616,6 +619,34 @@ input::-ms-clear {
   left: 50%;
   transform: translate(-50%, 0%);
   font-size: 24px;
+}
+.mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg {
+  width: 240px;
+  height: 320px;
+  border-radius: 20px;
+  position: relative;
+  float: left;
+  color: #000;
+  margin-right: 60px;
+  margin-bottom: 40px;
+}
+.mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg .courseshow {
+  width: 240px;
+  height: 320px;
+  border-radius: 20px;
+}
+.mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg .imgtext {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  background-color: purple;
+  width: 240px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  text-align: center;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.8) 70%, transparent);
+  /* 标准的语法 */
 }
 .mainpartportion .mycourse .rightresult .rightcontent .scoreranking {
   display: none;
