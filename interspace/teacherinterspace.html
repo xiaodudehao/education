@@ -25,12 +25,12 @@
                 <li><a href="">立体教材</a></li>
             </ul>
             <div class="search">
-                <img class="searchicon" src="../img/未标题-1.png" ></img>
+                <img class="searchicon" src="../img/未标题-1.png" >
                 <input type="text" placeholder="搜索课程或学校">
             </div>
             <div class="login">
                 <a href="">
-                    <img class="loginicon" src="../img/未标题-2.png"></img>
+                    <img class="loginicon" src="../img/未标题-2.png">
                 </a>
                 <!-- 这里的模态框用js实现 -->
                 <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
@@ -45,11 +45,11 @@
                 <img class="backgroundimg" src="../img/interspace.png" alt="">
                 <div class="lucency"></div>
                 <div class="tintroduce">
-                    <img class="fl" src="../img/teach.png" alt="">
+                    <!-- <img class="fl" src="../img/teach.png" alt="">
                     <div class="fl teacherna" >
                         <div>张三</div>
                         <div>欢迎您来到教师空间!</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="banxin mycourse clearfix">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="rightcontent">
                             <div class="schedule clearfix">
-                                <a data-toggle="modal"  data-target="#myModal2" class="courseicon">
+                                <!-- <a data-toggle="modal"  data-target="#myModal2" class="courseicon">
                                     <div class="add">+</div>
                                     <div class="addtext">添加课程</div>
                                 </a>
@@ -106,43 +106,44 @@
                                     <div class="imgtext">
                                         涂装工艺
                                     </div>
-                                </a>
+                                </a> -->
                     
                             </div>
                             
                             <div class="scoreranking">
-                                889
                                 <form action="">
-                                    <div class="headimg">
-                                        <img src="" class="headicon">
-                                        <div class="imgtitle">更换头像</div>
-                                    </div>
+                                    <div class="headimg clearfix">
+                                        <img src="../img/未标题-10.png" class="headicon fl">
+                                        <div class="imgtitle fl">
+                                            更换头像
+                                            <input type="file" class="filebtn">
+                                        </div>      
+                                    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                    
                                     <div class="headline">
-    
+                                        基本资料
                                     </div>
-                                   
-                                    <input class="nickname" type="text">
-                        
+                                    <div class="nickname">
+                                        <input placeholder="设置昵称" type="text">
+                                    </div>
                                     <div class="time">
-                                        <input type="text">
+                                        <input placeholder="设置出生日期" type="text">
                                     </div>
                                     <div class="sex">
-                                        <input type="text">
+                                        性别：
                                         <select name="" id="">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="">男</option>
+                                            <option value="">女</option>
+                                            <option value="">其它</option>
                                         </select>
                                     </div>
-                                    <textarea name="" id="" cols="30" rows="10">
+                                    
+                                    <textarea  class="signature" name="" id="" >设置个性签名</textarea>
 
-                                    </textarea>
+                                    <div class="confirm">确定</div>
                                 </form>
-
-                            </div>
-                            
-                            
-    
-    
+ 
+                            </div>    
                         </div>
                     </div>
             </div>
@@ -212,7 +213,7 @@
     
                               <div class="codefather clearfix">
                                     <input  placeholder="输入验证码" name="code" class="code" type="text">
-                                    <img src="../img/code.png" class="codeimg"></img>
+                                    <img src="../img/code.png" class="codeimg">
                                     <div class="check">换一张</div>
                                     <div class="codeerr uperr">
                                         ⓧ 用户名或密码错误
@@ -270,18 +271,45 @@
                             上传图片  <img src="" alt="">
                         </div>
                         <input type="file">
+
+                        <div class="save">
+                            保存
+                        </div>
                     </form>    
                 </div>
             </div>
         </div>
         <!--  -->
 </body>
+<script type="text/html" id="tintroduce" >
+    <img class="fl" src="../img/<%=  person[0].logo %>" alt="">
+    <div class="fl teacherna" >
+        <div><%= person[0].teacher %></div>
+        <div>欢迎您来到教师空间!  </div>
+    </div>
+</script>
+<script type="text/html" id="schedule" >
+        <a data-toggle="modal"  data-target="#myModal2" class="courseicon">
+            <div class="add">+</div>
+            <div class="addtext">添加课程</div>
+        </a>
+        <% for(var i=0; i< person.length; i++){ %>
+           
+            <a href="" class="courseimg">
+                <img class="courseshow" src="../img/<%= person[i].logo %>" alt="" />
+                <div class="imgtext">
+                    <%= person[i].name %>
+                </div>
+            </a>
+        <%}%>
+</script>
 <!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/art-template/lib/template-web.js" ></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
-<script src="../package/jquerypage.js" ></script>
+<!-- <script src="../package/jquerypage.js" ></script> -->
 <script type="text/javascript">
 $(function(){
     // 模态框居中
@@ -289,13 +317,13 @@ $(function(){
     modalCenter('#myModal1')
     modalCenter('#myModal2')
 
-    $(".tcdPageCode").createPage({ 
-    pageCount:20, 
-    current:1, 
-    backFn:function(p){ 
-    console.log(p); 
-    } 
-    }); 
+    // $(".tcdPageCode").createPage({ 
+    // pageCount:20, 
+    // current:1, 
+    // backFn:function(p){ 
+    // console.log(p); 
+    // } 
+    // }); 
 
    
     // 单击课程简介
@@ -308,13 +336,51 @@ $(function(){
     })
 
         // 单击课程简介
-        $('.studybutton').on("click",function(){
+    $('.studybutton').on("click",function(){
         $(".schedule").css({"display":"block"})
         $(".scoreranking").css({"display":"none"})
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.scoresbutton').css({"background-color":"#81d282"})
     })
+
+    // 教师名字和logo
+    $.ajax({
+        type:"GET",
+        url:"http://192.168.1.110/lanhong/index.php/admin/Index/logo",
+        dataType:"json",
+        data: {cid: 1},
+        // crossDomain: true,//是否跨域:是
+        // jsonp: "jsonpcallback",
+        success:function(data){
+            console.log("当前教师的课程",data);
+            alert(data)
+            var htmlx = template("tintroduce",{person: data});
+            $(".tintroduce").html(htmlx);
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });  
+
+    //课程名称和课程图片
+    $.ajax({
+        type:"GET",
+        url:"http://192.168.1.110/lanhong/index.php/admin/",
+        dataType:"json",
+        data: {sid: 1},
+        // crossDomain: true,//是否跨域:是
+        // jsonp: "jsonpcallback",
+        success:function(data){
+            console.log("当前教师的课程",data);
+            // var result = data;
+            var html = template("schedule",{person: data});
+            $(".schedule").html(html);
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });  
     
 })
 

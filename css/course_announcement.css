@@ -1,0 +1,49 @@
+/* 系统公告的内容 */
+.announcement_content {
+    margin-top: 70px;
+}
+/* 系统公告的一块内容 */
+.announcement_information {
+    margin-bottom: 40px;
+    padding: 30px;
+    height: 255px;
+    border: 2px solid #81d283;
+    border-radius: 20px;
+}
+.announcement_btn{
+    float: right;
+    position: relative;
+    top: -10px;
+}
+.announcement_btn button {
+    padding: 5px;
+    font-size: 20px;
+    color: #81d283;
+    background: none;
+    border: none;
+}
+.announcement_btn span {
+    color: #81d283;
+}
+.announcement_text p {
+    font-size: 18px;
+    font-weight: bold;
+}
+.announcement_text .announcement_text_content {
+    font-size: 16px;
+    font-weight: normal;
+}
+/* 添加按钮 */
+.add_announcement_btn {
+    text-align: center;
+}
+.add_announcement_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 500px;
+    font-size: 22px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}

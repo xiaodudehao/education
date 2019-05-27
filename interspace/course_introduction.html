@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>课程简介</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../css/teacherinterspace.css">
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/course_introduction.css">
+    <link rel="stylesheet" href="../css/teacher_team.css">
+</head>
+<body>
+<div class="maincontent">
+    <!-- 头部导航栏开始 -->
+    <div class="header">
+        <div class="banxin">
+            <img src="../img/未标题-10.png" class="logo" alt="">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">院校</a></li>
+                <li><a href="">立体教材</a></li>
+            </ul>
+            <div class="search">
+                <img class="searchicon" src="../img/未标题-1.png" ></img>
+                <input type="text" placeholder="搜索课程或学校">
+            </div>
+            <div class="login">
+                <a href="">
+                    <img class="loginicon" src="../img/未标题-2.png"></img>
+                </a>
+                <!-- 这里的模态框用js实现 -->
+                <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航栏结束 -->
+
+    <!--  中间内容开始  -->
+    <div class="tt_content">
+        <!--  左边内容  -->
+        <div class="tt_content_left">
+            <img src="../images/kecheng1.png">
+            <div class="tt_content_leftmenu">
+                <a href="" >基本设置</a>
+                <a href="" class="active">课程简介</a>
+                <a href="./teacher_team.html" >教师团队</a>
+                <a href="" >课程资源</a>
+                <a href="./course_catalog.html">课程目录</a>
+                <a href="./course_announcement.html">系统公告</a>
+                <a href="./scoring_criteria.html">评分表准</a>
+                <a href="">测验/考试</a>
+                <a href="">讨论区</a>
+                <a href="">班级</a>
+                <a href="">学生</a>
+                <a href="">课程统计</a>
+                <a href="">学习统计</a>
+            </div>
+        </div>
+        <!--  右边内容  -->
+        <div class="tt_content_right">
+            <div class="tt_content_right_title">
+                课程简介
+            </div>
+            <div class="course_introduction">
+                <div class="course_title">
+                    课程简介
+                </div>
+                <div class="course_information">
+                    <div class="jianjie">
+                        <div class="jianjie1">
+                            <p>简介：</p>
+                            <textarea class="textarea" id="textarea" >   这里这里是默这里这里是默认认值认值这里是默认值这里是默认默认值这里是默认值这里是默认值是默认值认值这里是默认值这里是默认值是默认值值这里是默认值这里是默认值是默认值认值这里是默认值这里是默认值是默认值</textarea>
+                        </div>
+                        <div class="jianjie1">
+                            <p>课程特色：</p>
+                            <textarea class="textarea" id="textarea2" >   这里这认值这里是默认值这里是默认值是默认值认值这里认值这里是默认值是默认值认值这里是默认值这里是默认值是默认值</textarea>
+                        </div>
+                        <div class="jianjie1">
+                            <p>预备知识：</p>
+                            <textarea class="textarea" id="textarea3" >   这里这里是默这里这里是里是默认值这里是默认值是默认值这里这里是默值这里是默认值是默认值认值这里是默认值这里是默认值是默认值值这里是默认值这里是默认值是默认值认值这里是默认值这里是默认值是默认值</textarea>
+                        </div>
+                        <div class="jianjie1">
+                            <p>课程参考资料/书籍：</p>
+                            <textarea class="textarea" id="textarea4" >   这里这里是默这里这里是默认默认值这里是默认值是默认值这里这里是默这里这里是默认值这里是默认值这里是默认值是默认值认值这里是默认值这里是默认值是默认值值这里是默认值这里是默认值是默认值认值这里是默认值这里是默认值是默认值</textarea>
+                        </div>
+                    </div>
+                    <!--  按钮  -->
+                    <button type="button" onclick="dianji()">保   存</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!--  中间内容结束  -->
+    <!-- 底部开始 -->
+    <div class="footercontenter">
+        <div class="footer">
+            <div class="banxin footerbanxin">
+                <div class="footercenter">
+                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部结束 -->
+
+</div>
+
+<!-- 注册模态框开始 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户注册
+            </div>
+            <form id="registerform" name="register"  class="registerform" action="">
+                <div class="form-group">
+
+                    <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input name="username" placeholder="输入用户名" class="username" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                </div>
+                <!-- <div class="nameexist">该用户名已存在</div> -->
+                <div class="registerbutton">立即注册</div>
+                <div class="elseregister">
+                    <span>其它登录方式</span>
+                    <a href=""><img src="../img/qq.png" alt=""></a>
+                    <a href=""><img src="../img/weixin.png" alt=""></a>
+                    <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                    <div class="nameexist">该用户名已存在</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 注册模态框结束 -->
+<!-- 登录模态框开始 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户登录
+            </div>
+            <form class="registerform loginform" id="loginform" action="">
+                <div class="form-group">
+                    <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+                    <input placeholder="输入密码" name="password" class="username" type="password">
+                </div>
+
+                <div class="codefather clearfix">
+                    <input  placeholder="输入验证码" name="code" class="code" type="text">
+                    <img src="../img/code.png" class="codeimg"></img>
+                    <div class="check">换一张</div>
+                    <div class="codeerr uperr">
+                        ⓧ 用户名或密码错误
+                    </div>
+                    <div class="codeerr cerr">
+                        ⓧ 验证码错误
+                    </div>
+                </div>
+
+                <div class="loginbutton">立即登录</div>
+                <div class="else">
+
+                    <div class="linkregister">注册</div>
+                    <div class="forget">忘记密码</div>
+                    <span>其它登录方式</span>
+
+
+                    <a href=""><img src="../img/qq.png" alt=""></a>
+                    <a href=""> <img src="../img/weixin.png" alt=""></a>
+                    <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 登录模态框结束 -->
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
+
+</body>
+<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../js/public.js" ></script>
+<!-- 分页 -->
+<script src="../package/jquerypage.js" ></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+
+<!-- 模态框 -->
+<script type="text/javascript">
+    $(function(){
+        // 模态框居中
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+
+        $(".tcdPageCode").createPage({
+            pageCount:20,
+            current:1,
+            backFn:function(p){
+                console.log(p);
+            }
+        });
+        select_cou_intr()
+        //  调用自适应高度
+        var text = document.getElementById("textarea");
+        var text2 = document.getElementById("textarea2");
+        var text3 = document.getElementById("textarea3");
+        var text4 = document.getElementById("textarea4");
+        autoTextarea(text);// 调用
+        autoTextarea(text2);// 调用
+        autoTextarea(text3);// 调用
+        autoTextarea(text4);// 调用
+    })
+    /**
+     * 文本框根据输入内容自适应高度
+     * @param                {HTMLElement}        输入框元素
+     * @param                {Number}                设置光标与输入框保持的距离(默认0)
+     * @param                {Number}                设置最大高度(可选)
+     */
+    var autoTextarea = function (elem, extra, maxHeight) {
+        extra = extra || 0;
+        var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
+            isOpera = !!window.opera && !!window.opera.toString().indexOf('Opera'),
+            addEvent = function (type, callback) {
+                elem.addEventListener ?
+                    elem.addEventListener(type, callback, false) :
+                    elem.attachEvent('on' + type, callback);
+            },
+            getStyle = elem.currentStyle ? function (name) {
+                var val = elem.currentStyle[name];
+
+                if (name === 'height' && val.search(/px/i) !== 1) {
+                    var rect = elem.getBoundingClientRect();
+                    return rect.bottom - rect.top -
+                        parseFloat(getStyle('paddingTop')) -
+                        parseFloat(getStyle('paddingBottom')) + 'px';
+                };
+
+                return val;
+            } : function (name) {
+                return getComputedStyle(elem, null)[name];
+            },
+            minHeight = parseFloat(getStyle('height'));
+
+        elem.style.resize = 'none';
+
+        var change = function () {
+            var scrollTop, height,
+                padding = 0,
+                style = elem.style;
+
+            if (elem._length === elem.value.length) return;
+            elem._length = elem.value.length;
+
+            if (!isFirefox && !isOpera) {
+                padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
+            };
+            scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+            elem.style.height = minHeight + 'px';
+            if (elem.scrollHeight > minHeight) {
+                if (maxHeight && elem.scrollHeight > maxHeight) {
+                    height = maxHeight - padding;
+                    style.overflowY = 'auto';
+                } else {
+                    height = elem.scrollHeight - padding;
+                    style.overflowY = 'hidden';
+                };
+                style.height = height + extra + 'px';
+                scrollTop += parseInt(style.height) - elem.currHeight;
+                document.body.scrollTop = scrollTop;
+                document.documentElement.scrollTop = scrollTop;
+                elem.currHeight = parseInt(style.height);
+            };
+        };
+
+        addEvent('propertychange', change);
+        addEvent('input', change);
+        addEvent('focus', change);
+        change();
+    };
+
+    // 查询简介
+    function select_cou_intr() {
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: "http://192.168.1.110/lanhong/index.php/admin/Index/inquire",
+            type: "post",
+            dataType: "json",
+            async:false,    //不进行异步刷新
+            data: {
+                cid: 1
+            },
+            success: function (data) {
+                console.log(data)
+                var res = ""
+                res = '<div class="jianjie1">\n' +
+                    '                        <p>简介：</p>\n' +
+                    '                        <textarea class="textarea" id="textarea" >'+data.intro +'</textarea>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="jianjie1">\n' +
+                    '                        <p>课程特色：</p>\n' +
+                    '                        <textarea class="textarea" id="textarea2" >'+ data.style +'</textarea>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="jianjie1">\n' +
+                    '                        <p>预备知识：</p>\n' +
+                    '                        <textarea class="textarea" id="textarea3" >'+ data.getready +'</textarea>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="jianjie1">\n' +
+                    '                        <p>课程参考资料/书籍：</p>\n' +
+                    '                        <textarea class="textarea" id="textarea4" >'+ data.book + '</textarea>\n' +
+                    '                    </div>'
+                $(".jianjie").html(res)
+            },
+            error: function (e) {
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+
+    }
+    //  点击保存按钮事件
+    function dianji() {
+        // loading modal显示
+        $("#loadingModal").modal("show")
+        console.log($('#textarea').val())
+        var intro = $('#textarea').val()
+        var style = $('#textarea2').val()
+        var getready = $('#textarea3').val()
+        var book = $('#textarea4').val()
+        var CouIntrAjax = $.ajax({
+            url: "http://192.168.1.110/lanhong/index.php/admin/Index/intro",
+            type: "post",
+            dataType: "json",
+            async:false,    //不进行异步刷新
+            data: {
+                cid: 1,
+                intro: intro,
+                style: style,
+                getready: getready,
+                book: book
+            },
+            success: function (data) {
+                console.log(data)
+                toastr.success("操作成功！")
+                select_cou_intr()
+            },
+            error: function (e) {
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+        var text = document.getElementById("textarea");
+        var text2 = document.getElementById("textarea2");
+        var text3 = document.getElementById("textarea3");
+        var text4 = document.getElementById("textarea4");
+        autoTextarea(text);// 调用
+        autoTextarea(text2);// 调用
+        autoTextarea(text3);// 调用
+        autoTextarea(text4);// 调用
+    }
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
+</script>
+<!--<script src="../js/course_introduction.js" ></script>-->
+</html>
+

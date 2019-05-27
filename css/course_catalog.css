@@ -1,0 +1,20 @@
+.contentbox {
+    margin-top: 70px;
+}
+.projecttitle {
+    padding: 5px;
+    background: linear-gradient(to left, #b2dfb3, #ffffff);
+}
+.add_catalog_btn {
+    text-align: center;
+}
+.add_catalog_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 500px;
+    font-size: 22px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}

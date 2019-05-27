@@ -1,0 +1,41 @@
+/* 评分标准主要内容 */
+.scoring_criteria_content {
+    margin: 70px 0 40px 0;
+    padding: 30px;
+    height: 1000px;
+    border: 2px solid #81d283;
+    border-radius: 20px;
+}
+/* 标题 */
+.criteria_content_title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.criteria_content_text {
+    font-size: 16px;
+    line-height: 32px;
+}
+/* 保存按钮 */
+.save_btn {
+    text-align: center;
+}
+.save_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 500px;
+    font-size: 22px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}
+.textarea {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    font-size: 18px;
+    line-height: 32px;
+    padding:5px;
+    border: none;
+    background-color: #fafafa;
+}

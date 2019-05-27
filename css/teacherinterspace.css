@@ -629,6 +629,7 @@ input::-ms-clear {
   color: #000;
   margin-right: 60px;
   margin-bottom: 40px;
+  overflow: hidden;
 }
 .mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg .courseshow {
   width: 240px;
@@ -647,12 +648,99 @@ input::-ms-clear {
   text-align: center;
   background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.8) 70%, transparent);
   /* 标准的语法 */
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .mainpartportion .mycourse .rightresult .rightcontent .scoreranking {
   display: none;
 }
 .mainpartportion .mycourse .rightresult .rightcontent .pagebox {
   text-align: center;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .headimg .headicon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .headimg .imgtitle {
+  margin-top: 82px;
+  margin-left: 50px;
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #80c47f;
+  color: #fff;
+  position: relative;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .headimg .filebtn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+  background-color: transparent;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .nickname,
+.mainpartportion .mycourse .rightresult .scoreranking .time {
+  margin-bottom: 40px;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .nickname input,
+.mainpartportion .mycourse .rightresult .scoreranking .time input {
+  height: 82px;
+  width: 400px;
+  border: 1px solid #666;
+  color: #666;
+  border-radius: 10px;
+  font-size: 30px;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .sex {
+  height: 82px;
+  width: 182px;
+  border: 1px solid #666;
+  color: #666;
+  border-radius: 10px;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .sex select {
+  height: 80px;
+  width: 72px;
+  border: none;
+  background: #fafafa;
+  outline: none;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .sex select option {
+  background-color: #81d283;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .headline {
+  color: #33b150;
+  font-size: 36px;
+  margin-top: 50px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .signature {
+  font-size: 30px;
+  width: 800px;
+  height: 300px;
+  text-align: left;
+  margin-bottom: 40px;
+}
+.mainpartportion .mycourse .rightresult .scoreranking .confirm {
+  text-align: center;
+  line-height: 55px;
+  height: 55px;
+  width: 200px;
+  color: #fff;
+  background-color: #81d283;
+  font-size: 30px;
+  border-radius: 10px;
 }
 .modalcenter {
   width: 600px;
@@ -696,4 +784,14 @@ input::-ms-clear {
   height: 220px;
   border-radius: 5px;
   background-color: palevioletred;
+}
+.curriculumprovision .save {
+  width: 315px;
+  height: 55px;
+  border-radius: 5px;
+  background-color: #33b150;
+  line-height: 55px;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
 }
