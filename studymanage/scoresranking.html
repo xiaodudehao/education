@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="../css/teachpublic.css">
     <link rel="stylesheet" href="../css/scoresranking.css">
     <link rel="stylesheet" href="../css/page.css">
+    <style>
+    .pagebox{
+        text-align: center;
+    }
+    </style>
 </head>
 <body>
     <div class="maincontent">
@@ -77,16 +82,17 @@
                             <input type="text" placeholder="输入学生姓名" >
                             <img src="../img/searchimg.png" alt="" class="searchimg">
                         </div>
-
-                        <table class="schedule">
+                        <table class="mytable">
                             <tr>
-                                    <td>我的进度</td>
-                                    <td>张佳</td>
-                                    <td>上海城市科技学校</td>
-                                    <td>65时12分12秒</td>
-                                    <td>15%</td>
-                                    <td>188</td>
-                                </tr>
+                                <th width="120px">我的进度</th>
+                                <th width="100px">张佳</th>
+                                <th width="250px">上海城市科技学校</th>
+                                <th width="175px">65时12分12秒</th>
+                                <th  width="100px">15%</th>
+                                <th width="100px">188</th>
+                            </tr>
+                        </table>
+                        <table class="schedule">
                             <tr>
                                 <th width="120px">序号</th>
                                 <th width="100px">姓名</th>
@@ -362,11 +368,15 @@
 
                         </table>
                         <div class="pagebox">
-                                <div class="tcdPageCode">
+                                <div class="tcdPageCode a">
 
                                 </div>
                         </div>
+                        <div class="pagebox">
+                            <div class="tcdPageCode b">
 
+                            </div>
+                        </div>
 
 
                     </div>
@@ -466,50 +476,321 @@
     </div>
     <!-- 登录模态框结束 -->
 </body>
-<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
+
+<!-- 进度的模板开始 -->
+<script id="table" type="text/html">
+    <tr>
+        <th width="120px">序号</th>
+        <th width="100px">姓名</th>
+        <th width="250px">学校/单位</th>
+        <th width="175px">学习时长</th>
+        <th  width="100px">学习进度</th>
+        <th width="100px">排名</th>
+    </tr>
+    <% for(var i=0; i< person.length; i++){ %>
+        <% var a = person[i] %>
+        <tr>
+            <td><%= i + 1 +(page-1)*10 %></td>
+            <td><%= a.username %></td>
+            <td> <%= a.school %></td>
+            <td> <%= a.hour %>时 <%= a.minute %>分<%= a.second %>秒</td>
+            <td> <%= a.zplan %>%</td>
+            <td>1</td>
+        </tr>
+    <%}%>
+</script>
+<script id="mytable" type="text/html">
+
+   
+        <% var a = person[0][0] %>
+            <tr>
+                <td width="120px"><%= i + 1 %></td>
+                <td width="100px"><%= a.username %></td>
+                <td width="250px"> <%= a.school %></td>
+                <td width="175px"> <%= a.hour %>时 <%= a.minute %>分<%= a.second %>秒</td>
+                <td width="100px"> <%= a.zplan %>%</td>
+                <td width="100px"><%= i + 1 %></td>
+            </tr>
+</script>
+<!-- 进度的模板结束 -->
+
+
+<!-- 成绩的模板开始 -->
+<script id="scoreranking" type="text/html">
+    <tr>
+        <th width="120px">序号</th>
+        <th width="100px">姓名</th>
+        <th width="250px">学校/单位</th>
+        <th width="175px">学习成绩</th>
+        <th width="100px">排名</th>
+    </tr>
+    <% for(var i=0; i< person.length; i++){ %>
+        <% var a = person[i] %>
+        <tr>
+            <td><%= i + 1 +(page-1)*10 %></td>
+            <td><%= a.username %></td>
+            <td> <%= a.school %></td>
+            <td> <%= a.score %></td>
+            <td> <%= i + 1 +(page-1)*10 %></td>
+            <td></td>
+        </tr>
+    <%}%>
+</script>
+
+<script id="myscoreranking" type="text/html">
+
+   
+    <% var a = person[0][0] %>
+    <% var b = person[0][1] %>
+        <tr>
+            <td width="120px"></td>
+            <td width="100px"><%= a.username %></td>
+            <td width="250px"> <%= a.school %></td>
+            <td width="175px"> <%= a.score %></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+        </tr>
+</script>
+<!-- 成绩的模板结束 -->
+
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/art-template/lib/template-web.js" ></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
 <script> 
-    // 总页码数
-    var count = 21
-    // 当前所处的页码数
 
- $(".tcdPageCode").createPage({ 
-  pageCount:count, 
-  current:1, 
-  backFn:function(p){ 
-   console.log(p); 
-  } 
- }); 
 
- // 判断当前页面是成绩排行还是进度排行
- var that = 0;
+    // 一开始进入页面发送一次ajax渲染进度数据。
+    $(".tcdNumber").on("click",function(){
+        alert(1)
+    })
+
+    //  点击某一页，渲染那一页的数据
+    //进度页码数
+    function clickpage(){
+
+      //进度数据
+      $.ajax({
+            type:"GET",
+            url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pagetwo?cid=1",
+            dataType:"json",
+            // crossDomain: true,//是否跨域:是
+            // jsonp: "jsonpcallback",
+            success:function(data){
+                console.log("进度数据",data);
+                var result = data;
+                var htmlx = template("table",{person: result,page: 1});
+                $(".schedule").html(htmlx);
+            },
+            error:function(jqXHR){
+                console.log("发生错误:"+jqXHR.status);
+            }
+    });  
+    // 获取我的数据
+   
+    $.ajax({
+        type:"GET",
+        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/oneself",
+        dataType:"json",
+        data: {cid: 1,uid: 1},
+        // crossDomain: true,//是否跨域:是
+        // jsonp: "jsonpcallback",
+        success:function(data){
+            console.log('用户自身的进度数据',data);
+            var result = data;
+            var html = template("mytable",{person: result});
+            $(".mytable").html(html);
+            
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+
+
+        }
+    }); 
+
+
+    $.ajax({
+        type:"GET",
+        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pge",
+        dataType:"json",
+        data: {cid: 1},
+        success:function(data){
+            console.log('进度页码数',data);
+            //点击分页开始
+            $(".a").createPage({ 
+                pageCount: data, 
+                current:1, 
+                backFn:function(p){ 
+                console.log(p); 
+                //进度数据
+                $.ajax({
+                    type:"GET",
+                    url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/page",
+                    dataType:"json",
+                    data: {page: p,cid: 1},
+                    // crossDomain: true,//是否跨域:是
+                    // jsonp: "jsonpcallback",
+                    success:function(data){
+                        console.log('总页码数',data);
+                        var result = data;
+                        var htmlx = template("table",{person: result,page: p});
+                        $(".schedule").html(htmlx);
+
+                    },
+                    error:function(jqXHR){
+                        console.log("发生错误:"+jqXHR.status);
+                    }
+                }); 
+                } 
+            }); 
+            //点击分页结束
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });      
+
+
+    }
+ 
+    clickpage();
+
+
+
+    // 判断当前页面是成绩排行还是进度排行
+    var that = 0;
 
     //  学习排行
     // 在未单击课程目录时
 
     // 学习成绩排行
     $('.scoresbutton').on("click",function(){
-        $(".scoreranking").css({"display":"block"})
-        $(".schedule").css({"display":"none"})
+        $(".b").css({"display":"inline-block"})
+        $(".a").css({"display":"none"})
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.studybutton').css({"background-color":"#81d282"})
 
-        that = 1;
+        // $(".tcdPageCode").removeClass("a").addClass("b");
+      //成绩数据
+      $.ajax({
+            type:"GET",
+            url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/page?cid=1",
+            dataType:"json",
+            // crossDomain: true,//是否跨域:是
+            // jsonp: "jsonpcallback",
+            success:function(data){
+                console.log("成绩数据",data);
+                var result = data;
+                var htmlx = template("scoreranking",{person: result,page: 1});
+                $(".schedule").html(htmlx);
+            },
+            error:function(jqXHR){
+                console.log("发生错误:"+jqXHR.status);
+            }
+    });  
+    // 获取我的数据
+    $.ajax({
+        type:"GET",
+        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/twoself",
+        dataType:"json",
+        data: {cid: 1,uid: 1},
+        // crossDomain: true,//是否跨域:是
+        // jsonp: "jsonpcallback",
+        success:function(data){
+            console.log('用户自身的成绩数据',data);
+            var result = data;
+            var html = template("myscoreranking",{person: result});
+            $(".mytable").html(html);
+            
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+
+
+        }
+    }); 
+
+
+    $.ajax({
+        type:"GET",
+        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pgeone?cid=1",
+        dataType:"json",
+        data: {cid: 1},
+        success:function(data){
+            console.log('成绩页码数',data);
+            //点击分页开始
+            $(".b").createPage({ 
+                pageCount: data, 
+                current:1, 
+                backFn:function(p){ 
+                console.log(p); 
+                //进度数据
+                $.ajax({
+                    type:"GET",
+                    url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/page?cid=1",
+                    dataType:"json",
+                    data: {page: p,cid: 1},
+                    // crossDomain: true,//是否跨域:是
+                    // jsonp: "jsonpcallback",
+                    success:function(data){
+                        console.log('总页码数',data);
+                        var result = data;
+                        var htmlx = template("scoreranking",{person: result,page: p});
+                        $(".schedule").html(htmlx);
+
+                    },
+                    error:function(jqXHR){
+                        console.log("发生错误:"+jqXHR.status);
+                    }
+                }); 
+                } 
+            }); 
+            //点击分页结束
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });      
+
+        // 成绩的页码数//
+        $.ajax({
+            type:"GET",
+            url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pgeone",
+            dataType:"json",
+            data: {cid: 1},
+            // crossDomain: true,//是否跨域:是
+            // jsonp: "jsonpcallback",
+            success:function(result){
+                console.log("成绩的页码数",result);
+                
+            },
+            error:function(jqXHR){
+                console.log("发生错误:"+jqXHR.status);
+
+
+            }
+        });    
     })
 
-        // 学习进度排行
+
+
+    // 学习进度排行
     $('.studybutton').on("click",function(){
-        $(".schedule").css({"display":"block"})
-        $(".scoreranking").css({"display":"none"})
+        //inline-block可以解决block无法居中的问题。
+        $(".a").css({"display":"inline-block"})
+        $(".b").css({"display":"none"})
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.scoresbutton').css({"background-color":"#81d282"})
-        that = 0;
+     
+        clickpage();
+
+
     })
 
 

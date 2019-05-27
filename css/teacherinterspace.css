@@ -216,7 +216,7 @@ input::-ms-clear {
 }
 .modal-content {
   width: 500px;
-  height: 500px;
+  min-height: 500px;
   font-size: 20px;
   background-color: #f2f2f2;
   margin: 0 auto;
@@ -653,4 +653,47 @@ input::-ms-clear {
 }
 .mainpartportion .mycourse .rightresult .rightcontent .pagebox {
   text-align: center;
+}
+.modalcenter {
+  width: 600px;
+  min-height: 600px;
+}
+.curriculumprovision {
+  margin: 0 50px 50px 50px;
+  font-size: 20px;
+}
+.curriculumprovision .curriculumname,
+.curriculumprovision .curriculumschool,
+.curriculumprovision .curriculumclass {
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 28px;
+}
+.curriculumprovision .curriculumname input,
+.curriculumprovision .curriculumschool input,
+.curriculumprovision .curriculumclass input {
+  width: 350px;
+  display: block;
+  float: right;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #33b150;
+}
+.curriculumprovision .curriculumname select,
+.curriculumprovision .curriculumschool select,
+.curriculumprovision .curriculumclass select {
+  width: 350px;
+  display: block;
+  float: right;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #33b150;
+}
+.curriculumprovision .curriculumimg img {
+  float: right;
+  display: block;
+  width: 355px;
+  height: 220px;
+  border-radius: 5px;
+  background-color: palevioletred;
 }

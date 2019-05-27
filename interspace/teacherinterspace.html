@@ -60,7 +60,7 @@
                         </div>
                         <div class="rightcontent">
                             <div class="schedule clearfix">
-                                <a class="courseicon">
+                                <a data-toggle="modal"  data-target="#myModal2" class="courseicon">
                                     <div class="add">+</div>
                                     <div class="addtext">添加课程</div>
                                 </a>
@@ -112,6 +112,32 @@
                             
                             <div class="scoreranking">
                                 889
+                                <form action="">
+                                    <div class="headimg">
+                                        <img src="" class="headicon">
+                                        <div class="imgtitle">更换头像</div>
+                                    </div>
+                                    <div class="headline">
+    
+                                    </div>
+                                   
+                                    <input class="nickname" type="text">
+                        
+                                    <div class="time">
+                                        <input type="text">
+                                    </div>
+                                    <div class="sex">
+                                        <input type="text">
+                                        <select name="" id="">
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                        </select>
+                                    </div>
+                                    <textarea name="" id="" cols="30" rows="10">
+
+                                    </textarea>
+                                </form>
+
                             </div>
                             
                             
@@ -213,6 +239,42 @@
             </div>
         </div>
         <!-- 登录模态框结束 -->
+
+
+        <!-- -->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modalcenter">
+                    <div class="registertitle">
+                        课程基本设置
+                    </div>
+                    <form class="curriculumprovision" action="">
+                        <div class="curriculumname clearfix">
+                           课程名称<input type="text">
+                        </div>
+                        <div class="curriculumschool clearfix">
+                            所属学校/单位 <input type="text">
+                        </div>
+                        <div class="curriculumclass clearfix">
+                            所属专业大类  
+                            <select name="" id="">
+                                <option value="">
+                                    123434
+                                </option>
+                                <option value="">
+                                    5768
+                                </option>
+                            </select>
+                        </div>
+                        <div class="curriculumimg clearfix">
+                            上传图片  <img src="" alt="">
+                        </div>
+                        <input type="file">
+                    </form>    
+                </div>
+            </div>
+        </div>
+        <!--  -->
 </body>
 <!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
@@ -225,6 +287,7 @@ $(function(){
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
+    modalCenter('#myModal2')
 
     $(".tcdPageCode").createPage({ 
     pageCount:20, 
