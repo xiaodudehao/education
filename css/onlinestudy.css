@@ -216,10 +216,27 @@ input::-ms-clear {
 }
 .modal-content {
   width: 500px;
-  min-height: 500px;
+  height: 500px;
   font-size: 20px;
   background-color: #f2f2f2;
   margin: 0 auto;
+}
+.modal-content .classification {
+  position: relative;
+}
+.modal-content .classification .childa,
+.modal-content .classification .childb {
+  position: absolute;
+  color: #999;
+}
+.modal-content .classification .childa {
+  left: 50px;
+  top: -30px;
+  color: #33b150;
+}
+.modal-content .classification .childb {
+  left: 100px;
+  top: -30px;
 }
 .modal-content .registerform {
   margin-top: -30px;
@@ -315,6 +332,19 @@ input::-ms-clear {
   position: relative;
   top: 22px;
 }
+.modal-content .registerform .teacherloginbutton {
+  width: 400px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #33b150;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
+  position: relative;
+  top: 22px;
+}
 .modal-content .registerform .else {
   width: 400px;
   margin: 0 auto;
@@ -362,6 +392,10 @@ input::-ms-clear {
   top: -128px;
   color: red;
   display: none;
+}
+.modal-content .teacherregister {
+  display: none;
+  margin-top: 0;
 }
 .modal-content .registertitle {
   height: 100px;

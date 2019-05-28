@@ -144,6 +144,21 @@ $('#loginform').bootstrapValidator({
                     }
                 }
             })
+
+            // 
+            $(".childa").on("click",function(){
+                $(".childa").css({"color":"#33b150"})
+                $(".childb").css({"color":"#999"})
+                $(".studentregister").css({"display":"block"})
+                $(".teacherregister").css({"display":"none"});
+            })
+            $(".childb").on("click",function(){
+                $(".childb").css({"color":"#33b150"})
+                $(".childa").css({"color":"#999"})
+                $(".teacherregister").css({"display":"inline-block"})
+                $(".studentregister").css({"display":"none"});
+            })
+
             // 在单击这个按钮时，如果没有验证通过就提示内容
             $('.registerbutton').on('click',function(){
                $('#registerform').data('bootstrapValidator').validate()

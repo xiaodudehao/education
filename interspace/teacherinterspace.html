@@ -350,6 +350,8 @@ $(function(){
         url:"http://192.168.1.110/lanhong/index.php/admin/Index/logo",
         dataType:"json",
         data: {cid: 1},
+        async: false,    // 使用同步操作
+            timeout : 50000, //超时时间：50秒
         // crossDomain: true,//是否跨域:是
         // jsonp: "jsonpcallback",
         success:function(data){

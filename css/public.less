@@ -258,10 +258,28 @@ input::-ms-clear{display:none;}
 // 注册和登录模态框开始
 .modal-content{
     width: 500px;
-    min-height: 500px;
+    height: 500px;
     font-size: 20px;
     background-color: #f2f2f2;
     margin: 0 auto;
+    .classification{
+        position: relative;
+        .childa,
+        .childb{
+            position: absolute;
+            color: #999;
+        }
+        .childa{
+            left: 50px;
+            top: -30px;
+            color: #33b150;
+        }
+        .childb{
+            left: 100px;
+            top: -30px;
+        }
+    }
+
     .registerform{
         margin-top: -30px;
        
@@ -354,6 +372,8 @@ input::-ms-clear{display:none;}
             margin: 0 auto;
             margin-top: 37px;
         }
+
+
         .loginbutton{
             width:400px;
             height:50px;
@@ -367,6 +387,20 @@ input::-ms-clear{display:none;}
             position: relative;
             top: 22px;
         }
+        .teacherloginbutton{
+            width:400px;
+            height:50px;
+            border-radius: 15px;
+            background-color: #33b150;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            font-size: 18px;
+            margin: 0 auto;
+            position: relative;
+            top: 22px;
+        }
+
         .else{
             width:400px;
             position: relative;
@@ -418,6 +452,11 @@ input::-ms-clear{display:none;}
                 display: none;
             }
         }
+    }
+
+    .teacherregister{
+        display: none;
+        margin-top: 0;
     }
     .loginform{
        
