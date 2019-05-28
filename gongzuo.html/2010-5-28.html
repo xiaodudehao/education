@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <style>
+        .data{
+            margin: 50px; 
+        }
+    </style>
+</head>
+<body>
+        <input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
+</body>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+<script src="../package/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript">
+   $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+</script>   
+</html>

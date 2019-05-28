@@ -1,3 +1,6 @@
+var HTTP_URL = "http://192.168.1.110/lanhong/index.php/admin/"
+
+
 // bootstrap注册和登录模态框居中
 function modalCenter(modalId){
     $(modalId).on('show.bs.modal', function (e) {

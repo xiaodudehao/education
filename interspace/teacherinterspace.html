@@ -11,6 +11,7 @@
     <!-- <link rel="stylesheet" href="../css/announcement.css"> -->
     <link rel="stylesheet" href="../css/teacherinterspace.css">
     <link rel="stylesheet" href="../css/page.css">
+    <link rel="stylesheet" href="../package/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
     <div class="maincontent">
@@ -111,15 +112,14 @@
                             </div>
                             
                             <div class="scoreranking">
-                                <form action="">
+                                <form class="teacheruser" action="">
                                     <div class="headimg clearfix">
-                                        <img src="../img/未标题-10.png" class="headicon fl">
+                                        <img src="../img/未标题-10.png" id="preview" class="headicon fl">
                                         <div class="imgtitle fl">
                                             更换头像
-                                            <input type="file" class="filebtn">
+                                            <input type="file" id="filebtn" class="filebtn">
                                         </div>      
-                                    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                    
+                                    </div>     
                                     <div class="headline">
                                         基本资料
                                     </div>
@@ -127,7 +127,7 @@
                                         <input placeholder="设置昵称" type="text">
                                     </div>
                                     <div class="time">
-                                        <input placeholder="设置出生日期" type="text">
+                                        <input placeholder="设置出生日期" size="16" type="text"  readonly class="form_datetime">
                                     </div>
                                     <div class="sex">
                                         性别：
@@ -137,9 +137,7 @@
                                             <option value="">其它</option>
                                         </select>
                                     </div>
-                                    
                                     <textarea  class="signature" name="" id="" >设置个性签名</textarea>
-
                                     <div class="confirm">确定</div>
                                 </form>
  
@@ -282,9 +280,9 @@
         <!--  -->
 </body>
 <script type="text/html" id="tintroduce" >
-    <img class="fl" src="../img/<%=  person[0].logo %>" alt="">
+    <img class="fl" src="../img/<%=  person.logo %>" alt="">
     <div class="fl teacherna" >
-        <div><%= person[0].teacher %></div>
+        <div><%= person.name %></div>
         <div>欢迎您来到教师空间!  </div>
     </div>
 </script>
@@ -303,15 +301,59 @@
             </a>
         <%}%>
 </script>
+<script type="text/html" id="teacheruser">
+
+    <div class="headimg clearfix">
+        <img src="../img/未标题-10.png" id="preview" class="headicon fl">
+        <div class="imgtitle fl">
+            更换头像
+            <input type="file" id="filebtn" class="filebtn">
+        </div>      
+    </div>     
+    <div class="headline">
+        基本资料
+    </div>
+    <div class="nickname">
+        <input placeholder="<%= person[0].name %> " type="text">
+    </div>
+    <div class="time">
+        <input placeholder="<%= person[0].data %> " size="16" type="text"  readonly class="form_datetime">
+    </div>
+    <div class="sex">
+        性别：
+        <select name="" id="">
+           <% if(person[0].sex=="1"){ %>
+                <option selected value="">男</option>
+                <option value="">女</option>
+                <option value="">其它</option>
+                <% }else if(person[0].sex=="女"){ %>
+                <option value="">男</option>
+                <option selected value="">女</option>
+                <option value="">其它</option>
+                <% }else{ %>
+                <option value="">男</option>
+                <option value="">女</option>
+                <option selected value="">其它</option>
+                <% } %>
+            
+        </select>
+    </div>
+    <textarea  class="signature" name="" id="" ><%= person[0].text %></textarea>
+    <div class="confirm">确定</div>
+
+</script>
 <!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../node_modules/art-template/lib/template-web.js" ></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../package/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script src="../js/public.js" ></script>
 <!-- <script src="../package/jquerypage.js" ></script> -->
 <script type="text/javascript">
 $(function(){
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
@@ -324,8 +366,62 @@ $(function(){
     // console.log(p); 
     // } 
     // }); 
+    //预览图片的函数，传入选中file按钮标签还有要展示的img标签
+    function imgPreview(fileDom,lookid){
+        //判断是否支持FileReader
+        if (window.FileReader) {
+            var reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+        }
 
-   
+        //获取文件
+        var file = fileDom.files[0];
+        console.log(file);
+        
+        var imageType = /^image\//;
+        //是否是图片
+        if (!imageType.test(file.type)) {
+            alert("请选择图片！");
+            return;
+        }
+        //读取完成
+        reader.onload = function(e) {
+            //获取图片dom
+            var img = document.getElementById(lookid);
+            //图片路径设置为读取的图片
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    $(".filebtn").on("change",function(){
+        imgPreview(this,"preview")
+    })
+
+    $(".confirm").on("click",function(){
+
+        $.ajax({
+            type:"GET",
+            url: "http://192.168.1.110/lanhong/index.php/Admin/Index/change",
+            dataType:"json",
+            data: {sid: 1},
+            // crossDomain: true,//是否跨域:是
+            // jsonp: "jsonpcallback",
+            success:function(data){
+                console.log("提交的教师信息",data);
+                // var result = data;
+                // var html = template("teacheruser",{person: data});
+                // $(".teacheruser").html(html);
+                // $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+            },
+            error:function(jqXHR){
+                console.log("发生错误:"+jqXHR.status);
+            }
+        });  
+    })
+     
+
     // 单击课程简介
     $('.scoresbutton').on("click",function(){
         $(".scoreranking").css({"display":"block"})
@@ -333,7 +429,31 @@ $(function(){
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.studybutton').css({"background-color":"#81d282"})
+
+
+        $.ajax({
+            type:"GET",
+            url: "http://192.168.1.110/lanhong/index.php/Admin/Index/setchange",
+            dataType:"json",
+            data: {sid: 1},
+            // crossDomain: true,//是否跨域:是
+            // jsonp: "jsonpcallback",
+            success:function(data){
+                console.log("提交的教师信息",data);
+                // var result = data;
+                var html = template("teacheruser",{person: data});
+                $(".teacheruser").html(html);
+                $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+            },
+            error:function(jqXHR){
+                console.log("发生错误:"+jqXHR.status);
+            }
+        });  
+
     })
+
+
+
 
         // 单击课程简介
     $('.studybutton').on("click",function(){
@@ -349,16 +469,12 @@ $(function(){
         type:"GET",
         url:"http://192.168.1.110/lanhong/index.php/admin/Index/logo",
         dataType:"json",
-        data: {cid: 1},
-        async: false,    // 使用同步操作
-            timeout : 50000, //超时时间：50秒
-        // crossDomain: true,//是否跨域:是
+        data: {sid: 1},
         // jsonp: "jsonpcallback",
         success:function(data){
             console.log("当前教师的课程",data);
-            alert(data)
-            var htmlx = template("tintroduce",{person: data});
-            $(".tintroduce").html(htmlx);
+            // var htmlx = template("tintroduce",{person: data});
+            // $(".tintroduce").html(htmlx);
         },
         error:function(jqXHR){
             console.log("发生错误:"+jqXHR.status);
@@ -368,7 +484,7 @@ $(function(){
     //课程名称和课程图片
     $.ajax({
         type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/admin/",
+        url:"http://192.168.1.110/lanhong/index.php/admin/Index/index",
         dataType:"json",
         data: {sid: 1},
         // crossDomain: true,//是否跨域:是

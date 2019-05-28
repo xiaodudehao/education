@@ -665,7 +665,7 @@ input::-ms-clear {
   margin-bottom: 40px;
   overflow: hidden;
 }
-.mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg .courseshow {
+.mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg l .courseshow {
   width: 240px;
   height: 320px;
   border-radius: 20px;
@@ -778,7 +778,7 @@ input::-ms-clear {
 }
 .modalcenter {
   width: 600px;
-  min-height: 600px;
+  min-height: 700px;
 }
 .curriculumprovision {
   margin: 0 50px 50px 50px;
