@@ -118,7 +118,7 @@ for(var j=0;j<wareName1.length;j++){
                     }
                 }
             })
-// 登录模态框的校验规则
+// 学生登录模态框的校验规则
 $('#loginform').bootstrapValidator({
     　　　　　　　　message: 'This value is not valid',
                 　feedbackIcons: {
@@ -147,6 +147,35 @@ $('#loginform').bootstrapValidator({
                     }
                 }
             })
+// 教师登录模态框的校验规则
+$('#teacherloginform').bootstrapValidator({
+    　　　　　　　　message: 'This value is not valid',
+                　feedbackIcons: {
+                    　　　　　　　　valid: 'glyphicon glyphicon-ok',
+                    　　　　　　　　invalid: 'glyphicon glyphicon-remove',
+                    　　　　　　　　validating: 'glyphicon glyphicon-refresh'
+                　　　　　　　　   },
+                fields: {
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: 'ⓧ 用户名不能为空'
+                            }
+                        }
+                    },
+                    password:{
+                        validators: {
+                            notEmpty: {
+                                message: 'ⓧ 用户密码不能为空'
+                            },
+                            regexp: {
+                                regexp: /^[^\u4e00-\u9fa5]{0,}$/,
+                                message: 'ⓧ 密码不能有汉字'
+                            }
+                        }
+                    }
+                }
+            })            
 
             // 
             $(".childa").on("click",function(){

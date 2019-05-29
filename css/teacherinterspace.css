@@ -395,7 +395,7 @@ input::-ms-clear {
 }
 .modal-content .teacherregister {
   display: none;
-  margin-top: 0;
+  margin-top: -30px;
 }
 .modal-content .registertitle {
   height: 100px;
@@ -699,10 +699,10 @@ input::-ms-clear {
 .mainpartportion .mycourse .rightresult .scoreranking .headimg .imgtitle {
   margin-top: 82px;
   margin-left: 50px;
-  width: 200px;
-  height: 60px;
-  line-height: 60px;
-  font-size: 30px;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
   text-align: center;
   border-radius: 10px;
   background-color: #80c47f;
@@ -720,6 +720,18 @@ input::-ms-clear {
   filter: alpha(opacity=0);
   opacity: 0;
 }
+.mainpartportion .mycourse .rightresult .scoreranking .headimg #imgsubmit {
+  margin-top: 20px;
+  margin-left: 50px;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #80c47f;
+  color: #fff;
+}
 .mainpartportion .mycourse .rightresult .scoreranking .nickname,
 .mainpartportion .mycourse .rightresult .scoreranking .time {
   margin-bottom: 40px;
@@ -735,7 +747,7 @@ input::-ms-clear {
 }
 .mainpartportion .mycourse .rightresult .scoreranking .sex {
   height: 82px;
-  width: 182px;
+  width: 210px;
   border: 1px solid #666;
   color: #666;
   border-radius: 10px;
@@ -744,7 +756,7 @@ input::-ms-clear {
 }
 .mainpartportion .mycourse .rightresult .scoreranking .sex select {
   height: 80px;
-  width: 72px;
+  width: 100px;
   border: none;
   background: #fafafa;
   outline: none;
@@ -778,10 +790,10 @@ input::-ms-clear {
 }
 .modalcenter {
   width: 600px;
-  min-height: 700px;
+  min-height: 500px;
 }
 .curriculumprovision {
-  margin: 0 50px 50px 50px;
+  margin: 0 50px 0px 50px;
   font-size: 20px;
 }
 .curriculumprovision .curriculumname,
@@ -811,15 +823,7 @@ input::-ms-clear {
   border-radius: 5px;
   border: 1px solid #33b150;
 }
-.curriculumprovision .curriculumimg img {
-  float: right;
-  display: block;
-  width: 355px;
-  height: 220px;
-  border-radius: 5px;
-  background-color: palevioletred;
-}
-.curriculumprovision .save {
+.save {
   width: 315px;
   height: 55px;
   border-radius: 5px;
@@ -828,4 +832,5 @@ input::-ms-clear {
   text-align: center;
   margin: 0 auto;
   color: #fff;
+  margin-bottom: 50px;
 }
