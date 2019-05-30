@@ -346,10 +346,10 @@
         <!--  -->
 </body>
 <script type="text/html" id="tintroduce" >
-    <img class="fl" src="../img/<%= person.logo==undefined?'':person.logo %>" alt="">
+    <img class="fl" src="<%= imgsrc==undefined?'':imgsrc %><%= person[0].logo==undefined?'':person[0].logo %> " alt="">
     <div class="fl teacherna" >
-        <div><%= person.name==undefined?'':person.name %></div>
-        <div>欢迎您来到教师空间!  </div>
+        <div><%= person[0].name==undefined?'':person[0].name %></div>
+        <div>欢迎您来到教师空间! <%= person.logo %> </div>
     </div>
 </script>
 <script type="text/html" id="schedule" >
@@ -415,6 +415,11 @@
 <!-- <script src="../package/jquerypage.js" ></script> -->
 <script type="text/javascript">
 $(function(){
+    // 保存图片地址的变量
+    var imgsrc = "http://192.168.1.110/lanhong/Public/img/";
+    // 保存头像图片名称的变量。
+    var imgname;
+
     $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 
     // 模态框居中
@@ -508,9 +513,8 @@ $(function(){
         console.log(fileObj);
         
         console.log(this.value);
-        
-
     })
+
     $("#imgsubmit").on("click",function(){
         UpladFile()
         // $.ajax({
@@ -588,11 +592,8 @@ $(function(){
         $(this).css({"background-color":"#33b150"})
         $('.studybutton').css({"background-color":"#81d282"})
 
-        // lanhong/Application/Admin/Public
-        // $(".headicon").attr({"src":"http://192.168.1.110/lanhong/Application/Admin/Public"});
-
-
-
+        //修改头像的地址。
+        $(".headicon").attr("src",imgsrc+imgname);
 
         $.ajax({
             type:"GET",
@@ -634,14 +635,17 @@ $(function(){
     // 教师名字和logo
     $.ajax({
         type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/admin/Index/logo",
+        url:"http://192.168.1.110/lanhong/index.php/admin/Index/setchange",
         dataType:"json",
         data: {sid: 1},
         // jsonp: "jsonpcallback",
         success:function(data){
-            console.log("当前教师的课程",data);
-            var htmlx = template("tintroduce",{person: data});
+            console.log("当前教师",data);
+            imgname = data[0].logo;
+            var htmlx = template("tintroduce",{person: data,imgsrc: imgsrc});
             $(".tintroduce").html(htmlx);
+            
+            
         },
         error:function(jqXHR){
             console.log("发生错误:"+jqXHR.status);
@@ -685,10 +689,6 @@ $(function(){
             // 开始时间和结束时间的日历
             $(".timeopen").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
             $(".timeend").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-
-
-
-
 
 
         },
