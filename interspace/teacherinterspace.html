@@ -115,14 +115,13 @@
                                 <form action="">
                                     <div class="headimg clearfix">
                                         <img  src="../img/未标题-10.png" id="preview" class="headicon fl">
+                                        <div class="imgtitle ">
+                                           
+                                            <input name="logo" type="file" id="filebtn" class="filebtn">
+                                        </div>  
                                         <div class="fl ">
-                                            <div class="imgtitle ">
-                                                选择头像
-                                                <input name="logo" type="file" id="filebtn" class="filebtn">
-                                            </div>  
                                             <div id="imgsubmit">保存头像</div> 
                                         </div>
-
                                     </div>    
                                 </form>
                                 <form id="teacher" class="teacheruser" action="">
@@ -201,13 +200,13 @@
                         <div class="form-group">
                             <label class="col-sm-4  control-label">课程开始时间</label>
                             <div class="col-sm-6">
-                                <input class="form-control timeopen" name="username" type="text" placeholder=""  />
+                                <input class="form-control timeopen"  type="text" placeholder=""  />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-4  control-label">课程结束时间</label>
                             <div class="col-sm-6">
-                                <input class="form-control timeend" name="username" type="text" placeholder="" />
+                                <input class="form-control timeend"  type="text" placeholder="" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -358,11 +357,10 @@
             <div class="addtext">添加课程</div>
         </a>
         <% for(var i=0; i< person.length; i++){ %>
-           
             <a href="" class="courseimg">
-                <img class="courseshow" src="../img/person[i].logo" alt="" />
+                <img class="courseshow" src="../img/ <%= person[i].logo==undefined?'':person[i].logo %> " alt="" />
                 <div class="imgtext">
-                    <%= person[i].name %>
+                    <%= person[i].name==undefined?'':person[i].name %>
                 </div>
             </a>
         <%}%>
@@ -458,7 +456,7 @@ $(function(){
             if (xhr.status == 200 || xhr.status == 0) {
                 var result = xhr.responseText;
                 var json = eval("(" + result + ")");
-                alert('图片链接:\n' + json.file);
+                // alert('图片链接:\n' + json.file);
             }
         }
     }
@@ -564,12 +562,13 @@ $(function(){
             // jsonp: "jsonpcallback",
             success:function(data){
                 console.log("单击确认后",data);
-                
+                //刷新页面的js
+                history.go(0)
             },
             error:function(jqXHR){
                 console.log("发生错误:"+jqXHR.status);
             }
-        });  
+        });
         // 单击按钮
         $(".headimg input[type='submit']").click();
     })
@@ -707,7 +706,8 @@ $(function(){
          var Endtime = $(".timeend").val() 
          var Text =  $(".briefintroduction").val() 
 
-
+         //刷新页面的js
+         history.go(0)
 
         $.ajax({
             type:"post",

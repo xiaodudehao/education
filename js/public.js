@@ -1,5 +1,18 @@
 var HTTP_URL = "http://192.168.1.110/lanhong/index.php/admin/"
+// 保存图片地址的变量
+var imgsrc = "http://192.168.1.110/lanhong/Public/img/";
+// 保存头像图片名称的变量。
+var imgname;
 
+
+$(".log").on('click',function(){
+    document.onkeydown = function(e) {
+        var ev = (typeof event!= 'undefined') ? window.event : e;
+        if(ev.keyCode == 13) {
+            return false;
+        }
+    }
+})
 
 // bootstrap注册和登录模态框居中
 function modalCenter(modalId){

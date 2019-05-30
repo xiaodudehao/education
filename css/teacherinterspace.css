@@ -665,7 +665,7 @@ input::-ms-clear {
   margin-bottom: 40px;
   overflow: hidden;
 }
-.mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg l .courseshow {
+.mainpartportion .mycourse .rightresult .rightcontent .schedule .courseimg .courseshow {
   width: 240px;
   height: 320px;
   border-radius: 20px;
@@ -691,23 +691,24 @@ input::-ms-clear {
 .mainpartportion .mycourse .rightresult .rightcontent .pagebox {
   text-align: center;
 }
+.mainpartportion .mycourse .rightresult .scoreranking .headimg {
+  position: relative;
+}
 .mainpartportion .mycourse .rightresult .scoreranking .headimg .headicon {
   width: 200px;
   height: 200px;
   border-radius: 50%;
 }
 .mainpartportion .mycourse .rightresult .scoreranking .headimg .imgtitle {
-  margin-top: 82px;
-  margin-left: 50px;
-  width: 100px;
-  height: 40px;
+  width: 200px;
+  height: 200px;
   line-height: 40px;
   font-size: 18px;
   text-align: center;
-  border-radius: 10px;
   background-color: #80c47f;
   color: #fff;
-  position: relative;
+  position: absolute;
+  opacity: 0;
 }
 .mainpartportion .mycourse .rightresult .scoreranking .headimg .filebtn {
   position: absolute;
@@ -721,7 +722,7 @@ input::-ms-clear {
   opacity: 0;
 }
 .mainpartportion .mycourse .rightresult .scoreranking .headimg #imgsubmit {
-  margin-top: 20px;
+  margin-top: 80px;
   margin-left: 50px;
   width: 100px;
   height: 40px;
@@ -744,15 +745,17 @@ input::-ms-clear {
   color: #666;
   border-radius: 10px;
   font-size: 30px;
+  padding: 0 20px;
 }
 .mainpartportion .mycourse .rightresult .scoreranking .sex {
   height: 82px;
-  width: 210px;
+  width: 230px;
   border: 1px solid #666;
   color: #666;
   border-radius: 10px;
   font-size: 30px;
   margin-bottom: 40px;
+  padding: 0 0 0 20px;
 }
 .mainpartportion .mycourse .rightresult .scoreranking .sex select {
   height: 80px;
