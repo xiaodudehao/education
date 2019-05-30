@@ -406,6 +406,7 @@
 <!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <script src="../node_modules/art-template/lib/template-web.js" ></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../package/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
@@ -440,7 +441,7 @@ $(function(){
     }
     function UpladFile() {
         var fileObj = document.getElementById("filebtn").files[0];
-        console.log(fileObj);
+        // console.log(fileObj);
         
         var FileController = "http://192.168.1.110/lanhong/index.php/Admin/Index/changelogo";
         var form = new FormData();
@@ -454,8 +455,10 @@ $(function(){
     function handleStateChange() {
         if (xhr.readyState == 4) {
             if (xhr.status == 200 || xhr.status == 0) {
-                var result = xhr.responseText;
-                var json = eval("(" + result + ")");
+                history.go(0)
+                // var result = xhr.responseText;
+                // var json = eval("(" + result + ")");
+
                 // alert('图片链接:\n' + json.file);
             }
         }
@@ -484,7 +487,7 @@ $(function(){
 
         //获取文件
         var file = fileDom.files[0];
-        console.log(file);
+        // console.log(file);
         
         var imageType = /^image\//;
         //是否是图片
@@ -508,9 +511,9 @@ $(function(){
         imgPreview(this,"preview")
 
        fileObj = document.getElementById("filebtn").files[0];
-        console.log(fileObj);
+        // console.log(fileObj);
         
-        console.log(this.value);
+        // console.log(this.value);
     })
 
     $("#imgsubmit").on("click",function(){
@@ -542,7 +545,7 @@ $(function(){
     })
 
     $(".confirm").on("click",function(){
-        console.log(7777);
+        // console.log(7777);
         
         var str =  $("#teacher").serialize()
         console.log(str);
@@ -550,8 +553,8 @@ $(function(){
         var name = $(".nickname input").val();
         var sex = $(".sex select").val();
         var text = $(".signature ").val();
-        console.log(data,name,sex,text);
-        console.log({data:data,name:name,sex:sex,text:text,sid:1});
+        // console.log(data,name,sex,text);
+        // console.log({data:data,name:name,sex:sex,text:text,sid:1});
         
         $.ajax({
             type:"post",
@@ -561,12 +564,12 @@ $(function(){
             // crossDomain: true,//是否跨域:是
             // jsonp: "jsonpcallback",
             success:function(data){
-                console.log("单击确认后",data);
+                // console.log("单击确认后",data);
                 //刷新页面的js
                 history.go(0)
             },
             error:function(jqXHR){
-                console.log("发生错误:"+jqXHR.status);
+                // console.log("发生错误:"+jqXHR.status);
             }
         });
         // 单击按钮
@@ -575,7 +578,7 @@ $(function(){
 
      
     $(".headimg input[type='submit']").on("click",function(){
-        console.log(5555555555555555);
+        // console.log(5555555555555555);
         
     })
 
@@ -602,7 +605,7 @@ $(function(){
             // crossDomain: true,//是否跨域:是
             // jsonp: "jsonpcallback",
             success:function(data){
-                console.log("提交的教师信息",data);
+                // console.log("提交的教师信息",data);
                 // var result = data;
                 var html = template("teacheruser",{person: data});
                 $(".teacheruser").html(html);
@@ -639,7 +642,7 @@ $(function(){
         data: {sid: 1},
         // jsonp: "jsonpcallback",
         success:function(data){
-            console.log("当前教师",data);
+            // console.log("当前教师",data);
             imgname = data[0].logo;
             var htmlx = template("tintroduce",{person: data,imgsrc: imgsrc});
             $(".tintroduce").html(htmlx);
@@ -660,14 +663,14 @@ $(function(){
         // crossDomain: true,//是否跨域:是
         // jsonp: "jsonpcallback",
         success:function(data){
-            console.log("当前教师的课程",data);
+            // console.log("当前教师的课程",data);
             // var result = data;
             var html = template("schedule",{person: data});
             $(".schedule").html(html);
 
             // 由于这个按钮是重新渲染的，所以按照重新渲染之后再绑定事件
             $(".courseicon").on("click",function(){
-                console.log(333333333333333);
+                // console.log(333333333333333);
                 $.ajax({
                     type:"get",
                     url: "http://192.168.1.110/lanhong/index.php/Admin/Index/lang",
@@ -676,7 +679,7 @@ $(function(){
                     // crossDomain: true,//是否跨域:是
                     // jsonp: "jsonpcallback",
                     success:function(data){
-                        console.log("课程大类",data);
+                        // console.log("课程大类",data);
                         var htm = template("professional",{person: data});
                         $(".professional").html(htm);
                     },
@@ -715,7 +718,7 @@ $(function(){
             dataType:"json",
             data:{name:Name,school:School,belong:Belong,starttime:Starttime,endtime:Endtime,text:Text},
             success:function(data){
-                console.log(data);
+                // console.log(data);
                 // 清空添加课程的输入框。
                 $(".coursename").val("")
                 $(".schoolname").val("") 

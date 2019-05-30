@@ -1,0 +1,77 @@
+/* 系统公告的内容 */
+.announcement_content {
+    margin-top: 10px;
+}
+/* 系统公告的一块内容 */
+.announcement_information {
+    margin-bottom: 40px;
+    padding: 30px;
+    height: 255px;
+    border: 2px solid #81d283;
+    border-radius: 20px;
+}
+.announcement_btn{
+    float: right;
+    position: relative;
+    top: -10px;
+}
+.announcement_btn button {
+    padding: 5px;
+    font-size: 20px;
+    color: #81d283;
+    background: none;
+    border: none;
+}
+.announcement_btn span {
+    color: #81d283;
+}
+.announcement_text p {
+    font-size: 18px;
+    font-weight: bold;
+}
+.announcement_text .announcement_text_content {
+    font-size: 16px;
+    font-weight: normal;
+}
+/* 添加按钮 */
+.add_announcement_btn {
+    /*margin-top: 20px;*/
+    padding: 20px;
+    text-align: right;
+}
+.add_announcement_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 150px;
+    font-size: 18px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}
+.add_announcement_btn button:hover {
+    background-color: #579c59;
+}
+/* 模态框 */
+.modal-content {
+    width: 500px;
+    min-height: 400px;
+    font-size: 20px;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+}
+/* 分页器 */
+.page_area {
+    text-align: center;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #81d283;
+    border-color: #ddd;
+}
+.pagination>li>a, .pagination>li>span {
+    color: #81d283;
+}
+.pagination>li>a, .pagination>li>span {
+    padding: 10px 20px;
+    font-size: 16px;
+}

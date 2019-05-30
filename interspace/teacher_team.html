@@ -15,7 +15,7 @@
     <!--  对话框样式  -->
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  左边栏样式保证  -->
-    <link rel="stylesheet" href="../css/teacher_team.css">
+    <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
 </head>
 
 <body>
@@ -269,7 +269,7 @@
         </div>
     </div>
 </div>
-<!-- 编辑模态框 -->
+<!-- 新增模态框 -->
 <div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width: 100%; height: auto">
@@ -282,8 +282,8 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-1 control-label">ID</label>
                         <div class="col-sm-6">
-                            <input class="form-control id" name="id" type="text" placeholder="id" disabled />
-                        </div>
+                        <input class="form-control id" name="id" type="text" placeholder="id" disabled />
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-1 control-label">姓名</label>
@@ -322,6 +322,7 @@
                     <input type="submit" class="btn btn-primary" value="保存" />
                 </div>
             </form>
+
         </div>
     </div>
 </div>
@@ -367,8 +368,9 @@
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: "http://192.168.1.110/lanhong/index.php/admin/Index/teacher",
+            url: HTTP_URL + "Index/teacher",
             type: "get",
+            timeout: 5000,
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
@@ -376,6 +378,11 @@
             },
             success: function (data) {
                 // console.log(data)
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
                 var res = ""
                 for (var i in data) {
                     var item = data[i]
@@ -438,7 +445,7 @@
         console.log(name)
         //  修改信息网络请求
         var UpdateTeacherAjax = $.ajax({
-            url: "http://192.168.1.110/lanhong/index.php/admin/Index/upteacher",
+            url: HTTP_URL + "Index/upteacher",
             type: "post",
             data: {
                 id: id,
@@ -475,7 +482,7 @@
     function delete_teacher_ajax(id){
         $("#loadingModal").modal("show")
         var UpdateTeacherAjax = $.ajax({
-            url: "http://192.168.1.110/lanhong/index.php/admin/Index/deteacher",
+            url: HTTP_URL + "Index/deteacher",
             type: "post",
             data: {
                 id: id
@@ -511,7 +518,7 @@
         // console.log(name)
         // 请求
         var AddTeacherAjax = $.ajax({
-            url: "http://192.168.1.110/lanhong/index.php/admin/Index/addteacher",
+            url: HTTP_URL + "Index/addteacher",
             type: "post",
             data: {
                 cid: 1,

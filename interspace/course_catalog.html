@@ -10,10 +10,14 @@
     <!--  导航栏的基本样式保证  -->
     <link rel="stylesheet" href="../css/teacherinterspace.css">
     <!--  左边菜单的基本样式保证  -->
-    <link rel="stylesheet" href="../css/teacher_team.css">
+    <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
     <!--  目录样式  -->
     <link rel="stylesheet" href="../css/classifyparticulars.css">
-    <link rel="stylesheet" href="../css/course_catalog.css">
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <!--  对话框样式  -->
+    <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/teacher_css/course_catalog.css">
 </head>
 <body>
 <div class="maincontent">
@@ -70,6 +74,9 @@
             <div class="tt_content_right_title">
                 课程目录
             </div>
+            <div class="add_catalog_btn" onclick="add_catalog_1()">
+                <button>添加目录</button>
+            </div>
             <!--  目录  -->
             <div class="contentbox">
                 <!-- 课程目录开始 -->
@@ -77,99 +84,49 @@
 
                     <div class="project">
                         <div class="projecttitle">
-                            <span>项目一</span>  水泥性能检测
-                        </div>
-                        <div class="task">
-                            <div class="clearfix taskbox">
-                                <div class="triangle"></div>
-                                <div class="tasktitle">
-                                    <span>任务一</span>  水泥细度检测
-                                </div>
+                            <div>
+                                <span>项目一</span>  水泥性能检测
                             </div>
-                            <div class="detail">
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 介绍水泥细度步骤豆腐干的高度符合是非得失根深蒂固更大
-                                </a>
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 一分钟了解水泥
-                                </a>
+                            <div class="operation_btn">
+                                <button type="button" class="btn btn-info btn-sm">
+                                    <span class="glyphicon glyphicon-plus-sign"></span> 添加任务
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-remove-sign"></span> 删除
+                                </button>
                             </div>
                         </div>
                         <div class="task">
                             <div class="clearfix taskbox">
                                 <div class="triangle"></div>
                                 <div class="tasktitle">
-                                    <span>任务二</span>  水泥细度检测
+                                    <div class="second_catalog">
+                                        <span>任务一</span>  水泥细度检测
+                                    </div>
+                                    <div class="operation_btn">
+                                        <button type="button" class="btn btn-info btn-sm">
+                                            <span class="glyphicon glyphicon-plus-sign"></span> 添加目录
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm">
+                                            <span class="glyphicon glyphicon-remove-sign"></span> 删除
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="detail">
                                 <a class="detailtitle">
-                                    <span> 看一看</span> 介绍水泥细度步骤
-                                </a>
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 一分钟了解水泥
-                                </a>
-                            </div>
-                        </div>
-                        <div class="task">
-                            <div class="clearfix taskbox">
-                                <div class="triangle"></div>
-                                <div class="tasktitle">
-                                    <span>任务三</span>  水泥细度检测
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 介绍水泥细度步骤
-                                </a>
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 一分钟了解水泥
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project">
-                        <div class="projecttitle">
-                            <span>项目二</span>  水泥性能检测
-                        </div>
-                        <div class="task">
-                            <div class="clearfix taskbox">
-                                <div class="triangle"></div>
-                                <div class="tasktitle">
-                                    <span>任务一</span>  水泥细度检测
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 介绍水泥细度步骤
-                                </a>
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 一分钟了解水泥
-                                </a>
-                            </div>
-                        </div>
-                        <div class="task">
-                            <div class="clearfix taskbox">
-                                <div class="triangle"></div>
-                                <div class="tasktitle">
-                                    <span>任务二</span>  水泥细度检测
-                                </div>
-                            </div>
-                            <div class="detail">
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 介绍水泥细度步骤
-                                </a>
-                                <a class="detailtitle">
-                                    <span> 看一看</span> 一分钟了解水泥
+                                    <div>
+                                        <span> 看一看</span> 介绍水泥细度步骤豆腐干的高度符合是非得失根深蒂固更大
+                                    </div>
+                                    <div class="delete_icon">
+                                        <span class="glyphicon glyphicon-remove-circle"></span>
+                                    </div>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- 课程目录结束 -->
-            </div>
-            <div class="add_catalog_btn">
-                <button>添加目录</button>
             </div>
         </div>
     </div>
@@ -266,6 +223,59 @@
     </div>
 </div>
 <!-- 登录模态框结束 -->
+<!-- 新增模态框 -->
+<div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 100%; height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">新增目录</h4>
+            </div>
+            <form class="form-horizontal adminex-form" id="new_form" action="javascript: add_catalog()" >
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">ID</label>
+                        <div class="col-sm-6">
+                            <input class="form-control id" name="id" type="text" placeholder="id" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">FID</label>
+                        <div class="col-sm-6">
+                            <input class="form-control fid" name="fid" type="text" placeholder="fid" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">目录名</label>
+                        <div class="col-sm-6">
+                            <input class="form-control theme" name="theme" type="text" placeholder="请输入目录名" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">类型</label>
+                        <div class="col-sm-6">
+                            <input class="form-control type" name="type" type="text" placeholder="请输入类型" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <input type="submit" class="btn btn-primary" value="保存" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
 
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
@@ -274,6 +284,11 @@
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- 对话框样式 -->
+<script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!--<script src="../js/course_catalog.js" ></script>-->
 <script type="text/javascript">
     $(function(){
         // 模态框居中
@@ -287,16 +302,191 @@
                 console.log(p);
             }
         });
+        //目录的显示隐藏
+        catalog()
+        // 查询
+        select_catalog()
     })
-    //  目录的显示隐藏
-    $(function(){
+    // 查询请求
+    function select_catalog() {
+        $("#loadingModal").modal("show")
+        var CatalogAjax = $.ajax({
+            url: HTTP_URL + "Index/dir",
+            type: "get",
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                cid: 1
+            },
+            success: function (data) {
+                // console.log(data)
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                var res = ""
+                for (var i in data){
+                    var item = data[i]
+                    // 一级目录名字
+                    // console.log(item.courseware)
+                    var res2 = ""
+                    for (var j in item.children){
+                        var result = item.children[j]
+                        // 二级目录名字
+                        // console.log(result.courseware)
+                        var res3 = ""
+                        for (var k in result.children){
+                            var child = result.children[k]
+                            // console.log(child)
+                            // console.log(child.function)
+                            // 三级目录名字
+                            // console.log(child.courseware)
+                            res3 += '<a class="detailtitle">\n' +
+                                '                                    <div>\n' +
+                                '                                        <span> '+ child.function +'</span> '+ child.courseware +'\n' +
+                                '                                    </div>\n' +
+                                '                                    <div class="delete_icon" onclick="delete_catalog(' + child.id + ')">\n' +
+                                '                                        <span class="glyphicon glyphicon-remove-circle"></span>\n' +
+                                '                                    </div>\n' +
+                                '                                </a>'
+                        }
+                        $(".detail").html(res3)
+                        var J = +j + 1
+                        // console.log(J)
+                        res2 += '<div class="clearfix taskbox">\n' +
+                            '                                <div class="triangle"></div>\n' +
+                            '                                <div class="tasktitle">\n' +
+                            '                                    <div class="second_catalog">\n' +
+                            '                                        <span>任务'+ J +'</span>  '+ result.courseware +'\n' +
+                            '                                    </div>\n' +
+                            '                                    <div class="operation_btn">\n' +
+                            '                                        <button type="button" class="btn btn-info btn-sm" onclick="add_catalog_1(' + result.id + ')">\n' +
+                            '                                            <span class="glyphicon glyphicon-plus-sign"></span> 添加目录\n' +
+                            '                                        </button>\n' +
+                            '                                        <button type="button" class="btn btn-default btn-sm" onclick="delete_catalog(' + result.id + ')">\n' +
+                            '                                            <span class="glyphicon glyphicon-remove-sign"></span> 删除\n' +
+                            '                                        </button>\n' +
+                            '                                    </div>\n' +
+                            '                                </div>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="detail">\n' +
+                            '                                '+ res3 +'\n' +
+                            '                            </div>'
+                    }
+                    $(".task").html(res2)
+                    i = +i + 1
+                    res += '<div class="project">\n' +
+                        '                        <div class="projecttitle">\n' +
+                        '                            <div>\n' +
+                        '                                <span>项目'+ i +'</span>  '+ item.courseware +'\n' +
+                        '                            </div>\n' +
+                        '                            <div class="operation_btn">\n' +
+                        '                                <button type="button" class="btn btn-info btn-sm" onclick="add_catalog_1(' + item.id + ')">\n' +
+                        '                                    <span class="glyphicon glyphicon-plus-sign"></span> 添加任务\n' +
+                        '                                </button>\n' +
+                        '                                <button type="button" class="btn btn-default btn-sm" onclick="delete_catalog(' + item.id + ')">\n' +
+                        '                                    <span class="glyphicon glyphicon-remove-sign"></span> 删除\n' +
+                        '                                </button>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="task">\n' +
+                        '                            '+ res2 +'\n' +
+                        '                        </div>\n' +
+                        '                    </div>'
+                }
+                $(".maincatalogue").html(res)
+                catalog()
+            },
+            error: function (e) {
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    //添加目录
+    function add_catalog_1(id) {
+        $("#new_modal").modal("show")
+        $("#new_modal .fid").val(id)
+    }
+    function add_catalog() {
+        $("#new_modal").modal("hide")
+        $("#loadingModal").modal("show")
+        var theme = $("#new_modal .theme").val()
+        var fid = $("#new_modal .fid").val()
+        var type = $("#new_modal .type").val()
+        var AddAnnouncementAjax = $.ajax({
+            url: HTTP_URL + "Index/addir",
+            type: "post",
+            data: {
+                cid: 1,
+                fid: fid,
+                courseware: theme,
+                function: type,
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(name)
+                toastr.success("操作成功！")
+                // 成功后把模态框中的内容清空
+                $("#new_modal .modal-body input").each(function () {
+                    // jquery 遍历节点 $(this)指每次遍历拿到的元素
+                    $(this).val("") // 清空值
+                })
+                select_catalog()
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 删除目录
+    function delete_catalog(id) {
+        confirmBySelf("确认删除吗？", function () {
+            // 用户点击确认时
+            $("#loadingModal").modal("show")
+            var UpdateTeacherAjax = $.ajax({
+                url: HTTP_URL + "Index/dedir",
+                type: "post",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                success: function (data) {
+                    toastr.success("操作成功！")
+                    select_catalog()
+                },
+                error: function (e) {
+                    console.log(e)
+                },
+                complete: function (xhr, status) {
+                    // 隐藏loading
+                    $("#loadingModal").modal("hide")
+                }
+            })
+        })
+    }
+
+    // 目录的显示隐藏
+    function catalog() {
         // 单击课程目录
         var result = {
             person: [
                 {name: "项目1", child: [
                         {name: "任务1",child: [{option: "看一看",title:"水泥灰度检测"},{option: "讨论一下",title:"水泥灰检测作用是什么？"}]},
                         {name: "任务2",child: [{option: "看一看",title:"水泥灰度检测2"},{option: "讨论一下2",title:"水泥灰检测作用是什么2？"}]},
-                        {name: "任务3"}]}
+                        {name: "任务3"}]
+                }
             ]
         }
         // 让任务中的步骤都隐藏
@@ -314,7 +504,34 @@
                 $(this).css({"transform":"rotate(0deg)"}).parent().next().css({"display":"none"});
             }
         })
-    })
+    }
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
+    /**
+     *对话框
+     * @param content  提示内容
+     * @param func      点击对话框确认按钮做什么，类型为function
+     */
+    function confirmBySelf(content, func) {
+        $.confirm({
+            confirmButtonClass: "btn-primary",   //设置ok按钮样式
+            closeIcon: true,        //对话框右上角关闭
+            confirmButton: "确认", //确认按钮标题
+            cancelButton: "取消", //取消按钮标题
+            title: "提示",        //标题
+            content: content,        //对话内容
+            confirm: function () {
+                //点击确认后做什么
+                func()
+            },
+            cancel:function () {
+                //点击取消后做什么
+            }
+        })
+    }
 </script>
 
 </html>

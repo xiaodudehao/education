@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../css/teacherinterspace.css">
     <!-- 提示框样式 -->
     <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/course_introduction.css">
-    <link rel="stylesheet" href="../css/teacher_team.css">
+    <link rel="stylesheet" href="../css/teacher_css/course_introduction.css">
+    <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
 </head>
 <body>
 <div class="maincontent">
@@ -213,7 +213,6 @@
 <script src="../package/jquerypage.js" ></script>
 <!-- 提示框插件 -->
 <script src="../lib/toastr/toastr.min.js"></script>
-
 <!-- 模态框 -->
 <script type="text/javascript">
     $(function(){
@@ -312,15 +311,21 @@
     function select_cou_intr() {
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: "http://192.168.1.110/lanhong/index.php/admin/Index/inquire",
+            url: HTTP_URL + "Index/inquire",
             type: "post",
             dataType: "json",
-            async:false,    //不进行异步刷新
+            // async:false,    //不进行异步刷新
             data: {
-                cid: 1
+                cid: 1,
             },
             success: function (data) {
-                console.log(data)
+                // console.log(data)
+                if (null == data) {
+                    // 没有数据，显示提示
+                    toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                // console.log(data)
                 var res = ""
                 res = '<div class="jianjie1">\n' +
                     '                        <p>简介：</p>\n' +
@@ -339,6 +344,14 @@
                     '                        <textarea class="textarea" id="textarea4" >'+ data.book + '</textarea>\n' +
                     '                    </div>'
                 $(".jianjie").html(res)
+                var text = document.getElementById("textarea");
+                var text2 = document.getElementById("textarea2");
+                var text3 = document.getElementById("textarea3");
+                var text4 = document.getElementById("textarea4");
+                autoTextarea(text);// 调用
+                autoTextarea(text2);// 调用
+                autoTextarea(text3);// 调用
+                autoTextarea(text4);// 调用
             },
             error: function (e) {
                 console.log(e)
@@ -354,13 +367,13 @@
     function dianji() {
         // loading modal显示
         $("#loadingModal").modal("show")
-        console.log($('#textarea').val())
+        // console.log($('#textarea').val())
         var intro = $('#textarea').val()
         var style = $('#textarea2').val()
         var getready = $('#textarea3').val()
         var book = $('#textarea4').val()
         var CouIntrAjax = $.ajax({
-            url: "http://192.168.1.110/lanhong/index.php/admin/Index/intro",
+            url: HTTP_URL +　"Index/intro",
             type: "post",
             dataType: "json",
             async:false,    //不进行异步刷新
@@ -384,14 +397,6 @@
                 $("#loadingModal").modal("hide")
             }
         })
-        var text = document.getElementById("textarea");
-        var text2 = document.getElementById("textarea2");
-        var text3 = document.getElementById("textarea3");
-        var text4 = document.getElementById("textarea4");
-        autoTextarea(text);// 调用
-        autoTextarea(text2);// 调用
-        autoTextarea(text3);// 调用
-        autoTextarea(text4);// 调用
     }
     //提示框初始化，toast-top-center表示提示框的位置
     toastr.options = {

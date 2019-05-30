@@ -1,0 +1,90 @@
+.contentbox {
+    margin-top: 10px;
+}
+.projecttitle {
+    padding: 5px;
+    background: linear-gradient(to left, #b2dfb3, #ffffff);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.add_catalog_btn {
+    /*margin-top: 20px;*/
+    padding: 20px;
+    text-align: right;
+}
+.add_catalog_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 150px;
+    font-size: 18px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}
+.add_catalog_btn button:hover {
+    background-color: #579c59;
+}
+.contentbox .maincatalogue .project .task .detail {
+    margin-bottom: 20px;
+}
+.contentbox .maincatalogue .project .task .taskbox {
+    padding: 10px;
+    margin-top: 20px;
+    height: 30px;
+}
+/* 操作按钮 */
+.operation_btn {
+    margin-right: 20px;
+    /*width: 50%;*/
+    text-align: right;
+}
+.tasktitle{
+    /*padding: 10px;*/
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*align-items: center;*/
+}
+.tasktitle:hover {
+    background-color: whitesmoke;
+}
+.tasktitle .operation_btn {
+    display: none;
+    margin-right: 50px;
+}
+.tasktitle:hover .operation_btn {
+    display: block;
+}
+.detailtitle {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.detailtitle:hover {
+    background-color: whitesmoke;
+}
+.delete_icon {
+    display: none;
+}
+.detailtitle:hover .delete_icon {
+    display: block;
+}
+/* 按钮样式 */
+.btn-info {
+    background-color: #81d283;
+    border: none;
+}
+.btn-info:hover {
+    background-color: #579c59;
+}
+.contentbox .maincatalogue .project .task .detail .detailtitle .delete_icon span {
+    margin-right: 50px;
+    color: red;
+}
+.modal-content {
+    min-height: auto;
+}

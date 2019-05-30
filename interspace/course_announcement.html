@@ -10,8 +10,12 @@
     <!--  导航栏的基本样式保证  -->
     <link rel="stylesheet" href="../css/teacherinterspace.css">
     <!--  左边栏样式保证  -->
-    <link rel="stylesheet" href="../css/teacher_team.css">
-    <link rel="stylesheet" href="../css/course_announcement.css">
+    <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <!--  对话框样式  -->
+    <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/teacher_css/course_announcement.css">
 </head>
 <body>
 <div class="maincontent">
@@ -67,6 +71,10 @@
         <div class="tt_content_right">
             <div class="tt_content_right_title">
                 系统公告
+            </div>
+            <!--  添加按钮  -->
+            <div class="add_announcement_btn">
+                <button onclick="new_detail()">添加公告</button>
             </div>
             <!--  公告主体内容  -->
             <div class="announcement_content">
@@ -135,9 +143,9 @@
                     </div>
                 </div>
             </div>
-            <!--  添加按钮  -->
-            <div class="add_announcement_btn">
-                <button>添加公告</button>
+            <!--  分页  -->
+            <div class="page_area">
+                <ul id="page"></ul>
             </div>
 
         </div>
@@ -238,6 +246,59 @@
     </div>
 </div>
 <!-- 登录模态框结束 -->
+<!-- 新增模态框 -->
+<div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 100%; height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">新增公告</h4>
+            </div>
+            <form class="form-horizontal adminex-form" id="new_form" action="javascript: add_announcement()" >
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">ID</label>
+                        <div class="col-sm-6">
+                            <input class="form-control id" name="id" type="text" placeholder="id" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">公告主题</label>
+                        <div class="col-sm-6">
+                            <input class="form-control theme" name="theme" type="text" placeholder="请输入主题" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">创建人</label>
+                        <div class="col-sm-6">
+                            <input class="form-control username" name="username" type="text" placeholder="请输入创建人姓名" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">公告信息</label>
+                        <div class="col-sm-6">
+                            <input class="form-control introduction" name="introduction" type="text" placeholder="请输入公告信息" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <input type="submit" class="btn btn-primary" value="保存" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
 
 
 </body>
@@ -247,6 +308,13 @@
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
+<!-- 分页器 -->
+<script src="../lib/bootstrap-paginator.js"></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- 对话框样式 -->
+<script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!--<script src="../js/course_announcement.js"></script>-->
 <script type="text/javascript">
     $(function(){
         // 模态框居中
@@ -260,20 +328,227 @@
                 console.log(p);
             }
         });
+        ellipsis(130);//要显示的字符数 Number
+        select_announce()
     })
+    // 查询
+    function select_announce(pageN) {
+        var param = {
+            cid: 1,
+            page: pageN,
+        }
+
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URL + "Notice/page",
+            type: "get",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: param,
+            success: function (data) {
+                // console.log(data)
+                // console.log(data[0])
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                var dat = data[0]
+                var res = ""
+                for (var i in dat) {
+                    var item = dat[i]
+                    // 转换成数字形式“/1”
+                    var a = dat[i].data/1
+                    var d=new Date(a);
+                    var time = formatDate(d)
+                    // console.log(time);
+                    res += '<div class="announcement_information">\n' +
+                        '                    <div class="announcement_btn">\n' +
+                        '                        <button onclick="delete_announce(' + item.id + ')">删除</button>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="announcement_text">\n' +
+                        '                        <p>公告日期： '+ time +'</p>\n' +
+                        '                        <p>公告主题： '+ item.name +'</p>\n' +
+                        '                        <p>公告创建人： '+ item.theme +'</p>\n' +
+                        '                        <p>公告信息： <span class="announcement_text_content">'+ item.text +'</span></p>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+                }
+                $('.announcement_content').html(res)
+                // 调用字数超出显示省略号……
+                ellipsis(130)
+                //分页
+                $("#page").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,   //bootstrap版本
+                    totalPages: data[1],   //总页数
+                    numberOfPages: 3,    //分页器每页展示页码数
+                    shouldShowPage: true,   //所有的按钮都展示
+                    itemTexts: function (type, page, current) {
+                        // console.log(type)
+                        //设置分页控件每部分的显示文字
+                        switch (type) {
+                            case "first":
+                                return "第一页"
+                            case "prev":
+                                return "上一页"
+                            case "next":
+                                return "下一页"
+                            case "last":
+                                return "最后一页"
+                            case "page":
+                                return page
+                            case "jump":
+                                return "跳转"
+                        }
+                    }, onPageClicked: function(event, originalEvent, type, page) {
+                        //点击事件
+                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                        pageNum = page
+                        // 查询
+                        select_announce(pageNum)
+                    }
+                })
+                //  分页结束
+            },
+            error: function (e) {
+                console.log(e)
+                console.log(e.statusText)
+                if ("timeout" == e.statusText) {
+                    // 请求超时，终止请求
+                    toastr.warning("请求超时")
+                    CouIntrAjax.abort()
+                } else {
+                    toastr.error("网络开小猜了，请稍后再试！")
+                }
+                $("#loadingModal").modal("hide")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 新增
+    function new_detail() {
+        $("#new_modal").modal("show")
+    }
+    function add_announcement() {
+        $("#new_modal").modal("hide")
+        $("#loadingModal").modal("show")
+        var theme = $("#new_modal .theme").val()
+        var username = $("#new_modal .username").val()
+        var introduction = $("#new_modal .introduction").val()
+
+        var AddAnnouncementAjax = $.ajax({
+            url: HTTP_URL + "Notice/notice",
+            type: "post",
+            data: {
+                cid: 1,
+                name: theme,
+                theme: username,
+                text: introduction,
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(name)
+                toastr.success("操作成功！")
+                // 成功后把模态框中的内容清空
+                $("#new_modal .modal-body input").each(function () {
+                    // jquery 遍历节点 $(this)指每次遍历拿到的元素
+                    $(this).val("") // 清空值
+                })
+                select_announce()
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 删除
+    function delete_announce(id) {
+        confirmBySelf("确认删除吗？", function () {
+            // 用户点击确认时
+            $("#loadingModal").modal("show")
+            var UpdateTeacherAjax = $.ajax({
+                url: HTTP_URL + "Notice/denotice",
+                type: "post",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                success: function (data) {
+                    toastr.success("操作成功！")
+                    select_announce()
+                },
+                error: function (e) {
+                    console.log(e)
+                },
+                complete: function (xhr, status) {
+                    // 隐藏loading
+                    $("#loadingModal").modal("hide")
+                }
+            })
+        })
+    }
+
     //  设置字数超出显示省略号……
     function ellipsis(num) {
         $(".announcement_text_content").each(function () {
             var maxwidth = num;
-            console.log($(this).text());
-            console.log($(this).text().length);
+            // console.log($(this).text());
+            // console.log($(this).text().length);
             if ($(this).text().length > maxwidth) {
                 $(this).text($(this).text().substring(0, maxwidth));
                 $(this).html($(this).html() + '…');
             }
         });
     }
-    ellipsis(150);//要显示的字符数 Number
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
+    // 时间戳
+    function formatDate(now) {
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var date=now.getDate();
+        var hour=now.getHours();
+        var minute=now.getMinutes();
+        var second=now.getSeconds();
+        return year+"-"+month+"-"+date;
+    }
+    /**
+     *对话框
+     * @param content  提示内容
+     * @param func      点击对话框确认按钮做什么，类型为function
+     */
+    function confirmBySelf(content, func) {
+        $.confirm({
+            confirmButtonClass: "btn-primary",   //设置ok按钮样式
+            closeIcon: true,        //对话框右上角关闭
+            confirmButton: "确认", //确认按钮标题
+            cancelButton: "取消", //取消按钮标题
+            title: "提示",        //标题
+            content: content,        //对话内容
+            confirm: function () {
+                //点击确认后做什么
+                func()
+            },
+            cancel:function () {
+                //点击取消后做什么
+            }
+        })
+    }
 </script>
 
 </html>

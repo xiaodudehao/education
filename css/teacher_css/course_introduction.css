@@ -1,0 +1,51 @@
+/* 课程简介-右边栏 */
+.course_introduction {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.course_title {
+    font-size: 24px;
+}
+.course_information {
+    padding: 30px;
+    width: 80%;
+    height: 1200px;
+    overflow: auto;
+    border: 2px solid #81d283;
+    border-radius: 20px;
+}
+.jianjie1 {
+    margin-bottom: 40px;
+}
+.jianjie1 p {
+    font-size: 18px;
+}
+.textarea {
+    margin-left: 20px;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    font-size: 18px;
+    line-height: 32px;
+    padding:5px;
+    border: none;
+    background-color: #fafafa;
+}
+
+/* 保存按钮 */
+.tt_content_right button {
+    margin: 30px 20px 0 0 ;
+    padding: 10px 30px;
+    float: right;
+    font-size: 24px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+
+}
+
+
+

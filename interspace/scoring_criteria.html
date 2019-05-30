@@ -10,8 +10,12 @@
     <!--  导航栏的基本样式保证  -->
     <link rel="stylesheet" href="../css/teacherinterspace.css">
     <!--  左边栏样式保证  -->
-    <link rel="stylesheet" href="../css/teacher_team.css">
-    <link rel="stylesheet" href="../css/scoring_criteria.css">
+    <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <!--  对话框样式  -->
+    <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/teacher_css/scoring_criteria.css">
 </head>
 <body>
 <div class="maincontent">
@@ -68,15 +72,50 @@
             <div class="tt_content_right_title">
                 评分标准
             </div>
-            <!--  主要内容  -->
-            <div class="scoring_criteria_content">
-                <p class="criteria_content_title">本课程的评分标准为：</p>
-                <textarea class="textarea" id="textarea">      标准这里这里是默这里这里是默认认值认值这里是默认值这里标准是默认默认值这里是默认值这里是默认值是标准这里这里是默这里这里是默认认值认值这里是默认值这里标准是默认默认值这里是默认值这里是默认值是默认标准这里这里是默这里这里是默认认值认值这里是默认值这里标准是默认默认值这里是默认值这里是默认值是默认默认值认值这里是默认值这里是默认值是默认值值这里是默认值这里是默认值是默认值认值这里是默认值这里是默认值是默认值
-                </textarea>
-            </div>
-            <!--  主要内容完成  -->
-            <div class="save_btn">
-                <button onclick="dianji()">保存</button>
+            <div class="score_criteria">
+                <div class="add_criteria_btn">
+                    <div class="criteria_title">
+                        本课堂的满分为：
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="总分">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"> > </button>
+                            </span>
+                        </div>
+                    </div>
+                    <button onclick="new_detail()">添加标准</button>
+                </div>
+                <!--  公告主体内容  -->
+                <div class="announcement_content">
+                    <div class="announcement_information">
+                        <div class="announcement_btn">
+                            <button>编辑</button>
+                            <span>|</span>
+                            <button>删除</button>
+                        </div>
+                        <div class="announcement_text">
+                            <p>评分标准 <span class="accounted">20%</span></p>
+                            <p>评分标准内容： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们</span></p>
+                        </div>
+                    </div>
+                    <div class="announcement_information">
+                        <div class="announcement_btn">
+                            <button>编辑</button>
+                            <span>|</span>
+                            <button>删除</button>
+                        </div>
+                        <div class="announcement_text">
+                            <p>评分标准 <span class="accounted">20%</span></p>
+                            <p>评分标准内容： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -96,7 +135,6 @@
     <!-- 底部结束 -->
 
 </div>
-
 
 <!-- 注册模态框开始 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -176,7 +214,102 @@
     </div>
 </div>
 <!-- 登录模态框结束 -->
+<!-- 编辑模态框 -->
+<div class="modal fade" id="detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 100%; height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情/编辑</h4>
+            </div>
+            <form class="form-horizontal adminex-form" id="detail_form" action="javascript: update_criteria()" >
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">ID</label>
+                        <div class="col-sm-6">
+                            <input class="form-control id" name="id" type="text" placeholder="id" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">评分标题</label>
+                        <div class="col-sm-6">
+                            <input class="form-control title" name="title" type="text" placeholder="请输入标题" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">评分要求</label>
+                        <div class="col-sm-6">
+                            <input class="form-control require" name="require" type="text" placeholder="请输入评分要求" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">评分占比</label>
+                        <div class="col-sm-6">
+                            <input class="form-control num" name="num" type="num" placeholder="请输入数字" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <input type="submit" class="btn btn-primary" value="保存" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 新增模态框 -->
+<div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 100%; height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">新增标准</h4>
+            </div>
+            <form class="form-horizontal adminex-form" id="new_form" action="javascript: add_criteria()" >
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">ID</label>
+                        <div class="col-sm-6">
+                            <input class="form-control id" name="id" type="text" placeholder="id" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">评分标题</label>
+                        <div class="col-sm-6">
+                            <input class="form-control title" name="title" type="text" placeholder="请输入标题" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">评分要求</label>
+                        <div class="col-sm-6">
+                            <input class="form-control require" name="require" type="text" placeholder="请输入评分要求" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">评分占比</label>
+                        <div class="col-sm-6">
+                            <input class="form-control num" name="num" type="num" placeholder="请输入数字" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <input type="submit" class="btn btn-primary" value="保存" />
+                </div>
+            </form>
 
+        </div>
+    </div>
+</div>
+<!-- loading modal -->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
 
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
@@ -185,6 +318,11 @@
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- 对话框样式 -->
+<script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!--<script src="../js/scoring_criteria.js" ></script>-->
 <script type="text/javascript">
     $(function(){
         // 模态框居中
@@ -198,82 +336,255 @@
                 console.log(p);
             }
         });
+        ellipsis(130);//要显示的字符数 Number
+        select_criteria()
     })
+    // 查询
+    function select_criteria() {
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URL + "Mark/setmark",
+            type: "get",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                cid: 1
+            },
+            success: function (data) {
+                // console.log(data)
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                var res = ""
+                var res2 = ""
+                res2 ='<div class="criteria_title">\n' +
+                    '                        本课堂的满分为：\n' +
+                    '                        <div class="input-group">\n' +
+                    '                            <input type="text" class="form-control total_score" placeholder="'+ data[1] +'">\n' +
+                    '                            <span class="input-group-btn">\n' +
+                    '                                <button class="btn btn-default" type="button" onclick="update_total_score()"> > </button>\n' +
+                    '                            </span>\n' +
+                    '                        </div>\n' +
+                    '                    </div>' +
+                    '<button onclick="new_detail()">添加标准</button>'
+                $('.add_criteria_btn').html(res2)
+                // 输入框获取分数
+                $(".total_score").val(data[1])
+                var dat = data[0]
+                for (var i in dat) {
+                    var item = dat[i]
+                    res += '<div class="announcement_information">\n' +
+                        '                        <div class="announcement_btn">\n' +
+                        '                            <button onclick="criteria_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
+                        '                            <span>|</span>\n' +
+                        '                            <button onclick="delete_criter('+ item.id +')">删除</button>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="announcement_text">\n' +
+                        '                            <p>'+ item.name +'<span class="accounted">'+ item.proportion +'%</span></p>\n' +
+                        '                            <p>评分标准要求： <span class="announcement_text_content">'+ item.require +'</span></p>\n' +
+                        '                        </div>\n' +
+                        '                    </div>'
+                }
+                $('.announcement_content').html(res)
+                // 调用字数超出显示省略号……
+                ellipsis(130)
+            },
+            error: function (e) {
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
 
-</script>
-<script>
+    // 修改总分
+    function update_total_score() {
+        var grouss = $(".total_score").val()
+        var UpdateTeacherAjax = $.ajax({
+            url: HTTP_URL + "Mark/count",
+            type: "post",
+            data: {
+                cid: 1,
+                grouss: grouss,
+            },
+            dataType: "json",
+            success: function (data) {
+                toastr.success("操作成功！")
+                select_criteria()
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 详情模态框
+    function criteria_detail(item) {
+        // 将数据传递过来显示在模态框中
+        console.log(item)
+        $("#detail_modal .id").val(item.id)
+        $("#detail_modal .title").val(item.name)
+        $("#detail_modal .require").val(item.require)
+        $("#detail_modal .num").val(item.proportion)
+        // 显示模态框
+        $("#detail_modal").modal("show")
+    }
+    // 修改信息
+    function update_criteria() {
+        // 隐藏详情模态框
+        $("#detail_modal").modal("hide")
+        $("#loadingModal").modal("show")
+        // 获取模态框中输入的值
+        var id = $("#detail_modal .id").val()
+        var name = $("#detail_modal .title").val()
+        var require = $("#detail_modal .require").val()
+        var num = $("#detail_modal .num").val()
+        console.log(name)
+        //  修改信息网络请求
+        var UpdateTeacherAjax = $.ajax({
+            url: HTTP_URL + "Mark/upmark",
+            type: "post",
+            data: {
+                id: id,
+                name: name,
+                require: require,
+                proportion: num,
+            },
+            dataType: "json",
+            success: function (data) {
+                toastr.success("操作成功！")
+                select_criteria()
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 新增
+    function new_detail(){
+        $("#new_modal").modal("show")
+    }
+    function add_criteria() {
+        $("#new_modal").modal("hide")
+        $("#loadingModal").modal("show")
+        var name = $("#new_modal .title").val()
+        var require = $("#new_modal .require").val()
+        var num = $("#new_modal .num").val()
+        // console.log(name)
+        // 请求
+        var AddTeacherAjax = $.ajax({
+            url: HTTP_URL + "Mark/mark",
+            type: "post",
+            data: {
+                cid: 1,
+                name: name,
+                require: require,
+                proportion: num,
+            },
+            dataType: "json",
+            success: function (data) {
+                // console.log(name)
+                toastr.success("操作成功！")
+                // 成功后把模态框中的内容清空
+                $("#new_modal .modal-body input").each(function () {
+                    // jquery 遍历节点 $(this)指每次遍历拿到的元素
+                    $(this).val("") // 清空值
+                })
+                select_criteria()
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 删除
+    function delete_criter(id) {
+        confirmBySelf("确认删除吗？", function () {
+            // 用户点击确认时
+            $("#loadingModal").modal("show")
+            var UpdateTeacherAjax = $.ajax({
+                url: HTTP_URL + "Mark/demark",
+                type: "post",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                success: function (data) {
+                    toastr.success("操作成功！")
+                    select_criteria()
+                },
+                error: function (e) {
+                    console.log(e)
+                },
+                complete: function (xhr, status) {
+                    // 隐藏loading
+                    $("#loadingModal").modal("hide")
+                }
+            })
+        })
+    }
+
+    //  设置字数超出显示省略号……
+    function ellipsis(num) {
+        $(".announcement_text_content").each(function () {
+            var maxwidth = num;
+            // console.log($(this).text());
+            // console.log($(this).text().length);
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '…');
+            }
+        });
+    }
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
     /**
-     * 文本框根据输入内容自适应高度
-     * @param                {HTMLElement}        输入框元素
-     * @param                {Number}                设置光标与输入框保持的距离(默认0)
-     * @param                {Number}                设置最大高度(可选)
+     *对话框
+     * @param content  提示内容
+     * @param func      点击对话框确认按钮做什么，类型为function
      */
-    var autoTextarea = function (elem, extra, maxHeight) {
-        extra = extra || 0;
-        var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
-            isOpera = !!window.opera && !!window.opera.toString().indexOf('Opera'),
-            addEvent = function (type, callback) {
-                elem.addEventListener ?
-                    elem.addEventListener(type, callback, false) :
-                    elem.attachEvent('on' + type, callback);
+    function confirmBySelf(content, func) {
+        $.confirm({
+            confirmButtonClass: "btn-primary",   //设置ok按钮样式
+            closeIcon: true,        //对话框右上角关闭
+            confirmButton: "确认", //确认按钮标题
+            cancelButton: "取消", //取消按钮标题
+            title: "提示",        //标题
+            content: content,        //对话内容
+            confirm: function () {
+                //点击确认后做什么
+                func()
             },
-            getStyle = elem.currentStyle ? function (name) {
-                var val = elem.currentStyle[name];
-
-                if (name === 'height' && val.search(/px/i) !== 1) {
-                    var rect = elem.getBoundingClientRect();
-                    return rect.bottom - rect.top -
-                        parseFloat(getStyle('paddingTop')) -
-                        parseFloat(getStyle('paddingBottom')) + 'px';
-                };
-
-                return val;
-            } : function (name) {
-                return getComputedStyle(elem, null)[name];
-            },
-            minHeight = parseFloat(getStyle('height'));
-
-        elem.style.resize = 'none';
-
-        var change = function () {
-            var scrollTop, height,
-                padding = 0,
-                style = elem.style;
-
-            if (elem._length === elem.value.length) return;
-            elem._length = elem.value.length;
-
-            if (!isFirefox && !isOpera) {
-                padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
-            };
-            scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-
-            elem.style.height = minHeight + 'px';
-            if (elem.scrollHeight > minHeight) {
-                if (maxHeight && elem.scrollHeight > maxHeight) {
-                    height = maxHeight - padding;
-                    style.overflowY = 'auto';
-                } else {
-                    height = elem.scrollHeight - padding;
-                    style.overflowY = 'hidden';
-                };
-                style.height = height + extra + 'px';
-                scrollTop += parseInt(style.height) - elem.currHeight;
-                document.body.scrollTop = scrollTop;
-                document.documentElement.scrollTop = scrollTop;
-                elem.currHeight = parseInt(style.height);
-            };
-        };
-
-        addEvent('propertychange', change);
-        addEvent('input', change);
-        addEvent('focus', change);
-        change();
-    };
-    var text = document.getElementById("textarea");
-    autoTextarea(text);// 调用
-    function dianji() {
-        console.log($('#textarea').val())
+            cancel:function () {
+                //点击取消后做什么
+            }
+        })
     }
 </script>
 
