@@ -342,7 +342,9 @@ function getSearch (k) {
     return obj[ k ];
 }
 
-
+$(".check").on('click',function(){
+    $('.codeimg').click();
+})
 
 // 当用户登录之后调用的css
 // $(".loginicon").addClass("checkloginicon");
