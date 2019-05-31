@@ -1,0 +1,152 @@
+@import "public.less";
+
+
+/* 中间内容 */
+.tt_content {
+    margin: 0 auto;
+    padding: 65px 0 130px;
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* 左边内容 */
+.tt_content_left {
+    width: 298px;
+}
+.tt_content_leftmenu {
+    margin-top: 50px;
+}
+.tt_content_leftmenu a {
+    display: block;
+    border: 2px solid #999;
+    box-sizing: border-box;
+    width: 298px;
+    height: 78px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    color: #666;
+    font-size: 24px;
+    text-align: center;
+    line-height: 78px;
+    text-decoration: none;
+}
+.tt_content_leftmenu a:hover {
+    color: #81d283;
+}
+.active {
+    background-color: #81d283;
+    color: #fff !important;
+}
+
+/* 右边内容 */
+.tt_content_right {
+    width: 864px;
+}
+.tt_content_right_title {
+    font-size: 28px;
+    color: #31b24e;
+    border-bottom: 2px solid #31b24e;
+    padding-bottom: 20px;
+}
+/* 教师信息 */
+.tt_team {
+    margin-top: 70px;
+}
+.tt_information {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* 图片 */
+.tt_information img {
+    width: 300px;
+    height: 200px;
+}
+.tt_Introduction {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tt_Introduction_title {
+    font-size: 24px !important;
+    font-weight: bold;
+}
+.box {
+    width: 100%;
+}
+.tt_Introduction p{
+    font-size: 18px;
+}
+
+.action_buttons {
+    text-align: right;
+}
+
+.footercontenter {
+    margin: 0 !important;
+}
+/* 添加教师按钮 */
+.add_teacher_btn {
+    text-align: center;
+}
+.add_teacher_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 500px;
+    font-size: 22px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}
+/* 模态框头像 */
+.avatar {
+    max-width: 100%;
+}
+
+.control-label{
+    margin-top: -3px;
+}
+
+.tt_team{
+    padding-bottom: 40px;
+    .eachclass{
+        line-height: 50px;
+        margin-bottom: 30px;
+      .each{
+          width: 355px;
+          height: 50px;
+          display: inline-block;
+          font-size: 24px;
+          border-radius: 15px;
+          border: 1px solid #31b24e;
+          outline: none;
+      }
+      /* 按钮 */
+      .btn-link {
+          color: #31b24e;
+          font-size: 24px;
+          margin-top: -10px;
+      }
+      .btn-link:hover {
+          color: #31b24e;
+          font-size: 24px;
+          text-decoration: none;
+      }
+  }
+
+}
+
+.updateclass,
+.updateteacher{
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    border-radius: 3px;
+}
+.updateteacher{
+    margin-top: 30px;
+}
