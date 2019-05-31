@@ -129,6 +129,13 @@ for(var j=0;j<wareName1.length;j++){
                                 message: 'ⓧ 密码不能有汉字'
                             }
                         }
+                    },
+                    zname: {
+                        validators: {
+                            notEmpty: {
+                                message: 'ⓧ 真实姓名不能为空'
+                            }
+                        }
                     }
                 }
             })

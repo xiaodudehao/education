@@ -216,7 +216,7 @@ input::-ms-clear {
 }
 .modal-content {
   width: 500px;
-  height: 500px;
+  min-height: 500px;
   font-size: 20px;
   background-color: #f2f2f2;
   margin: 0 auto;
@@ -378,6 +378,7 @@ input::-ms-clear {
   position: relative;
   margin: 0 auto;
   margin-top: 46px;
+  margin-bottom: 8px;
 }
 .modal-content .registerform .elseregister span {
   margin-right: 20px;
@@ -570,12 +571,13 @@ input::-ms-clear {
 }
 .tt_team .eachclass .each {
   width: 355px;
-  height: 50px;
+  min-height: 50px;
   display: inline-block;
   font-size: 24px;
   border-radius: 15px;
   border: 1px solid #31b24e;
   outline: none;
+  text-align: center;
 }
 .tt_team .eachclass .btn-link {
   color: #31b24e;
@@ -592,7 +594,9 @@ input::-ms-clear {
   display: block;
   margin: 0 auto;
   width: 200px;
+  height: 28px;
   border-radius: 3px;
+  border: 1px solid #999;
 }
 .updateteacher {
   margin-top: 30px;
