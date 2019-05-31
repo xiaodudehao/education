@@ -49,13 +49,13 @@
             <img src="../images/kecheng1.png">
             <div class="tt_content_leftmenu">
                 <a href="" >基本设置</a>
-                <a href="" class="active">课程简介</a>
-                <a href="./teacher_team.html" >教师团队</a>
-                <a href="" >课程资源</a>
-                <a href="./course_catalog.html">课程目录</a>
-                <a href="./course_announcement.html">系统公告</a>
-                <a href="./scoring_criteria.html">评分表准</a>
-                <a href="">测验/考试</a>
+                <a href="" class="active introduction_href">课程简介</a>
+                <a class="teacher_href" href="">教师团队</a>
+                <a class="" href="" >课程资源</a>
+                <a class="catalog_href" href="">课程目录</a>
+                <a class="announcement_href" href="">系统公告</a>
+                <a class="criteria_href" href="">评分表准</a>
+                <a class="test_href" href="">测验/考试</a>
                 <a href="">讨论区</a>
                 <a href="">班级</a>
                 <a href="">学生</a>
@@ -316,7 +316,7 @@
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                cid: 1,
+                cid: cid,
             },
             success: function (data) {
                 // console.log(data)
@@ -355,6 +355,8 @@
             },
             error: function (e) {
                 console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+                $("#loadingModal").modal("hide")
             },
             complete: function (xhr, status) {
                 // 隐藏loading
@@ -378,7 +380,7 @@
             dataType: "json",
             async:false,    //不进行异步刷新
             data: {
-                cid: 1,
+                cid: cid,
                 intro: intro,
                 style: style,
                 getready: getready,

@@ -5,6 +5,19 @@ var imgsrc = "http://192.168.1.110/lanhong/Public/img/";
 // 保存头像图片名称的变量。
 var imgname;
 
+var url = location.href
+var urlarr = url.split("=")
+var cid = urlarr[urlarr.length - 1]
+// console.log(cid)
+
+$(".teacher_href").attr('href','./teacher_team.html?cid='+ cid +'');
+$(".introduction_href").attr('href','./course_introduction.html?cid='+ cid +'');
+$(".catalog_href").attr('href','./course_catalog.html?cid='+ cid +'');
+$(".announcement_href").attr('href','./course_announcement.html?cid='+ cid +'');
+$(".criteria_href").attr('href','./scoring_criteria.html?cid='+ cid +'');
+$(".test_href").attr('href','./course_test.html?cid='+ cid +'');
+
+
 
 $(".log").on('click',function(){
     document.onkeydown = function(e) {
@@ -230,7 +243,7 @@ $('#teacherloginform').bootstrapValidator({
                                 ;
                             },
                             error : function() {
-                                alert("异常！");
+                                // alert("异常！");
                             }
                         });
             })

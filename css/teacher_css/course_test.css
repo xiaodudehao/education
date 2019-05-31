@@ -1,0 +1,50 @@
+.test_content {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.card_1 {
+    text-align: center;
+}
+.card_1 img {
+    width: 200px;
+    height: 200px;
+}
+.card_1 p {
+    margin: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #81d283;
+}
+
+/* 添加题目按钮 */
+/* 添加按钮 */
+.add_question_btn {
+    /*margin-top: 20px;*/
+    padding: 20px;
+    text-align: left;
+}
+.add_question_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 150px;
+    font-size: 18px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}
+.content_table {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+.content_table th {
+    text-align: center;
+}
+.tab_btn {
+    margin: 2px;
+    font-size: 12px;
+    padding: 2px 3px;
+}
