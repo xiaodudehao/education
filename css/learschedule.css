@@ -457,211 +457,72 @@ input::-ms-clear {
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
 }
-.header ul li:nth-child(1) a {
-  color: #000;
-}
-.header ul li:hover a {
-  color: #32b251;
-}
-.contentbox {
-  background-color: #fafafa;
-}
-.contentbox .coursehead {
-  height: 290px;
-  background-color: #fafafa;
-  margin-top: 60px;
-  overflow: hidden;
-}
-.contentbox .coursehead .courseheadchild {
-  height: 290px;
-}
-.contentbox .coursehead .courseheadchild .leftimg {
-  float: left;
-}
-.contentbox .coursehead .courseheadchild .leftimg .bigimg {
-  display: block;
-  width: 360px;
-  height: 240px;
-}
-.contentbox .coursehead .courseheadchild .leftimg .share {
-  margin-top: 20px;
-}
-.contentbox .coursehead .courseheadchild .leftimg .share .sharetxt {
-  margin-top: 5px;
-  float: left;
-  margin-right: 20px;
-  font-size: 18px;
-}
-.contentbox .coursehead .courseheadchild .leftimg .share .shareqq,
-.contentbox .coursehead .courseheadchild .leftimg .share .shareweixin,
-.contentbox .coursehead .courseheadchild .leftimg .share .sharexinlang {
-  float: left;
-  display: block;
-  width: 30px;
-  height: 30px;
-  margin-right: 12px;
-}
-.contentbox .coursehead .courseheadchild .righttxt {
-  float: right;
-  width: 795px;
-  position: relative;
-}
-.contentbox .coursehead .courseheadchild .righttxt .homepage {
-  color: #000;
-  text-decoration: none;
-}
-.contentbox .coursehead .courseheadchild .righttxt .homepage .righttitle {
-  font-size: 28px;
-  margin-top: 16px;
-}
-.contentbox .coursehead .courseheadchild .righttxt .homepage .rightschool {
-  font-size: 16px;
-}
-.contentbox .coursehead .courseheadchild .righttxt .homepage .rightteach {
-  font-size: 16px;
-}
-.contentbox .coursehead .courseheadchild .righttxt .homepage .rightclassify {
-  margin-top: 15px;
-  font-size: 16px;
-}
-.contentbox .coursehead .courseheadchild .righttxt .addclassify {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 200px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  background-color: #81d282;
-  color: #fff;
-  font-size: 22px;
-  border-radius: 20px;
-}
-.contentbox .mainpart {
-  background-color: #fafafa;
-  margin-top: 80px;
-}
-.contentbox .mainpart .mainpartchild .mainpartleft {
-  width: 860px;
-  float: left;
-  padding-right: 62px;
-}
-.contentbox .mainpart .mainpartchild .mainpartleft .coursebutton {
-  margin-bottom: 37px;
-}
-.contentbox .mainpart .mainpartchild .mainpartleft .coursebutton .introductionbutton {
-  display: block;
-  width: 120px;
-  height: 40px;
-  line-height: 40px;
-  background-color: #33b150;
-  float: left;
-  border-radius: 20px 0 0 20px ;
-  text-align: center;
-  color: #fff;
-  font-size: 20px;
-  text-decoration: none;
-}
-.contentbox .mainpart .mainpartchild .mainpartleft .coursebutton .cataloguebutton {
-  display: block;
-  margin-left: 1px;
-  float: left;
-  width: 120px;
-  height: 40px;
-  line-height: 40px;
-  background-color: #81d282;
-  border-radius: 0 20px 20px 0;
-  text-align: center;
-  color: #fff;
-  font-size: 20px;
-  text-decoration: none;
-}
-.contentbox .mainpart .mainpartchild .mainpartleft .maincontent {
-  font-size: 19px;
-  line-height: 38px;
-}
-.contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis {
-  margin-top: 35px;
-  margin-bottom: 15px;
-}
-.contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis .synopsiscontent {
-  text-indent: 2em;
-}
-.contentbox .mainpart .mainpartchild .mainpartright {
-  padding-bottom: 80px;
-  width: 340px;
-  float: left;
-  min-height: 800px;
-}
-.contentbox .mainpart .mainpartchild .mainpartright .teachteam {
-  font-size: 24px;
-  color: #81d282;
-}
-.contentbox .mainpart .mainpartchild .mainpartright .teachmember {
-  display: block;
-  text-decoration: none;
-  color: #000;
-  margin-top: 52px;
-  overflow: hidden;
-}
-.contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachimg {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  display: block;
+/* 中间内容 */
+.tt_content {
   margin: 0 auto;
+  padding: 65px 0 130px;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachname {
-  margin-top: 34px;
-  font-size: 25px;
+/* 左边内容 */
+.tt_content_left {
+  width: 298px;
+}
+.tt_content_leftmenu {
+  margin-top: 50px;
+}
+.tt_content_leftmenu a {
+  display: block;
+  border: 2px solid #999;
+  box-sizing: border-box;
+  width: 298px;
+  height: 78px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  color: #666;
+  font-size: 24px;
+  text-align: center;
+  line-height: 78px;
+  text-decoration: none;
+}
+.tt_content_leftmenu a:hover {
+  color: #81d283;
+}
+.active {
+  background-color: #81d283;
+  color: #fff !important;
+}
+/* 右边内容 */
+.tt_content_right {
+  width: 864px;
+}
+.tt_content_right_title {
+  font-size: 28px;
+  color: #31b24e;
+  border-bottom: 2px solid #31b24e;
+  padding-bottom: 20px;
+}
+/* 教师信息 */
+.tt_team {
+  margin-top: 30px;
+}
+.tt_team .drive {
+  background-color: #81d283;
+}
+.tt_team tr {
+  margin-bottom: 50px;
+}
+.tt_team tr th,
+.tt_team tr td {
+  font-size: 24px;
   text-align: center;
 }
-.contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachexplain {
-  font-size: 16px;
-  color: #999;
-  margin-top: 12px;
+.tt_team tr th {
+  font-weight: 400;
+  font-size: 24px;
 }
-.contentbox .maincatalogue .project {
-  margin-bottom: 26px;
-}
-.contentbox .maincatalogue .project .projecttitle {
-  font-size: 22px;
-  margin-bottom: 30px;
-}
-.contentbox .maincatalogue .project .task {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-.contentbox .maincatalogue .project .task .taskbox {
-  position: relative;
-}
-.contentbox .maincatalogue .project .task .taskbox .triangle {
-  width: 0;
-  height: 0;
-  border-left: 20px solid  #5bc072 ;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  float: left;
-  position: absolute;
-  transition: all 0.3s;
-}
-.contentbox .maincatalogue .project .task .taskbox .tasktitle {
-  float: left;
-  font-size: 20px;
-  line-height: 20px;
-  margin-left: 25px;
-}
-.contentbox .maincatalogue .project .task .detail {
-  font-size: 20px;
-}
-.contentbox .maincatalogue .project .task .detail .detailtitle {
-  display: block;
-  color: #666;
-  text-decoration: none;
-  padding-left: 86px;
-  margin-top: 16px;
-}
-.contentbox .maincatalogue .project .task .detail .detailtitle span {
-  margin-right: 50px;
-  color: #999;
+.tt_team .null {
+  color: #9999;
 }

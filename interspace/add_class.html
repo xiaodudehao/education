@@ -480,7 +480,8 @@
         // 新的班级名称
         var upvalue = $(".updateclass").val()
         //新的老师名称
-        var upvaluet = $("updateteacher").val()
+        var upvaluet = $(".updateteacher").val()
+
         if(upvalue == "" && upvaluet == ""){
             // console.log("名字为空");
             
@@ -497,7 +498,8 @@
             type: "post",
             data: {
                 id: data.id,
-                name: upvalue
+                name: upvalue,
+                teacher: upvaluet
             },
             dataType: "json",
             success: function (data) {

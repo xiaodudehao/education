@@ -1,0 +1,106 @@
+@import "public.less";
+
+
+/* 中间内容 */
+.tt_content {
+    margin: 0 auto;
+    padding: 65px 0 130px;
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* 左边内容 */
+.tt_content_left {
+    width: 298px;
+}
+.tt_content_leftmenu {
+    margin-top: 50px;
+}
+.tt_content_leftmenu a {
+    display: block;
+    border: 2px solid #999;
+    box-sizing: border-box;
+    width: 298px;
+    height: 78px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    color: #666;
+    font-size: 24px;
+    text-align: center;
+    line-height: 78px;
+    text-decoration: none;
+}
+.tt_content_leftmenu a:hover {
+    color: #81d283;
+}
+.active {
+    background-color: #81d283;
+    color: #fff !important;
+}
+/* 右边内容 */
+.tt_content_right {
+    width: 864px;
+}
+.tt_content_right_title {
+    font-size: 28px;
+    color: #31b24e;
+    border-bottom: 2px solid #31b24e;
+    padding-bottom: 20px;
+}
+/* 教师信息 */
+.tt_team {
+    margin-top: 70px;
+    th,
+    td{
+        font-size: 26px;
+        border: 1px dotted #31b24e;
+        text-align: center;
+
+    }
+    th{
+        font-weight: 400;
+        font-size: 26px;
+    }
+    .bottomhistogram{
+       margin-top: 80px;
+        .righthistogram{
+            margin-left: 50px;
+        }
+        .histogramtitle{
+            min-height: 40px;
+            width: 190px;
+            text-align: center;
+            border-radius: 15px;
+            background-color: #8dd68d;
+            font-size: 26px;
+            color: #fff;
+        }
+        .linkgrade {
+            height: 74px;
+            width: 145px;
+            display: block;
+            border-radius: 15px;
+            background-color: #31b24e;
+            color:#fff;
+            font-size: 26px;
+            text-align: center;
+            line-height: 74px;
+            margin: 20px auto;
+        }
+        .linkgrade:hover {
+            text-decoration: none;
+        }
+        #lefthistogram,
+        #righthistogram{
+            width: 400px;
+            min-height: 400px;
+            // background-color: purple;
+        }
+    }
+    .null{
+        color: #9999;
+    }
+
+}
+

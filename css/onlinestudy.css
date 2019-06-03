@@ -251,7 +251,8 @@ input::-ms-clear {
 }
 .modal-content .registerform .form-group .telephone,
 .modal-content .registerform .form-group .username,
-.modal-content .registerform .form-group .password {
+.modal-content .registerform .form-group .password,
+.modal-content .registerform .form-group .selectvalue {
   outline-style: none;
   display: block;
   width: 400px;

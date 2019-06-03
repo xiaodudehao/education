@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学习进度统计</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../css/learschedule.css">
+</head>
+
+<body>
+<div class="maincontent">
+    <!-- 头部导航栏开始 -->
+    <div class="header">
+        <div class="banxin">
+            <img src="../img/未标题-10.png" class="logo" alt="">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">院校</a></li>
+                <li><a href="">立体教材</a></li>
+            </ul>
+            <div class="search">
+                <img class="searchicon" src="../img/未标题-1.png" ></img>
+                <input type="text" placeholder="搜索课程或学校">
+            </div>
+            <div class="login">
+                <a href="">
+                    <img class="loginicon" src="../img/未标题-2.png"></img>
+                </a>
+                <!-- 这里的模态框用js实现 -->
+                <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航栏结束 -->
+    <!--  中间内容开始  -->
+    <div class="tt_content">
+        <!--  左边内容  -->
+        <div class="tt_content_left">
+            <img src="../images/kecheng1.png">
+            <div class="tt_content_leftmenu">
+                <a href="" >基本设置</a>
+                <a href="./course_introduction.html" >课程简介</a>
+                <a href="" >教师团队</a>
+                <a href="" >课程资源</a>
+                <a href="./course_catalog.html">课程目录</a>
+                <a href="./course_announcement.html">系统公告</a>
+                <a href="./scoring_criteria.html">评分表准</a>
+                <a href="">测验/考试</a>
+                <a href="">讨论区</a>
+                <a href=""  >班级</a>
+                <a href="">学生</a>
+                <a href="" >课程统计</a>
+                <a href="" class="active">学习统计</a>
+            </div>
+        </div>
+        <!--  右边内容  -->
+        <div class="tt_content_right">
+            <div class="tt_content_right_title">
+                学习进度统计
+            </div>
+            <!--  主要内容  -->
+            <div class="tt_team">
+                <a href="" class="derive">
+                    导出
+                </a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="50px">序号</th>
+                            <th width="100px">姓名</th>
+                            <th>学校/单位</th>
+                            <th width="190px">学习时长</th>
+                            <th width="130px">学习进度</th>
+                            <th width="50px">排名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>张思</td>
+                            <td>上海城市科技学校上海城市科技学校上海城市科技学校</td>
+                            <td>65时22分12秒</td>
+                            <td>学习进度</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>张思</td>
+                            <td>上海城市科技学校</td>
+                            <td>65时22分12秒</td>
+                            <td>学习进度</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>张思</td>
+                            <td>上海城市科技学校</td>
+                            <td>65时22分12秒</td>
+                            <td>学习进度</td>
+                            <td>3</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+                <!-- <table   class="tabletype" >
+                    <thead>
+                        <tr>
+                            <th width="288px">班级名称</th>
+                            <th width="142px">授课老师</th>
+                            <th width="142px">班级人数</th>
+                            <th width="142px">班级合格数</th>
+                            <th width="142px">班级合格率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >春学一班</td>
+                            <td >大老师</td>
+                            <td >100</td>
+                            <td>99</td>
+                            <td>99%</td>
+                        </tr>
+                        <tr>
+                            <td >平地摔一班</td>
+                            <td >梨斗</td>
+                            <td >100</td>
+                            <td>99</td>
+                            <td>99%</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+
+                </table>
+                <div class="bottomhistogram clearfix">
+                    <div class="lefthistogram fl">
+                        <div class="histogramtitle">
+                            学习成绩统计
+                        </div>
+                        <div id="lefthistogram">
+
+                        </div>
+                        <a class="linkgrade" href="">查看详情</a>
+                    </div>
+                    <div class="righthistogram fl">
+                        <div class="histogramtitle">
+                            学习进度统计
+                        </div>
+                        <div id="righthistogram">
+
+                        </div>
+                        <a class="linkgrade" href="">查看详情</a>
+                    </div>
+
+                </div> -->
+             
+            </div>
+        </div>
+    </div>
+    <!--  中间内容结束  -->
+    <!-- 底部开始 -->
+    <div class="footercontenter">
+        <div class="footer">
+            <div class="banxin footerbanxin">
+                <div class="footercenter">
+                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部结束 -->
+</div>
+<!-- 注册模态框开始 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户注册
+            </div>
+            <form id="registerform" name="register"  class="registerform" action="">
+                <div class="form-group">
+
+                    <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input name="username" placeholder="输入用户名" class="username" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                </div>
+                <!-- <div class="nameexist">该用户名已存在</div> -->
+                <div class="registerbutton">立即注册</div>
+                <div class="elseregister">
+                    <span>其它登录方式</span>
+                    <a href=""><img src="../img/qq.png" alt=""></a>
+                    <a href=""><img src="../img/weixin.png" alt=""></a>
+                    <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                    <div class="nameexist">该用户名已存在</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 注册模态框结束 -->
+<!-- 登录模态框开始 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户登录
+            </div>
+            <form class="registerform loginform" id="loginform" action="">
+                <div class="form-group">
+                    <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+                    <input placeholder="输入密码" name="password" class="username" type="password">
+                </div>
+
+                <div class="codefather clearfix">
+                    <input  placeholder="输入验证码" name="code" class="code" type="text">
+                    <img src="../img/code.png" class="codeimg"></img>
+                    <div class="check">换一张</div>
+                    <div class="codeerr uperr">
+                        ⓧ 用户名或密码错误
+                    </div>
+                    <div class="codeerr cerr">
+                        ⓧ 验证码错误
+                    </div>
+                </div>
+
+                <div class="loginbutton">立即登录</div>
+                <div class="else">
+
+                    <div class="linkregister">注册</div>
+                    <div class="forget">忘记密码</div>
+                    <span>其它登录方式</span>
+
+
+                    <a href=""><img src="../img/qq.png" alt=""></a>
+                    <a href=""> <img src="../img/weixin.png" alt=""></a>
+                    <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
+</body>
+
+<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../js/public.js" ></script>
+<script src="../package/jquerypage.js" ></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- 对话框样式 -->
+<script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!--<script src="../js/teacher_team.js" ></script>-->
+<script type="text/javascript">
+    $(function(){
+        // 模态框居中
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+        modalCenter('#new_modal')
+
+
+        // // // 获取班级中的数据
+        // $.ajax({
+        //     type:"get",
+        //     url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/plan",
+        //     dataType:"json",
+        //     data: {cid:1},
+        //     success:function(data){
+        //         console.log("进度plan",data);
+             
+        //     // 基于准备好的dom，初始化echarts实例
+        //     var myChart1 = echarts.init(document.getElementById('righthistogram'));
+        //     // 指定图表的配置项和数据
+        //     var option1 = {
+        //         tooltip: {},
+        //         legend: {
+        //             data:['人数']
+        //         },
+        //         itemStyle: {
+        //         // 设置柱状图的颜色
+        //         color: '#8dd68d'
+        //         },
+        //         xAxis: {
+        //             data: ["0-20","21-40","41-60","61-80","81-100"]
+        //         },
+        //         yAxis: {},
+        //         series: [{
+        //             name: '数量',
+        //             type: 'bar',
+        //             data: [data.n, data.n1, data.n2, data.n3, data.n4]
+        //         }]
+        //     };
+        //     // 使用刚指定的配置项和数据显示图表。进度
+        //     myChart1.setOption(option1);
+
+        //     },
+        //     error:function(jqXHR){
+        //         console.log("发生错误:"+jqXHR.status);
+        //     }
+        // });
+
+        // // // 获取班级中的数据
+        // $.ajax({
+        //     type:"get",
+        //     url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/student",
+        //     dataType:"json",
+        //     data: {cid:1},
+        //     success:function(data){
+        //         // alert(33333333333333)
+        //         console.log("成绩student",data);
+
+        //         // 基于准备好的dom，初始化echarts实例
+        //         var myChart = echarts.init(document.getElementById('lefthistogram'));
+        //         // 指定图表的配置项和数据
+        //         var option = {
+        //             tooltip: {},
+        //             legend: {
+        //                 data:['销量']
+        //             },
+        //             itemStyle: {
+        //             // 设置柱状图的颜色
+        //             color: '#8dd68d'
+        //             },
+        //             xAxis: {
+        //                 data: ["0-20","21-40","41-60","61-80","81-100"]
+        //             },
+        //             yAxis: {},
+        //             series: [{
+        //                 name: '数量',
+        //                 type: 'bar',
+        //                 data: [data.n, data.n1, data.n2, data.n3, data.n4]
+        //             }]
+        //         };
+        //         // 使用刚指定的配置项和数据显示图表。成绩
+        //         myChart.setOption(option);
+
+        //     },
+        //     error:function(jqXHR){
+        //         console.log("发生错误:"+jqXHR.status);
+        //     }
+        // });
+
+        // // 获取班级的名称，老师名称，合格率等
+        // $.ajax({
+        //     type:"get",
+        //     url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/study",
+        //     dataType:"json",
+        //     data: {cid:1},
+        //     success:function(data){
+        //         console.log("study",data);
+        //         // if(0 == data.length){
+        //         //     return;
+        //         // }
+        //         var str=""
+        //         for(var i=0;i<data[0].length;i++){
+        //             str +='<tr>\n'+
+        //                 '<td>'+data[0][i].name+'</td>\n'+
+        //                 '<td class='+ (data[0][i].teacher == null ?  "null" : "")+'>'+  data[0][i].teacher +'</td>\n'+
+        //                 '<td>100</td>\n'+
+        //                 '<td>99</td>\n'+
+        //                 '<td>99%</td>\n'+
+        //                 '</tr>'
+
+        //                 console.log(data[0][i].teacher == null);
+                        
+        //         }
+
+
+        //         console.log(str);
+        //         $("tbody").html(str);
+
+        //     },
+        //     error:function(jqXHR){
+        //         console.log("发生错误:"+jqXHR.status);
+        //     }
+        // });
+
+
+    })
+
+</script>
+</html>

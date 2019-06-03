@@ -1,14 +1,48 @@
 var HTTP_URL = "http://192.168.1.110/lanhong/index.php/admin/"
-
 // 保存图片地址的变量
 var imgsrc = "http://192.168.1.110/lanhong/Public/img/";
 // 保存头像图片名称的变量。
 var imgname;
+//保存学校的名称数组
+var schoolname;
 
 var url = location.href
 var urlarr = url.split("=")
 var cid = urlarr[urlarr.length - 1]
 // console.log(cid)
+
+
+
+// 从localastorage中取学校数据渲染到页面注册模态框中的多选框。
+function school(){
+    if(schoolname != undefined){
+        console.log(schoolname);
+        localStorage.setItem('schoolname',JSON.stringify(schoolname));
+        var str="";
+        for(var i=0;i<schoolname.length;i++){
+            str += '<option value="'+schoolname[i].name+'">'+schoolname[i].name+'</option>'
+        }
+       str += '<option value="其它">其它</option>'
+        // console.log(str);
+        $(".selectvalue").html(str);
+        // localStorage.removeItem('schoolname');
+    }else{
+        schoolname = JSON.parse(localStorage.getItem('schoolname'));
+        console.log(schoolname);
+        var str="";
+        for(var i=0;i<schoolname.length;i++){
+            str += '<option value="'+schoolname[i].name+'">'+schoolname[i].name+'</option>'
+        }
+       str += '<option value="其它">其它</option>'
+        // console.log(str);
+        $(".selectvalue").html(str);
+    }
+}   
+school()
+    
+
+
+
 
 $(".teacher_href").attr('href','./teacher_team.html?cid='+ cid +'');
 $(".introduction_href").attr('href','./course_introduction.html?cid='+ cid +'');
