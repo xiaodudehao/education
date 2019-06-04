@@ -117,7 +117,7 @@
                         <div id="righthistogram">
 
                         </div>
-                        <a class="linkgrade" href="">查看详情</a>
+                        <a class="linkgrade" href="learschedule.html">查看详情</a>
                     </div>
 
                 </div>
@@ -259,7 +259,7 @@
             var option1 = {
                 tooltip: {},
                 legend: {
-                    data:['人数']
+                    data:['人数','分数']
                 },
                 itemStyle: {
                 // 设置柱状图的颜色
@@ -268,7 +268,9 @@
                 xAxis: {
                     data: ["0-20","21-40","41-60","61-80","81-100"]
                 },
-                yAxis: {},
+                yAxis: [{ 
+                    name : '人数'
+                }],
                 series: [{
                     name: '数量',
                     type: 'bar',
@@ -309,7 +311,9 @@
                     xAxis: {
                         data: ["0-20","21-40","41-60","61-80","81-100"]
                     },
-                    yAxis: {},
+                    yAxis: [{ 
+                        name : '人数'
+                    }],
                     series: [{
                         name: '数量',
                         type: 'bar',

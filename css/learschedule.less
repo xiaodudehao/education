@@ -51,27 +51,63 @@
 /* 教师信息 */
 .tt_team {
     margin-top: 30px;
-    .drive{
+    .derive{
+        display: block;
+        width: 200px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        text-align: center;
+        color: #fff;
         background-color: #81d283;
+        border-radius: 15px;
+        margin-bottom: 30px;
     }
-    tr{
-        margin-bottom: 50px;
-        th,
-        td{
-            font-size: 24px;
-            // border: 1px dotted #31b24e;
-            text-align: center;
-    
-        }
-        th{
-            font-weight: 400;
-            font-size: 24px;
+    .derive:hover{
+        text-decoration: none;
+    }
+    table{
+        border-collapse:separate; 
+        border-spacing:0px 30px;
+        tr{
+           
+            th,
+            td{
+                font-size: 24px;
+                // border: 1px dotted #31b24e;
+                text-align: center;
+            }
+            th{
+                font-weight: 400;
+                font-size: 24px;
+            }
         }
     }
-
-
     .null{
         color: #9999;
     }
 
+}
+// body{
+//     position: relative;
+// }
+.mouseovercontent{
+    position: absolute;
+    //因为分页插件会遮挡，所以层级提高点。
+    z-index: 9999;
+    width: 380px;
+    // height: 300px;
+    background-color: #81d283;
+    opacity: .6;
+    left: 0;
+    top: 0;
+    display: none;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    div{
+        margin-top: 10px;
+    }
 }

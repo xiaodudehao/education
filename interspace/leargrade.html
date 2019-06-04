@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>学习进度统计</title>
+    <title>学习成绩统计</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!-- 提示框样式 -->
@@ -69,29 +69,28 @@
         <!--  右边内容  -->
         <div class="tt_content_right">
             <div class="tt_content_right_title">
-                学习进度统计
+                学习成绩统计
             </div>
             <!--  主要内容  -->
             <div class="tt_team">
-                <a href="http://192.168.1.110/lanhong/index.php/Admin/Amount/excel_plan" class="derive">
+                <a href="http://192.168.1.110/lanhong/index.php/Admin/Amount/excel_user" class="derive">
                     导出
                 </a>
                 <table>
                     <thead>
                         <tr>
-                            <th width="50px">序号</th>
+                            <th width="100px">序号</th>
                             <th width="100px">姓名</th>
-                            <th width="350px">学校/单位</th>
-                            <th width="190px">学习时长</th>
-                            <th width="130px">学习进度</th>
-                            <th width="50px">排名</th>
+                            <th width="500px">学校/单位</th>
+                            <th width="100px">成绩</th>
+                            <th width="100px">排名</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- <tr>
                             <td>1</td>
                             <td>张思</td>
-                            <td>上海城市科技学校上海城市科技学校上海城市科技学校上海城市科技学校上海城市科技学校上海城市科技学校</td>
+                            <td>上海城市科技学校上海城市科技学校上海城市科技学校</td>
                             <td>65时22分12秒</td>
                             <td>学习进度</td>
                             <td>2</td>
@@ -112,8 +111,6 @@
                             <td>学习进度</td>
                             <td>3</td>
                         </tr> -->
-
-
                     </tbody>
                 </table>
                 <!--  分页  -->
@@ -305,24 +302,23 @@
         modalCenter('#myModal')
         modalCenter('#myModal1')
 
-        // // 获取鼠标的位置
-        // function getMousePos(event) {
-        //     var e = event || window.event;
-        //     var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
-        //     var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-        //     var x = e.pageX || e.clientX + scrollX;
-        //     var y = e.pageY || e.clientY + scrollY;
-        //     $(".mouseovercontent").css({"left":x+20,"top":y+20})
-        //     //alert('x: ' + x + '\ny: ' + y);
-        //     return { 'x': x, 'y': y };
+        // 获取鼠标的位置
+        function getMousePos(event) {
+            var e = event || window.event;
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            var x = e.pageX || e.clientX + scrollX;
+            var y = e.pageY || e.clientY + scrollY;
+            $(".mouseovercontent").css({"left":x+20,"top":y+20})
+            //alert('x: ' + x + '\ny: ' + y);
+            return { 'x': x, 'y': y };
             
-        // }
-        // // 当鼠标移动到表格上
-        // $("table").on("mouseover",function(){
-        //     getMousePos();
+        }
+        // 当鼠标移动到表格上
+        $("table").on("mouseover",function(){
+            getMousePos()
          
-        // })
-        
+        })
         //提示框初始化，toast-top-center表示提示框的位置
         toastr.options = {
             positionClass: 'toast-top-center', // 提示框位置
@@ -330,7 +326,19 @@
         }
 
 
-
+        //导出成绩数据
+        // $.ajax({
+        //     type:"get",
+        //     url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/ask",
+        //     dataType:"json",
+        //     data: {cid:1},
+        //     success:function(data){
+        //         console.log("鼠标",data);
+        //     },
+        //     error:function(jqXHR){
+        //         console.log("发生错误:"+jqXHR.status);
+        //     }
+        // });
 
         function confirmBySelf(content, func,tit) {
             $.confirm({
@@ -361,14 +369,14 @@
             // loading显示
             $("#loadingModal").modal("show")
             var CouIntrAjax = $.ajax({
-                url: "http://192.168.1.110/lanhong/index.php/admin/Amount/plan_details",
+                url: "http://192.168.1.110/lanhong/index.php/admin/Amount/score_details",
                 type: "get",
                 timeout: 5000,
                 dataType: "json",
                 // async:false,    //不进行异步刷新
                 data: param,
                 success: function (data) {
-                    // console.log("学习进度",data)
+                    // console.log("学习成绩",data)
                     // console.log(data[0])
                     if (0 == data.length) {
                         // 没有数据，显示提示
@@ -376,13 +384,12 @@
                         $("#loadingModal").modal("hide")
                     }
                     var str = ""
-                    for(var i=0;i<data.list.length;i++){
+                    for(var i=0;i<data.lis.length;i++){
                         str += '<tr>\n'+
                             '<td>'+ (i + (pageN-1)*25 + 1) +'</td>\n'+
-                            '<td>'+data.list[i].zname+'</td>\n'+
-                            '<td>'+data.list[i].school+'</td>\n'+
-                            '<td>'+data.list[i].hour+'时'+data.list[i].minute+'分'+data.list[i].second+'秒</td>\n'+
-                            '<td>'+data.list[i].zplan+'%</td>\n'+
+                            '<td>'+data.lis[i].zname+'</td>\n'+
+                            '<td>'+data.lis[i].school+'</td>\n'+
+                            '<td>'+data.lis[i].plan+'</td>\n'+
                             '<td>'+ (i + (pageN-1)*25 + 1) +'</td>\n'+
                         '</tr>';
 
@@ -391,23 +398,23 @@
                     }
                     $('tbody').html(str);
 
-                    //  //鼠标的移入移出  
-                    // for(let i=0;i<data.list.length;i++){
-                    //     $("tbody tr").eq(i).mouseover(function (){  
-                            
-                    //         $(".mouseovercontent").css({"display":"block"})
-                    //         var str =   '<div>查看课程视频得分 '+ data.list[i].video +' </div>\n'+
-                    //                     '<div>参与讨论情况得分 '+ data.list[i].discuss +' </div>\n'+
-                    //                     '<div>提交笔记情况得分 '+ data.list[i].note +' </div>\n'+
-                    //                     '<div>参与提问答疑得分 '+ data.list[i].quiz +' </div>\n'+
-                    //                     '<div>参与考试/测验成绩 '+ data.list[i].exam +' </div>'
-                    //         $(".mouseovercontent").html(str)
-                    //     }).mouseout(function (){  
-                    //         // $(".content").hide();  
-                    //         // console.log("移除",j); 
-                    //         $(".mouseovercontent").css({"display":"none"})
-                    //     });
-                    // }
+                     //鼠标的移入移出  
+                    for(let i=0;i<data.lis.length;i++){
+                        $("tbody tr").eq(i).mouseover(function (){  
+                            console.log();
+                            $(".mouseovercontent").css({"display":"block"})
+                            var str =   '<div>查看课程视频得分 '+ data.lis[i].video +' </div>\n'+
+                                        '<div>参与讨论情况得分 '+ data.lis[i].discuss +' </div>\n'+
+                                        '<div>提交笔记情况得分 '+ data.lis[i].note +' </div>\n'+
+                                        '<div>参与提问答疑得分 '+ data.lis[i].quiz +' </div>\n'+
+                                        '<div>参与考试/测验成绩 '+ data.lis[i].exam +' </div>'
+                            $(".mouseovercontent").html(str)
+                        }).mouseout(function (){  
+                            // $(".content").hide();  
+                            // console.log("移除",j); 
+                            $(".mouseovercontent").css({"display":"none"})
+                        });
+                    }
 
 
                     //分页

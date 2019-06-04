@@ -28,7 +28,11 @@ function school(){
         // localStorage.removeItem('schoolname');
     }else{
         schoolname = JSON.parse(localStorage.getItem('schoolname'));
-        console.log(schoolname);
+        // console.log(schoolname)
+        // 由于在测试的时候有些页面还没有连接起来，所以没有localstorage的值。为了防止报错，就直接提跳出了。
+        if(schoolname == undefined){
+            return;
+        }
         var str="";
         for(var i=0;i<schoolname.length;i++){
             str += '<option value="'+schoolname[i].name+'">'+schoolname[i].name+'</option>'

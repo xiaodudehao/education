@@ -508,21 +508,52 @@ input::-ms-clear {
 .tt_team {
   margin-top: 30px;
 }
-.tt_team .drive {
+.tt_team .derive {
+  display: block;
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
   background-color: #81d283;
+  border-radius: 15px;
+  margin-bottom: 30px;
 }
-.tt_team tr {
-  margin-bottom: 50px;
+.tt_team .derive:hover {
+  text-decoration: none;
 }
-.tt_team tr th,
-.tt_team tr td {
+.tt_team table {
+  border-collapse: separate;
+  border-spacing: 0px 30px;
+}
+.tt_team table tr th,
+.tt_team table tr td {
   font-size: 24px;
   text-align: center;
 }
-.tt_team tr th {
+.tt_team table tr th {
   font-weight: 400;
   font-size: 24px;
 }
 .tt_team .null {
   color: #9999;
+}
+.mouseovercontent {
+  position: absolute;
+  z-index: 9999;
+  width: 380px;
+  background-color: #81d283;
+  opacity: .6;
+  left: 0;
+  top: 0;
+  display: none;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-radius: 15px;
+}
+.mouseovercontent div {
+  margin-top: 10px;
 }
