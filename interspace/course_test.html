@@ -15,6 +15,8 @@
     <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
     <!--  对话框样式  -->
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
+    <!--  课程图片上传样式  -->
+    <link rel="stylesheet" href="../css/teacher_css/course_img.css">
     <link rel="stylesheet" href="../css/teacher_css/course_test.css">
 </head>
 <body>
@@ -50,9 +52,18 @@
     <div class="tt_content">
         <!--  左边内容  -->
         <div class="tt_content_left">
-            <img src="../images/kecheng1.png">
+
+            <form action="">
+                <div class="headimg clearfix" >
+                    <img  src="../images/kecheng.png" id="preview" class="headicon fl">
+                    <div class="imgtitle ">
+                        <input name="logo" type="file" id="filebtn" class="filebtn">
+                    </div>
+                </div>
+            </form>
+
+            <!--  <img src="../images/kecheng1.png">  -->
             <div class="tt_content_leftmenu">
-                <a href="" >基本设置</a>
                 <a href="" class="introduction_href">课程简介</a>
                 <a class="teacher_href" href="">教师团队</a>
                 <a class="" href="" >课程资源</a>
@@ -60,7 +71,7 @@
                 <a class="announcement_href" href="">系统公告</a>
                 <a class="criteria_href" href="">评分表准</a>
                 <a class="active test_href" href="">测验/考试</a>
-                <a href="">讨论区</a>
+                <a class="course_discussion" href="">讨论区</a>
                 <a href="">班级</a>
                 <a href="">学生</a>
                 <a href="">课程统计</a>
@@ -74,24 +85,21 @@
             </div>
             <div class="test_content">
                 <div class="card_1" onclick="question()">
-                    <img src="../img/图层%202.png">
+                    <img src="../img/图层1.png">
                     <p>题库</p>
                 </div>
-                <div class="card_1">
-                    <img src="../img/图层%201.png">
+                <div class="card_1" onclick="homework_test()">
+                    <img src="../img/图层2.png">
                     <p>作业测验</p>
                 </div>
-                <div class="card_1">
-                    <img src="../img/图层%203.png">
+                <div class="card_1" onclick="the_test()">
+                    <img src="../img/图层3.png">
                     <p>考试</p>
                 </div>
             </div>
-
         </div>
-
     </div>
     <!--  中间内容结束  -->
-
     <!-- 底部开始 -->
     <div class="footercontenter">
         <div class="footer">
@@ -103,9 +111,7 @@
         </div>
     </div>
     <!-- 底部结束 -->
-
 </div>
-
 
 <!-- 注册模态框开始 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -186,7 +192,6 @@
 </div>
 <!-- 登录模态框结束 -->
 
-
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
@@ -200,22 +205,24 @@
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!-- 课程图片上传 -->
+<script src="../js/course_img.js"></script>
 <script type="text/javascript">
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
 
-        $(".tcdPageCode").createPage({
-            pageCount:20,
-            current:1,
-            backFn:function(p){
-                console.log(p);
-            }
-        });
     })
+
     function question() {
         $(location).attr('href','./question_bank.html?cid='+ cid +'');
+    }
+    function homework_test() {
+        $(location).attr('href','./homework_test.html?cid='+ cid +'');
+    }
+    function the_test() {
+        $(location).attr('href','./the_test.html?cid='+ cid +'');
     }
 
 </script>

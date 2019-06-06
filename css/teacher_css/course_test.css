@@ -8,8 +8,8 @@
     text-align: center;
 }
 .card_1 img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 .card_1 p {
     margin: 10px;
@@ -17,7 +17,6 @@
     font-weight: bold;
     color: #81d283;
 }
-
 /* 添加题目按钮 */
 /* 添加按钮 */
 .add_question_btn {
@@ -48,3 +47,65 @@
     font-size: 12px;
     padding: 2px 3px;
 }
+/* 分页 */
+
+/* 考试页 */
+/* 系统公告的内容 */
+.announcement_content {
+    margin-top: 10px;
+}
+/* 系统公告的一块内容 */
+.announcement_information {
+    margin-bottom: 40px;
+    padding: 30px;
+    height: 200px;
+    border: 2px solid #81d283;
+    border-radius: 20px;
+}
+.announcement_btn{
+    float: right;
+    position: relative;
+    top: -10px;
+}
+.announcement_btn button {
+    padding: 5px;
+    font-size: 20px;
+    color: #81d283;
+    background: none;
+    border: none;
+}
+.announcement_btn span {
+    color: #81d283;
+}
+.announcement_text p {
+    font-size: 18px;
+}
+.announcement_text .announcement_text_content {
+    font-size: 16px;
+    font-weight: normal;
+}
+/* 添加按钮 */
+.add_announcement_btn {
+    /*margin-top: 20px;*/
+    padding: 20px;
+    text-align: right;
+}
+.add_announcement_btn button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 150px;
+    font-size: 18px;
+    color: white;
+    background-color: #81d283;
+    border: none;
+    border-radius: 10px;
+}
+.add_announcement_btn button:hover {
+    background-color: #579c59;
+}
+
+/* 模态框 */
+.modal-content {
+    min-height: auto;
+}
+

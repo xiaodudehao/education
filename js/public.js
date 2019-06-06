@@ -54,7 +54,7 @@ $(".catalog_href").attr('href','./course_catalog.html?cid='+ cid +'');
 $(".announcement_href").attr('href','./course_announcement.html?cid='+ cid +'');
 $(".criteria_href").attr('href','./scoring_criteria.html?cid='+ cid +'');
 $(".test_href").attr('href','./course_test.html?cid='+ cid +'');
-
+$(".course_discussion").attr('href','./discussion.html?cid='+ cid +'');
 
 
 $(".log").on('click',function(){

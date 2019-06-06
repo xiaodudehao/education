@@ -107,3 +107,20 @@
 .avatar {
     max-width: 100%;
 }
+
+/* 分页 */
+/* 分页器 */
+.page_area {
+    text-align: center;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #81d283;
+    border-color: #ddd;
+}
+.pagination>li>a, .pagination>li>span {
+    color: #81d283;
+}
+.pagination>li>a, .pagination>li>span {
+    padding: 10px 20px;
+    font-size: 16px;
+}

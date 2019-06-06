@@ -112,11 +112,11 @@
                             </div>
                             
                             <div class="scoreranking">
+
                                 <form action="">
                                     <div class="headimg clearfix">
                                         <img  src="../img/未标题-10.png" id="preview" class="headicon fl">
                                         <div class="imgtitle ">
-                                           
                                             <input name="logo" type="file" id="filebtn" class="filebtn">
                                         </div>  
                                         <div class="fl ">
@@ -124,6 +124,7 @@
                                         </div>
                                     </div>    
                                 </form>
+
                                 <form id="teacher" class="teacheruser" action="">
 
                                     <div class="headline">
@@ -357,7 +358,7 @@
             <div class="addtext">添加课程</div>
         </a>
         <% for(var i=0; i< person.length; i++){ %>
-            <a href="" class="courseimg">
+            <a href="./course_introduction.html?cid=<%= person[i].id %>" class="courseimg">
                 <img class="courseshow" src="../img/ <%= person[i].logo==undefined?'':person[i].logo %> " alt="" />
                 <div class="imgtext">
                     <%= person[i].name==undefined?'':person[i].name %>
@@ -429,8 +430,7 @@ $(function(){
     // lang
 
 
-// 原生ajax发送头像信息开始
-
+    // 原生ajax发送头像信息开始
     var xhr;
     function createXMLHttpRequest() {
         if (window.ActiveXObject) {
@@ -465,10 +465,6 @@ $(function(){
     }
 
 // 原生ajax发送头像信息结束
-
-
-
-
     // $(".tcdPageCode").createPage({ 
     // pageCount:20, 
     // current:1, 
@@ -508,8 +504,8 @@ $(function(){
     var fileObj
 
     $(".filebtn").on("change",function(){
+        //  preview是id
         imgPreview(this,"preview")
-
        fileObj = document.getElementById("filebtn").files[0];
         // console.log(fileObj);
         

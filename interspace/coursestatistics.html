@@ -11,13 +11,12 @@
     <!--  导航栏的基本样式保证  -->
     <!-- <link rel="stylesheet" href="../css/teacherinterspace.css"> -->
     <!-- 提示框样式 -->
-    <!-- <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet"> -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
     <!--  对话框样式  -->
-    <!-- <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet"> -->
+    <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  左边栏样式保证  -->
     <!-- <link rel="stylesheet" href="../css/teacher_css/teacher_team.css"> -->
-
-    <link rel="stylesheet" href="../css/coursestatistics.css">
+    <link rel="stylesheet" href="../css/add_class.css">
 </head>
 
 <body>
@@ -76,88 +75,6 @@
             </div>
             <!--  主要内容  -->
             <div class="tt_team">
-
-
-                <table   class="tabletype" >
-                    <thead>
-
-                    </thead>
-                    <tbody>
-                        <!-- <tr>
-                            <td rowspan="9" width="200px">德萨发</td>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="" width="200px">课程公告</td>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="3" width="200px">测验</td>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="3" width="200px">测验</td>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr>
-                        <tr>
-                            <td width="460px">视频</td>
-                            <td width="200px">数量</td>
-                        </tr> -->
-                    </tbody>
-                    <tfoot>
-
-                    </tfoot>
-
-                </table>
-
                 <!-- <div class="eachclass">
                     <input type="text" class="each">
                     <button type="button" class="btn btn-link">编辑</button>
@@ -172,9 +89,9 @@
              
             </div>
             <!--  主要内容完成  -->
-            <!-- <div class="add_teacher_btn">
+            <div class="add_teacher_btn">
                 <button onclick="new_detail()">添加班级</button>
-            </div> -->
+            </div>
         </div>
     </div>
     <!--  中间内容结束  -->
@@ -300,7 +217,7 @@
                         <label class="col-sm-3 col-sm-offset-1 control-label">头像</label>
                         <div class="col-sm-6">
                             <img class="avatar" src="../img/teach.png" />
-                           <input class="uploadAvatar" name="uploadAvatar" type="file" accept=".jpeg,.jpg,.png" value="选择头像" />
+<!--                            <input class="uploadAvatar" name="uploadAvatar" type="file" accept=".jpeg,.jpg,.png" value="选择头像" />-->
                         </div>
                     </div>
                     <div class="form-group">
@@ -364,7 +281,7 @@
     </div>
 </div>
 </body>
-<!-- <script type="text/html" id="teacheruser">
+<script type="text/html" id="teacheruser">
     <div class="headline">
         基本资料
     </div>
@@ -393,7 +310,7 @@
         </select>
     </div>
     <textarea  class="signature" name="text" id="" ><%= person[0].text %></textarea>
-</script> -->
+</script>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -412,278 +329,218 @@
         modalCenter('#myModal1')
         modalCenter('#new_modal')
         
-        // $(".tcdPageCode").createPage({
-        //     pageCount:20,
-        //     current:1,
-        //     backFn:function(p){
-        //         console.log(p);
-        //     }
-        // });
+        $(".tcdPageCode").createPage({
+            pageCount:20,
+            current:1,
+            backFn:function(p){
+                console.log(p);
+            }
+        });
         // select_teacher()
 
-        // // 获取班级中的数据
+        // 获取班级中的数据
         $.ajax({
             type:"get",
-            url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/amount",
+            url: "http://192.168.1.110/lanhong/index.php/Admin/Learn/setclass",
             dataType:"json",
             data: {cid:1},
             success:function(data){
-                console.log("统计",data);
-                // if(0 == data.length){
-                //     return;
-                // }
+                // console.log("班级数据",data);
+                if(0 == data.length){
+                    return;
+                }
                 var str=""
-                str +='<tr>\n'+
-                            '<td rowspan="9" width="200px">资源</td> \n'+
-                            '<td width="460px">文本数量</td> \n'+
-                            '<td width="200px">'+ data[0][0].text+'</td> \n'+
-                            '</tr> \n'+
-                        '<tr> \n'+
-                            '<td width="460px">图形、图像数量</td> \n'+
-                            '<td width="200px">'+ data[0][0].photo+'</td> \n'+
-                        '</tr> \n'+
-                        '<tr> \n'+
-                            '<td width="460px">音频数量</td> \n'+
-                            '<td width="200px">'+ data[0][0].voice+'</td> \n'+
-                        '</tr> \n'+
-                        '<tr> \n'+
-                            '<td width="460px">视频数量</td>\n'+
-                            '<td width="200px">'+ data[0][0].video+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">动画数量</td>\n'+
-                            '<td width="200px">'+ data[0][0].cartoon+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">虚拟仿真数量</td>\n'+
-                            '<td width="200px">'+ data[0][0].dummy+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">电子课件数量</td>\n'+
-                            '<td width="200px">'+ data[0][0].eclass+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">网页数量</td>\n'+
-                            '<td width="200px">'+ data[0][0].webpage+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">电子图书/教材数量</td>\n'+
-                            '<td width="200px">'+ data[0][0].ebook+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td rowspan="" width="200px">课程公告</td>\n'+
-                            '<td width="460px">公告数量</td>\n'+
-                            '<td width="200px">'+ data[1]+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td rowspan="3" width="200px">测验</td>\n'+
-                            '<td width="460px">测验次数</td>\n'+
-                            '<td width="200px">'+ data[2][0].number+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">题目总数</td>\n'+
-                            '<td width="200px">'+ data[2][0].count+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">参与人数</td>\n'+
-                            '<td width="200px">'+ data[2][0].num+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td rowspan="3" width="200px">考试</td>\n'+
-                            '<td width="460px">考试次数</td>\n'+
-                            '<td width="200px">'+ data[3][0].number+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">题目总数</td>\n'+
-                            '<td width="200px">'+  data[3][0].count+'</td>\n'+
-                        '</tr>\n'+
-                        '<tr>\n'+
-                            '<td width="460px">参与人数</td>\n'+
-                            '<td width="200px">'+  data[3][0].num+'</td>\n'+
-                        '</tr>\n'+
-                    console.log(data[0][1]);
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-    
 
-                
+                for(i=0;i<data.length;i++){
+                    str += ' <div class="eachclass"> \n' +             
+                        '<div class="each" > '+ data[i].name +' </div> \n'+
+                        '<button type="button" class="btn btn-link" onclick=update_teacher(' + JSON.stringify(data[i]).replace(/"/g, "&quot;") + ')  >编辑</button> \n'+
+                        '<button type="button" class="btn btn-link" onclick=delete_teacher(' + data[i].id + ') >删除</button> \n'+
+                    '</div> \n'
+
+
+                    
+                }
                 // console.log(str);
-                $(".tt_team tbody").html(str);
+                
+                $(".tt_team").html(str);
+                // for(i=0;i<data.length;i++){
+                //     $(".tt_team").children().eq(i).children("input").val(data[i].name)
+                // }
+                // console.log($(".tt_team").children().eq(1).children("input").val("123"));
+                
+                //刷新页面的js
+                // history.go(0)
 
             },
             error:function(jqXHR){
                 console.log("发生错误:"+jqXHR.status);
             }
         });
-        // $(".saveclass").on("click",function(){
+        $(".saveclass").on("click",function(){
 
-        //     var name = $(".addclassname").val() 
-        //     var teacher = $(".addclassteacher").val() 
-        //     if(name == "" && teacher == ""){
-        //         // console.log("添加的班级名和教师名都为空");
-        //         $("#new_modal").modal("hide")
-        //         return
-        //     }else if(name == ""){
-        //         // console.log("添加的班级名为空");
-        //         $("#new_modal").modal("hide")
-        //         return
-        //     }
+            var name = $(".addclassname").val() 
+            var teacher = $(".addclassteacher").val() 
+            if(name == "" && teacher == ""){
+                // console.log("添加的班级名和教师名都为空");
+                $("#new_modal").modal("hide")
+                return
+            }else if(name == ""){
+                // console.log("添加的班级名为空");
+                $("#new_modal").modal("hide")
+                return
+            }
             
-        //     $.ajax({
-        //     type:"post",
-        //     url: "http://192.168.1.110/lanhong/index.php/Admin/Learn/class_l",
-        //     dataType:"json",
-        //     data: {cid: 1,name: name ,teacher: teacher },
-        //     success:function(data){
-        //         // console.log("班级数据",data);
-        //         if(0 == data.length){
-        //             return;
-        //         }
+            $.ajax({
+            type:"post",
+            url: "http://192.168.1.110/lanhong/index.php/Admin/Learn/class_l",
+            dataType:"json",
+            data: {cid: 1,name: name ,teacher: teacher },
+            success:function(data){
+                // console.log("班级数据",data);
+                if(0 == data.length){
+                    return;
+                }
                 
                
-        //         $("#loadingModal").modal("hide")
-        //         $("#new_modal").modal("hide")
-        //          //刷新页面的js
-        //         history.go(0)
-        //     },
-        //     error:function(jqXHR){
-        //         console.log("发生错误:"+jqXHR.status);
-        //     }
-        // });
+                $("#loadingModal").modal("hide")
+                $("#new_modal").modal("hide")
+                 //刷新页面的js
+                history.go(0)
+            },
+            error:function(jqXHR){
+                console.log("发生错误:"+jqXHR.status);
+            }
+        });
 
             
-        // })
+        })
 
     })
 
 
 
-    // //删除班级
-    // function delete_teacher(id) {
+    //删除班级
+    function delete_teacher(id) {
         
        
         
-    //     // 提示用户要不要删除
-    //     confirmBySelf("确认删除吗？", function () {
-    //         // 用户点击确认时
-    //         delete_teacher_ajax(id)
-    //     },"提示")
-    // }
+        // 提示用户要不要删除
+        confirmBySelf("确认删除吗？", function () {
+            // 用户点击确认时
+            delete_teacher_ajax(id)
+        },"提示")
+    }
 
-    // // 修改班级
-    // function update_teacher(data) {
-    //     // console.log( a);
-    //     // console.log(data.name);
-    //     // console.log(data.id);
+    // 修改班级
+    function update_teacher(data) {
+        // console.log( a);
+        // console.log(data.name);
+        // console.log(data.id);
         
-    //     // 提示用户要不要修改
-    //     confirmBySelf('<input class="updateclass" placeholder="新课程名称" type="text"> <input class="updateteacher" placeholder="新教师名称" type="text">', function () {
-    //         // 用户点击确认时
+        // 提示用户要不要修改
+        confirmBySelf('<input class="updateclass" placeholder="新课程名称" type="text"> <input class="updateteacher" placeholder="新教师名称" type="text">', function () {
+            // 用户点击确认时
 
-    //         update_teacher_ajax(data)
-    //     },"编辑内容")
+            update_teacher_ajax(data)
+        },"编辑内容")
 
-    //     // 新的班级名称
-    //     $(".updateclass").val(data.name)
-    //     //新的老师名称
-    //      $(".updateteacher").val(data.teacher)
-    // }
+        // 新的班级名称
+        $(".updateclass").val(data.name)
+        //新的老师名称
+         $(".updateteacher").val(data.teacher)
+    }
 
-    // //  删除的请求
-    // function delete_teacher_ajax(id){
-    //     $("#loadingModal").modal("show")
-    //     var UpdateTeacherAjax = $.ajax({
-    //         url: HTTP_URL + "Learn/declass",
-    //         type: "post",
-    //         data: {
-    //             id: id
-    //         },
-    //         dataType: "json",
-    //         success: function (data) {
-    //             toastr.success("操作成功！")
-    //             // select_teacher()
-    //             history.go(0)
-    //         },
-    //         error: function (e) {
-    //             console.log(e)
-    //         },
-    //         complete: function (xhr, status) {
-    //             // 隐藏loading
-    //             $("#loadingModal").modal("hide")
-    //         }
-    //     })
-    // }
-    // //  修改班级的请求
-    // function update_teacher_ajax(data){
-    //     // 新的班级名称
-    //     var upvalue = $(".updateclass").val()
-    //     //新的老师名称
-    //     var upvaluet = $("updateteacher").val()
-    //     if(upvalue == "" && upvaluet == ""){
-    //         // console.log("名字为空");
+    //  删除的请求
+    function delete_teacher_ajax(id){
+        $("#loadingModal").modal("show")
+        var UpdateTeacherAjax = $.ajax({
+            url: HTTP_URL + "Learn/declass",
+            type: "post",
+            data: {
+                id: id
+            },
+            dataType: "json",
+            success: function (data) {
+                toastr.success("操作成功！")
+                // select_teacher()
+                history.go(0)
+            },
+            error: function (e) {
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+    //  修改班级的请求
+    function update_teacher_ajax(data){
+        // 新的班级名称
+        var upvalue = $(".updateclass").val()
+        //新的老师名称
+        var upvaluet = $("updateteacher").val()
+        if(upvalue == "" && upvaluet == ""){
+            // console.log("名字为空");
             
-    //         return
-    //     }else if(upvalue == data.name && upvaluet ==  data.teacher){
-    //         // console.log("名字与原来相同");
-    //         return 
-    //     }
+            return
+        }else if(upvalue == data.name && upvaluet ==  data.teacher){
+            // console.log("名字与原来相同");
+            return 
+        }
        
-    //     $("#loadingModal").modal("show")
+        $("#loadingModal").modal("show")
 
-    //     var UpdateTeacherAjax = $.ajax({
-    //         url: HTTP_URL + "Learn/upclass",
-    //         type: "post",
-    //         data: {
-    //             id: data.id,
-    //             name: upvalue
-    //         },
-    //         dataType: "json",
-    //         success: function (data) {
-    //             console.log(data);
+        var UpdateTeacherAjax = $.ajax({
+            url: HTTP_URL + "Learn/upclass",
+            type: "post",
+            data: {
+                id: data.id,
+                name: upvalue
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
                 
-    //             toastr.success("操作成功！")
-    //             // select_teacher()
-    //             history.go(0)
-    //         },
-    //         error: function (e) {
-    //             console.log(e)
-    //         },
-    //         complete: function (xhr, status) {
-    //             // 隐藏loading
-    //             $("#loadingModal").modal("hide")
-    //         }
-    //     })
+                toastr.success("操作成功！")
+                // select_teacher()
+                history.go(0)
+            },
+            error: function (e) {
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
 
 
 
-    // }
+    }
 
-    // // //新增教师
-    // function new_detail() {
-    //     $("#new_modal").modal("show")
-    // }
+    // //新增教师
+    function new_detail() {
+        $("#new_modal").modal("show")
+    }
 
-    // function confirmBySelf(content, func,tit) {
-    //     $.confirm({
-    //         confirmButtonClass: "btn-primary",   //设置ok按钮样式
-    //         closeIcon: true,        //对话框右上角关闭
-    //         confirmButton: "确认", //确认按钮标题
-    //         cancelButton: "取消", //取消按钮标题
-    //         title: tit,        //标题
-    //         content: content,        //对话内容
-    //         confirm: function () {
-    //             //点击确认后做什么
-    //             func()
-    //         },
-    //         cancel:function () {
-    //             //点击取消后做什么
-    //         }
-    //     })
-    // }
+    function confirmBySelf(content, func,tit) {
+        $.confirm({
+            confirmButtonClass: "btn-primary",   //设置ok按钮样式
+            closeIcon: true,        //对话框右上角关闭
+            confirmButton: "确认", //确认按钮标题
+            cancelButton: "取消", //取消按钮标题
+            title: tit,        //标题
+            content: content,        //对话内容
+            confirm: function () {
+                //点击确认后做什么
+                func()
+            },
+            cancel:function () {
+                //点击取消后做什么
+            }
+        })
+    }
 </script>
 </html>
