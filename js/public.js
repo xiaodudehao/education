@@ -59,6 +59,9 @@ $(".announcement_href").attr('href','./course_announcement.html?cid='+ cid +'');
 $(".criteria_href").attr('href','./scoring_criteria.html?cid='+ cid +'');
 $(".test_href").attr('href','./course_test.html?cid='+ cid +'');
 $(".course_discussion").attr('href','./discussion.html?cid='+ cid +'');
+$(".course_class").attr('href','./add_class.html?cid='+ cid +'');
+$(".course_sum").attr('href','./coursestatistics.html?cid='+ cid +'');
+$(".course_study_sum").attr('href','./learstatistics.html?cid='+ cid +'');
 
 
 $(".log").on('click',function(){

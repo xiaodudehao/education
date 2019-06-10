@@ -416,7 +416,7 @@
 <script type="text/javascript">
 $(function(){
     // 保存图片地址的变量
-    var imgsrc = "http://192.168.1.110/lanhong/Public/img/";
+    var imgsrc = "http://192.168.1.112/lanhong/Public/img/";
     // 保存头像图片名称的变量。
     var imgname;
 
@@ -443,7 +443,7 @@ $(function(){
         var fileObj = document.getElementById("filebtn").files[0];
         // console.log(fileObj);
         
-        var FileController = "http://192.168.1.110/lanhong/index.php/Admin/Index/changelogo";
+        var FileController = HTTP_URL + "Index/changelogo";
         var form = new FormData();
         form.append("myfile", fileObj);
 
@@ -554,7 +554,7 @@ $(function(){
         
         $.ajax({
             type:"post",
-            url: "http://192.168.1.110/lanhong/index.php/Admin/Index/change",
+            url: HTTP_URL + "Index/change",
             dataType:"json",
             data: {data:data,name:name,sex:sex,text:text,sid:1},
             // crossDomain: true,//是否跨域:是
@@ -595,7 +595,7 @@ $(function(){
 
         $.ajax({
             type:"GET",
-            url: "http://192.168.1.110/lanhong/index.php/Admin/Index/setchange",
+            url: HTTP_URL + "Index/setchange",
             dataType:"json",
             data: {sid: 1},
             // crossDomain: true,//是否跨域:是
@@ -633,7 +633,7 @@ $(function(){
     // 教师名字和logo
     $.ajax({
         type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/admin/Index/setchange",
+        url: HTTP_URL + "Index/setchange",
         dataType:"json",
         data: {sid: 1},
         // jsonp: "jsonpcallback",
@@ -653,7 +653,7 @@ $(function(){
     //课程名称和课程图片
     $.ajax({
         type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/admin/Index/index",
+        url: HTTP_URL + "Index/index",
         dataType:"json",
         data: {sid: 1},
         // crossDomain: true,//是否跨域:是
@@ -669,7 +669,7 @@ $(function(){
                 // console.log(333333333333333);
                 $.ajax({
                     type:"get",
-                    url: "http://192.168.1.110/lanhong/index.php/Admin/Index/lang",
+                    url: HTTP_URL + "Index/lang",
                     dataType:"json",
                 
                     // crossDomain: true,//是否跨域:是
@@ -710,7 +710,7 @@ $(function(){
 
         $.ajax({
             type:"post",
-            url: "http://192.168.1.110/lanhong/index.php/Admin/Index/course",
+            url: HTTP_URL + "Index/course",
             dataType:"json",
             data:{name:Name,school:School,belong:Belong,starttime:Starttime,endtime:Endtime,text:Text},
             success:function(data){

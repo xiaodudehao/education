@@ -45,19 +45,18 @@
         <div class="tt_content_left">
             <img src="../images/kecheng1.png">
             <div class="tt_content_leftmenu">
-                <a href="" >基本设置</a>
-                <a href="./course_introduction.html" >课程简介</a>
-                <a href="" >教师团队</a>
-                <a href="" >课程资源</a>
-                <a href="./course_catalog.html">课程目录</a>
-                <a href="./course_announcement.html">系统公告</a>
-                <a href="./scoring_criteria.html">评分表准</a>
-                <a href="">测验/考试</a>
-                <a href="">讨论区</a>
-                <a href=""  >班级</a>
-                <a href="">学生</a>
-                <a href="" >课程统计</a>
-                <a href="" class="active">学习统计</a>
+                <a href="" class="introduction_href">课程简介</a>
+                <a class="teacher_href" href="">教师团队</a>
+                <a class="" href="" >课程资源</a>
+                <a class="catalog_href" href="">课程目录</a>
+                <a class="announcement_href" href="">系统公告</a>
+                <a class="criteria_href" href="">评分表准</a>
+                <a class="test_href" href="">测验/考试</a>
+                <a class="course_discussion" href="">讨论区</a>
+                <a class="course_class" href="">班级</a>
+                <a class="course_student" href="">学生</a>
+                <a class="course_sum" href="">课程统计</a>
+                <a class="course_study_sum active" href="">学习统计</a>
             </div>
         </div>
         <!--  右边内容  -->
@@ -247,11 +246,11 @@
         // // 获取班级中的数据
         $.ajax({
             type:"get",
-            url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/plan",
+            url: HTTP_URL + "Amount/plan",
             dataType:"json",
             data: {cid:1},
             success:function(data){
-                console.log("进度plan",data);
+                // console.log("进度plan",data);
              
             // 基于准备好的dom，初始化echarts实例
             var myChart1 = echarts.init(document.getElementById('righthistogram'));
@@ -289,12 +288,12 @@
         // // 获取班级中的数据
         $.ajax({
             type:"get",
-            url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/student",
+            url: HTTP_URL + "Amount/student",
             dataType:"json",
             data: {cid:1},
             success:function(data){
                 // alert(33333333333333)
-                console.log("成绩student",data);
+                // console.log("成绩student",data);
 
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = echarts.init(document.getElementById('lefthistogram'));
@@ -332,16 +331,16 @@
         // 获取班级的名称，老师名称，合格率等
         $.ajax({
             type:"get",
-            url: "http://192.168.1.110/lanhong/index.php/Admin/Amount/study",
+            url: HTTP_URL + "Amount/study",
             dataType:"json",
             data: {cid:1},
             success:function(data){
-                console.log("study",data);
+                // console.log("study",data);
                 // alert(99999999999999999)
                 // if(0 == data.length){
                 //     return;
                 // }
-                    console.log(data.length-1);
+                //     console.log(data.length-1);
                     
                 var str=""
                 for(var i=0;i<data[data.length-1].length;i++){
@@ -356,7 +355,7 @@
                 }
 
 
-                console.log(str);
+                // console.log(str);
                 $("tbody").html(str);
 
             },

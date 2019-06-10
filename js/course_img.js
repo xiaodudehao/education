@@ -53,7 +53,7 @@ function createXMLHttpRequest() {
 function UpladFile() {
     var fileObj = document.getElementById("filebtn").files[0];
     // console.log(fileObj);
-    var FileController = "http://192.168.1.110/lanhong/index.php/Admin/Index/courlogo";
+    var FileController = "http://192.168.1.112/lanhong/index.php/Admin/Index/courlogo";
     var form = new FormData();
     form.append("myfile", fileObj);
     form.append("cid", cid);
