@@ -596,7 +596,7 @@ input::-ms-clear {
 }
 .tt_team .filebox .courseimg .courseshowbox .select {
   position: absolute;
-  bottom: -80px;
+  bottom: -100px;
   background-color: #000;
   opacity: .6;
   transition: all 1s;
@@ -605,6 +605,7 @@ input::-ms-clear {
   width: 100%;
   text-align: center;
 }
+.tt_team .filebox .courseimg .courseshowbox .select .section:hover,
 .tt_team .filebox .courseimg .courseshowbox .select .delet:hover,
 .tt_team .filebox .courseimg .courseshowbox .select .update:hover,
 .tt_team .filebox .courseimg .courseshowbox .select .down:hover {

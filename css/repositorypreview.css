@@ -508,11 +508,14 @@ input::-ms-clear {
 .tt_team {
   width: 864px;
 }
-.tt_team .videoshow {
+.tt_team .filebox {
+  padding-top: 30px;
+}
+.tt_team .filebox .videoshow {
   width: 864px;
   background-color: #000;
 }
-.tt_team .videoshow video {
+.tt_team .filebox .videoshow video {
   width: 800px;
   display: block;
   margin: 0 auto;

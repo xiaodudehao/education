@@ -82,8 +82,8 @@
                         </ul>
                     </div> -->
                 </div>
-                <div class="filebox clearfix">
-                    <div class="videoshow">
+                <div class="filebox">
+                    <!-- <div class="videoshow">
                         <video src="../video/演奏曲-西班牙交响乐团演奏 铁甲万能侠 魔神Z 插入曲『Zのテーマ』 (饭制版)(超清).mp4" controls="controls">
 
                         </video>
@@ -100,7 +100,7 @@
                     </div>
                     <audio src="../voice/K-391 - Summertime.mp3" controls="controls">
                         Your browser does not support the audio element.
-                    </audio>
+                    </audio> -->
                     <!-- <div class="courseicon">
                         <div class="add">+</div>
                         <div class="addtext">本地添加</div>
@@ -295,278 +295,35 @@
 
 <!--<script src="../js/teacher_team.js" ></script>-->
 <script type="text/javascript">
-    // $(function(){
+    $(function(){
     //     // 模态框居中
-    //     modalCenter('#myModal')
-    //     modalCenter('#myModal1')
-    //     modalCenter('#new_modal')
-    //     var fileid;
-    //     //提示框初始化，toast-top-center表示提示框的位置
-    //     toastr.options = {
-    //         positionClass: 'toast-top-center', // 提示框位置
-    //         closeButton: true  // 是否显示关闭按钮
-    //     }
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+        modalCenter('#new_modal')
+        var vid = getSearch("vid");
+        var str = "";
+        var clas = getSearch("clas");
+        if(clas == 3){
+            str='<audio src="'+ "http://192.168.1.112/lanhong/Application/Home/Public/audio/"+vid +'" controls="controls">\n'+
+                    'Your browser does not support the audio element.\n'+
+                '</audio>'
+            $(".filebox").html(str);
+        }else if(clas == 4){
+            str='<div class="videoshow">\n'+
+                '<video src="'+ "http://192.168.1.112/lanhong/Application/Home/Public/vedio/"+vid +'" controls="controls">\n'+
+                '</video>\n'+
+            '</div>'
+            $(".filebox").html(str);
+        }else if(clas == 5){
+            str='<div class="videoshow">\n'+
+                '<video src="'+ "http://192.168.1.112/lanhong/Application/Home/Public/vedio/"+vid +'" controls="controls">\n'+
+                '</video>\n'+
+            '</div>'
+            $(".filebox").html(str);
+        }
+    })
         
-    //     // 原生ajax发送头像信息开始
-    //     var xhr;
-    //         function createXMLHttpRequest() {
-    //             if (window.ActiveXObject) {
-    //                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    //             } else if (window.XMLHttpRequest) {
-    //                 xhr = new XMLHttpRequest();
-    //             }
-    //         }
-    //         function UpladFile() {
-    //             var fileObj = document.getElementById("filebtn").files[0];
-    //             // console.log(fileObj);
-                
-    //             var FileController = "http://192.168.1.110/lanhong/index.php/Admin/Index/changelogo";
-    //             var form = new FormData();
-    //             form.append("myfile", fileObj);
-    //             createXMLHttpRequest();
-    //             xhr.onreadystatechange = handleStateChange;
-    //             xhr.open("post", FileController, true);
-    //             xhr.send(form);
-    //         }
-    //         function handleStateChange() {
-    //             if (xhr.readyState == 4) {
-    //                 if (xhr.status == 200 || xhr.status == 0) {
-    //                     // history.go(0)
-    //                     // var result = xhr.responseText;
-    //                     // var json = eval("(" + result + ")");
-    //                     // alert('图片链接:\n' + json.file);
-    //                 }
-    //             }
-    //         }
-    //     // 原生ajax发送头像信息结束
-
-    //     //删除文件
-    //     function ajax(id,url){
-    //         $.ajax({
-    //             type:"post",
-    //             url: "http://192.168.1.110/lanhong/index.php/Admin/"+url,
-    //             dataType:"json",
-    //             data: {id: id},
-    //             success:function(data){
-    //                 console.log("鼠标",data);
-    //             },
-    //             error:function(jqXHR){
-    //                 console.log("发生错误:"+jqXHR.status);
-    //             }
-    //         });
-    //     }
-
-
-    //     function confirmBySelf(content, func,tit) {
-    //         $.confirm({
-    //             confirmButtonClass: "btn-primary",   //设置ok按钮样式
-    //             closeIcon: true,        //对话框右上角关闭
-    //             confirmButton: "确认", //确认按钮标题
-    //             cancelButton: "取消", //取消按钮标题
-    //             title: tit,        //标题
-    //             content: content,        //对话内容
-    //             confirm: function () {
-    //                 //点击确认后做什么
-    //                 func()
-    //             },
-    //             cancel:function () {
-    //                 //点击取消后做什么
-    //             }
-    //         })
-    //     }
-
-    //     select_announce(1,"DESC")
-
-    //     $(".asc").on("click",function(){
-    //         select_announce(1,"ASC")
-    //     })
-    //     $(".desc").on("click",function(){
-    //         select_announce(1,"DESC")
-    //     })
-    //         // 查询
-    //     function select_announce(pageN,sl) {
-    //         var param = {
-    //             cid: 1,
-    //             sl:sl,
-    //             page: pageN,
-    //         }
-    
-    //         // loading显示
-    //         $("#loadingModal").modal("show")
-    //         var CouIntrAjax = $.ajax({
-    //             url: "http://192.168.1.110/lanhong/index.php/admin/Resource/textresource",
-    //             type: "post",
-    //             timeout: 5000,
-    //             dataType: "json",
-    //             // async:false,    //不进行异步刷新
-    //             data: param,
-    //             success: function (data) {
-    //                 console.log("文本的数据",data)
-    //                 // console.log(data[0])
-    //                 if (0 == data.length) {
-    //                     // 没有数据，显示提示
-    //                     toastr.error("未查询到可用数据")
-    //                     $("#loadingModal").modal("hide")
-    //                 }
-
-    //                 var str ='<div data-toggle="modal"  data-target="#myModal2" class="courseicon">\n'+
-    //                     '<div class="add">+</div>\n'+
-    //                     '<div class="addtext">本地添加</div>\n'+
-    //                     '<input id="filebtn" type="file" class="addfile">\n'+
-    //                 '</div>';
-
-                    
-
-    //                 // var str = ""
-    //                 for(var i=0;i<data[0].length;i++){
-    //                     str +='<div href="" class="courseimg">\n'+
-    //                                 '<div class="courseshowbox">\n'+
-    //                                     '<img class="courseshow" src="../img/未标题-7.png" alt="">\n'+
-    //                                     '<div  data-obj="'+ data[0][i].id+'" class="select">\n'+
-    //                                         '<div class="delet">删除</div>\n'+
-    //                                         '<div class="update">重命名</div>\n'+
-    //                                         '<div class="down"><a href="http://192.168.1.110/lanhong/index.php/Admin/Amount/excel_user' +'" >下载</a></div>\n'+
-    //                                     '</div>\n'+
-    //                                 '</div>\n'+
-    //                                 '<div class="imgtext">\n'+
-    //                                     data[0][i].name +'\n'+
-    //                                 ' </div>=\n'+
-    //                             '</div>'
-    //                 }
-    //                 $('.filebox').html(str);
-
-    //                 $(".delet").on("click",function(){
-    //                     // 获取id
-    //                     var fileid =  $(this).parent().data("obj")
-    //                     // 删除数据的ajax
-    //                     ajax(fileid,"Resource/de_text")
-    //                     // 重新渲染页面
-    //                     select_announce(pageN,sl)
-    //                 })
-    //                 $(".update").on("click",function(){
-    //                     $("#new_modal").modal("show")
-    //                     // // 获取ID
-    //                     fileid =  $(this).parent().data("obj")
-    //                     // // 修改名称的ajax
-    //                     // ajax(fileid,"Resource/up_text")
-    //                     // //重新渲染
-    //                     // select_announce(pageN,sl)
-    //                 })
-    //                 //修改文件名
-    //                 $(".saveclass").on("click",function(){
-    //                     var id = fileid;
-    //                     var name = $(".addclassname").val() 
-    //                     // var teacher = $(".addclassteacher").val() 
-    //                     if(name == "" ){
-    //                         // console.log("添加的为空");
-    //                         $("#new_modal").modal("hide")
-    //                         return
-    //                     }
-
-    //                     $("#loadingModal").modal("show")
-    //                     $.ajax({
-    //                     type:"post",
-    //                     url: "http://192.168.1.110/lanhong/index.php/Admin/Resource/up_text",
-    //                     dataType:"json",
-    //                     data: {id: id,name: name},
-    //                     success:function(data){
-    //                         // console.log("班级数据",data);
-    //                         if(0 == data.length){
-    //                             return;
-    //                         }
-    //                         // $("#loadingModal").modal("hide")
-    //                         $("#new_modal").modal("hide")
-    //                         //刷新页面的js
-    //                         // history.go(0)
-    //                           // 重新渲染页面
-    //                         select_announce(pageN,sl)
-    //                     },
-    //                     error:function(jqXHR){
-    //                         console.log("发生错误:"+jqXHR.status);
-    //                     }
-    //                     });
-    //                 })
-
-
-    //                 // 添加文件
-    //                 $(".addfile").on("change",function(){
-    //                     console.log("当选择了文件",this);
-
-                       
-    //                     UpladFile()
-    //                 })
-
-    //                 //鼠标的移入移出  
-    //                 // for(let i=0;i<data.lis.length;i++){
-    //                 //     $("tbody tr").eq(i).mouseover(function (){  
-    //                 //         console.log();
-    //                 //         $(".mouseovercontent").css({"display":"block"})
-    //                 //         var str =   '<div>查看课程视频得分 '+ data.lis[i].video +' </div>\n'+
-    //                 //                     '<div>参与讨论情况得分 '+ data.lis[i].discuss +' </div>\n'+
-    //                 //                     '<div>提交笔记情况得分 '+ data.lis[i].note +' </div>\n'+
-    //                 //                     '<div>参与提问答疑得分 '+ data.lis[i].quiz +' </div>\n'+
-    //                 //                     '<div>参与考试/测验成绩 '+ data.lis[i].exam +' </div>'
-    //                 //         $(".mouseovercontent").html(str)
-    //                 //     }).mouseout(function (){  
-    //                 //         // $(".content").hide();  
-    //                 //         // console.log("移除",j); 
-    //                 //         $(".mouseovercontent").css({"display":"none"})
-    //                 //     });
-    //                 // }
-
-
-    //                 //分页
-    //                 $("#page").bootstrapPaginator({
-    //                     bootstrapMajorVersion: 3,   //bootstrap版本
-    //                     totalPages: data[1],   //总页数
-    //                     numberOfPages: 3,    //分页器每页展示页码数
-    //                     shouldShowPage: true,   //所有的按钮都展示
-    //                     itemTexts: function (type, page, current) {
-    //                         // console.log(type)
-    //                         //设置分页控件每部分的显示文字
-    //                         switch (type) {
-    //                             case "first":
-    //                                 return "第一页"
-    //                             case "prev":
-    //                                 return "上一页"
-    //                             case "next":
-    //                                 return "下一页"
-    //                             case "last":
-    //                                 return "最后一页"
-    //                             case "page":
-    //                                 return page
-    //                             case "jump":
-    //                                 return "跳转"
-    //                         }
-    //                     }, onPageClicked: function(event, originalEvent, type, page) {
-    //                         //点击事件
-    //                         //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-    //                         pageNum = page
-    //                         // 查询
-    //                         select_announce(pageNum)
-    //                     }
-    //                 })
-    //                 //  分页结束
-    //             },
-    //             error: function (e) {
-    //                 console.log(e)
-    //                 console.log(e.statusText)
-    //                 if ("timeout" == e.statusText) {
-    //                     // 请求超时，终止请求
-    //                     toastr.warning("请求超时")
-    //                     CouIntrAjax.abort()
-    //                 } else {
-    //                     toastr.error("网络开小差了，请稍后再试！")
-    //                 }
-    //                 $("#loadingModal").modal("hide")
-    //             },
-    //             complete: function (xhr, status) {
-    //                 // 隐藏loading
-    //                 $("#loadingModal").modal("hide")
-    //             }
-    //         })
-    //     }
-    // })
+ 
 
 </script>
 </html>
