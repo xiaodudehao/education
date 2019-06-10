@@ -1,0 +1,540 @@
+.banxin {
+  margin: 0 auto;
+  width: 1200px;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑";
+}
+input::-ms-clear {
+  display: none;
+}
+.containbox {
+  height: 100%;
+}
+.header {
+  height: 90px;
+  font-size: 18px;
+  min-width: 1200px;
+}
+.header .logo {
+  display: block;
+  width: 115px;
+  height: 51px;
+  float: left;
+  background-color: lime;
+  margin-top: 10px;
+}
+.header ul {
+  display: block;
+  list-style: none;
+}
+.header ul li {
+  margin-left: 62px;
+  float: left;
+  line-height: 90px;
+}
+.header ul li a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+}
+.header ul li:nth-child(1) a {
+  color: #32b251;
+}
+.header ul li:hover a {
+  color: #32b251;
+}
+.header .search {
+  margin-left: 60px;
+  float: left;
+  height: 60px;
+}
+.header .search .searchicon {
+  float: left;
+  width: 20px;
+  height: 40px;
+  background-color: hotpink;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+.header .search input {
+  float: left;
+  width: 250px;
+  height: 40px;
+  outline-style: none;
+  border: 0px;
+  margin-top: 25px;
+  border-radius: 20px;
+  padding-left: 18px;
+  border: 1px solid #999;
+}
+.header .login {
+  margin-top: 25px;
+  float: right;
+  width: 186px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+}
+.header .login .loginicon {
+  width: 26px;
+  height: 40px;
+  float: left;
+}
+.header .login .checkloginicon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: -10px;
+}
+.header .login .none {
+  display: none;
+}
+.header .login .exit {
+  color: #999;
+}
+.header .login .exit a {
+  text-decoration: none;
+  color: #999;
+}
+.header .login .log {
+  float: right;
+  width: 70px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #33b150;
+  border-radius: 20px 0px 0 20px;
+}
+.header .login .register {
+  float: right;
+  width: 70px;
+  height: 40px;
+  background-color: #80c47f;
+  border-radius: 0px 20px 20px 0px;
+}
+.corporation {
+  height: 262px;
+  background-color: #fafafa;
+  min-width: 1200px;
+}
+.corporation .friendfather {
+  position: relative;
+  padding-top: 60px;
+}
+.corporation .friendfather .friend {
+  float: left;
+}
+.corporation .friendfather .friend li {
+  list-style: none;
+}
+.corporation .friendfather .friend li a {
+  text-decoration: none;
+  color: #000;
+  height: 30px;
+  line-height: 32px;
+  font-size: 14px;
+}
+.corporation .friendfather .right {
+  float: right;
+  margin-top: 43px;
+  box-sizing: border-box;
+}
+.corporation .friendfather .right .center {
+  position: relative;
+  box-sizing: border-box;
+}
+.corporation .friendfather .right .center img {
+  display: block;
+  position: absolute;
+  left: 170px;
+}
+.corporation .friendfather .right .center .science {
+  position: absolute;
+  left: 195px;
+  height: 26px;
+  line-height: 26px;
+}
+.corporation .friendfather .right .link {
+  padding-top: 45px;
+  width: 500px;
+}
+.corporation .friendfather .right .link li {
+  list-style: none;
+  float: left;
+}
+.corporation .friendfather .right .link li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+.corporation .friendfather .right .link li:nth-child(2n) {
+  color: #32b251;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.footer {
+  height: 120px;
+  background-color: #b2dfb3;
+  min-width: 1200px;
+}
+.footer .footerbanxin {
+  height: 120px;
+  position: relative;
+}
+.footer .footerbanxin .footercenter {
+  width: 454px;
+  height: 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  line-height: 30px;
+}
+.modal-content {
+  width: 500px;
+  min-height: 500px;
+  font-size: 20px;
+  background-color: #f2f2f2;
+  margin: 0 auto;
+}
+.modal-content .classification {
+  position: relative;
+}
+.modal-content .classification .childa,
+.modal-content .classification .childb {
+  position: absolute;
+  color: #999;
+}
+.modal-content .classification .childa {
+  left: 50px;
+  top: -30px;
+  color: #33b150;
+}
+.modal-content .classification .childb {
+  left: 100px;
+  top: -30px;
+}
+.modal-content .registerform {
+  margin-top: -30px;
+}
+.modal-content .registerform .form-group {
+  width: 400px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.modal-content .registerform .form-group .form-control-feedback {
+  color: #f2f2f2;
+}
+.modal-content .registerform .form-group .telephone,
+.modal-content .registerform .form-group .username,
+.modal-content .registerform .form-group .password,
+.modal-content .registerform .form-group .selectvalue {
+  outline-style: none;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border: 1px solid #33b150;
+  border-radius: 15px;
+  padding-left: 20px;
+  margin: 0 auto;
+  background-color: transparent;
+}
+.modal-content .registerform .form-group .help-block {
+  position: absolute;
+}
+.modal-content .registerform .form-group:first-child {
+  margin-top: 0;
+}
+.modal-content .registerform .codefather {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 30px;
+  position: relative;
+}
+.modal-content .registerform .codefather .code {
+  float: left;
+  outline-style: none;
+  display: block;
+  width: 200px;
+  height: 50px;
+  border: 1px solid #33b150;
+  border-radius: 15px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+  background-color: transparent;
+}
+.modal-content .registerform .codefather .codeimg {
+  float: left;
+  width: 100px;
+  height: 37px;
+  background-color: pink;
+  display: block;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+.modal-content .registerform .codefather .check {
+  float: right;
+  line-height: 50px;
+  color: #009944;
+}
+.modal-content .registerform .codefather .codeerr {
+  position: absolute;
+  top: 61px;
+  left: 71;
+  color: red;
+  display: none;
+}
+.modal-content .registerform .registerbutton {
+  width: 400px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #33b150;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
+  margin-top: 37px;
+}
+.modal-content .registerform .loginbutton {
+  width: 400px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #33b150;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
+  position: relative;
+  top: 22px;
+}
+.modal-content .registerform .teacherloginbutton {
+  width: 400px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #33b150;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
+  position: relative;
+  top: 22px;
+}
+.modal-content .registerform .else {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 65px;
+  position: relative;
+}
+.modal-content .registerform .else .linkregister {
+  position: absolute;
+  left: 0;
+  top: -32px;
+  font-size: 20px;
+  color: #32b251;
+}
+.modal-content .registerform .else .forget {
+  position: absolute;
+  right: 0;
+  top: -32px;
+  font-size: 20px;
+  color: #32b251;
+}
+.modal-content .registerform .else span {
+  margin-right: 20px;
+}
+.modal-content .registerform .else img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.modal-content .registerform .elseregister {
+  width: 400px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 46px;
+  margin-bottom: 8px;
+}
+.modal-content .registerform .elseregister span {
+  margin-right: 20px;
+}
+.modal-content .registerform .elseregister img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.modal-content .registerform .elseregister .nameexist {
+  position: absolute;
+  top: -128px;
+  color: red;
+  display: none;
+}
+.modal-content .teacherregister {
+  display: none;
+  margin-top: -30px;
+}
+.modal-content .registertitle {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 25px;
+  color: #000;
+}
+.searchresult {
+  overflow: hidden;
+  padding-top: 5px;
+}
+.searchresult .courselearning {
+  position: relative;
+  height: 210px;
+  margin-bottom: 40px;
+}
+.searchresult .courselearning .courselearningchild {
+  display: block;
+  height: 210px;
+  position: absolute;
+  transition: all 0.3s;
+  width: 100%;
+  color: #000;
+}
+.searchresult .courselearning .courselearningchild .searchimg {
+  display: block;
+  float: left;
+  width: 300px;
+  height: 210px;
+  background-color: purple;
+}
+.searchresult .courselearning .courselearningchild .searchright {
+  float: left;
+  height: 210px;
+  width: 634px;
+  margin-left: 55px;
+}
+.searchresult .courselearning .courselearningchild .searchright .searchtitle {
+  font-size: 23px;
+  margin-top: 35px;
+  height: 35px;
+  line-height: 35px;
+}
+.searchresult .courselearning .courselearningchild .searchright .searchschool {
+  height: 23px;
+  font-size: 18px;
+  line-height: 23px;
+}
+.searchresult .courselearning .courselearningchild .searchright .searchnarrate {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #999;
+}
+.searchresult .courselearning:hover .courselearningchild {
+  background: linear-gradient(to right, #b2dfb3, #ffffff);
+  box-shadow: 0px 20px 20px -17px #999999;
+  margin-top: -5px;
+}
+/* 中间内容 */
+.tt_content {
+  margin: 0 auto;
+  padding: 65px 0 130px;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* 左边内容 */
+.tt_content_left {
+  width: 298px;
+}
+.tt_content_leftmenu {
+  margin-top: 50px;
+}
+.tt_content_leftmenu a {
+  display: block;
+  border: 2px solid #999;
+  box-sizing: border-box;
+  width: 298px;
+  height: 78px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  color: #666;
+  font-size: 24px;
+  text-align: center;
+  line-height: 78px;
+  text-decoration: none;
+}
+.tt_content_leftmenu a:hover {
+  color: #81d283;
+}
+.active {
+  background-color: #81d283;
+  color: #fff !important;
+}
+/* 右边内容 */
+.tt_content_right {
+  width: 864px;
+}
+.tt_content_right_title {
+  font-size: 28px;
+  color: #31b24e;
+  border-bottom: 2px solid #31b24e;
+  padding-bottom: 20px;
+}
+.tt_team {
+  margin-top: 57px;
+  width: 950px;
+}
+.tt_team .repositoryclass {
+  display: block;
+  width: 250px;
+  height: 200px;
+  background-color: #31b24e;
+  float: left;
+  margin-right: 57px;
+  margin-bottom: 57px;
+  position: relative;
+  color: #000;
+}
+.tt_team .repositoryclass .classimg {
+  width: 250px;
+  height: 200px;
+}
+.tt_team .repositoryclass .classtitle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  background-color: purple;
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  text-align: center;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.8) 70%, transparent);
+  /* 标准的语法 */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
