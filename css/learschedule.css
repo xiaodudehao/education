@@ -514,11 +514,12 @@ input::-ms-clear {
   height: 60px;
   line-height: 60px;
   font-size: 24px;
-  text-align: center;
   color: #fff;
   background-color: #81d283;
   border-radius: 15px;
   margin-bottom: 30px;
+  letter-spacing: 30px;
+  padding-left: 59px;
 }
 .tt_team .derive:hover {
   text-decoration: none;

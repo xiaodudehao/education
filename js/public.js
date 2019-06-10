@@ -1,4 +1,5 @@
-var HTTP_URL = "http://192.168.1.110/lanhong/index.php/admin/"
+var HTTP_URL = "http://192.168.1.110/lanhong/index.php/Admin/"
+var HTTP_URLH ="http://192.168.1.110/lanhong/index.php/Home/"
 // 保存图片地址的变量
 var imgsrc = "http://192.168.1.110/lanhong/Public/img/";
 // 保存头像图片名称的变量。
