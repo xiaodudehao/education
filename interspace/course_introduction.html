@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/teacherinterspace.css">
     <!-- 提示框样式 -->
     <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <!--  课程图片上传样式  -->
+    <link rel="stylesheet" href="../css/teacher_css/course_img.css">
     <link rel="stylesheet" href="../css/teacher_css/course_introduction.css">
     <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
 </head>
@@ -46,9 +48,16 @@
     <div class="tt_content">
         <!--  左边内容  -->
         <div class="tt_content_left">
-            <img src="../images/kecheng1.png">
+            <form action="">
+                <div class="headimg clearfix" >
+                    <img  src="../images/kecheng.png" id="preview" class="headicon fl">
+                    <div class="imgtitle ">
+                        <input name="logo" type="file" id="filebtn" class="filebtn">
+                    </div>
+                </div>
+            </form>
+<!--            <img src="../images/kecheng1.png">-->
             <div class="tt_content_leftmenu">
-                <a href="" >基本设置</a>
                 <a href="" class="active introduction_href">课程简介</a>
                 <a class="teacher_href" href="">教师团队</a>
                 <a class="" href="" >课程资源</a>
@@ -56,7 +65,7 @@
                 <a class="announcement_href" href="">系统公告</a>
                 <a class="criteria_href" href="">评分表准</a>
                 <a class="test_href" href="">测验/考试</a>
-                <a href="">讨论区</a>
+                <a class="course_discussion" href="">讨论区</a>
                 <a href="">班级</a>
                 <a href="">学生</a>
                 <a href="">课程统计</a>
@@ -213,6 +222,8 @@
 <script src="../package/jquerypage.js" ></script>
 <!-- 提示框插件 -->
 <script src="../lib/toastr/toastr.min.js"></script>
+<!-- 课程图片上传 -->
+<script src="../js/course_img.js"></script>
 <!-- 模态框 -->
 <script type="text/javascript">
     $(function(){

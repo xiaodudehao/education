@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>系统公告</title>
+    <title>讨论区</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!--  导航栏的基本样式保证  -->
@@ -17,7 +17,7 @@
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  课程图片上传样式  -->
     <link rel="stylesheet" href="../css/teacher_css/course_img.css">
-    <link rel="stylesheet" href="../css/teacher_css/course_announcement.css">
+    <link rel="stylesheet" href="../css/teacher_css/discussion.css">
 </head>
 <body>
 <div class="maincontent">
@@ -52,6 +52,7 @@
     <div class="tt_content">
         <!--  左边内容  -->
         <div class="tt_content_left">
+
             <form action="">
                 <div class="headimg clearfix" >
                     <img  src="../images/kecheng.png" id="preview" class="headicon fl">
@@ -60,16 +61,17 @@
                     </div>
                 </div>
             </form>
-<!--            <img src="../images/kecheng1.png">-->
+
+            <!--  <img src="../images/kecheng1.png">  -->
             <div class="tt_content_leftmenu">
                 <a href="" class="introduction_href">课程简介</a>
                 <a class="teacher_href" href="">教师团队</a>
                 <a class="" href="" >课程资源</a>
                 <a class="catalog_href" href="">课程目录</a>
-                <a class="active announcement_href" href="">系统公告</a>
+                <a class="announcement_href" href="">系统公告</a>
                 <a class="criteria_href" href="">评分表准</a>
                 <a class="test_href" href="">测验/考试</a>
-                <a class="course_discussion" href="">讨论区</a>
+                <a class="active course_discussion" href="">讨论区</a>
                 <a href="">班级</a>
                 <a href="">学生</a>
                 <a href="">课程统计</a>
@@ -79,89 +81,109 @@
         <!--  右边内容  -->
         <div class="tt_content_right">
             <div class="tt_content_right_title">
-                系统公告
+                讨论区
             </div>
-            <!--  添加按钮  -->
-            <div class="add_announcement_btn">
-                <button onclick="new_detail()">添加公告</button>
+            <div class="switch_btn">
+                <button class="classroom_area active2" onclick="classroom_area()">课堂讨论区</button>
+                <button class="ask_questions_area" onclick="ask_question()">提问答疑区</button>
             </div>
-            <!--  公告主体内容  -->
-            <div class="announcement_content">
-                <div class="announcement_information">
-                    <div class="announcement_btn">
-                        <button>编辑</button>
-                        <span>|</span>
-                        <button>删除</button>
+            <!--  主要内容-课堂讨论区  -->
+            <div class="classroom_area_content">
+                <div class="classroom_area_card">
+                    <div class="problem_content">
+                        <div class="problem_text">
+                            <p>1、水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么</p>
+                        </div>
+                        <div class="to_view">
+                            <span class="discussion_detail">查看讨论情况</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                        </div>
                     </div>
-                    <div class="announcement_text">
-                        <p>公告日期： 2019-05-23</p>
-                        <p>公告主题： 期中考试通知</p>
-                        <p>公告创建人： 张三</p>
-                        <p>公告信息： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们</span></p>
+                    <div class="problem_content">
+                        <div class="problem_text">
+                            <p>2、么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么</p>
+                        </div>
+                        <div class="to_view">
+                            <span class="discussion_detail">查看讨论情况</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                        </div>
+                    </div>
+                    <div class="problem_content">
+                        <div class="problem_text">
+                            <p>3、么水泥的构造是什么水泥的构造是什么水泥的构造是什么</p>
+                        </div>
+                        <div class="to_view">
+                            <span class="discussion_detail">查看讨论情况</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="announcement_information">
-                    <div class="announcement_btn">
-                        <button>编辑</button>
-                        <span>|</span>
-                        <button>删除</button>
-                    </div>
-                    <div class="announcement_text">
-                        <p>公告日期： 2019-05-23</p>
-                        <p>公告主题： 期中考试通知</p>
-                        <p>公告创建人： 张三</p>
-                        <p>公告信息： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们</span></p>
-                    </div>
-                </div>
-                <div class="announcement_information">
-                    <div class="announcement_btn">
-                        <button>编辑</button>
-                        <span>|</span>
-                        <button>删除</button>
-                    </div>
-                    <div class="announcement_text">
-                        <p>公告日期： 2019-05-23</p>
-                        <p>公告主题： 期中考试通知</p>
-                        <p>公告创建人： 张三</p>
-                        <p>公告信息： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们</span></p>
-                    </div>
-                </div>
-                <div class="announcement_information">
-                    <div class="announcement_btn">
-                        <button>编辑</button>
-                        <span>|</span>
-                        <button>删除</button>
-                    </div>
-                    <div class="announcement_text">
-                        <p>公告日期： 2019-05-23</p>
-                        <p>公告主题： 期中考试通知</p>
-                        <p>公告创建人： 张三</p>
-                        <p>公告信息： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们</span></p>
-                    </div>
+
+                <div class="add_discussion_btn">
+                    <button onclick="new_detail()">添加讨论主题</button>
                 </div>
             </div>
-            <!--  分页  -->
-            <div class="page_area">
-                <ul id="page"></ul>
+            <!--  主要内容-提问答疑区  -->
+            <div class="ask_questions_content">
+                <div class="ask_questions_con">
+                    <div class="ask_content">
+                        <div class="ask_text">
+                            <p class="ask_text_con">1、水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么</p>
+                        </div>
+                        <div class="to_view_ask">
+                            <span class="discussion_ask_detail">查看讨论情况</span>
+                            <div class="ask_information_area">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dividing_line"></div>
+                    </div>
+                    <div class="ask_content">
+                        <div class="ask_text">
+                            <p class="ask_text_con">1、水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么</p>
+                        </div>
+                        <div class="to_view_ask">
+                            <span class="discussion_ask_detail">查看讨论情况</span>
+                            <div class="ask_information_area">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dividing_line"></div>
+                    </div>
+                    <div class="ask_content">
+                        <div class="ask_text">
+                            <p class="ask_text_con">1、水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么</p>
+                        </div>
+                        <div class="to_view_ask">
+                            <span class="discussion_ask_detail">查看讨论情况</span>
+                            <div class="ask_information_area">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dividing_line"></div>
+                    </div>
+                </div>
+                <div class="page_area">
+                    <ul id="page"></ul>
+                </div>
             </div>
+
 
         </div>
-
     </div>
     <!--  中间内容结束  -->
-
     <!-- 底部开始 -->
     <div class="footercontenter">
         <div class="footer">
@@ -173,9 +195,7 @@
         </div>
     </div>
     <!-- 底部结束 -->
-
 </div>
-
 
 <!-- 注册模态框开始 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -261,9 +281,9 @@
         <div class="modal-content" style="width: 100%; height: auto">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">新增公告</h4>
+                <h4 class="modal-title">新增讨论</h4>
             </div>
-            <form class="form-horizontal adminex-form" id="new_form" action="javascript: add_announcement()" >
+            <form class="form-horizontal adminex-form" id="new_form" action="javascript: add_discussion()" >
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-1 control-label">ID</label>
@@ -272,21 +292,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">公告主题</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">讨论信息</label>
                         <div class="col-sm-6">
-                            <input class="form-control theme" name="theme" type="text" placeholder="请输入主题" />
+                            <input class="form-control name" name="name" type="text" placeholder="请输入讨论信息" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-1 control-label">创建人</label>
                         <div class="col-sm-6">
-                            <input class="form-control username" name="username" type="text" placeholder="请输入创建人姓名" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">公告信息</label>
-                        <div class="col-sm-6">
-                            <input class="form-control introduction" name="introduction" type="text" placeholder="请输入公告信息" />
+                            <input class="form-control rname" name="rname" type="text" placeholder="请输入创建人" />
                         </div>
                     </div>
                 </div>
@@ -295,7 +309,6 @@
                     <input type="submit" class="btn btn-primary" value="保存" />
                 </div>
             </form>
-
         </div>
     </div>
 </div>
@@ -308,7 +321,6 @@
         <h5 style="color: white; font-weight: bold">努力加载中...</h5>
     </div>
 </div>
-
 
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
@@ -325,43 +337,166 @@
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
 <!-- 课程图片上传 -->
 <script src="../js/course_img.js"></script>
-<!--<script src="../js/course_announcement.js"></script>-->
+
 <script type="text/javascript">
     var pageNum = 1
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-
-        $(".tcdPageCode").createPage({
-            pageCount:20,
-            current:1,
-            backFn:function(p){
-                console.log(p);
-            }
-        });
-        ellipsis(130);//要显示的字符数 Number
-        select_announce(pageNum)
+        ellipsis(70);//要显示的字符数 Number
+        select_classroom()
     })
-    // 查询
-    function select_announce(pageN) {
-        var param = {
-            cid: cid,
-            page: pageN,
-        }
+    
+    function classroom_area() {
+        $(".classroom_area_content").show()
+        $(".ask_questions_content").hide()
+        $(".classroom_area").addClass("active2")
+        $(".ask_questions_area").removeClass("active2")
+        select_classroom()
+    }
+    
+    function ask_question() {
+        $(".classroom_area_content").hide()
+        $(".ask_questions_content").show()
+        $(".ask_questions_area").addClass("active2")
+        $(".classroom_area").removeClass("active2")
+        select_ask_question(pageNum)
+    }
 
+    //  查询课堂讨论区
+    function select_classroom() {
         // loading显示
         $("#loadingModal").modal("show")
-        var CouIntrAjax = $.ajax({
-            url: HTTP_URL + "Notice/page",
-            type: "get",
+        var ClassroomAjax = $.ajax({
+            url: HTTP_URL + "Test/setdiscuss",
+            type: "post",
             timeout: 5000,
             dataType: "json",
             // async:false,    //不进行异步刷新
-            data: param,
+            data: {
+                cid: cid
+            },
             success: function (data) {
                 // console.log(data)
-                // console.log(data[0])
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                var res = ""
+                for (var i in data) {
+                    var item = data[i]
+                    // console.log(item)
+                    var index = +i + 1
+                    res += '<div class="problem_content">\n' +
+                        '                    <div class="problem_text">\n' +
+                        '                        <p class="problem_content_text">'+ index +'、'+ item.discussname +'</p>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="to_view">\n' +
+                        '                        <span class="discussion_detail">查看讨论情况</span>\n' +
+                        '                        <span class="glyphicon glyphicon-remove-circle" onclick="delete_discussion('+ item.id +')"></span>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+                }
+                $('.classroom_area_card').html(res)
+                ellipsis2(80)
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 新增
+    function new_detail() {
+        $("#new_modal").modal("show")
+    }
+    function add_discussion() {
+        // 隐藏详情模态框
+        $("#new_modal").modal("hide")
+        $("#loadingModal").modal("show")
+        // 获取模态框中输入的值
+        var id = $("#new_modal .id").val()
+        var name = $("#new_modal .name").val()
+        var rname = $("#new_modal .rname").val()
+
+        var AddDiscussionAjax = $.ajax({
+            url: HTTP_URL + "Test/discuss",
+            type: "post",
+            data: {
+                cid: cid,
+                name: name,
+                rname: rname,
+            },
+            dataType: "json",
+            success: function (data) {
+                toastr.success("操作成功！")
+                // 成功后把模态框中的内容清空
+                $("#new_modal .modal-body input").each(function () {
+                    // jquery 遍历节点 $(this)指每次遍历拿到的元素
+                    $(this).val("") // 清空值
+                })
+                select_classroom()
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+    // 删除
+    function delete_discussion(id) {
+        confirmBySelf("确认删除吗？", function () {
+            // 用户点击确认时
+            $("#loadingModal").modal("show")
+            var UpdateTeacherAjax = $.ajax({
+                url: HTTP_URL + "Test/de_discuss",
+                type: "post",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                success: function (data) {
+                    toastr.success("操作成功！")
+                    select_classroom()
+                },
+                error: function (e) {
+                    console.log(e)
+                },
+                complete: function (xhr, status) {
+                    // 隐藏loading
+                    $("#loadingModal").modal("hide")
+                }
+            })
+        })
+    }
+
+    //  查询提问答疑区
+    function select_ask_question(pageNum) {
+        // loading显示
+        $("#loadingModal").modal("show")
+        var ClassroomAjax = $.ajax({
+            url: HTTP_URL + "Test/setquerstion",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                cid: cid,
+                page: pageNum
+            },
+            success: function (data) {
+                // console.log(data)
                 if (0 == data.length) {
                     // 没有数据，显示提示
                     toastr.error("未查询到可用数据")
@@ -372,31 +507,33 @@
                 for (var i in dat) {
                     var item = dat[i]
                     // console.log(item)
-                    // 转换成数字形式“/1”
+                    var index = +i + 1
                     var a = dat[i].data/1
                     var d=new Date(a*1000);
                     var time = formatDate(d)
-                    // console.log(time);
-                    res += '<div class="announcement_information">\n' +
-                        '                    <div class="announcement_btn">\n' +
-                        '                        <button onclick="delete_announce(' + item.id + ')">删除</button>\n' +
+                    res += '<div class="ask_content">\n' +
+                        '                    <div class="ask_text">\n' +
+                        '                        <p class="ask_text_con">'+ index +'、'+ item.name +'</p>\n' +
                         '                    </div>\n' +
-                        '                    <div class="announcement_text">\n' +
-                        '                        <p>公告日期： '+ time +'</p>\n' +
-                        '                        <p>公告主题： '+ item.name +'</p>\n' +
-                        '                        <p>公告创建人： '+ item.theme +'</p>\n' +
-                        '                        <p>公告信息： <span class="announcement_text_content">'+ item.text +'</span></p>\n' +
+                        '                    <div class="to_view_ask">\n' +
+                        '                        <span class="discussion_ask_detail">查看讨论情况</span>\n' +
+                        '                        <div class="ask_information_area">\n' +
+                        '                            <div class="ask_information">\n' +
+                        '                                <span>'+ item.qname +'</span>\n' +
+                        '                                <span>'+ time +'</span>\n' +
+                        '                                <span>回复 '+ item.num +'</span>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
                         '                    </div>\n' +
+                        '                    <div class="dividing_line"></div>\n' +
                         '                </div>'
                 }
-                $('.announcement_content').html(res)
-                // 调用字数超出显示省略号……
-                ellipsis(130)
+                $('.ask_questions_con').html(res)
                 //分页
                 $("#page").bootstrapPaginator({
                     bootstrapMajorVersion: 3,   //bootstrap版本
-                    currentPage: pageN,  //当前页数
                     totalPages: data[1],   //总页数
+                    currentPage: pageNum,  //当前页数
                     numberOfPages: 3,    //分页器每页展示页码数
                     shouldShowPage: true,   //所有的按钮都展示
                     itemTexts: function (type, page, current) {
@@ -421,102 +558,25 @@
                         //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
                         pageNum = page
                         // 查询
-                        select_announce(pageNum)
+                        select_ask_question(pageNum)
                     }
                 })
                 //  分页结束
             },
             error: function (e) {
                 console.log(e)
-                console.log(e.statusText)
-                if ("timeout" == e.statusText) {
-                    // 请求超时，终止请求
-                    toastr.warning("请求超时")
-                    CouIntrAjax.abort()
-                } else {
-                    toastr.error("网络开小猜了，请稍后再试！")
-                }
-                $("#loadingModal").modal("hide")
-            },
-            complete: function (xhr, status) {
-                // 隐藏loading
-                $("#loadingModal").modal("hide")
-            }
-        })
-    }
-
-    // 新增
-    function new_detail() {
-        $("#new_modal").modal("show")
-    }
-    function add_announcement() {
-        $("#new_modal").modal("hide")
-        $("#loadingModal").modal("show")
-        var theme = $("#new_modal .theme").val()
-        var username = $("#new_modal .username").val()
-        var introduction = $("#new_modal .introduction").val()
-
-        var AddAnnouncementAjax = $.ajax({
-            url: HTTP_URL + "Notice/notice",
-            type: "post",
-            data: {
-                cid: 1,
-                name: theme,
-                theme: username,
-                text: introduction,
-            },
-            dataType: "json",
-            success: function (data) {
-                console.log(name)
-                toastr.success("操作成功！")
-                // 成功后把模态框中的内容清空
-                $("#new_modal .modal-body input").each(function () {
-                    // jquery 遍历节点 $(this)指每次遍历拿到的元素
-                    $(this).val("") // 清空值
-                })
-                select_announce(pageNum)
-            },
-            error: function (e) {
                 toastr.error("网络开小猜了，请稍后再试！")
-                console.log(e)
             },
             complete: function (xhr, status) {
                 // 隐藏loading
                 $("#loadingModal").modal("hide")
             }
-        })
-    }
-
-    // 删除
-    function delete_announce(id) {
-        confirmBySelf("确认删除吗？", function () {
-            // 用户点击确认时
-            $("#loadingModal").modal("show")
-            var UpdateTeacherAjax = $.ajax({
-                url: HTTP_URL + "Notice/denotice",
-                type: "post",
-                data: {
-                    id: id
-                },
-                dataType: "json",
-                success: function (data) {
-                    toastr.success("操作成功！")
-                    select_announce(pageNum)
-                },
-                error: function (e) {
-                    console.log(e)
-                },
-                complete: function (xhr, status) {
-                    // 隐藏loading
-                    $("#loadingModal").modal("hide")
-                }
-            })
         })
     }
 
     //  设置字数超出显示省略号……
     function ellipsis(num) {
-        $(".announcement_text_content").each(function () {
+        $(".ask_text_con").each(function () {
             var maxwidth = num;
             // console.log($(this).text());
             // console.log($(this).text().length);
@@ -526,6 +586,18 @@
             }
         });
     }
+    function ellipsis2(num) {
+        $(".problem_content_text").each(function () {
+            var maxwidth = num;
+            // console.log($(this).text());
+            // console.log($(this).text().length);
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '…');
+            }
+        });
+    }
+
     //提示框初始化，toast-top-center表示提示框的位置
     toastr.options = {
         positionClass: 'toast-top-center', // 提示框位置
@@ -563,6 +635,7 @@
             }
         })
     }
+
 </script>
 
 </html>
