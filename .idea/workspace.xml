@@ -13,14 +13,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interspace/teacherinterspace.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4232">
-              <caret line="448" lean-forward="true" selection-start-line="448" selection-end-line="448" />
+            <state relative-caret-position="391">
+              <caret line="635" column="42" lean-forward="true" selection-start-line="635" selection-start-column="42" selection-end-line="635" selection-end-column="42" />
               <folding>
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
                 <element signature="e#15841#17196#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/interspace/add_class.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -48,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interspace/learstatistics.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="143">
@@ -73,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/public.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+            <state>
+              <caret column="4" selection-start-column="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -93,7 +102,6 @@
         <option value="$PROJECT_DIR$/js/public.js" />
         <option value="$PROJECT_DIR$/js/course_img.js" />
         <option value="$PROJECT_DIR$/interspace/leargrade.html" />
-        <option value="$PROJECT_DIR$/interspace/add_class.html" />
         <option value="$PROJECT_DIR$/interspace/course_announcement.html" />
         <option value="$PROJECT_DIR$/interspace/course_catalog.html" />
         <option value="$PROJECT_DIR$/interspace/course_introduction.html" />
@@ -106,13 +114,14 @@
         <option value="$PROJECT_DIR$/interspace/learschedule.html" />
         <option value="$PROJECT_DIR$/interspace/coursestatistics.html" />
         <option value="$PROJECT_DIR$/interspace/learstatistics.html" />
+        <option value="$PROJECT_DIR$/interspace/add_class.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="50" />
     <option name="y" value="57" />
-    <option name="width" value="1531" />
+    <option name="width" value="1635" />
     <option name="height" value="1034" />
   </component>
   <component name="ProjectView">
@@ -126,11 +135,6 @@
             <path>
               <item name="education" type="b2602c69:ProjectViewProjectNode" />
               <item name="education" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="education" type="b2602c69:ProjectViewProjectNode" />
-              <item name="education" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="education" type="b2602c69:ProjectViewProjectNode" />
@@ -200,18 +204,18 @@
       <workItem from="1559799406906" duration="848000" />
       <workItem from="1559808070081" duration="3106000" />
       <workItem from="1560129015329" duration="640000" />
-      <workItem from="1560129820958" duration="6319000" />
+      <workItem from="1560129820958" duration="7231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10913000" />
+    <option name="totallyTimeSpent" value="11825000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="57" width="1531" height="1034" extended-state="0" />
+    <frame x="50" y="57" width="1635" height="1034" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2460911" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2704762" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -318,13 +322,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interspace/add_class.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="66" column="60" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="66" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/interspace/course_announcement.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -336,13 +333,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -423,19 +413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interspace/teacherinterspace.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4232">
-          <caret line="448" lean-forward="true" selection-start-line="448" selection-end-line="448" />
-          <folding>
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#15841#17196#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/interspace/learschedule.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1965">
@@ -459,6 +436,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="253" column="13" lean-forward="true" selection-start-line="253" selection-start-column="13" selection-end-line="253" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/public.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interspace/teacherinterspace.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="635" column="42" lean-forward="true" selection-start-line="635" selection-start-column="42" selection-end-line="635" selection-end-column="42" />
+          <folding>
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#15841#17196#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interspace/add_class.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
         </state>
       </provider>
     </entry>
