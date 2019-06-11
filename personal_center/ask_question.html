@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>我的讨论</title>
+    <title>我的提问</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!--  导航栏的基本样式保证  -->
@@ -16,7 +16,7 @@
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  学生页面公用样式  -->
     <link href="../css/student_css/student_public_css.css" type="text/css" rel="stylesheet">
-    <link href="../css/student_css/personal_discuss.css" type="text/css" rel="stylesheet">
+    <link href="../css/student_css/ask_question.css" type="text/css" rel="stylesheet">
 
 </head>
 
@@ -66,19 +66,19 @@
     <div class="centent_menu">
         <div class="menu_btn">
             <button class="btn_first" onclick="mycourse()">课程</button>
-            <button class="active" onclick="mydiscuss()">讨论</button>
-            <button onclick="myquestion()">提问</button>
+            <button onclick="mydiscuss()">讨论</button>
+            <button class="active" onclick="myquestion()">提问</button>
             <button onclick="mynote()">笔记</button>
             <button class="btn_last" onclick="mysetup()">个人设置</button>
         </div>
     </div>
     <!--  中间内容  -->
-    <div class="personal_discuss_content">
-        <div class="discuss_content">
+    <div class="personal_question_content">
+        <div class="question_content">
             <!--  小模块  -->
-            <div class="discuss_content_card">
-                <div class="discuss_content_card_content">
-                    <div class="discuss_content_card_left">
+            <div class="question_content_card">
+                <div class="question_content_card_content">
+                    <div class="question_content_card_left">
                         <img src="../images/kecheng.png">
                         <div class="card_left_text">
                             <p class="discuss_course_name">建筑材料性能检测</p>
@@ -88,38 +88,38 @@
                             </div>
                         </div>
                     </div>
-                    <div class="discuss_content_card_right">
+                    <div class="question_content_card_right">
                         <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
+                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
+                            <div class="check_link">
+                                <a href="#" class="to_view_answer" >点击查看回答</a>
                             </div>
                         </div>
                         <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
+                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
+                            <div class="check_link">
+                                <a href="#" class="to_view_answer" >点击查看回答</a>
                             </div>
                         </div>
                         <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
+                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
+                            <div class="check_link">
+                                <a href="#" class="to_view_answer" >点击查看回答</a>
+                            </div>
+                        </div>
+                        <div class="one_discuss">
+                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
+                            <div class="check_link">
+                                <a href="#" class="to_view_answer" >点击查看回答</a>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-            <div class="discuss_content_card">
-                <div class="discuss_content_card_content">
-                    <div class="discuss_content_card_left">
+            <div class="question_content_card">
+                <div class="question_content_card_content">
+                    <div class="question_content_card_left">
                         <img src="../images/kecheng.png">
                         <div class="card_left_text">
                             <p class="discuss_course_name">建筑材料性能检测</p>
@@ -129,32 +129,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="discuss_content_card_right">
+                    <div class="question_content_card_right">
                         <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
+                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
+                            <div class="check_link">
+                                <a href="#" class="to_view_answer" >点击查看回答</a>
                             </div>
                         </div>
                         <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
+                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
+                            <div class="check_link">
+                                <a href="#" class="to_view_answer" >点击查看回答</a>
                             </div>
                         </div>
                         <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
+                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
+                            <div class="check_link">
+                                <a href="#" class="to_view_answer" >点击查看回答</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -285,24 +278,24 @@
                 console.log(p);
             }
         });
-        select_discuss()
+        // select_teacher()
     })
 
     // 教师团队查询
-    function select_discuss() {
+    function select_teacher() {
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Personal/set_notion",
-            type: "post",
+            url: HTTP_URL + "Index/teacher",
+            type: "get",
             timeout: 5000,
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                id: 1
+                cid: cid
             },
             success: function (data) {
-                console.log(data)
+                // console.log(data)
                 if (0 == data.length) {
                     // 没有数据，显示提示
                     toastr.error("未查询到可用数据")
@@ -311,10 +304,24 @@
                 var res = ""
                 for (var i in data) {
                     var item = data[i]
-                    console.log(item)
-                    res += ''
+                    // console.log(item)
+                    res += '<div class="tt_information">\n' +
+                        '                    <img src="../img/teach.png">\n' +
+                        '                    <div class="tt_Introduction">\n' +
+                        '                        <div class="tt_Introduction_text">\n' +
+                        '                            <p class="tt_Introduction_title">'+ item.name +' &nbsp;&nbsp; '+ item.duty +'</p>\n' +
+                        '                            <p class="tt_text">'+ item.text +'</p>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="action_buttons">\n' +
+                        '                            <button type="button" class="btn btn-link" onclick="teacher_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
+                        '                            <button type="button" class="btn btn-link" onclick="delete_teacher(' + item.id + ')">删除</button>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
                 }
-
+                $('.tt_team').html(res)
+                // 调用字数超出显示省略号……
+                ellipsis(110)
             },
             error: function (e) {
                 console.log(e)
@@ -342,11 +349,6 @@
     }
     function mysetup() {
         $(location).attr('href','./my_setup.html');
-    }
-    //提示框初始化，toast-top-center表示提示框的位置
-    toastr.options = {
-        positionClass: 'toast-top-center', // 提示框位置
-        closeButton: true  // 是否显示关闭按钮
     }
     /**
      *对话框

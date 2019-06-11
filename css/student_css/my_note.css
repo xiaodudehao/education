@@ -1,25 +1,24 @@
-
 /* 中间模块 */
-.personal_discuss_content {
+.personal_question_content {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.discuss_content {
+.question_content {
     margin-top: 60px;
     width: 1200px;
 }
-.discuss_content_card {
-    margin-bottom: 40px;
+.question_content_card {
+    margin-bottom: 50px;
     /*border-bottom: 1px solid #81d283;*/
 }
-.discuss_content_card_content {
+.question_content_card_content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 /* 左边 */
-.discuss_content_card_left {
+.question_content_card_left {
     width: 298px;
     display: flex;
     flex-direction: column;
@@ -45,32 +44,15 @@
     align-items: center;
 }
 /* 右边 */
-.discuss_content_card_right {
+.question_content_card_right {
     width: 864px;
 }
-.communication_subject {
-    font-size: 18px;
-}
 .one_discuss {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     padding-bottom: 20px;
     border-bottom: 1px solid #81d283;
-}
-.my_discuss {
-    margin: 20px 0 0 20px;
     font-size: 16px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

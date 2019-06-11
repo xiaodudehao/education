@@ -2,7 +2,8 @@ var HTTP_URL = "http://192.168.1.112/lanhong/index.php/Admin/"
 var HTTP_URLH ="http://192.168.1.112/lanhong/index.php/Home/"
 
 // 保存图片地址的变量
-var imgsrc = "http://192.168.1.110/lanhong/Public/img/";
+var imgsrc = "http://192.168.1.112/lanhong/Public/img/";
+var imgsrc2 = "http://192.168.1.112/lanhong/Application/Admin/Public/upload/";
 // 保存头像图片名称的变量。
 var imgname;
 //保存学校的名称数组

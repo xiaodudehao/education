@@ -1,0 +1,92 @@
+/* 基本样式，基本是复制而来 */
+.footercontenter {
+    margin-top: 0;
+}
+.mainpartportion .student_information {
+    margin-top: -65px;
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+}
+.mainpartportion .student_information .backgroundimg {
+    width: 1920px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.mainpartportion .student_information .lucency {
+    width: 1920px;
+    height: 420px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background: linear-gradient(to right, transparent, #fafafa);
+    /* 标准的语法 */
+    z-index: 1;
+}
+.mainpartportion .student_information .tintroduce {
+    position: absolute;
+    z-index: 2;
+    width: 1200px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    padding-top: 80px;
+}
+.mainpartportion .student_information .tintroduce img {
+    width: 262px;
+    height: 262px;
+    border-radius: 50%;
+}
+.mainpartportion .student_information .tintroduce .teacherna {
+    margin-left: 35px;
+}
+.mainpartportion .student_information .tintroduce .teacherna div:first-child {
+    margin-top: 60px;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+.mainpartportion .student_information .tintroduce .teacherna div:last-child {
+    font-size: 20px;
+}
+.maincontent .mainpartportion {
+    padding-top: 65px;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+.footercontenter {
+    margin-top: 50px;
+}
+
+/* 导航栏样式 */
+.active {
+    background-color: #33b150 !important;
+}
+.centent_menu {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #33b150;
+}
+.menu_btn {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.menu_btn button {
+    margin: 0;
+    padding: 10px 40px;
+    background-color: #81d283;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+.btn_first {
+    border-radius: 10px 0 0 10px;
+}
+.btn_last {
+    border-radius: 0 10px 10px 0;
+}
