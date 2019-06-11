@@ -85,6 +85,10 @@ function modalCenter(modalId){
     });
 }
 
+        // 模态框居中
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+
 // 点击按钮让bootstrap模态框消失
 function modalhidden(click,modalId){
     $(click).on("click",function(){
