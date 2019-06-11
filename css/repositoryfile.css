@@ -37,6 +37,7 @@ input::-ms-clear {
   height: 90px;
   font-size: 18px;
   min-width: 1200px;
+  background-color: #fff;
 }
 .header .logo {
   display: block;
@@ -58,7 +59,6 @@ input::-ms-clear {
 .header ul li a {
   color: #000;
   text-decoration: none;
-  font-weight: 600;
 }
 .header ul li:nth-child(1) a {
   color: #32b251;
@@ -457,6 +457,9 @@ input::-ms-clear {
   box-shadow: 0px 20px 20px -17px #999999;
   margin-top: -5px;
 }
+.footercontenter {
+  margin-top: -120px;
+}
 /* 中间内容 */
 .tt_content {
   margin: 0 auto;
@@ -636,4 +639,7 @@ input::-ms-clear {
 }
 .modal-content {
   min-height: 205px;
+}
+.modal-content .form-horizontal .control-label {
+  padding-top: 0;
 }

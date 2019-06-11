@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>系统公告</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <!-- <link rel="stylesheet" href="../css/teacherinterspace.css"> -->
+    <link rel="stylesheet" href="../css/lookfile.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <link rel="stylesheet" href="../package/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+</head>
+<body>
+    <div class="maincontent">
+    
+        <div class="header">
+            <div class="banxin">
+                <img src="../img/未标题-10.png" class="logo" alt="">
+                <ul>
+                    <li><a href="">首页</a></li>
+                    <li><a href="">课程</a></li>
+                    <li><a href="">院校</a></li>
+                    <li><a href="">立体教材</a></li>
+                </ul>
+                <div class="search">
+                    <img class="searchicon" src="../img/未标题-1.png" >
+                    <input type="text" placeholder="搜索课程或学校">
+                </div>
+                <div class="login">
+                    <a href="">
+                        <img class="loginicon" src="../img/未标题-2.png">
+                    </a>
+                    
+                    <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                    
+                    <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="mainstudy">
+            <!-- 撒发生大法师打鬼地方个地方好的风景房管局福达合金开个会开个会
+            撒发生大法师打鬼地方个地方好的风景房管局福达合金开个会开个会 -->
+            <div class="banxin clearfix">
+                <div class="lefcontent">
+                    <a class="topbutton">
+                        返回在线学习
+                    </a>
+                    <div class="textcontent" ></div>
+                </div>
+                <div class="rigcontent">
+                    
+                </div>
+            </div>
+        </div>   
+    </div>
+    <!-- 底部开始 -->
+    <!-- <div class="footercontenter"> -->
+        <div class="footer">
+            <div class="banxin footerbanxin">
+                <div class="footercenter">
+                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+    <!-- 底部结束 -->
+    <!-- 编辑模态框 -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 100%; height: auto">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">课程基本设置</h4>
+                </div>
+                <form class="form-horizontal adminex-form" id="new_form" action="javascript: add_teacher()" >
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">课程名称</label>
+                            <div class="col-sm-6">
+                                <input class="form-control coursename" name="id" type="text" placeholder=""  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4  control-label">所属学校/单位</label>
+                            <div class="col-sm-6">
+                                <input class="form-control schoolname" name="username" type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4  control-label">所属专业大类</label>
+                            <div class="col-sm-6">
+                                <!-- <input class="form-control job" name="job" type="text" placeholder="" /> -->
+                                <select class="form-control professional" name="" id="">
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4  control-label">课程开始时间</label>
+                            <div class="col-sm-6">
+                                <input   readonly class="timeopen form-control"  type="text" placeholder=""  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4  control-label">课程结束时间</label>
+                            <div class="col-sm-6">
+                                <input  readonly class=" timeend form-control"   type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4  control-label">课程简介</label>
+                            <div class="col-sm-6">
+                                <!-- <input class="form-control timeend" name="username" type="text" placeholder="" /> -->
+                                <textarea  class="form-control briefintroduction" name="" id="" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <input type="submit" class="btn btn-primary savesettings" value="保存" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- loading Modal start-->
+        <!-- 注册模态框开始 -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="registertitle">
+                        用户注册
+                  </div>
+                  <form id="registerform" name="register"  class="registerform" action="">
+                      <div class="form-group">
+                           
+                            <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                      </div>
+                      <div class="form-group">
+                            
+                            <input name="username" placeholder="输入用户名" class="username" type="text">
+                      </div>
+                      <div class="form-group">
+                
+                            <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                      </div>
+                      <!-- <div class="nameexist">该用户名已存在</div> -->
+                      <div class="registerbutton">立即注册</div>
+                      <div class="elseregister">
+                        <span>其它登录方式</span>  
+                          <a href=""><img src="../img/qq.png" alt=""></a>
+                          <a href=""><img src="../img/weixin.png" alt=""></a>
+                          <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                          <div class="nameexist">该用户名已存在</div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        <!-- 注册模态框结束 -->
+        <!-- 登录模态框开始 -->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="registertitle">
+                                用户登录
+                          </div>
+                          <form class="registerform loginform" id="loginform" action="">
+                              <div class="form-group">
+                              <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                              </div>
+                              <div class="form-group">
+                                    <input placeholder="输入密码" name="password" class="username" type="password">
+                              </div>
+    
+                              <div class="codefather clearfix">
+                                    <input  placeholder="输入验证码" name="code" class="code" type="text">
+                                    <img src="../img/code.png" class="codeimg">
+                                    <div class="check">换一张</div>
+                                    <div class="codeerr uperr">
+                                        ⓧ 用户名或密码错误
+                                    </div>
+                                    <div class="codeerr cerr">
+                                        ⓧ 验证码错误
+                                    </div>
+                              </div>
+    
+                              <div class="loginbutton">立即登录</div>
+                              <div class="else">
+    
+                                <div class="linkregister">注册</div>
+                                <div class="forget">忘记密码</div>
+                                <span>其它登录方式</span>  
+            
+                                  
+                                 <a href=""><img src="../img/qq.png" alt=""></a>
+                                 <a href=""> <img src="../img/weixin.png" alt=""></a>
+                                 <a href=""><img  src="../img/xinlang.png" alt=""></a>   
+                              </div>
+                          </form>
+                </div>
+            </div>
+        </div>
+        <!-- 登录模态框结束 -->
+
+
+        <!-- -->
+        <!-- <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modalcenter">
+                    <div class="registertitle">
+                        课程基本设置
+                    </div>
+                    <form class="curriculumprovision" action="">
+                        <div class="curriculumname clearfix">
+                           课程名称<input type="text">
+                        </div>
+                        <div class="curriculumschool clearfix">
+                            所属学校/单位 <input type="text">
+                        </div>
+                        <div class="curriculumclass clearfix">
+                            所属专业大类  
+                            <select name="" id="">
+                                <option value="">
+                                    123434
+                                </option>
+                                <option value="">
+                                    5768
+                                </option>
+                            </select>
+                        </div>
+
+                    </form>    
+                    <div class="save">
+                        保存
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
+        <!--  -->
+</body>
+<script type="text/html" id="tintroduce" >
+    <img class="fl" src="<%= imgsrc==undefined?'':imgsrc %><%= person[0].logo==undefined?'':person[0].logo %> " alt="">
+    <div class="fl teacherna" >
+        <div><%= person[0].name==undefined?'':person[0].name %></div>
+        <div>欢迎您来到教师空间! <%= person.logo %> </div>
+    </div>
+</script>
+<script type="text/html" id="schedule" >
+        <a data-toggle="modal"  data-target="#myModal2" class="courseicon">
+            <div class="add">+</div>
+            <div class="addtext">添加课程</div>
+        </a>
+        <% for(var i=0; i< person.length; i++){ %>
+            <a href="./course_introduction.html?cid=<%= person[i].id %>" class="courseimg">
+                <img class="courseshow" src="../img/ <%= person[i].logo==undefined?'':person[i].logo %> " alt="" />
+                <div class="imgtext">
+                    <%= person[i].name==undefined?'':person[i].name %>
+                </div>
+            </a>
+        <%}%>
+</script>
+<script type="text/html" id="teacheruser">
+    <div class="headline">
+        基本资料
+    </div>
+    <div class="nickname">
+        <input name="nickname" placeholder="<%= person[0].name %> " type="text">
+    </div>
+    <div class="time">
+        <input name="time" placeholder="<%= person[0].data %> " size="16" type="text"  readonly class="form_datetime">
+    </div>
+    <div class="sex">
+        性别：
+        <select name="sex" id="">
+           <% if(person[0].sex=="1"){ %>
+                <option selected value="1">男</option>
+                <option value="2">女</option>
+                <option value="3">其它</option>
+                <% }else if(person[0].sex=="女"){ %>
+                <option value="1">男</option>
+                <option selected value="2">女</option>
+                <option value="3">其它</option>
+                <% }else{ %>
+                <option value="1">男</option>
+                <option value="2">女</option>
+                <option selected value="3">其它</option>
+            <% } %> 
+        </select>
+    </div>
+    <textarea  class="signature" name="text" id="" ><%= person[0].text %></textarea>
+</script>
+<!-- 课程分类模板开始 -->
+<script type="text/html" id="professional">
+    <% for(var i=0; i< person.length; i++){ %>
+        <option value="<%= person[i].name == undefined ? '' : person[i].name %>"> <%= person[i].name == undefined ? '' :  person[i].name %> </option>
+    <%  } %>
+</script>
+<!-- 课程分类模板结束 -->
+
+<!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="../node_modules/art-template/lib/template-web.js" ></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../package/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+<script src="../js/public.js" ></script>
+<!-- <script src="../package/jquerypage.js" ></script> -->
+<script type="text/javascript">
+$(function(){
+    // 保存图片地址的变量
+    var imgsrc = "http://192.168.1.112/lanhong/Public/img/";
+    // 保存头像图片名称的变量。
+    var imgname;
+
+    // $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+
+    // 模态框居中
+    modalCenter('#myModal')
+    modalCenter('#myModal1')
+    modalCenter('#myModal2')
+    // 当添加课程的时候
+    // lang
+
+
+
+})
+
+</script>
+</html>

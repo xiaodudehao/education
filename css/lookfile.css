@@ -460,66 +460,35 @@ input::-ms-clear {
 .footercontenter {
   margin-top: -120px;
 }
-/* 中间内容 */
-.tt_content {
-  margin: 0 auto;
-  padding: 65px 0 130px;
-  width: 1200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.mainstudy {
+  background-color: #fafafa;
+  min-height: 700px;
 }
-/* 左边内容 */
-.tt_content_left {
-  width: 298px;
+.mainstudy .lefcontent {
+  float: left;
+  width: 780px;
 }
-.tt_content_leftmenu {
-  margin-top: 50px;
-}
-.tt_content_leftmenu a {
+.mainstudy .lefcontent .topbutton {
   display: block;
-  border: 2px solid #999;
-  box-sizing: border-box;
-  width: 298px;
-  height: 78px;
-  border-radius: 20px;
-  margin-bottom: 18px;
-  color: #666;
+  text-decoration: none;
+  width: 160px;
+  height: 60px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  background-color: #80c47f;
+  line-height: 60px;
   font-size: 24px;
   text-align: center;
-  line-height: 78px;
-  text-decoration: none;
+  color: #fff;
+  border-radius: 15px;
 }
-.tt_content_leftmenu a:hover {
-  color: #81d283;
+.mainstudy .lefcontent .textcontent {
+  background-color: lime;
+  width: 780px;
+  min-height: 500px;
 }
-.active {
-  background-color: #81d283;
-  color: #fff !important;
-}
-/* 右边内容 */
-.tt_content_right {
-  width: 864px;
-  overflow: hidden;
-}
-.tt_content_right_title {
-  font-size: 28px;
-  color: #31b24e;
-  border-bottom: 2px solid #31b24e;
-  padding-bottom: 20px;
-}
-.tt_team {
-  width: 864px;
-}
-.tt_team .filebox {
-  padding-top: 30px;
-}
-.tt_team .filebox .videoshow {
-  width: 864px;
-  background-color: #000;
-}
-.tt_team .filebox .videoshow video {
-  width: 800px;
-  display: block;
-  margin: 0 auto;
+.mainstudy .rigcontent {
+  float: right;
+  width: 340px;
+  background-color: purple;
 }
