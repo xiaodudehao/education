@@ -97,23 +97,6 @@
                                 <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
                             </div>
                         </div>
-                        <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                            </div>
-                        </div>
-                        <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="my_discuss">
-                                <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                                <p>我的讨论3：课题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -273,6 +256,8 @@
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!--  个人信息-头像-名字 -->
+<script src="../js/student_public.js"></script>
 <script type="text/javascript">
     $(function(){
         // 模态框居中
@@ -311,10 +296,49 @@
                 var res = ""
                 for (var i in data) {
                     var item = data[i]
-                    console.log(item)
-                    res += ''
+                    // console.log(item)
+                    var result = item.topic
+                    console.log(result)
+                    var res1 = ""
+                    for (var j in result) {
+                        var resul = result[j]
+                        console.log(resul.discussname)
+                        var resul2 = resul.mine
+                        // console.log(resul2)
+                        var res2 = ""
+                        for (var k in resul2) {
+                            // console.log(resul2.name)
+                            var index = +k + 1
+                            res2 += '<p>我的讨论'+ index +'：'+ resul2.name +' </p>'
+                        }
+                        $('.my_discuss').html(res2)
+                        res1 += '<p class="communication_subject">课堂交流主题：'+ resul.discussname +'</p>\n' +
+                            '                            <div class="my_discuss">\n' +
+                            '                            '+ res2 +' \n' +
+                            '                            </div>'
+                    }
+                    $('.one_discuss').html(res1)
+                    res += '<div class="discuss_content_card">\n' +
+                        '                <div class="discuss_content_card_content">\n' +
+                        '                    <div class="discuss_content_card_left">\n' +
+                        '                        <img src="'+ imgsrc2 + item.logo+'">\n' +
+                        '                        <div class="card_left_text">\n' +
+                        '                            <p class="discuss_course_name">'+ item.name +'</p>\n' +
+                        '                            <div class="discuss_school_name">\n' +
+                        '                                <img class="school_icon" src="../img/矢量智能对象.png" />\n' +
+                        '                                '+ item.school +'\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="discuss_content_card_right">\n' +
+                        '                        <div class="one_discuss">\n' +
+                        '                            '+ res1 +'\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '            </div>'
                 }
-
+                $('.discuss_content').html(res)
             },
             error: function (e) {
                 console.log(e)
