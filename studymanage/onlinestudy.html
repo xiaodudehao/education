@@ -55,9 +55,9 @@
                     <div class="cataloguenam">
                         <a href="" >课程首页</a>
                         <a href="scoresranking.html" >学习排行</a>
-                        <a href="" class="active">系统公告</a>
+                        <a href="" >系统公告</a>
                         <a href="" >评分标准</a>
-                        <a href="">在线学习</a>
+                        <a href="" class="active">在线学习</a>
                         <a href="">作业与测试</a>
                         <a href="">考试</a>
                         <a href="">讨论</a>
@@ -229,44 +229,184 @@
             </div>
         </div>
         <!-- 登录模态框结束 -->
+        <!-- <script id="section" type="text/html">
+            <% for(var i = 0 ; i < data; i++){%>
+                data[0].status
+            <%};%>
+        </script> -->
+        <!-- <div class="project">
+                <div class="projecttitle">
+                    <span>项目一</span>  data[i].status
+                </div>
+                <% if( data[i].children !== undefined ){ %>
+                    123
+                <% }%>
+            </div> -->
+        <!-- 成功 -->
+        <!-- <% for(var j = 0 ; j < data[i].children.length ; j ++){%>
+            <div class="task">
+                <div class="clearfix taskbox">
+                    <div class="triangle"></div>
+                    <div class="tasktitle">
+                        <span>任务二</span>  水泥细度检测
+                    </div>
+                </div>
+                <div class="detail">
+                    <% if( data[i].children[j]children !== undefined ){ %
+                    <% for(var k = 0 ; k < data[i].children[j].children.length ; k ++){%>
+                    <a class="detailtitle">
+                        <span> 看一看</span> 介绍水泥细度步骤
+                    </a>
+                    <% };%>
+                    <% }%>
+                </div>
+            </div>
+        </div>
+        </div>
+        <% }%> -->
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/art-template/lib/template-web.js" ></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
+
 <script type="text/javascript">
 $(function(){
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
 
- $(".tcdPageCode").createPage({ 
-  pageCount:20, 
-  current:1, 
-  backFn:function(p){ 
-   console.log(p); 
-  } 
- }); 
+    $(".tcdPageCode").createPage({ 
+    pageCount:20, 
+    current:1, 
+    backFn:function(p){ 
+    console.log(p); 
+    } 
+    }); 
 
-     // 让任务中的步骤都隐藏
-     $(".detail").css({"display":"none"});
-    var triangle = 0;
-    // 如果单击按钮就让任务中的东西展示。
-    $('.triangle').on("click",function(){
-        triangle ++;
-        if(triangle == 2){
-            triangle = 0
-        }
-        if(triangle){
-            $(this).css({"transform":"rotate(90deg)"}).parent().next().css({"display":"block"});
-        }else{
-            $(this).css({"transform":"rotate(0deg)"}).parent().next().css({"display":"none"});
-        }
 
+
+    $("#loadingModal").modal("show")
+    $.ajax({
+        url: HTTP_URL + "Resource/set_section",
+        type: "post",
+        data: {cid: 1},
+        dataType: "json",
+        success: function (data) {
+            // var cc = {};
+           
+            // cc.person = [];
+            // cc.person = data
+            // console.log('获取到数据',cc);
+            // var htmlx = template("section",cc);
+            // $(".rightcontent").html(htmlx);
+
+
+            // toastr.success("操作成功")
+            let str = `<div class="project">`
+            for(var i=0; i<data.length; i++ ){
+                console.log("一级",data[i].courseware);
+                str += `<div class="projecttitle">
+                            <span>项目${i+1}</span>${data[i].courseware}
+                        </div>`
+                if( data[i].children !== undefined ){
+                    for(var j=0;j<data[i].children.length;j++){
+
+                        str+=`<div class="task">
+                            <div class="clearfix taskbox">
+                                <div class="triangle"></div>
+                                <div class="tasktitle">
+                                    <span>任务${j+1}</span>${data[i].children[j].courseware}
+                                </div>
+                            </div>
+                            <div class="detail">`
+                            if( data[i].children[j].children !== undefined ){
+                                for(var k=0; k<data[i].children[j].children.length; k++){
+                                    str +=  `<a class="detailtitle">
+                                                <span> ${data[i].children[j].children[k].function}</span> ${data[i].children[j].children[k].courseware}
+                                            </a>`
+                                }
+                            }
+                        str+=`</div>
+                        </div>`
+                    }
+                }
+            }
+            str+=`</div>`;
+            $(".rightcontent").html(str);
+
+
+
+                // 让任务中的步骤都隐藏
+            $(".detail").css({"display":"none"});
+            var triangle = 0;
+            // 如果单击按钮就让任务中的东西展示。
+            $('.triangle').on("click",function(){
+                triangle ++;
+                if(triangle == 2){
+                    triangle = 0
+                }
+                if(triangle){
+                    $(this).css({"transform":"rotate(90deg)"}).parent().next().css({"display":"block"});
+                }else{
+                    $(this).css({"transform":"rotate(0deg)"}).parent().next().css({"display":"none"});
+                }
+            })
+        },
+        error: function (e) {
+            toastr.error("网络开小差了，请稍后再试")
+            console.log(e)
+        },
+        complete: function (xhr, status) {
+            // 隐藏loading
+            $("#loadingModal").modal("hide")
+        }
     })
-    
+
+    var value ={}
+    value.a = 33;
+
+    let str = `<div class="project">
+                <div class="projecttitle">
+                    <span>项目一</span>  水泥性能检测
+                </div>
+                <div class="task">
+                    <div class="clearfix taskbox">
+                        <div class="triangle"></div>
+                        <div class="tasktitle">
+                            <span>任务一</span>  水泥细度检测
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <a class="detailtitle">
+                            <span> 看一看</span> 介绍水泥细度步骤豆腐干的高度符合是非得失根深蒂固更大
+                        </a>
+                        <a class="detailtitle">
+                            <span> 看一看</span> 一分钟了解水泥
+                        </a>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="clearfix taskbox">
+                        <div class="triangle"></div>
+                        <div class="tasktitle">
+                            <span>任务二</span>  水泥细度检测
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <a class="detailtitle">
+                            <span> 看一看</span> 介绍水泥细度步骤
+                        </a>
+                        <a class="detailtitle">
+                            <span> 看一看</span> 一分钟了解水泥
+                        </a>
+                    </div>
+                </div>
+            </div>`
+        // $(".rightcontent").text(str);
 })
 
 </script>

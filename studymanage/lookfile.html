@@ -45,13 +45,101 @@
             撒发生大法师打鬼地方个地方好的风景房管局福达合金开个会开个会 -->
             <div class="banxin clearfix">
                 <div class="lefcontent">
-                    <a class="topbutton">
+                    <a href="" class="topbutton">
                         返回在线学习
                     </a>
                     <div class="textcontent" ></div>
                 </div>
-                <div class="rigcontent">
-                    
+                <div class="rigcontent ">
+                    <div class="titlebutton clearfix">
+                        <div class="questionbutton activebutton">
+                            提问
+                        </div>
+                        <div class="notebutton">
+                            笔记
+                        </div>
+                    </div>
+                    <textarea name="" id="" cols="30" rows="10" class="questionimport"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" class="noteimport"></textarea>
+                    <div class="present">
+                        提交
+                    </div>
+                    <div class="questiontable ">
+                        <span class="myquestion activetitle">我的提问</span>
+                        <span class="border ">|</span>
+                        <span class="herquestion ">他人提问</span>
+                    </div>
+                    <div class="askquestions">
+                        <div class="eachquestion clearfix">
+                            <img class="usericon fl" src="../img/teach.png" alt="">
+                            <div class="usercontent fl">
+                                <div class="username">
+                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                </div>
+                                <div class="userdate">
+                                    2009.8.8
+                                </div>
+                                <div class="usertext">
+                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                </div>
+                                <div class="useroption clearfix">
+                                    <div class="comment fl">
+                                        <img src="../img/评论.png" alt="">评论30
+                                    </div>
+                                    <div class="praise fl">
+                                        <img src="../img/点赞.png" alt="">点赞20
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eachquestion clearfix">
+                            <img class="usericon fl" src="../img/teach.png" alt="">
+                            <div class="usercontent fl">
+                                <div class="username">
+                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                </div>
+                                <div class="userdate">
+                                    2009.8.8
+                                </div>
+                                <div class="usertext">
+                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                </div>
+                                <div class="useroption clearfix">
+                                    <div class="comment fl">
+                                        <img src="../img/评论.png" alt="">评论30
+                                    </div>
+                                    <div class="praise fl">
+                                        <img src="../img/点赞.png" alt="">点赞20
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eachquestion clearfix">
+                            <img class="usericon fl" src="../img/teach.png" alt="">
+                            <div class="usercontent fl">
+                                <div class="username">
+                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                </div>
+                                <div class="userdate">
+                                    2009.8.8
+                                </div>
+                                <div class="usertext">
+                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                </div>
+                                <div class="useroption clearfix">
+                                    <div class="comment fl">
+                                        <img src="../img/评论.png" alt="">评论30
+                                    </div>
+                                    <div class="praise fl">
+                                        <img src="../img/点赞.png" alt="">点赞20
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>   
@@ -319,16 +407,85 @@ $(function(){
     var imgsrc = "http://192.168.1.112/lanhong/Public/img/";
     // 保存头像图片名称的变量。
     var imgname;
-
     // $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
     modalCenter('#myModal2')
     // 当添加课程的时候
     // lang
+    line(".username",30)
+    line(".usertext",70)
+    var param = {
+                cid: 1,
+                sl: "DESC",
+                page: 1,
+            }
+    var question;
+    var note;
+    var state;
+    // $(".import").on("change",function(){
+    //     question=$(".import").val()
+    //     console.log(question);
+    // })
+    
+    $(".questionbutton").on("click",function(){
+        $(this).addClass("activebutton")
+        $(".notebutton").removeClass("activebutton")
+        // 控制文本框显示与隐藏
+        $(".questionimport").css({"display":"inline-block"})
+        $(".noteimport").css({"display":"none"})
+        state =0;
+    })
+    $(".notebutton").on("click",function(){
+        $(this).addClass("activebutton")
+        $(".questionbutton").removeClass("activebutton")
+        // 控制文本框显示与隐藏
+        $(".questionimport").css({"display":"none"})
+        $(".noteimport").css({"display":"inline-block"})
+        state = 1;
+    })
 
+    $(".present").on("click",function(){
+        var value;
+        var url;
+        if(state){
+            // 笔记内容
+            value = $(".noteimport").val()
+            url = "Studymanage/add_note"
+        }else{
+            // 提问内容
+           value = $(".questionimport").val()
+           url ="Studymanage/add_ask"
+        }
+        console.log(value);
+        $.ajax({
+            url: HTTP_URLH + url,
+            type: "post",
+            data: {
+                id: 1,
+                zid: 13,
+                state: 1,
+                cid: 1,
+                text: value
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                // toastr.success("操作成功")
+            },
+            error: function (e) {
+                // toastr.error("网络开小猜了，请稍后再试")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+        
+    })
+    // http://192.168.1.112/lanhong/Application/Home/Public/text/5cff6200f1e7c.txt
 
 
 })

@@ -12,19 +12,19 @@
         .topbutton{
             display: block;
             text-decoration:none;
-            width: 160px;
-            height: 60px;
+            width: 140px;
+            height: 50px;
             margin-top: 40px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             background-color: #80c47f;
-            line-height: 60px;
-            font-size: 24px;
+            line-height: 50px;
+            font-size: 20px;
             text-align: center;
             color: #fff;
             border-radius: 15px;
         }
         .textcontent{
-            background-color: lime;
+            border: 1px solid #33b150;
             width: 780px;
             min-height:500px;
         }
@@ -32,8 +32,122 @@
     .rigcontent{
         float: right;
         width: 340px;
-        // min-height: 900px;
-        background-color: purple;
+        min-height: 900px;
+        // background-color: purple;
+        .titlebutton{
+            margin-top: 90px;
+            margin-bottom: 20px;
+            .questionbutton,
+            .notebutton{
+                background-color: #80c47f;
+                width: 124px;
+                height: 40px;
+                border-radius: 5px;
+                float: left;
+                text-align: center;
+                font-size: 18px;
+                line-height: 40px;
+            }
+            .activebutton{
+                background-color: #33b150;
+                color: #fff;
+            }
+            .notebutton{
+                float: right;
+            }
+
+
+        }
+        .questionimport,
+        .noteimport{
+            width: 340px;
+            resize: none;
+            border-radius: 15px;
+            border: 1px solid lime;
+            outline: none;
+            padding:10px 10px 10px 10px;
+            // height: 100px;
+        }
+        .noteimport{
+            display: none;
+        }
+        .present{
+            width: 200px;
+            height: 40px;
+            color: #fff;
+            background-color: #33b150;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 40px;
+            margin: 20px auto;
+            margin-bottom: 60px;
+        }
+        .questiontable{
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            color: #80c47f;
+            font-size: 22px;
+            margin-bottom: 30px;
+            .myquestion,
+            .herquestion{
+                // background-color: #80c47f;
+                width: 124px;
+                height: 40px;
+                border-radius: 5px;
+                // float: left;
+                text-align: center;
+                line-height: 40px;
+            }
+            .activetitle{
+                color: #33b150;
+            }
+
+        }
+        .askquestions{
+            .eachquestion{
+                margin-bottom: 30px;
+
+                .usericon{
+                    display: block;
+                    margin-top: 20px;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+
+                }
+                .usercontent{
+                    width: 240px;
+                    margin-left: 20px;
+                    
+                    .username{
+                        font-size: 16px;
+                       
+                    }
+                    .userdate{
+                        font-size: 16px;
+                        margin-bottom: 8px;
+                    }
+                    .usertext{
+                        // font-size: 16px;
+                        margin-bottom: 10px;
+                    }
+                    .useroption{
+                        .comment,
+                        .praise{
+                            padding-left: 20px;
+                            width: 120px;
+                            img{
+                                margin-right: 10px;
+                            }
+                        }
+                        
+                    }
+
+                }
+            }
+        }
     }
 }
 
