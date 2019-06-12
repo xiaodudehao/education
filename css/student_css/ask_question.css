@@ -9,7 +9,7 @@
     width: 1200px;
 }
 .question_content_card {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     /*border-bottom: 1px solid #81d283;*/
 }
 .question_content_card_content {
@@ -25,6 +25,10 @@
     justify-content: flex-start;
     align-items: center;
 }
+.question_content_card_left>img {
+    width: 298px;
+    height: 200px;
+}
 .card_left_text {
     margin-top: 10px;
 }
@@ -35,6 +39,7 @@
 .discuss_course_name {
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
 }
 .discuss_school_name {
     font-size: 16px;
@@ -48,12 +53,12 @@
     width: 864px;
 }
 .one_discuss {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     padding-bottom: 20px;
     border-bottom: 1px solid #81d283;
 }
 .communication_subject {
-    font-size: 18px;
+    font-size: 16px;
 }
 .check_link {
     text-align: right;

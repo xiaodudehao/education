@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>我的提问</title>
+    <title>他人回答</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!--  导航栏的基本样式保证  -->
@@ -16,7 +16,7 @@
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  学生页面公用样式  -->
     <link href="../css/student_css/student_public_css.css" type="text/css" rel="stylesheet">
-    <link href="../css/student_css/ask_question.css" type="text/css" rel="stylesheet">
+    <link href="../css/student_css/ask_answer.css" type="text/css" rel="stylesheet">
 
 </head>
 
@@ -89,44 +89,41 @@
                         </div>
                     </div>
                     <div class="question_content_card_right">
-                        <div class="one_discuss">
-                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="check_link">
-                                <a href="#" class="to_view_answer" >点击查看回答</a>
+                        <div class="ask_answer_problem_area">
+                            <div class="ask_answer_problem">
+                                我的提问：水泥是用什么方法怎么做好的？
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="question_content_card">
-                <div class="question_content_card_content">
-                    <div class="question_content_card_left">
-                        <img src="../images/kecheng.png">
-                        <div class="card_left_text">
-                            <p class="discuss_course_name">建筑材料性能检测</p>
-                            <div class="discuss_school_name">
-                                <img class="school_icon" src="../img/矢量智能对象.png" />
-                                上海材料工程学院
+                        <div class="answer_right_content">
+                            <div class="one_answer">
+                                <p class="answer_text">是这样做号的哈市将对客户观看打算尽快发誓开罚单交罚款</p>
+                                <div class="answer_people">
+                                    <span>宋哥哥</span> 于2019-05-23提供回答
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="question_content_card_right">
-                        <div class="one_discuss">
-                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="check_link">
-                                <a href="#" class="to_view_answer" >点击查看回答</a>
+                            <div class="one_answer">
+                                <p class="answer_text">是这样做号的哈市将对客户观看打算尽快发誓开罚单交罚款</p>
+                                <div class="answer_people">
+                                    <span>宋哥哥</span> 于2019-05-23提供回答
+                                </div>
                             </div>
-                        </div>
-                        <div class="one_discuss">
-                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="check_link">
-                                <a href="#" class="to_view_answer" >点击查看回答</a>
+                            <div class="one_answer">
+                                <p class="answer_text">是这样做号的哈市将对客户观看打算尽快发誓开罚单交罚款</p>
+                                <div class="answer_people">
+                                    <span>宋哥哥</span> 于2019-05-23提供回答
+                                </div>
                             </div>
-                        </div>
-                        <div class="one_discuss">
-                            <p class="communication_subject">我的提问1：水泥时怎么制水泥时怎么制水泥时怎么制作的？ （项目1 任务2）</p>
-                            <div class="check_link">
-                                <a href="#" class="to_view_answer" >点击查看回答</a>
+                            <div class="one_answer">
+                                <p class="answer_text">是这样做号的哈市将对客户观看打算尽快发誓开罚单交罚款</p>
+                                <div class="answer_people">
+                                    <span>宋哥哥</span> 于2019-05-23提供回答
+                                </div>
+                            </div>
+                            <div class="one_answer">
+                                <p class="answer_text">是这样做号的哈市将对客户观看打算尽快发誓开罚单交罚款</p>
+                                <div class="answer_people">
+                                    <span>宋哥哥</span> 于2019-05-23提供回答
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -250,6 +247,9 @@
 <!--  个人信息-头像-名字 -->
 <script src="../js/student_public.js"></script>
 <script type="text/javascript">
+    var url = location.href
+    var urlarr = url.split("=")
+    var qid = urlarr[urlarr.length - 1]
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
@@ -261,65 +261,63 @@
                 console.log(p);
             }
         });
-        select_ask_question()
+        select_student_ask()
     })
 
     // 查询
-    function select_ask_question() {
+    function select_student_ask(){
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Personal/ask",
+            url: HTTP_URLH + "Personal/ask_answer",
             type: "post",
             timeout: 5000,
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                id: 1,
+                id: qid
             },
             success: function (data) {
                 console.log(data)
-                if (0 == data.length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    $("#loadingModal").modal("hide")
-                }
+                var kecheng = data.kecheng
+                var timu = data.timu
+                var huida = data.huida
+                // console.log(huida)
                 var res = ""
-                for (var i in data) {
-                    var item = data[i]
-                    // console.log(item)
-                    var result = item.topic
-                    var res2 = ""
-                    for (var j in result) {
-                        var item2 = result[j]
-                        var index = +j + 1
-                        res2 += '<div class="one_discuss">\n' +
-                            '                            <p class="communication_subject">我的提问 '+ index +'：'+ item2.name +'</p>\n' +
-                            '                            <div class="check_link">\n' +
-                            '                                <a href="./ask_answer.html?id='+ item2.id +'" class="to_view_answer" >点击查看回答</a>\n' +
-                            '                            </div>\n' +
-                            '                        </div>'
-                    }
-                    $('.question_content_card_right').html(res2)
-                    res += '<div class="question_content_card">\n' +
-                        '                <div class="question_content_card_content">\n' +
-                        '                    <div class="question_content_card_left">\n' +
-                        '                        <img src="'+ imgsrc2 + item.logo +'">\n' +
+                for (var i in huida) {
+                    var item = huida[i]
+                    var a = item.data/1
+                    var d=new Date(a*1000);
+                    var time = formatDate(d)
+                    res += '<div class="one_answer">\n' +
+                        '                                <p class="answer_text">'+ item.ask +'</p>\n' +
+                        '                                <div class="answer_people">\n' +
+                        '                                    <span>'+ item.name +'</span> 于 '+ time +' 提供回答\n' +
+                        '                                </div>\n' +
+                        '                            </div>'
+                }
+                $('.answer_right_content').html(res)
+                var res2 = ""
+                for (var j in timu) {
+                    var item2 = timu[j]
+                    res2 += '<div class="ask_answer_problem">\n' +
+                        '                                我的提问：'+ item2.name +'？\n' +
+                        '                            </div>'
+                }
+                $('.ask_answer_problem_area').html(res2)
+                var res3 = ""
+                for (var k in kecheng) {
+                    var item3 = kecheng[j]
+                    res3 += '<img src="'+ imgsrc2 + item3.logo +'">\n' +
                         '                        <div class="card_left_text">\n' +
-                        '                            <p class="discuss_course_name">'+ item.name +'</p>\n' +
+                        '                            <p class="discuss_course_name">'+ item3.name +'</p>\n' +
                         '                            <div class="discuss_school_name">\n' +
                         '                                <img class="school_icon" src="../img/矢量智能对象.png" />\n' +
-                        '                                '+ item.school +'\n' +
+                        '                                '+ item3.school +'\n' +
                         '                            </div>\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                    <div class="question_content_card_right">\n' +
-                        '                        '+ res2 +'\n' +
-                        '                    </div>\n' +
-                        '                </div>\n' +
-                        '            </div>'
+                        '                        </div>'
                 }
-                $('.question_content').html(res)
+                $('.question_content_card_left').html(res3)
             },
             error: function (e) {
                 console.log(e)
@@ -369,6 +367,16 @@
                 //点击取消后做什么
             }
         })
+    }
+    // 时间戳
+    function formatDate(now) {
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var date=now.getDate();
+        var hour=now.getHours();
+        var minute=now.getMinutes();
+        var second=now.getSeconds();
+        return year+"-"+month+"-"+date;
     }
 </script>
 </html>

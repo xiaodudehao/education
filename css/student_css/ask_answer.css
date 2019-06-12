@@ -52,12 +52,25 @@
 .question_content_card_right {
     width: 864px;
 }
-.one_discuss {
+.one_answer {
     margin-bottom: 40px;
     padding-bottom: 20px;
     border-bottom: 1px solid #81d283;
+}
+.ask_answer_problem {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+.answer_text {
+    margin-left: 20px;
     font-size: 16px;
 }
-
-
+.answer_people {
+    text-align: right;
+    color: #999999;
+    font-size: 12px;
+}
+.answer_people>span {
+    color: #333333;
+}
 
