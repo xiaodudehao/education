@@ -90,7 +90,7 @@
                     </div>
                     <div class="discuss_content_card_right">
                         <div class="one_discuss">
-                            <p class="communication_subject">课堂交流主题：水泥时怎么制作的？ （项目1 任务2）</p>
+                            <p class="communication_subject">课堂交流主题： 水泥时怎么制作的？ （项目1 任务2）</p>
                             <div class="my_discuss">
                                 <p>我的讨论1：课堂交流主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
                                 <p>我的讨论2：时怎么制作的课堂交流主题：水泥时怎么制作的 </p>
@@ -287,7 +287,7 @@
                 id: 1
             },
             success: function (data) {
-                console.log(data)
+                // console.log(data)
                 if (0 == data.length) {
                     // 没有数据，显示提示
                     toastr.error("未查询到可用数据")
@@ -296,28 +296,27 @@
                 var res = ""
                 for (var i in data) {
                     var item = data[i]
-                    // console.log(item)
                     var result = item.topic
-                    console.log(result)
                     var res1 = ""
                     for (var j in result) {
-                        var resul = result[j]
-                        console.log(resul.discussname)
-                        var resul2 = resul.mine
+                        var result1 = result[j]
+                        var result2 = result1.mine
                         // console.log(resul2)
                         var res2 = ""
-                        for (var k in resul2) {
-                            // console.log(resul2.name)
+                        for (var k in result2) {
+                            var result3 = result2[k]
                             var index = +k + 1
-                            res2 += '<p>我的讨论'+ index +'：'+ resul2.name +' </p>'
+                            res2 += '<p>我的讨论'+ index +'：'+ result3.name +' </p>'
                         }
                         $('.my_discuss').html(res2)
-                        res1 += '<p class="communication_subject">课堂交流主题：'+ resul.discussname +'</p>\n' +
+                        res1 += '<div class="one_discuss">\n' +
+                            '                            <p class="communication_subject">课堂交流主题: '+ result1.discussname +'</p>\n' +
                             '                            <div class="my_discuss">\n' +
-                            '                            '+ res2 +' \n' +
-                            '                            </div>'
+                            '                                '+ res2 +'\n' +
+                            '                            </div>\n' +
+                            '                        </div>'
                     }
-                    $('.one_discuss').html(res1)
+                    $('.discuss_content_card_right').html(res1)
                     res += '<div class="discuss_content_card">\n' +
                         '                <div class="discuss_content_card_content">\n' +
                         '                    <div class="discuss_content_card_left">\n' +
@@ -331,9 +330,7 @@
                         '                        </div>\n' +
                         '                    </div>\n' +
                         '                    <div class="discuss_content_card_right">\n' +
-                        '                        <div class="one_discuss">\n' +
-                        '                            '+ res1 +'\n' +
-                        '                        </div>\n' +
+                        '                         '+ res1 +'\n' +
                         '                    </div>\n' +
                         '                </div>\n' +
                         '            </div>'
