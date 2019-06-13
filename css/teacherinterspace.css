@@ -750,19 +750,20 @@ input::-ms-clear {
 }
 .mainpartportion .mycourse .rightresult .scoreranking .nickname input,
 .mainpartportion .mycourse .rightresult .scoreranking .time input {
+  padding-left: 20px;
   height: 40px;
   width: 200px;
-  border: 1px solid #666;
+  border: 1px solid #ccc;
   color: #666;
   border-radius: 10px;
   font-size: 16px;
-  padding: 0 5px;
+  padding: 0 20px;
   outline: none;
 }
 .mainpartportion .mycourse .rightresult .scoreranking .sex {
   height: 40px;
   width: 183px;
-  border: 1px solid #666;
+  border: 1px solid #ccc;
   color: #666;
   border-radius: 10px;
   font-size: 16px;
@@ -792,6 +793,8 @@ input::-ms-clear {
   height: 200px;
   text-align: left;
   margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 .mainpartportion .mycourse .rightresult .scoreranking .confirm {
   text-align: center;
