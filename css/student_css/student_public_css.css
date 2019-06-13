@@ -84,6 +84,9 @@
     border: none;
     font-size: 20px;
 }
+.menu_btn button:hover {
+    background-color: #33b150;
+}
 .btn_first {
     border-radius: 10px 0 0 10px;
 }

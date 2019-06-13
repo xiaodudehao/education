@@ -1,0 +1,116 @@
+.personal_question_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.question_content {
+    margin-top: 60px;
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.scoreranking .headimg {
+    position: relative;
+}
+.scoreranking .headimg .headicon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.scoreranking .headimg .imgtitle {
+    width: 150px;
+    height: 150px;
+    line-height: 40px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #80c47f;
+    color: #fff;
+    position: absolute;
+    opacity: 0;
+}
+.scoreranking .headimg .filebtn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    outline: none;
+    background-color: transparent;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.scoreranking .headimg #imgsubmit {
+    margin-top: 80px;
+    margin-left: 50px;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #80c47f;
+    color: #fff;
+}
+.scoreranking .nickname,
+.scoreranking .time {
+    margin-bottom: 20px;
+}
+.scoreranking .nickname input,
+.scoreranking .time input {
+    padding-left: 20px;
+    height: 40px;
+    width: 200px;
+    border: 1px solid #ccc;
+    color: #666;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+}
+.scoreranking .sex {
+    height: 40px;
+    width: 183px;
+    border: 1px solid #ccc;
+    color: #666;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 0 0 0 20px;
+}
+.scoreranking .sex select {
+    height: 38px;
+    width: 100px;
+    border: none;
+    background: #fafafa;
+    outline: none;
+}
+.scoreranking .sex select option {
+    background-color: #81d283;
+}
+.scoreranking .headline {
+    color: #33b150;
+    font-size: 24px;
+    margin-top: 50px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+.scoreranking .signature {
+    font-size: 16px;
+    width: 400px;
+    height: 200px;
+    text-align: left;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.scoreranking .confirm {
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    width: 140px;
+    color: #fff;
+    background-color: #81d283;
+    font-size: 16px;
+    border-radius: 10px;
+}
