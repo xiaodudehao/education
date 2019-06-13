@@ -9,23 +9,23 @@
 }
 /* 左边内容 */
 .tt_content_left {
-    width: 298px;
+    width: 240px;
 }
 .tt_content_leftmenu {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 .tt_content_leftmenu a {
     display: block;
-    border: 2px solid #999;
+    border: 1px solid #CCCCCC;
     box-sizing: border-box;
-    width: 298px;
-    height: 78px;
-    border-radius: 20px;
+    width: 240px;
+    height: 56px;
+    border-radius: 10px;
     margin-bottom: 18px;
     color: #666;
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
-    line-height: 78px;
+    line-height: 56px;
     text-decoration: none;
 }
 .tt_content_leftmenu a:hover {
@@ -38,17 +38,17 @@
 
 /* 右边内容 */
 .tt_content_right {
-    width: 864px;
+    width: 900px;
 }
 .tt_content_right_title {
-    font-size: 28px;
+    font-size: 22px;
     color: #31b24e;
     border-bottom: 2px solid #31b24e;
     padding-bottom: 20px;
 }
 /* 教师信息 */
 .tt_team {
-    margin-top: 70px;
+    margin-top: 50px;
 }
 .tt_information {
     margin-bottom: 40px;
@@ -58,8 +58,8 @@
 }
 /* 图片 */
 .tt_information img {
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 130px;
 }
 .tt_Introduction {
     margin-left: 30px;
@@ -68,19 +68,18 @@
     justify-content: space-between;
 }
 .tt_Introduction_title {
-    font-size: 24px !important;
-    font-weight: bold;
+    font-size: 18px !important;
 }
 .box {
     width: 100%;
 }
 .tt_Introduction p{
-    font-size: 18px;
+    font-size: 16px;
 }
 /* 按钮 */
 .btn-link {
     color: #31b24e;
-    font-size: 24px;
+    font-size: 18px;
 }
 .action_buttons {
     text-align: right;
@@ -96,8 +95,8 @@
 .add_teacher_btn button {
     margin-top: 20px;
     padding: 10px;
-    width: 500px;
-    font-size: 22px;
+    width: 400px;
+    font-size: 20px;
     color: white;
     background-color: #81d283;
     border: none;

@@ -1,5 +1,5 @@
 $().ready(function () {
-    select_student_informasion()
+    // select_student_informasion()
     //提示框初始化，toast-top-center表示提示框的位置
     toastr.options = {
         positionClass: 'toast-top-center', // 提示框位置

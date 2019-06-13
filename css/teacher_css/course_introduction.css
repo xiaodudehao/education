@@ -6,28 +6,28 @@
     justify-content: space-around;
 }
 .course_title {
-    font-size: 24px;
+    font-size: 20px;
 }
 .course_information {
     padding: 30px;
     width: 80%;
     height: 1200px;
     overflow: auto;
-    border: 2px solid #81d283;
+    border: 1px solid #81d283;
     border-radius: 20px;
 }
 .jianjie1 {
     margin-bottom: 40px;
 }
 .jianjie1 p {
-    font-size: 18px;
+    font-size: 16px;
 }
 .textarea {
     margin-left: 20px;
     display: block;
     overflow: hidden;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 32px;
     padding:5px;
     border: none;
@@ -39,7 +39,7 @@
     margin: 30px 20px 0 0 ;
     padding: 10px 30px;
     float: right;
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     background-color: #81d283;
     border: none;

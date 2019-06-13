@@ -1,0 +1,9 @@
+.personal_question_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.question_content {
+    margin-top: 60px;
+    width: 1200px;
+}
