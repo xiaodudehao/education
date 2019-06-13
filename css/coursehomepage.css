@@ -13,6 +13,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 .clearfix:after {
   visibility: hidden;
@@ -57,7 +58,7 @@ input::-ms-clear {
   line-height: 90px;
 }
 .header ul li a {
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {
@@ -481,11 +482,12 @@ input::-ms-clear {
 }
 .maincontent .mainpartportion .leftcatalogue {
   float: left;
-  width: 298px;
+  width: 240px;
 }
 .maincontent .mainpartportion .leftcatalogue .schoolnam {
   font-size: 21px;
   line-height: 40px;
+  font-size: 18px;
   padding-left: 20px;
   padding-bottom: 10px;
 }
@@ -497,13 +499,13 @@ input::-ms-clear {
   position: relative;
 }
 .maincontent .mainpartportion .leftcatalogue .course .courseimg {
-  height: 198px;
-  width: 298px;
+  height: 160px;
+  width: 240px;
   display: block;
   border-radius: 15px;
 }
 .maincontent .mainpartportion .leftcatalogue .course .coursenam {
-  width: 298px;
+  width: 240px;
   text-align: center;
   font-size: 24px;
   bottom: 0;
@@ -512,20 +514,20 @@ input::-ms-clear {
   color: #fff;
 }
 .maincontent .mainpartportion .leftcatalogue .cataloguenam {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .maincontent .mainpartportion .leftcatalogue .cataloguenam a {
   display: block;
-  border: 2px solid #999;
+  border: 1px solid #ccc;
   box-sizing: border-box;
-  width: 298px;
-  height: 78px;
-  border-radius: 20px;
+  width: 240px;
+  height: 56px;
+  border-radius: 10px;
   margin-bottom: 18px;
   color: #666;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
-  line-height: 78px;
+  line-height: 50px;
   text-decoration: none;
 }
 .maincontent .mainpartportion .leftcatalogue .cataloguenam a:hover {
@@ -540,10 +542,10 @@ input::-ms-clear {
 }
 .maincontent .mainpartportion .rightresult {
   float: right;
-  width: 864px;
+  width: 905px;
 }
 .maincontent .mainpartportion .rightresult .righttitle {
-  font-size: 28px;
+  font-size: 24px;
   color: #31b24e;
   border-bottom: 2px solid #31b24e;
   padding-bottom: 20px;
@@ -558,6 +560,9 @@ input::-ms-clear {
   margin-top: -120px;
   background-color: #fff;
   min-width: 1200px;
+}
+.tt_team {
+  margin-top: 50px;
 }
 .maincontent {
   min-height: 100%;
@@ -577,61 +582,10 @@ input::-ms-clear {
   padding-top: 65px;
   overflow: hidden;
 }
-.maincontent .mainpartportion .leftcatalogue {
-  float: left;
-  width: 298px;
-}
-.maincontent .mainpartportion .leftcatalogue .course {
-  position: relative;
-}
-.maincontent .mainpartportion .leftcatalogue .course .courseimg {
-  height: 198px;
-  width: 298px;
-  display: block;
-  border-radius: 15px;
-}
-.maincontent .mainpartportion .leftcatalogue .course .coursenam {
-  width: 298px;
-  text-align: center;
-  font-size: 24px;
-  bottom: 0;
-  position: absolute;
-  height: 46px;
-  color: #fff;
-}
-.maincontent .mainpartportion .leftcatalogue .cataloguenam {
-  margin-top: 50px;
-}
-.maincontent .mainpartportion .leftcatalogue .cataloguenam a {
-  display: block;
-  border: 2px solid #999;
-  box-sizing: border-box;
-  width: 298px;
-  height: 78px;
-  border-radius: 20px;
-  margin-bottom: 18px;
-  color: #666;
-  font-size: 24px;
-  text-align: center;
-  line-height: 78px;
-  text-decoration: none;
-}
-.maincontent .mainpartportion .leftcatalogue .cataloguenam a:hover {
-  color: #31b24e;
-}
-.maincontent .mainpartportion .leftcatalogue .cataloguenam .active {
-  background-color: #81d283;
-  color: #fff;
-}
-.maincontent .mainpartportion .leftcatalogue .cataloguenam .active:hover {
-  color: #fff;
-}
 .maincontent .mainpartportion .rightresult {
   float: right;
-  width: 864px;
 }
 .maincontent .mainpartportion .rightresult .righttitle {
-  font-size: 28px;
   color: #31b24e;
   border-bottom: 2px solid #31b24e;
   padding-bottom: 20px;
@@ -640,7 +594,7 @@ input::-ms-clear {
   padding-top: 70px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationleft .detail {
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 38px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationleft .detail .progressbar {
@@ -672,10 +626,10 @@ input::-ms-clear {
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationright .performance {
   margin-top: 96px;
-  font-size: 24px;
+  font-size: 18px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationright .performancenum {
-  font-size: 36px;
+  font-size: 30px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationright ul {
   display: none;
@@ -718,7 +672,7 @@ input::-ms-clear {
   border-radius: 10px;
   color: #fff;
   line-height: 40px;
-  font-size: 24px;
+  font-size: 18px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .courseinformationbottom .bottomformationright #bottomformationright {
   position: relative;
@@ -735,5 +689,5 @@ input::-ms-clear {
   border-radius: 10px;
   color: #fff;
   line-height: 40px;
-  font-size: 24px;
+  font-size: 18px;
 }

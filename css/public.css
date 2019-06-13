@@ -13,6 +13,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 .clearfix:after {
   visibility: hidden;
@@ -57,7 +58,7 @@ input::-ms-clear {
   line-height: 90px;
 }
 .header ul li a {
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {

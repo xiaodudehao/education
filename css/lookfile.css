@@ -13,6 +13,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 .clearfix:after {
   visibility: hidden;
@@ -57,7 +58,7 @@ input::-ms-clear {
   line-height: 90px;
 }
 .header ul li a {
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {
@@ -477,7 +478,7 @@ input::-ms-clear {
   margin-bottom: 60px;
   background-color: #80c47f;
   line-height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   color: #fff;
   border-radius: 15px;
@@ -499,13 +500,14 @@ input::-ms-clear {
 .mainstudy .rigcontent .titlebutton .questionbutton,
 .mainstudy .rigcontent .titlebutton .notebutton {
   background-color: #80c47f;
-  width: 124px;
+  width: 78px;
   height: 40px;
   border-radius: 5px;
   float: left;
   text-align: center;
   font-size: 18px;
   line-height: 40px;
+  color: #333;
 }
 .mainstudy .rigcontent .titlebutton .activebutton {
   background-color: #33b150;
@@ -527,7 +529,7 @@ input::-ms-clear {
   display: none;
 }
 .mainstudy .rigcontent .present {
-  width: 200px;
+  width: 160px;
   height: 40px;
   color: #fff;
   background-color: #33b150;
@@ -543,7 +545,7 @@ input::-ms-clear {
   position: relative;
   text-align: center;
   color: #80c47f;
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 30px;
 }
 .mainstudy .rigcontent .questiontable .myquestion,

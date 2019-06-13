@@ -40,9 +40,9 @@
         <div class="mainpartportion">
             <div class="banxin clearfix">
                 <div class="leftcatalogue">
-                    <div class="schoolnam">
-                        <img src="../img/schoolimg.png" alt="" class="schoollogo">
-                        上海职业技术学院
+                    <div class="schoolnam clearfix">
+                            <img src="../img/schoolimg.png" alt="" class="fl schoollogo">
+                            <div class="fl schnam">上海职业技术学院</div>
                     </div>
                     <div class="course">
                         <img src="../images/kecheng1.png" alt="" class="courseimg">
@@ -213,6 +213,19 @@ $(function(){
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
+
+    //  设置学校名称字数超出显示省略号……
+    function ellipsis(num) {
+    $(".schnam").each(function () {
+        var maxwidth = num;
+        console.log($(this).text());
+        if ($(this).text().length > maxwidth) {
+            $(this).text($(this).text().substring(0, maxwidth));
+            $(this).html($(this).html() + '…');
+        }
+    });
+    }
+    ellipsis(7);//要显示的字符数 Number
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('bottomformationleft'));
     // 指定图表的配置项和数据

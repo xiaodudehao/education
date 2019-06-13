@@ -13,6 +13,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 .clearfix:after {
   visibility: hidden;
@@ -57,7 +58,7 @@ input::-ms-clear {
   line-height: 90px;
 }
 .header ul li a {
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {
@@ -465,13 +466,13 @@ input::-ms-clear {
   display: block;
   color: #fff;
   border-radius: 10px 0 0 10px;
-  width: 170px;
-  height: 56px;
+  width: 150px;
+  height: 45px;
   background-color: #33b150;
   text-decoration: none;
   margin-right: 1px;
-  line-height: 56px;
-  font-size: 22px;
+  line-height: 45px;
+  font-size: 20px;
   text-align: center;
 }
 .righttitle .scoresbutton {
@@ -485,19 +486,19 @@ input::-ms-clear {
   position: relative;
 }
 .rightcontent .studysearch input {
-  width: 300px;
-  height: 50px;
+  width: 240px;
+  height: 40px;
   border: 1px solid #666;
   outline-style: none;
   border-radius: 10px;
-  font-size: 18px;
-  color: #eee;
+  font-size: 14px;
+  color: #333;
   padding-left: 20px;
 }
 .rightcontent .studysearch .searchimg {
   position: absolute;
-  left: 265px;
-  top: 15px;
+  left: 215px;
+  top: 9px;
 }
 .rightcontent .mytable {
   margin-top: 40px;
@@ -511,7 +512,7 @@ input::-ms-clear {
 .rightcontent table tr th,
 .rightcontent table tr td {
   text-align: center;
-  font-size: 22px;
+  font-size: 16px;
 }
 .rightcontent .scoreranking {
   display: none;

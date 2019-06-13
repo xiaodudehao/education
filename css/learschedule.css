@@ -13,6 +13,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 .clearfix:after {
   visibility: hidden;
@@ -57,7 +58,7 @@ input::-ms-clear {
   line-height: 90px;
 }
 .header ul li a {
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {
@@ -471,23 +472,27 @@ input::-ms-clear {
 }
 /* 左边内容 */
 .tt_content_left {
-  width: 298px;
+  width: 240px;
+}
+.tt_content_left img {
+  width: 240px;
+  height: 158px;
 }
 .tt_content_leftmenu {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .tt_content_leftmenu a {
   display: block;
-  border: 2px solid #999;
+  border: 1px solid #ccc;
   box-sizing: border-box;
-  width: 298px;
-  height: 78px;
-  border-radius: 20px;
+  width: 240px;
+  height: 56px;
+  border-radius: 10px;
   margin-bottom: 18px;
   color: #666;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
-  line-height: 78px;
+  line-height: 56px;
   text-decoration: none;
 }
 .tt_content_leftmenu a:hover {
@@ -499,30 +504,31 @@ input::-ms-clear {
 }
 /* 右边内容 */
 .tt_content_right {
-  width: 864px;
+  width: 905px;
 }
 .tt_content_right_title {
-  font-size: 28px;
+  font-size: 24px;
   color: #31b24e;
   border-bottom: 2px solid #31b24e;
   padding-bottom: 20px;
+  margin-bottom: 50px;
+}
+.maincontent {
+  background-color: #fafafa;
 }
 /* 教师信息 */
-.tt_team {
-  margin-top: 30px;
-}
 .tt_team .derive {
   display: block;
-  width: 200px;
+  width: 140px;
   height: 60px;
   line-height: 60px;
-  font-size: 24px;
+  font-size: 18px;
   color: #fff;
   background-color: #81d283;
   border-radius: 15px;
   margin-bottom: 30px;
   letter-spacing: 30px;
-  padding-left: 59px;
+  padding-left: 40px;
 }
 .tt_team .derive:hover {
   text-decoration: none;
@@ -533,12 +539,12 @@ input::-ms-clear {
 }
 .tt_team table tr th,
 .tt_team table tr td {
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
 }
 .tt_team table tr th {
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
 }
 .tt_team .null {
   color: #9999;
@@ -553,7 +559,7 @@ input::-ms-clear {
   top: 0;
   display: none;
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
   padding-bottom: 10px;
   border-radius: 15px;

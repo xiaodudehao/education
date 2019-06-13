@@ -13,6 +13,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 .clearfix:after {
   visibility: hidden;
@@ -57,7 +58,7 @@ input::-ms-clear {
   line-height: 90px;
 }
 .header ul li a {
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {
@@ -471,23 +472,27 @@ input::-ms-clear {
 }
 /* 左边内容 */
 .tt_content_left {
-  width: 298px;
+  width: 240px;
+}
+.tt_content_left img {
+  width: 240px;
+  height: 158px;
 }
 .tt_content_leftmenu {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .tt_content_leftmenu a {
   display: block;
-  border: 2px solid #999;
+  border: 1px solid #ccc;
   box-sizing: border-box;
-  width: 298px;
-  height: 78px;
-  border-radius: 20px;
+  width: 240px;
+  height: 56px;
+  border-radius: 10px;
   margin-bottom: 18px;
   color: #666;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
-  line-height: 78px;
+  line-height: 56px;
   text-decoration: none;
 }
 .tt_content_leftmenu a:hover {
@@ -499,27 +504,28 @@ input::-ms-clear {
 }
 /* 右边内容 */
 .tt_content_right {
-  width: 864px;
+  width: 905px;
 }
 .tt_content_right_title {
-  font-size: 28px;
+  font-size: 24px;
   color: #31b24e;
   border-bottom: 2px solid #31b24e;
   padding-bottom: 20px;
+  margin-bottom: 50px;
+}
+.maincontent {
+  background-color: #fafafa;
 }
 /* 教师信息 */
-.tt_team {
-  margin-top: 70px;
-}
 .tt_team th,
 .tt_team td {
-  font-size: 26px;
+  font-size: 16px;
   border: 1px dotted #31b24e;
   text-align: center;
 }
 .tt_team th {
   font-weight: 400;
-  font-size: 26px;
+  font-size: 16px;
 }
 .tt_team .bottomhistogram {
   margin-top: 80px;
@@ -533,19 +539,20 @@ input::-ms-clear {
   text-align: center;
   border-radius: 15px;
   background-color: #8dd68d;
-  font-size: 26px;
+  font-size: 18px;
+  line-height: 40px;
   color: #fff;
 }
 .tt_team .bottomhistogram .linkgrade {
-  height: 74px;
-  width: 145px;
+  height: 50px;
+  line-height: 50px;
+  width: 100px;
   display: block;
   border-radius: 15px;
   background-color: #31b24e;
   color: #fff;
-  font-size: 26px;
+  font-size: 18px;
   text-align: center;
-  line-height: 74px;
   margin: 20px auto;
 }
 .tt_team .bottomhistogram .linkgrade:hover {

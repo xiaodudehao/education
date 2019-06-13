@@ -13,6 +13,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 .clearfix:after {
   visibility: hidden;
@@ -57,7 +58,7 @@ input::-ms-clear {
   line-height: 90px;
 }
 .header ul li a {
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 .header ul li:nth-child(1) a {
@@ -526,6 +527,7 @@ input::-ms-clear {
 .contentbox .coursehead .courseheadchild .righttxt .homepage .rightclassify {
   margin-top: 15px;
   font-size: 16px;
+  color: #666;
 }
 .contentbox .coursehead .courseheadchild .righttxt .addclassify {
   position: absolute;
@@ -545,7 +547,7 @@ input::-ms-clear {
   margin-top: 80px;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft {
-  width: 860px;
+  width: 960px;
   float: left;
   padding-right: 62px;
 }
@@ -586,14 +588,15 @@ input::-ms-clear {
 .contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis {
   margin-top: 35px;
   margin-bottom: 15px;
+  color: #666;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis .synopsiscontent {
   text-indent: 2em;
 }
 .contentbox .mainpart .mainpartchild .mainpartright {
   padding-bottom: 80px;
-  width: 340px;
-  float: left;
+  width: 240px;
+  float: right;
   min-height: 800px;
 }
 .contentbox .mainpart .mainpartchild .mainpartright .teachteam {
@@ -608,8 +611,8 @@ input::-ms-clear {
   overflow: hidden;
 }
 .contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachimg {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
