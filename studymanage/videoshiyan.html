@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <!-- <link rel="stylesheet" href="fa/css/font-awesome.css"> -->
+  
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <style>
     * {
@@ -202,7 +203,7 @@
         <video id="cc" src="../video/KEYTALK-桜花爛漫 (《境界之轮回》TV动画第1-13集片头曲)(超清).mp4"></video>
       </div>
       <div class="toolbar">
-        <span class="glyphicon glyphicon-play"></span>
+        <span class="glyphicon glyphicon-play switch"></span>
         <div class="schedule" ><span>23:25</span>/<span>25:23</span></div>
         <!-- 进度条 -->
         <div class="range1">
@@ -244,7 +245,8 @@
   <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
   <script src="../js/tools.js"></script>
   <script>
-
+    //   当单击播放按钮，再在全屏时点暂停。等退出全屏之后再点击播放按钮需要点击两次，不知道为什么。
+    //为什么bootstrap的字体图标在火狐不能，警告说必须要用http协议，即使我用了网上的cdn还是不行，为什么？
 
     /* 
       功能1：视频的播放功能
@@ -252,6 +254,7 @@
         2. 播放视频， 修改小图标
         3. 添加判断，当前是否是播放视频
     */
+    var swit = document.querySelector(".switch")
     var iconPlay = document.querySelector('.glyphicon-play')
     var iconFull = document.querySelector('.glyphicon-fullscreen')
     var video = document.querySelector('video')
@@ -259,36 +262,56 @@
     var range1 = document.querySelector('.range1')
     var range2 = document.querySelector('.range2')
     var lis = document.querySelectorAll('li')
-    iconPlay.addEventListener('click', function() {
-      if (this.classList.contains('glyphicon-play')) {
-        // 修改小图标
-        this.classList.remove('glyphicon-play')
-        // glyphicon 
-        this.classList.add('glyphicon-pause')
-        // 播放视频
-        video.play()
-      } else {
-        // 修改小图标
-        this.classList.add('glyphicon-play')
-        this.classList.remove('glyphicon-pause')
-        // 播放视频
-        video.pause()
-      }
+
+    // iconPlay.addEventListener('click', function() {
+    //   if (this.classList.contains('glyphicon-play')) {
+    //     // 修改小图标
+    //     this.classList.remove('glyphicon-play')
+    //     // glyphicon 
+    //     this.classList.add('glyphicon-pause')
+    //     // 播放视频
+    //     video.play()
+    //   } else {
+    //     // 修改小图标
+    //     this.classList.add('glyphicon-play')
+    //     this.classList.remove('glyphicon-pause')
+    //     // 播放视频
+    //     video.pause()
+    //   }
+    // })
+    var pp;
+    pp=0;
+    $(".switch").on("click",function(){
+        if(pp){
+            // $(".switch").addClass('glyphicon-play')
+            // $(".switch").removeClass('glyphicon-pause')
+
+            pp = 0;
+            video.pause()
+
+        }else{
+            // $(".switch").addClass('glyphicon-pause')
+            // $(".switch").removeClass('glyphicon-play')
+            pp = 1;
+            video.play()
+        }
     })
 //    当视频播放时
     video.addEventListener('play',function(){  
         console.log(1111);
-        // 修改小图标
-        this.classList.remove('glyphicon-play')
-        // glyphicon 
-        this.classList.add('glyphicon-pause')
+              // 修改小图标
+              $(".switch").addClass('glyphicon-pause')
+        $(".switch").removeClass('glyphicon-play')
+
+
     });  
     // 当视频暂停时
     video.addEventListener('pause',function(){  
         console.log(2222);
+  
         // 修改小图标
-        this.classList.add('glyphicon-play')
-        this.classList.remove('glyphicon-pause')
+        $(".switch").addClass('glyphicon-play')
+        $(".switch").removeClass('glyphicon-pause')
     }); 
 
 
