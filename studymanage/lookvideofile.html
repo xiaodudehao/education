@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!-- <link rel="stylesheet" href="../css/teacherinterspace.css"> -->
-    <link rel="stylesheet" href="../css/lookfile.css">
+    <link rel="stylesheet" href="../css/lookvideofile.css">
     <link rel="stylesheet" href="../css/page.css">
     <link rel="stylesheet" href="../package/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../package/vide7.4.1/css/video-js.min.css">
 </head>
 <body>
     <div class="maincontent">
@@ -48,7 +49,18 @@
                     <a href="" class="topbutton">
                         返回在线学习
                     </a>
-                    <div class="textcontent" ></div>
+                    <div class="mainvideo">
+                        <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+                        poster="http://video-js.zencoder.com/oceans-clip.png"
+                        data-setup="{}">
+                          <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/webm' />
+                          <!-- <source src="http://视频地址格式1.mp4" type='video/mp4' />
+                          <source src="http://视频地址格式2.webm" type='video/webm' />
+                          <source src="http://视频地址格式3.ogv" type='video/ogg' />
+                          <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>
+                          <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track> -->
+                      </video>
+                    </div>
                 </div>
                 <div class="rigcontent ">
                     <div class="titlebutton clearfix">
@@ -70,6 +82,7 @@
                         <span class="herquestion ">他人提问</span>
                     </div>
                     <div id="boxscroll" class="askquestions">
+                        <div class="aa">
                         <div class="eachquestion clearfix">
                             <img class="usericon fl" src="../img/teach.png" alt="">
                             <div class="usercontent fl">
@@ -207,6 +220,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -469,9 +483,8 @@
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../package/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script src="../js/public.js" ></script>
-
-
 <script src="../package/jquery.nicescroll.min.js" ></script>
+<script src="../package/vide7.4.1/js/video.min.js"></script>
 <!-- <script src="../package/jquerypage.js" ></script> -->
 <script type="text/javascript">
 $(function(){
@@ -485,32 +498,33 @@ $(function(){
     modalCenter('#myModal1')
     modalCenter('#myModal2')
     // 当添加课程的时候
-		
-
-    $(document).ready(function() {
-        $("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#0f0",boxzoom:false});
-    });
+    $("#boxscroll").css({"overflow-x": "hidden", "overflow-y": "auto"})
     
-    // askquestions
+    // if(contentH - viewH - scrollTop <= 100) { //当滚动到距离底部100px时,
 
-    function scrollFunc(){
-        $("#boxscroll").scroll(function(){
-            var $this =$(this),
-            viewH =$(this).height(),//可见高度
-            contentH =$(this).get(0).scrollHeight,//内容高度
-            scrollTop =$(this).scrollTop();//滚动高度
-            if(contentH = viewH + scrollTop) { //当滚动到底部时，
-                console.log("到底了");
-                
-            }
-            if(contentH - viewH - scrollTop <= 100) { //当滚动到距离底部100px时,
-                
-            }
-            if(scrollTop/(contentH -viewH) >= 0.95){ //当滚动到距离底部5%时
-            // 这里加载数据..
-            }
-        });
-    }
+    // }
+    // if(scrollTop/(contentH -viewH) >= 0.95){ //当滚动到距离底部5%时
+    // // 这里加载数据..
+    //     }
+    //  });
+
+
+    // 滚动条插件
+    // $(document).ready(function() {
+    //     $("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#0f0",boxzoom:false});
+    // });
+
+
+    // 设置播放的视频属性
+    var myPlayer = videojs('example_video_1');
+    videojs("example_video_1").ready(function(){
+        var myPlayer = this;
+        myPlayer.play();
+    });
+    myPlayer.width(800);
+    myPlayer.height(500);
+
+
 
     // lang
     line(".username",30)
