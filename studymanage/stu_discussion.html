@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>讨论区</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <!--  公共部分样式（除右侧主要内容）  -->
+    <link rel="stylesheet" href="../css/stu_discussion/stu_discussion_public.css">
+    <link rel="stylesheet" href="../css/stu_discussion/stu_discussion.css">
+</head>
+<body>
+<div class="maincontent">
+    <!-- 头部导航栏开始 -->
+    <div class="header">
+        <div class="banxin">
+            <img src="../img/未标题-10.png" class="logo" alt="">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">院校</a></li>
+                <li><a href="">立体教材</a></li>
+            </ul>
+            <div class="search">
+                <img class="searchicon" src="../img/未标题-1.png" ></img>
+                <input type="text" placeholder="搜索课程或学校">
+            </div>
+            <div class="login">
+                <a href="">
+                    <img class="loginicon" src="../img/未标题-2.png"></img>
+                </a>
+                <!-- 这里的模态框用js实现 -->
+                <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航栏结束 -->
+    <div class="mainpartportion">
+        <div class="banxin clearfix">
+            <div class="leftcatalogue">
+                <div class="schoolnam clearfix">
+                    <img src="../img/schoolimg.png" alt="" class="fl schoollogo">
+                    <div class="fl schnam">上海职业技术学院</div>
+                </div>
+                <div class="course">
+                    <img src="../images/kecheng1.png" alt="" class="courseimg">
+                    <!-- <div class="coursenam">建筑材料性能检测</div> -->
+                </div>
+                <div class="cataloguenam">
+                    <a href="">课程首页</a>
+                    <a href="scoresranking.html" >学习排行</a>
+                    <a href="">系统公告</a>
+                    <a href="">评分标准</a>
+                    <a href="">在线学习</a>
+                    <a href="">作业与测试</a>
+                    <a href="">考试</a>
+                    <a href="" class="active">讨论区</a>
+                </div>
+            </div>
+            <div class="rightresult">
+                <div class="righttitle">
+                    讨论区
+                </div>
+                <div class="switch_btn">
+                    <button class="classroom_area active2" onclick="classroom_area()">课堂交流区</button>
+                    <button class="ask_questions_area" onclick="ask_question()">提问答疑区</button>
+                </div>
+                <!--  主要内容-课堂交流区  -->
+                <div class="classroom_area_content">
+                    <div class="content_see_way">
+                        <div class="stu_dis_num">
+                            全部话题
+                        </div>
+                        <div class="stu_dis_choose">
+                            <span class="stu_way_text">按时间排序</span>｜<span class="stu_way_text">按点赞量排序</span>
+                        </div>
+                    </div>
+                    <div class="ask_questions_con">
+                        <div class="ask_content">
+                            <div class="ask_text" onclick="jump1()">
+                                1、水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                        <div class="ask_content">
+                            <div class="ask_text" onclick="jump1()">
+                                1、水泥的构造是什么水泥的构造是什么水泥的构造水泥造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                        <div class="ask_content">
+                            <div class="ask_text">
+                                1、水泥的构造是什么的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                        <div class="ask_content">
+                            <div class="ask_text">
+                                1、水泥的构造是造是什构造是什么水泥的构造是什么水泥的构造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                        <div class="ask_content">
+                            <div class="ask_text">
+                                1、水泥的构造是什么水泥的构造是什么水泥的构造是造是什泥的构造是水泥造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                    </div>
+                    <div class="page_area">
+                        <ul id="page"></ul>
+                    </div>
+                </div>
+                <!--  主要内容-提问答疑区  -->
+                <div class="ask_questions_content">
+                    <div class="content_see_way">
+                        <div class="stu_dis_num">
+                            全部提问
+                        </div>
+                        <div class="stu_dis_choose">
+                            <span class="stu_way_text">按时间排序</span>｜<span class="stu_way_text">按点赞量排序</span>
+                        </div>
+                    </div>
+                    <div class="ask_questions_con">
+                        <div class="ask_content">
+                            <div class="ask_text" onclick="jump2()">
+                                1、水泥的构造是什泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                        <div class="ask_content">
+                            <div class="ask_text" onclick="jump2()">
+                                1、水泥泥的构造是什么水泥的构造是什么水泥造是什么水水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                        <div class="ask_content">
+                            <div class="ask_text">
+                                1、水构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是造是什么
+                            </div>
+                            <div class="to_view_ask">
+                                <div class="ask_information">
+                                    <span>阿哥里</span>
+                                    <span>2019.03.01</span>
+                                    <span>回复31</span>
+                                </div>
+                            </div>
+                            <div class="dividing_line"></div>
+                        </div>
+                    </div>
+                    <div class="page_area">
+                        <ul id="page2"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部开始 -->
+<div class="footercontenter">
+    <div class="footer">
+        <div class="banxin footerbanxin">
+            <div class="footercenter">
+                沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部结束 -->
+<!-- 注册模态框开始 -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户注册
+            </div>
+            <form id="registerform" name="register"  class="registerform" action="">
+                <div class="form-group">
+
+                    <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input name="username" placeholder="输入用户名" class="username" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                </div>
+                <!-- <div class="nameexist">该用户名已存在</div> -->
+                <div class="registerbutton">立即注册</div>
+                <div class="elseregister">
+                    <span>其它登录方式</span>
+                    <a href=""><img src="../img/qq.png" alt=""></a>
+                    <a href=""><img src="../img/weixin.png" alt=""></a>
+                    <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                    <div class="nameexist">该用户名已存在</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 注册模态框结束 -->
+<!-- 登录模态框开始 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户登录
+            </div>
+            <form class="registerform loginform" id="loginform" action="">
+                <div class="form-group">
+                    <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+                    <input placeholder="输入密码" name="password" class="username" type="password">
+                </div>
+
+                <div class="codefather clearfix">
+                    <input  placeholder="输入验证码" name="code" class="code" type="text">
+                    <img src="../img/code.png" class="codeimg"></img>
+                    <div class="check">换一张</div>
+                    <div class="codeerr uperr">
+                        ⓧ 用户名或密码错误
+                    </div>
+                    <div class="codeerr cerr">
+                        ⓧ 验证码错误
+                    </div>
+                </div>
+
+                <div class="loginbutton">立即登录</div>
+                <div class="else">
+
+                    <div class="linkregister">注册</div>
+                    <div class="forget">忘记密码</div>
+                    <span>其它登录方式</span>
+
+
+                    <a href=""><img src="../img/qq.png" alt=""></a>
+                    <a href=""> <img src="../img/weixin.png" alt=""></a>
+                    <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 登录模态框结束 -->
+</body>
+<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../js/public.js" ></script>
+<script type="text/javascript">
+    $(function(){
+        // 模态框居中
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+    })
+    // 切换按钮，
+    function classroom_area() {
+        $(".classroom_area_content").show()
+        $(".ask_questions_content").hide()
+        $(".classroom_area").addClass("active2")
+        $(".ask_questions_area").removeClass("active2")
+        // select_classroom()
+    }
+    function ask_question() {
+        $(".classroom_area_content").hide()
+        $(".ask_questions_content").show()
+        $(".ask_questions_area").addClass("active2")
+        $(".classroom_area").removeClass("active2")
+        // select_ask_question(pageNum)
+    }
+    // 跳页
+    function jump1() {
+        $(location).attr('href','./stu_discussion_communication.html');
+    }
+    function jump2() {
+        $(location).attr('href','./stu_discussion_question.html');
+    }
+
+</script>
+</html>
