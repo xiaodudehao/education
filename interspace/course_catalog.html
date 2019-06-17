@@ -346,6 +346,12 @@
                             <input class="form-control type" name="type" type="text" placeholder="请输入类型" />
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">章节名</label>
+                        <div class="col-sm-6">
+                            <input class="form-control courseware" name="courseware" type="text" placeholder="请输入章节名" />
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -396,7 +402,7 @@
         //目录的显示隐藏
         catalog()
         // 查询
-        // select_catalog()
+        select_catalog()
     })
     // 查询请求
     function select_catalog() {
@@ -591,12 +597,14 @@
         // var theme = $("#new_modal3 .theme").val()
         var fid = $("#new_modal3 .fid").val()
         var type = $("#new_modal3 .type").val()
+        var courseware = $("#new_modal3 .courseware").val()
         var AddAnnouncementAjax = $.ajax({
             url: HTTP_URL + "Index/addir",
             type: "post",
             data: {
                 fid: fid,
                 function: type,
+                courseware: courseware,
             },
             dataType: "json",
             success: function (data) {

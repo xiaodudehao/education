@@ -76,6 +76,7 @@
     <div class="personal_question_content">
         <div class="question_content">
             <div class="one_course">
+                <span class="glyphicon glyphicon-remove-circle"></span>
                 <img src="../images/kecheng1.png" />
                 <div class="course_progress">
                     <span>学习进度： 80%</span>
@@ -91,6 +92,7 @@
                 </div>
             </div>
             <div class="one_course">
+                <span class="glyphicon glyphicon-remove-circle"></span>
                 <img src="../images/kecheng1.png" />
                 <div class="course_progress">
                     <span>学习进度： 80%</span>
@@ -309,15 +311,15 @@
                 console.log(p);
             }
         });
-        // select_ask_question()
+        select_my_course()
     })
 
     // 查询
-    function select_ask_question() {
+    function select_my_course() {
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Personal/ask",
+            url: HTTP_URLH + "Personal/set_course",
             type: "post",
             timeout: 5000,
             dataType: "json",
@@ -327,6 +329,28 @@
             },
             success: function (data) {
                 console.log(data)
+                var res = ""
+                for (var i in data) {
+                    var item = data[i]
+                    res += '<div class="one_course">\n' +
+                        '                <span class="glyphicon glyphicon-remove-circle"></span>\n' +
+                        '                <img src="../images/kecheng1.png" />\n' +
+                        '                <div class="course_progress">\n' +
+                        '                    <span>学习进度： '+ item.zplan +'%</span>\n' +
+                        '                    <div class="progress">\n' +
+                        '                        <div class="progress-bar progress-bar-success" role="progressbar"\n' +
+                        '                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"\n' +
+                        '                             style="width: '+ item.zplan +'%;">\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '                <div class="course_name">\n' +
+                        '                    '+ item.name +'\n' +
+                        '                </div>\n' +
+                        '            </div>'
+
+                }
+                $(".question_content").html(res)
             },
             error: function (e) {
                 console.log(e)

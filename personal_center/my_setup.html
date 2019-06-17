@@ -16,6 +16,7 @@
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  学生页面公用样式  -->
     <link href="../css/student_css/student_public_css.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../package/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
     <link href="../css/student_css/my_setup.css" type="text/css" rel="stylesheet">
 
 </head>
@@ -77,7 +78,7 @@
         <div class="question_content">
             <div class="scoreranking">
 
-                <form action="">
+                <form class="head_img_upload" action="">
                     <div class="headimg clearfix">
                         <img  src="../img/未标题-10.png" id="preview" class="headicon fl">
                         <div class="imgtitle ">
@@ -94,24 +95,24 @@
                         基本资料
                     </div>
                     <div class="nickname">
-                        <input name="nickname" placeholder="设置昵称" type="text">
+                        <input class="nicknames" name="nickname" placeholder="设置昵称" type="text">
                     </div>
                     <div class="time">
                         <input name="time" placeholder="设置出生日期" size="16" type="text"  readonly class="form_datetime">
                     </div>
                     <div class="sex">
                         性别：
-                        <select name="sex" id="">
-                            <option value="">男</option>
-                            <option value="">女</option>
-                            <option value="">其它</option>
+                        <select class="sexs" name="sex" id="">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                            <option value="其他">其它</option>
                         </select>
                     </div>
-                    <textarea  class="signature" name="text" id="" >设置个性签名</textarea>
+                    <textarea  class="signature" name="text" id="" placeholder="设置个性签名"></textarea>
 
                 </form>
                 <!-- 按钮不能放到form表单里，否则不会触发单击事件。 -->
-                <div class="confirm">确定</div>
+                <div class="confirm" onclick="editor_input()">确定</div>
             </div>
         </div>
     </div>
@@ -229,6 +230,7 @@
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
 <!--  个人信息-头像-名字 -->
 <script src="../js/student_public.js"></script>
+<script src="../package/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript">
     $(function(){
         // 模态框居中
@@ -241,92 +243,17 @@
                 console.log(p);
             }
         });
-        // select_ask_question()
+        $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'})
+        select_personal_information()
+        select_input()
     })
-
-    // 原生ajax发送头像信息开始
-    var xhr;
-    function createXMLHttpRequest() {
-        if (window.ActiveXObject) {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-        } else if (window.XMLHttpRequest) {
-            xhr = new XMLHttpRequest();
-        }
-    }
-    function UpladFile() {
-        var fileObj = document.getElementById("filebtn").files[0];
-        // console.log(fileObj);
-
-        var FileController = HTTP_URL + "Index/changelogo";
-        var form = new FormData();
-        form.append("myfile", fileObj);
-
-        createXMLHttpRequest();
-        xhr.onreadystatechange = handleStateChange;
-        xhr.open("post", FileController, true);
-        xhr.send(form);
-    }
-    function handleStateChange() {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200 || xhr.status == 0) {
-                history.go(0)
-                // var result = xhr.responseText;
-                // var json = eval("(" + result + ")");
-
-                // alert('图片链接:\n' + json.file);
-            }
-        }
-    }
-    //预览图片的函数，传入选中file按钮标签还有要展示的img标签
-    function imgPreview(fileDom,lookid){
-        //判断是否支持FileReader
-        if (window.FileReader) {
-            var reader = new FileReader();
-        } else {
-            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
-        }
-
-        //获取文件
-        var file = fileDom.files[0];
-        // console.log(file);
-
-        var imageType = /^image\//;
-        //是否是图片
-        if (!imageType.test(file.type)) {
-            alert("请选择图片！");
-            return;
-        }
-        //读取完成
-        reader.onload = function(e) {
-            //获取图片dom
-            var img = document.getElementById(lookid);
-            //图片路径设置为读取的图片
-            img.src = e.target.result;
-
-        };
-        reader.readAsDataURL(file);
-    }
-    var fileObj
-
-    $(".filebtn").on("change",function(){
-        //  preview是id
-        imgPreview(this,"preview")
-        fileObj = document.getElementById("filebtn").files[0];
-        // console.log(fileObj);
-        // console.log(this.value);
-    })
-
-    $("#imgsubmit").on("click",function(){
-        UpladFile()
-    })
-
 
     // 查询
-    function select_ask_question() {
+    function select_personal_information() {
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Personal/ask",
+            url: HTTP_URLH + "Personal/personal",
             type: "post",
             timeout: 5000,
             dataType: "json",
@@ -336,6 +263,169 @@
             },
             success: function (data) {
                 console.log(data)
+                var res = ""
+                for (var i in data) {
+                    var item = data[i]
+                    res += '<div class="headimg clearfix">\n' +
+                        '                        <img  src="'+ imgsrc2 + item.logo +'" id="preview" class="headicon fl">\n' +
+                        '                        <div class="imgtitle ">\n' +
+                        '                            <input name="logo" type="file" id="filebtn" class="filebtn">\n' +
+                        '                        </div>\n' +
+                        '                        <div class="fl ">\n' +
+                        '                            <div id="imgsubmit">保存头像</div>\n' +
+                        '                        </div>\n' +
+                        '                    </div>'
+                }
+                $(".head_img_upload").html(res)
+
+
+                // 原生ajax发送头像信息开始
+                var xhr;
+                function createXMLHttpRequest() {
+                    if (window.ActiveXObject) {
+                        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                    } else if (window.XMLHttpRequest) {
+                        xhr = new XMLHttpRequest();
+                    }
+                }
+                function UpladFile() {
+                    console.log("jin")
+                    var fileObj = document.getElementById("filebtn").files[0];
+                    // console.log(fileObj);
+
+                    var FileController = HTTP_URLH + "Personal/personal_logo";
+                    var form = new FormData();
+                    form.append("myfile", fileObj);
+                    form.append("id", 1);
+
+                    createXMLHttpRequest();
+                    xhr.onreadystatechange = handleStateChange;
+                    xhr.open("post", FileController, true);
+                    xhr.send(form);
+                }
+                function handleStateChange() {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200 || xhr.status == 0) {
+                            history.go(0)
+                            // var result = xhr.responseText;
+                            // var json = eval("(" + result + ")");
+
+                            // alert('图片链接:\n' + json.file);
+                        }
+                    }
+                }
+                //预览图片的函数，传入选中file按钮标签还有要展示的img标签
+                function imgPreview(fileDom,lookid){
+                    //判断是否支持FileReader
+                    if (window.FileReader) {
+                        var reader = new FileReader();
+                    } else {
+                        alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+                    }
+
+                    //获取文件
+                    var file = fileDom.files[0];
+                    // console.log(file);
+
+                    var imageType = /^image\//;
+                    //是否是图片
+                    if (!imageType.test(file.type)) {
+                        alert("请选择图片！");
+                        return;
+                    }
+                    //读取完成
+                    reader.onload = function(e) {
+                        //获取图片dom
+                        var img = document.getElementById(lookid);
+                        //图片路径设置为读取的图片
+                        img.src = e.target.result;
+
+                    };
+                    reader.readAsDataURL(file);
+                }
+                var fileObj
+
+                $(".filebtn").on("change",function(){
+                    //  preview是id
+                    imgPreview(this,"preview")
+                    fileObj = document.getElementById("filebtn").files[0];
+                    // console.log(fileObj);
+                    // console.log(this.value);
+                })
+
+                $("#imgsubmit").on("click",function(){
+                    UpladFile()
+                })
+
+
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    function select_input() {
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Personal/ex_personal",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                id: 1,
+            },
+            success: function (data) {
+                console.log(data)
+                for (var i in data) {
+                    var item = data[i]
+                    $(".nicknames").val(item.username)
+                    $(".form_datetime").val(item.data);
+                    $(".sex select").val(item.sex)
+                    $(".signature").val(item.text)
+                }
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 编辑
+    function editor_input() {
+        var name = $(".nicknames").val()
+        var data =  $(".time input").val();
+        var sex = $('.sexs').val();
+        var text = $(".signature").val()
+        console.log(name)
+        console.log(data)
+        console.log(sex)
+        console.log(text)
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Personal/up_personal",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                id: 1,
+                name: name,
+                sex: sex,
+                data: data,
+                text: text
+            },
+            success: function (data) {
+                select_input()
             },
             error: function (e) {
                 console.log(e)
