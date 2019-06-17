@@ -33,6 +33,7 @@
         float: right;
         width: 340px;
         min-height: 900px;
+        overflow: hidden;
         // background-color: purple;
         .titlebutton{
             margin-top: 90px;
@@ -49,8 +50,12 @@
                 line-height: 40px;
                 color: #333;
             }
+            .questionbutton:hover,
+            .notebutton:hover{
+                background-color:#33b150;
+            }
             .activebutton{
-                background-color: #33b150;
+                // background-color: #33b150;
                 color: #fff;
             }
             .notebutton{
@@ -102,13 +107,14 @@
                 line-height: 40px;
             }
             .activetitle{
-                color: #33b150;
+                color: #357f46;
             }
 
         }
-        .askquestions{
+        .askquestions,
+        .myaskquestion{
             height: 300px;
-            
+            width: 357px;
             overflow: auto;
             .eachquestion{
                 margin-bottom: 30px;
@@ -151,6 +157,9 @@
 
                 }
             }
+        }
+        .myaskquestion{
+            display: none;
         }
     }
 }

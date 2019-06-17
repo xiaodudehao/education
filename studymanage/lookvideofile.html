@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>系统公告</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- 用网络上的cdn可以解决火狐字体图标不显示的问题 -->
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!-- <link rel="stylesheet" href="../css/teacherinterspace.css"> -->
     <link rel="stylesheet" href="../css/lookvideofile.css">
@@ -50,7 +52,7 @@
                     <a href="" class="topbutton">
                         返回在线学习
                     </a>
-                    <div class="mainvideo">
+                    <div class="mainvideo box">
                         <!-- <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
                         poster="http://video-js.zencoder.com/oceans-clip.png"
                         data-setup="{}">
@@ -109,7 +111,6 @@
                         <span class="herquestion ">他人提问</span>
                     </div>
                     <div id="boxscroll" class="askquestions">
-                        <div class="aa">
                         <div class="eachquestion clearfix">
                             <img class="usericon fl" src="../img/teach.png" alt="">
                             <div class="usercontent fl">
@@ -179,11 +180,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="myaskquestion">
                         <div class="eachquestion clearfix">
                             <img class="usericon fl" src="../img/teach.png" alt="">
                             <div class="usercontent fl">
                                 <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                    夏娜，三千院凪，亚里亚，神乐
                                 </div>
                                 <div class="userdate">
                                     2009.8.8
@@ -206,7 +209,7 @@
                             <img class="usericon fl" src="../img/teach.png" alt="">
                             <div class="usercontent fl">
                                 <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                    夏娜，三千院凪，亚里亚，神乐
                                 </div>
                                 <div class="userdate">
                                     2009.8.8
@@ -229,7 +232,7 @@
                             <img class="usericon fl" src="../img/teach.png" alt="">
                             <div class="usercontent fl">
                                 <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                    夏娜，三千院凪，亚里亚，神乐
                                 </div>
                                 <div class="userdate">
                                     2009.8.8
@@ -247,8 +250,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -628,6 +630,44 @@ $(function(){
         
     })
     // http://192.168.1.112/lanhong/Application/Home/Public/text/5cff6200f1e7c.txt
+    // 点击我的提问
+    $(".myquestion").on("click",function(){
+        $(".myquestion").addClass("activetitle");
+        $(".herquestion").removeClass("activetitle")
+        // 控制显示我的提问
+        $(".askquestions").css({"display":"block"})
+        $(".myaskquestion").css({"display":"none"})
+    })
+    // 点击他人提问
+    $(".herquestion").on("click",function(){
+        $(".myquestion").removeClass("activetitle");
+        $(".herquestion").addClass("activetitle")
+        //控制显示他人提问
+        $(".askquestions").css({"display":"none"})
+        $(".myaskquestion").css({"display":"block"})
+    })
+
+    $.ajax({
+        url: HTTP_URLH + "Studymanage/z_ask",
+        type: "post",
+        data: {
+            
+        },
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            //toastr.success("操作成功")
+        },
+        error: function (e) {
+            // toastr.error("网络开小猜了，请稍后再试")
+            console.log(e)
+        },
+        complete: function (xhr, status) {
+            // 隐藏loading
+            $("#loadingModal").modal("hide")
+        }
+    })
+    var strmy = ""
 
 
 })

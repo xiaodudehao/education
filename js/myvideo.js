@@ -67,26 +67,26 @@
 
 
        // 禁止快进功能。
-       var sym;
-       var sym=0;
-       var max=0;
-       var video=document.querySelector("#cc")
-       setInterval(function () {
-           var time=video.currentTime
-           // 当前值减去之前值大于1
-           if(time-sym>1&&time>max){
-               // 如果当前值大于最大值就返回到之前的位置。
-               // 如果没有就可以跳到那个位置
-               // video.currentTime=max
-               video.currentTime=sym
-           }
-           sym=video.currentTime
-           // 如果当前的值大于历史最大值就保存
-           if(sym>max){
-               max = sym;
-           }
-           console.log(video.currentTime);
-       },500);
+    //    var sym;
+    //    var sym=0;
+    //    var max=0;
+    //    var video=document.querySelector("#cc")
+    //    setInterval(function () {
+    //        var time=video.currentTime
+    //        // 当前值减去之前值大于1
+    //        if(time-sym>1&&time>max){
+    //            // 如果当前值大于最大值就返回到之前的位置。
+    //            // 如果没有就可以跳到那个位置
+    //            // video.currentTime=max
+    //            video.currentTime=sym
+    //        }
+    //        sym=video.currentTime
+    //        // 如果当前的值大于历史最大值就保存
+    //        if(sym>max){
+    //            max = sym;
+    //        }
+    //        console.log(video.currentTime);
+    //    },500);
 
    /* 
      功能2：视频的全屏功能
@@ -119,9 +119,9 @@
    // input: 输入事件， 只要在修改input框的value,一直触发
    // change: 不会实时的触发，当失去焦点的时候,判断当前的值与之前的值是否发生了改变，如果发生了改变，会触发唱歌事件
    // input是实时的， change: 失去焦点的时候
-   range1.addEventListener('input', function() {
-     video.currentTime = this.value / 100 * video.duration
-   })
+//    range1.addEventListener('input', function() {
+//      video.currentTime = this.value / 100 * video.duration
+//    })
 
 
    /* 
@@ -130,17 +130,17 @@
        1. 给range2注册input事件
        2. 设置音量
    */ 
-   range2.addEventListener('input', function() {
-     video.volume = this.value / 100
-     // 根据volume动态修改图标
-     if (video.volume === 0) {
-       iconVolume.classList.remove('fa-volume-up')
-       iconVolume.classList.add('fa-volume-off')
-     } else {
-       iconVolume.classList.add('fa-volume-up')
-       iconVolume.classList.remove('fa-volume-off')
-     }
-   })
+//    range2.addEventListener('input', function() {
+//      video.volume = this.value / 100
+//      // 根据volume动态修改图标
+//      if (video.volume === 0) {
+//        iconVolume.classList.remove('fa-volume-up')
+//        iconVolume.classList.add('fa-volume-off')
+//      } else {
+//        iconVolume.classList.add('fa-volume-up')
+//        iconVolume.classList.remove('fa-volume-off')
+//      }
+//    })
    
    /* 
      功能五：视频切换功能
@@ -162,7 +162,7 @@
 
    var drag=function(obj,par,voice){
                // console.log(vioce);
-               
+               var num = 0;
                 obj.bind("mousedown",start);
 
                 function start(event){
@@ -226,6 +226,7 @@
 
 
 var drag2=function(obj,par){
+                var num= 0;
                // console.log(vioce);
                 obj.bind("mousedown",start);
 
@@ -244,15 +245,15 @@ var drag2=function(obj,par){
                         $(document).bind("mousemove",move);
                        //此处的$(document)可以改为obj
                         $(document).bind("mouseup",stop);
-                       console.log(gapX,gapY);
+//                        console.log("鼠标x"+gapX,"鼠标y"+gapY);
 
                     }
                     return false;//阻止默认事件或冒泡
                 }
                 function move(event){
                    var num;
-                   num = event.clientX-gapY-obj.parent().offset().left;
-                   console.log(num);
+                   num = event.clientX-gapX-obj.parent().offset().left;
+                //    console.log(num);
                    
                    if(num>obj.parent().width()-8){
                        obj.css({
@@ -277,7 +278,7 @@ var drag2=function(obj,par){
                        });
                        par.css({"width":num+8})
                        // 改变视频
-                       console.log('符',par.width()/obj.parent().width());
+                    //    console.log('进度条长度',par.width());
                        
                        video.currentTime = par.width()/obj.parent().width() * video.duration
                    }

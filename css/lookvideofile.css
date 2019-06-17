@@ -490,6 +490,7 @@ input::-ms-clear {
   float: right;
   width: 340px;
   min-height: 900px;
+  overflow: hidden;
 }
 .mainstudy .rigcontent .titlebutton {
   margin-top: 90px;
@@ -507,8 +508,11 @@ input::-ms-clear {
   line-height: 40px;
   color: #333;
 }
-.mainstudy .rigcontent .titlebutton .activebutton {
+.mainstudy .rigcontent .titlebutton .questionbutton:hover,
+.mainstudy .rigcontent .titlebutton .notebutton:hover {
   background-color: #33b150;
+}
+.mainstudy .rigcontent .titlebutton .activebutton {
   color: #fff;
 }
 .mainstudy .rigcontent .titlebutton .notebutton {
@@ -555,42 +559,57 @@ input::-ms-clear {
   line-height: 40px;
 }
 .mainstudy .rigcontent .questiontable .activetitle {
-  color: #33b150;
+  color: #357f46;
 }
-.mainstudy .rigcontent .askquestions {
+.mainstudy .rigcontent .askquestions,
+.mainstudy .rigcontent .myaskquestion {
   height: 300px;
+  width: 357px;
   overflow: auto;
 }
-.mainstudy .rigcontent .askquestions .eachquestion {
+.mainstudy .rigcontent .askquestions .eachquestion,
+.mainstudy .rigcontent .myaskquestion .eachquestion {
   margin-bottom: 30px;
 }
-.mainstudy .rigcontent .askquestions .eachquestion .usericon {
+.mainstudy .rigcontent .askquestions .eachquestion .usericon,
+.mainstudy .rigcontent .myaskquestion .eachquestion .usericon {
   display: block;
   margin-top: 20px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
 }
-.mainstudy .rigcontent .askquestions .eachquestion .usercontent {
+.mainstudy .rigcontent .askquestions .eachquestion .usercontent,
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent {
   width: 240px;
   margin-left: 20px;
 }
-.mainstudy .rigcontent .askquestions .eachquestion .usercontent .username {
+.mainstudy .rigcontent .askquestions .eachquestion .usercontent .username,
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent .username {
   font-size: 16px;
 }
-.mainstudy .rigcontent .askquestions .eachquestion .usercontent .userdate {
+.mainstudy .rigcontent .askquestions .eachquestion .usercontent .userdate,
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent .userdate {
   font-size: 16px;
   margin-bottom: 8px;
 }
-.mainstudy .rigcontent .askquestions .eachquestion .usercontent .usertext {
+.mainstudy .rigcontent .askquestions .eachquestion .usercontent .usertext,
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent .usertext {
   margin-bottom: 10px;
 }
 .mainstudy .rigcontent .askquestions .eachquestion .usercontent .useroption .comment,
-.mainstudy .rigcontent .askquestions .eachquestion .usercontent .useroption .praise {
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent .useroption .comment,
+.mainstudy .rigcontent .askquestions .eachquestion .usercontent .useroption .praise,
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent .useroption .praise {
   padding-left: 20px;
   width: 120px;
 }
 .mainstudy .rigcontent .askquestions .eachquestion .usercontent .useroption .comment img,
-.mainstudy .rigcontent .askquestions .eachquestion .usercontent .useroption .praise img {
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent .useroption .comment img,
+.mainstudy .rigcontent .askquestions .eachquestion .usercontent .useroption .praise img,
+.mainstudy .rigcontent .myaskquestion .eachquestion .usercontent .useroption .praise img {
   margin-right: 10px;
+}
+.mainstudy .rigcontent .myaskquestion {
+  display: none;
 }

@@ -502,64 +502,75 @@
                    
                      // 判断并渲染第二个输入框
                     if(data[0].children == undefined){
-                        $(".selectwo").html("<option>无</option>")
+                        // 如果没有第二级就渲染“无”，第三级也渲染无。
+                        $(".selectwo").html("<option >无</option>")
                         $(".selectwo").attr("disabled","disabled")
-                        
-                        return
-                    }
-                    for(var i=0;i<data[0].children.length;i++){
-                        str1 += '<option value="'+ i +'">'+ data[0].children[i].courseware +'</option>';
-                    }
-                    $(".selecttwo").html(str1)
-                     // 判断并渲染第三个输入框
-                    if(data[0].children[0].children == undefined){
                         $(".selectthree").html("<option>无</option>")
                         $(".selectthree").attr("disabled","disabled")
                         
-                        return
+                    }else{
+                        for(var i=0;i<data[0].children.length;i++){
+                        str1 += '<option value="'+ i +'">'+ data[0].children[i].courseware +'</option>';
+                        }
+                        $(".selecttwo").html(str1)
+                        // 判断并渲染第三个输入框
+                        if(data[0].children[0].children == undefined){
+                            $(".selectthree").html("<option>无</option>")
+                            $(".selectthree").attr("disabled","disabled")
+                            
+                            return
+                        }else{
+                            for(var i=0;i<data[0].children[0].children.length;i++){
+                            str2 += '<option value="'+ i +'">'+ data[0].children[0].children[i].courseware +'</option>'
+                            // console.log(str2);
+                            }
+                            $(".selectthree").attr("disabled",false)
+                            $(".selectthree").html(str2)
+                        }
+
                     }
-                    for(var i=0;i<data[0].children[0].children.length;i++){
-                    str2 += '<option value="'+ i +'">'+ data[0].children[0].children[i].courseware +'</option>'
-                    // console.log(str2);
-                    }
-                    $(".selectthree").attr("disabled",false)
-                    $(".selectthree").html(str2)
+
                   
                     $(".selectone").change(function(){
                         var str1 = ""
                         var str2 = ""
                         oneval = $(this).val()
                         if(data[oneval].children == undefined){
+                            // 如果没有第二级就渲染“无”，第三级也渲染无。
                             $(".selecttwo").html("<option>无</option>")
                             $(".selecttwo").attr("disabled","disabled")
-                            return
-                        }                   
-                        
-                        // 渲染第二个输入框
-                        for(var i=0;i<data[oneval].children.length;i++){
-                            if(i ==0){
-                                str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
-                            }else{
-                                str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
-                            } 
-                       }
-                       $(".selecttwo").attr("disabled",false)
-                       $(".selecttwo").html(str1)
 
-                    //    渲染第三个输入框
-                        if(data[oneval].children[0].children == undefined){
                             $(".selectthree").html("<option>无</option>")
                             $(".selectthree").attr("disabled","disabled")
-                            // console.log("wei",data[oneval].children[0].children);
-                            return
+                            // return
                         }else{
-                            for(var i=0;i<data[oneval].children[0].children.length;i++){
-                            str2 += '<option value="'+ i +'">'+ data[oneval].children[0].children[i].courseware +'</option>'
-                            // console.log(str2);
+                            // 渲染第二个输入框
+                            for(var i=0;i<data[oneval].children.length;i++){
+                                if(i ==0){
+                                    str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
+                                }else{
+                                    str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
+                                } 
                             }
-                            $(".selectthree").attr("disabled",false)
-                            $(".selectthree").html(str2)
-                        }
+                            $(".selecttwo").attr("disabled",false)
+                            $(".selecttwo").html(str1)
+
+                        //    渲染第三个输入框
+                            if(data[oneval].children[0].children == undefined){
+                                $(".selectthree").html("<option>无</option>")
+                                $(".selectthree").attr("disabled","disabled")
+                                // console.log("wei",data[oneval].children[0].children);
+                                
+                            }else{
+                                for(var i=0;i<data[oneval].children[0].children.length;i++){
+                                str2 += '<option value="'+ i +'">'+ data[oneval].children[0].children[i].courseware +'</option>'
+                                // console.log(str2);
+                                }
+                                $(".selectthree").attr("disabled",false)
+                                $(".selectthree").html(str2)
+                            }
+                        }                   
+                    
                     })
                     // 第二个输入框的事件
                     $(".selecttwo").change(function(){

@@ -49,7 +49,7 @@ function school(){
         $(".selectvalue").html(str);
     }
 }   
-school()
+// school()
     
 
 

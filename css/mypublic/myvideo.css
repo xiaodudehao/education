@@ -10,16 +10,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
   .box {
     width: 800px;
     height: 500px;
-    border: 1px solid #000;
-    border-radius: 20px;
-    box-shadow: 0 0 10px 2px #000;
+    /* border: 1px solid #000; */
+    /* border-radius: 20px; */
+    /* box-shadow: 0 0 10px 2px #000; */
     display: flex;
     overflow: hidden;
-  } */
+  }
 
   .main {
     flex: 4;
@@ -41,7 +41,9 @@
     width: 100%;
     height: 15%;
     display: flex;
+    margin-top: 10px;
     align-items: center;
+    background: linear-gradient(to bottom, #7fd282,  #33b150);
   }
 
   /* .icon-play,
@@ -61,7 +63,7 @@
   {
     flex: 1;
     text-align: center;
-    color: orange;
+    color: #fff;
     font-size: 24px;
     cursor: pointer;
   }
@@ -127,7 +129,7 @@
   }
   .rangetwoline{
       width: 4px;
-      height: 20px;
+      height: 60px;
       position: absolute;
       bottom: 0;
       background-color: #88aae8;
@@ -139,7 +141,7 @@
     flex: 7;
     width: 100%;
     height: 8px;
-    background-color: lightseagreen;
+    background-color: #ccc;
     border-radius: 4px;
     position: relative;
   }  
@@ -148,14 +150,14 @@
       width: 16px;
       height: 16px;
       border-radius: 8px;
-      background-color: #88aae8;
+      background-color: #8bdee4;
       top: -4px;
       
   }
   .progressline{
       height: 8px;
-      width: 20%;
-      background-color: red;
+      width: 0;
+      background-color: #fff;
       border-radius: 4px;
   }
 
