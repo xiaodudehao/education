@@ -368,7 +368,7 @@
             // loading显示
             $("#loadingModal").modal("show")
             var CouIntrAjax = $.ajax({
-                url: "http://192.168.1.110/lanhong/index.php/admin/Amount/score_details",
+                url: HTTP_URL+"Amount/score_details",
                 type: "get",
                 timeout: 5000,
                 dataType: "json",

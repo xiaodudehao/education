@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/page.css">
     <link rel="stylesheet" href="../package/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="../package/vide7.4.1/css/video-js.min.css">
+    <link rel="stylesheet" href="../css/mypublic/myvideo.css">
 </head>
 <body>
     <div class="maincontent">
@@ -50,16 +51,42 @@
                         返回在线学习
                     </a>
                     <div class="mainvideo">
-                        <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+                        <!-- <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
                         poster="http://video-js.zencoder.com/oceans-clip.png"
                         data-setup="{}">
                           <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/webm' />
-                          <!-- <source src="http://视频地址格式1.mp4" type='video/mp4' />
-                          <source src="http://视频地址格式2.webm" type='video/webm' />
-                          <source src="http://视频地址格式3.ogv" type='video/ogg' />
-                          <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>
-                          <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track> -->
-                      </video>
+                        </video> -->
+                        <div class="main">
+                            <div class="movie">
+                                <video id="cc" src="../video/KEYTALK-桜花爛漫 (《境界之轮回》TV动画第1-13集片头曲)(超清).mp4"></video>
+                            </div>
+                            <div class="toolbar">
+                                <span class="glyphicon glyphicon-play switch"></span>
+                                <div class="schedule" ><span>23:25</span>/<span>25:23</span></div>
+                                <!-- 进度条 -->
+                                <div class="range1">
+                                    <div class="videoprogress">
+                                        <div class="progressbotton"></div>
+                                        <div class="progressline"></div>
+                                    </div>
+                                </div>
+                                <!-- <input type="range" min="0" max="100" class="range1" value="0"> -->
+                                <span class="fa fa-volume-up icon-volume  voice	glyphicon glyphicon-volume-down">
+                                <!-- <input type="range" class="range2" min="0" max="100" value="100"> -->
+                                <div class="glyphicon-volume-downchildren">
+                                    <div class="range2">
+                                        <div class="rangetwobutton">
+                                        </div>
+                                        <div class="rangetwoline"></div>
+                                    </div>
+                                </div>
+                                </span>
+                                <div class="times">1X</div>
+                                <div class="definition">高清</div>
+                                <span class="glyphicon glyphicon-fullscreen"></span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="rigcontent ">
@@ -485,6 +512,8 @@
 <script src="../js/public.js" ></script>
 <script src="../package/jquery.nicescroll.min.js" ></script>
 <script src="../package/vide7.4.1/js/video.min.js"></script>
+<script src="../js/myvideo.js"></script>
+
 <!-- <script src="../package/jquerypage.js" ></script> -->
 <script type="text/javascript">
 $(function(){
@@ -516,13 +545,13 @@ $(function(){
 
 
     // 设置播放的视频属性
-    var myPlayer = videojs('example_video_1');
-    videojs("example_video_1").ready(function(){
-        var myPlayer = this;
-        myPlayer.play();
-    });
-    myPlayer.width(800);
-    myPlayer.height(500);
+    // var myPlayer = videojs('example_video_1');
+    // videojs("example_video_1").ready(function(){
+    //     var myPlayer = this;
+    //     myPlayer.play();
+    // });
+    // myPlayer.width(800);
+    // myPlayer.height(500);
 
 
 

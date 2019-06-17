@@ -304,19 +304,19 @@
         var str = "";
         var clas = getSearch("clas");
         if(clas == 3){
-            str='<audio src="'+ "http://192.168.1.112/lanhong/Application/Home/Public/audio/"+vid +'" controls="controls">\n'+
+            str='<audio src="'+ videosrc + "audio/"+vid +'" controls="controls">\n'+
                     'Your browser does not support the audio element.\n'+
                 '</audio>'
             $(".filebox").html(str);
         }else if(clas == 4){
             str='<div class="videoshow">\n'+
-                '<video src="'+ "http://192.168.1.112/lanhong/Application/Home/Public/vedio/"+vid +'" controls="controls">\n'+
+                '<video src="'+  videosrc + "vedio/"+vid +'" controls="controls">\n'+
                 '</video>\n'+
             '</div>'
             $(".filebox").html(str);
         }else if(clas == 5){
             str='<div class="videoshow">\n'+
-                '<video src="'+ "http://192.168.1.112/lanhong/Application/Home/Public/vedio/"+vid +'" controls="controls">\n'+
+                '<video src="'+ videosrc + "vedio/"+vid +'" controls="controls">\n'+
                 '</video>\n'+
             '</div>'
             $(".filebox").html(str);
