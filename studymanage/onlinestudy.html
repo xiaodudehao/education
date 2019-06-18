@@ -335,7 +335,15 @@ $(function(){
                             '<div class="detail">\n'
                             if( data[i].children[j].children !== undefined ){
                                 for(var k=0; k<data[i].children[j].children.length; k++){
-                                    str +=  '<div  class="detailtitle">\n'+
+                                    var id;
+                                    // 判断是看一看还是做一做，并保存id
+                                    if(data[i].children[j].children[k].function == "看一看"){
+                                        id = "data-vid="+data[i].children[j].children[k].id
+                                    }else if(data[i].children[j].children[k].function == "做一做"){
+                                        id = "data-wid="+data[i].children[j].children[k].id
+                                    }
+
+                                    str +=  '<div '+ id +' class="detailtitle">\n'+
                                                 '<span>'+ data[i].children[j].children[k].function +' </span> '+ data[i].children[j].children[k].courseware +'\n'+
                                             '</div>\n'
                                 }
@@ -364,11 +372,7 @@ $(function(){
             })
 
 
-            $(".detailtitle").on("click",function(){
-                console.log("触发");
-                
-                // window.location.href="lookvideofile.html"
-            })
+
         },
         error: function (e) {
             // toastr.error("网络开小差了，请稍后再试")
@@ -379,7 +383,16 @@ $(function(){
             $("#loadingModal").modal("hide")
         }
     })
-
+    // 用事件委托来绑定点击获取id，并重定向到视频播放页面
+    $(".rightcontent").on("click",".detailtitle",function(){
+        // console.log($(this).data("qid"));
+        // 看一看做一做
+        if($(this).data("vid") != "" && $(this).data("vid") != undefined){
+            window.location.href = "./lookvideofile.html?vid="+$(this).data("vid")+"&clas="+4
+        }else if($(this).data("wid") != ""){
+            // window.location.href = "./lookvideofile.html?wid="+$(this).data("wid")+"&clas="+1
+        }
+    })
 
 
 })

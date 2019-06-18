@@ -61,7 +61,7 @@
                         </video> -->
                         <div class="main">
                             <div class="movie">
-                                <video id="cc" src="../video/KEYTALK-桜花爛漫 (《境界之轮回》TV动画第1-13集片头曲)(超清).mp4"></video>
+                                <video id="cc" src=""></video>
                             </div>
                             <div class="toolbar">
                                 <span class="glyphicon glyphicon-play switch"></span>
@@ -819,7 +819,37 @@ $(function(){
 
 
 
-
+    console.log(getSearch ("clas"));
+    console.log(getSearch ("vid"));
+    // 获取我的提问
+    $("#loadingModal").modal("show")
+    $.ajax({
+        url: HTTP_URLH + "Studymanage/set_resource",
+        type: "post",
+        data: {
+            id: getSearch ("vid"),
+            val: getSearch ("clas")
+        },
+        dataType: "json",
+        success: function (data) {
+            console.log('视频',data[0].savename);
+            $("#cc").attr("src",videosrc+ "vedio/" + data[0].savename)
+            // 将数据赋值给“我的问题”
+            // mydata = data
+            // // 转化时间戳
+            // // mydata[i].data = mydata[i].data-0;
+            // scrollmyquestion()
+            toastr.success("操作成功")
+        },
+        error: function (e) {
+            toastr.error("网络开小差了，请稍后再试")
+            console.log(e)
+        },
+        complete: function (xhr, status) {
+            // 隐藏loading
+            $("#loadingModal").modal("hide")
+        }
+    })
 
 
 
