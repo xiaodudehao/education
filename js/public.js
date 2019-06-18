@@ -4,6 +4,7 @@ var HTTP_URLH ="http://192.168.1.126/lanhong/index.php/Home/"
 // 保存图片地址的变量
 var imgsrc = "http://192.168.1.126/lanhong/Public/img/";
 var imgsrc2 = "http://192.168.1.126/lanhong/Application/Admin/Public/upload/";
+var imgsrc3 = "http://192.168.1.126/lanhong/Application/Home/Public/touxiang/";
 //保存视频地址
 var videosrc = "http://192.168.1.126/lanhong/Application/Home/Public/";
 // 保存头像图片名称的变量。
@@ -52,9 +53,7 @@ function school(){
 // school()
     
 
-
-
-
+$(".course_resources").attr('href','./repository.html?cid='+ cid +'');
 $(".teacher_href").attr('href','./teacher_team.html?cid='+ cid +'');
 $(".introduction_href").attr('href','./course_introduction.html?cid='+ cid +'');
 $(".catalog_href").attr('href','./course_catalog.html?cid='+ cid +'');

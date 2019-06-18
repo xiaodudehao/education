@@ -56,7 +56,7 @@ function select_student_informasion(){
                     '            <img class="backgroundimg" src="../img/interspace.png" alt="">\n' +
                     '            <div class="lucency"></div>\n' +
                     '            <div class="tintroduce">\n' +
-                    '                <img class="fl" src="'+ imgsrc2 + item.logo +'" alt="">\n' +
+                    '                <img class="fl" src="'+ imgsrc3 + item.logo +'" alt="">\n' +
                     '                <div class="fl teacherna" >\n' +
                     '                    <div>'+ item.username +'</div>\n' +
                     '                    <div>恭喜！ 您共学习了 '+ item.hour +' 个小时</div>\n' +

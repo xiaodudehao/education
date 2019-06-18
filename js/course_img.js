@@ -14,6 +14,9 @@ function select_cou_img() {
         },
         success: function (data) {
             console.log(data)
+            if (data.logo == ''){
+
+            }
             var res = ""
             res += '<img  src="'+ data.logo +'" id="preview" class="headicon fl">\n' +
                 '                    <div class="imgtitle ">\n' +
