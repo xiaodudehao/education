@@ -58,10 +58,12 @@
 }
 /* 图片 */
 .tt_information img {
-    width: 200px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
 }
 .tt_Introduction {
+    width: 750px;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
@@ -102,6 +104,9 @@
     border: none;
     border-radius: 10px;
 }
+.add_teacher_btn button:hover {
+    background-color: #33b150;
+}
 /* 模态框头像 */
 .avatar {
     max-width: 100%;
@@ -123,3 +128,58 @@
     padding: 10px 20px;
     font-size: 16px;
 }
+
+
+/* 头像 */
+.headimg2 {
+    margin: 20px 0 20px 200px;
+    position: relative;
+}
+.headimg2 .headicon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.headimg2 .imgtitle {
+    width: 150px;
+    height: 150px;
+    line-height: 40px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #80c47f;
+    color: #fff;
+    position: absolute;
+    opacity: 0;
+}
+.headimg2 .filebtn2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    outline: none;
+    background-color: transparent;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+#imgsubmit1 {
+    margin-top: 55px;
+    margin-left: 20px;
+    padding: 5px 15px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #81d283;
+    color: #fff;
+    cursor:pointer;
+}
+#imgsubmit1:hover {
+    background-color: #33b150 ;
+}
+
+
+
+
+
+
+

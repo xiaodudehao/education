@@ -333,7 +333,7 @@
                 for (var i in data) {
                     var item = data[i]
                     res += '<div class="one_course">\n' +
-                        '                <span class="glyphicon glyphicon-remove-circle"></span>\n' +
+                        '                <span onclick="delete_course('+ item.cid +')" class="glyphicon glyphicon-remove-circle"></span>\n' +
                         '                <img src="../images/kecheng1.png" />\n' +
                         '                <div class="course_progress">\n' +
                         '                    <span>学习进度： '+ item.zplan +'%</span>\n' +
@@ -360,6 +360,36 @@
                 // 隐藏loading
                 $("#loadingModal").modal("hide")
             }
+        })
+    }
+
+    function delete_course(cid) {
+        confirmBySelf("确认删除吗？", function () {
+            // 用户点击确认时
+            // loading显示
+            $("#loadingModal").modal("show")
+            var CouIntrAjax = $.ajax({
+                url: HTTP_URLH + "Personal/del_course",
+                type: "post",
+                timeout: 5000,
+                dataType: "json",
+                // async:false,    //不进行异步刷新
+                data: {
+                    id: 1,
+                    cid: cid
+                },
+                success: function (data) {
+                    select_my_course()
+                },
+                error: function (e) {
+                    console.log(e)
+                    toastr.error("网络开小猜了，请稍后再试！")
+                },
+                complete: function (xhr, status) {
+                    // 隐藏loading
+                    $("#loadingModal").modal("hide")
+                }
+            })
         })
     }
 

@@ -64,7 +64,7 @@
             <div class="tt_content_leftmenu">
                 <a href="" class="introduction_href">课程简介</a>
                 <a class="teacher_href active" href="">教师团队</a>
-                <a class="" href="" >课程资源</a>
+                <a class="course_resources" href="" >课程资源</a>
                 <a class="catalog_href" href="">课程目录</a>
                 <a class="announcement_href" href="">系统公告</a>
                 <a class="criteria_href" href="">评分表准</a>
@@ -236,7 +236,20 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">详情/编辑</h4>
             </div>
-            <form class="form-horizontal adminex-form" id="detail_form" action="javascript: update_teacher()" >
+
+            <form class="head_img_upload" action="">
+                <div class="headimg2 clearfix">
+                    <img  src="../img/未标题-10.png" id="preview2" class="headicon fl">
+                    <div class="imgtitle ">
+                        <input name="logo" type="file" id="filebtn2" class="filebtn2">
+                    </div>
+                    <div class="fl">
+                        <div id="imgsubmit1">保存头像</div>
+                    </div>
+                </div>
+            </form>
+
+            <form class="form-horizontal adminex-form" id="detail_form" action="javascript: update_teacher1()" >
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-1 control-label">ID</label>
@@ -257,13 +270,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">头像</label>
-                        <div class="col-sm-6">
-                            <img class="avatar" src="../img/teach.png" />
-<!--                            <input class="uploadAvatar" name="uploadAvatar" type="file" accept=".jpeg,.jpg,.png" value="选择头像" />-->
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-1 control-label">简介</label>
                         <div class="col-sm-6">
                             <input class="form-control introduction" name="introduction" type="text" placeholder="请输入简介信息" />
@@ -275,6 +281,7 @@
                     <input type="submit" class="btn btn-primary" value="保存" />
                 </div>
             </form>
+
         </div>
     </div>
 </div>
@@ -371,7 +378,7 @@
                 console.log(p);
             }
         });
-        // select_teacher()
+        select_teacher()
     })
 
     // 教师团队查询
@@ -385,10 +392,10 @@
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                cid: cid
+                cid: 1
             },
             success: function (data) {
-                // console.log(data)
+                console.log(data)
                 if (0 == data.length) {
                     // 没有数据，显示提示
                     toastr.error("未查询到可用数据")
@@ -398,15 +405,21 @@
                 for (var i in data) {
                     var item = data[i]
                     // console.log(item)
+                    var imgsrc = ""
+                    if (item.photo == null) {
+                        imgsrc = imgsrc2 + "mo.png"
+                    } else {
+                        imgsrc = imgsrc2 + item.photo
+                    }
                     res += '<div class="tt_information">\n' +
-                        '                    <img src="../img/teach.png">\n' +
+                        '                    <img src="'+ imgsrc +'">\n' +
                         '                    <div class="tt_Introduction">\n' +
                         '                        <div class="tt_Introduction_text">\n' +
                         '                            <p class="tt_Introduction_title">'+ item.name +' &nbsp;&nbsp; '+ item.duty +'</p>\n' +
                         '                            <p class="tt_text">'+ item.text +'</p>\n' +
                         '                        </div>\n' +
                         '                        <div class="action_buttons">\n' +
-                        '                            <button type="button" class="btn btn-link" onclick="teacher_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
+                        '                            <button type="button" class="btn btn-link" onclick="teacher_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ') ">编辑</button>\n' +
                         '                            <button type="button" class="btn btn-link" onclick="delete_teacher(' + item.id + ')">删除</button>\n' +
                         '                        </div>\n' +
                         '                    </div>\n' +
@@ -415,6 +428,8 @@
                 $('.tt_team').html(res)
                 // 调用字数超出显示省略号……
                 ellipsis(110)
+
+
             },
             error: function (e) {
                 console.log(e)
@@ -436,14 +451,107 @@
         $("#detail_modal .username").val(item.name)
         $("#detail_modal .job").val(item.duty)
         // 头像，如果avatar字段没有值，显示默认头像
-        $("#detail_modal .avatar").attr("src", isNull(item.phot, "../img/teach.png"))
+        // $("#detail_modal .avatar").attr("src", isNull(item.phot, "../img/teach.png"))
         $("#detail_modal .introduction").val(item.text)
+
+        var imgsrc = ""
+        if (item.photo == null) {
+            imgsrc = imgsrc2 + "mo.png"
+        } else {
+            imgsrc = imgsrc2 + item.photo
+        }
+        var res = '<img  src="'+ imgsrc +'" id="preview2" class="headicon fl" />\n' +
+            '                                    <div class="imgtitle ">\n' +
+            '                                        <input name="logo" type="file" id="filebtn2" class="filebtn2">\n' +
+            '                                    </div>\n' +
+            '                                    <div class="fl">\n' +
+            '                                        <div id="imgsubmit1">保存头像</div>\n' +
+            '                                    </div>'
+        $(".headimg2").html(res)
+        // 原生ajax发送头像信息开始
+        var xhr;
+        function createXMLHttpRequest() {
+            if (window.ActiveXObject) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            } else if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            }
+        }
+        function UpladFile() {
+            console.log("jin")
+            var fileObj = document.getElementById("filebtn2").files[0];
+            // console.log(fileObj);
+
+            var FileController = HTTP_URL + "Teacher/tea_logo";
+            var form1 = new FormData();
+            form1.append("myfile", fileObj);
+            form1.append("tid", item.id);
+
+            createXMLHttpRequest();
+            xhr.onreadystatechange = handleStateChange;
+            xhr.open("post", FileController, true);
+            xhr.send(form1);
+        }
+        function handleStateChange() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200 || xhr.status == 0) {
+                    // history.go(0)
+                    // var result = xhr.responseText;
+                    // var json = eval("(" + result + ")");
+
+                    // alert('图片链接:\n' + json.file);
+                }
+            }
+        }
+        //预览图片的函数，传入选中file按钮标签还有要展示的img标签
+        function imgPreview(fileDom,lookid){
+            //判断是否支持FileReader
+            if (window.FileReader) {
+                var reader = new FileReader();
+            } else {
+                alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+            }
+
+            //获取文件
+            var file = fileDom.files[0];
+            // console.log(file);
+
+            var imageType = /^image\//;
+            //是否是图片
+            if (!imageType.test(file.type)) {
+                alert("请选择图片！");
+                return;
+            }
+            //读取完成
+            reader.onload = function(e) {
+                //获取图片dom
+                var img = document.getElementById(lookid);
+                //图片路径设置为读取的图片
+                img.src = e.target.result;
+
+            };
+            reader.readAsDataURL(file);
+        }
+        var fileObj
+
+        $(".filebtn2").on("change",function(){
+            //  preview是id
+            imgPreview(this,"preview2")
+            fileObj = document.getElementById("filebtn2").files[0];
+            // console.log(fileObj);
+            // console.log(this.value);
+        })
+
+        $("#imgsubmit1").on("click",function(){
+            UpladFile()
+        })
+
         // 显示模态框
         $("#detail_modal").modal("show")
     }
 
     //  教师信息修改
-    function update_teacher() {
+    function update_teacher1() {
         // 隐藏详情模态框
         $("#detail_modal").modal("hide")
         $("#loadingModal").modal("show")

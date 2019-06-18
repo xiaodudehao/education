@@ -267,7 +267,7 @@
                 for (var i in data) {
                     var item = data[i]
                     res += '<div class="headimg clearfix">\n' +
-                        '                        <img  src="'+ imgsrc2 + item.logo +'" id="preview" class="headicon fl">\n' +
+                        '                        <img  src="'+ imgsrc3 + item.logo +'" id="preview" class="headicon fl">\n' +
                         '                        <div class="imgtitle ">\n' +
                         '                            <input name="logo" type="file" id="filebtn" class="filebtn">\n' +
                         '                        </div>\n' +
@@ -277,7 +277,6 @@
                         '                    </div>'
                 }
                 $(".head_img_upload").html(res)
-
 
                 // 原生ajax发送头像信息开始
                 var xhr;
@@ -356,8 +355,6 @@
                 $("#imgsubmit").on("click",function(){
                     UpladFile()
                 })
-
-
             },
             error: function (e) {
                 console.log(e)

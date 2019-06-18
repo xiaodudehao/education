@@ -53,9 +53,7 @@ function school(){
 // school()
     
 
-
-
-
+$(".course_resources").attr('href','./repository.html?cid='+ cid +'');
 $(".teacher_href").attr('href','./teacher_team.html?cid='+ cid +'');
 $(".introduction_href").attr('href','./course_introduction.html?cid='+ cid +'');
 $(".catalog_href").attr('href','./course_catalog.html?cid='+ cid +'');
