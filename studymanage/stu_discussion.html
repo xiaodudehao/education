@@ -307,12 +307,44 @@
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- 对话框样式 -->
+<script src="../lib/confirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
+        select_discussion()
     })
+
+    function select_discussion() {
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Studymanage/set_discuss",
+            type: "get",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                cid: 1
+            },
+            success: function (data) {
+                console.log(data)
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
     // 切换按钮，
     function classroom_area() {
         $(".classroom_area_content").show()
