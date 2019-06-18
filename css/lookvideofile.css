@@ -575,8 +575,8 @@ input::-ms-clear {
 .mainstudy .rigcontent .myaskquestion .eachquestion .usericon {
   display: block;
   margin-top: 20px;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 .mainstudy .rigcontent .askquestions .eachquestion .usercontent,
@@ -612,4 +612,9 @@ input::-ms-clear {
 }
 .mainstudy .rigcontent .myaskquestion {
   display: none;
+}
+.mainstudy .rigcontent .nodate {
+  text-align: center;
+  color: #999;
+  margin: 0 auto;
 }
