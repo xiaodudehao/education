@@ -14,14 +14,18 @@ function select_cou_img() {
         },
         success: function (data) {
             console.log(data)
-            if (data.logo == ''){
-
-            }
             var res = ""
-            res += '<img  src="'+ data.logo +'" id="preview" class="headicon fl">\n' +
-                '                    <div class="imgtitle ">\n' +
-                '                        <input name="logo" type="file" id="filebtn" class="filebtn">\n' +
-                '                    </div>'
+            if(data.logo==''){
+                res += '< img  src="/Application/Admin/Public/upload/mo.png" id="preview" class="headicon fl">\n' +
+                    '                    <div class="imgtitle ">\n' +
+                    '                        <input name="logo" type="file" id="filebtn" class="filebtn">\n' +
+                    '                    </div>'
+            }else{
+                res += '< img  src="/Application/Admin/Public/upload/'+data.logo +'" id="preview" class="headicon fl">\n' +
+                    '                    <div class="imgtitle ">\n' +
+                    '                        <input name="logo" type="file" id="filebtn" class="filebtn">\n' +
+                    '                    </div>'
+            }
             $(".headimg").html(res)
             $(".filebtn").on("change",function(){
                 //  preview是id
