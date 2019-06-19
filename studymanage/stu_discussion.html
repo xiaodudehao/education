@@ -76,7 +76,7 @@
                             全部话题
                         </div>
                         <div class="stu_dis_choose">
-                            <span class="stu_way_text">按时间排序</span>｜<span class="stu_way_text">按点赞量排序</span>
+                            <span onclick="time_order()" class="stu_way_text">按时间排序</span>｜<span onclick="comments_num()" class="stu_way_text">按评论量排序</span>
                         </div>
                     </div>
                     <div class="ask_questions_con">
@@ -150,6 +150,7 @@
                         <ul id="page"></ul>
                     </div>
                 </div>
+
                 <!--  主要内容-提问答疑区  -->
                 <div class="ask_questions_content">
                     <div class="content_see_way">
@@ -157,10 +158,10 @@
                             全部提问
                         </div>
                         <div class="stu_dis_choose">
-                            <span class="stu_way_text">按时间排序</span>｜<span class="stu_way_text">按点赞量排序</span>
+                            <span onclick="time_order2()" class="stu_way_text">按时间排序</span>｜<span onclick="comments_num2()" class="stu_way_text">按点赞量排序</span>
                         </div>
                     </div>
-                    <div class="ask_questions_con">
+                    <div class="ask_questions_con2">
                         <div class="ask_content">
                             <div class="ask_text" onclick="jump2()">
                                 1、水泥的构造是什泥的构造是什么水泥的构造是什么水泥造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么水泥的构造是什么
@@ -201,7 +202,7 @@
                             <div class="dividing_line"></div>
                         </div>
                     </div>
-                    <div class="page_area">
+                    <div class="page_area2">
                         <ul id="page2"></ul>
                     </div>
                 </div>
@@ -301,38 +302,116 @@
     </div>
 </div>
 <!-- 登录模态框结束 -->
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
+<!-- 分页器 -->
+<script src="../lib/bootstrap-paginator.js"></script>
 <!-- 提示框插件 -->
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
+    var PageNum = 1
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-        select_discussion()
+        select_discussion(PageNum)
     })
 
-    function select_discussion() {
+    //  查询课堂交流  默认时间排序
+    function select_discussion(PageNum, num) {
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
             url: HTTP_URLH + "Studymanage/set_discuss",
-            type: "get",
+            type: "post",
             timeout: 5000,
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                cid: 1
+                cid: 1,
+                page: PageNum,
+                order: num
             },
             success: function (data) {
                 console.log(data)
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.warning("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                var dat = data[0]
+                var res = ""
+                for (var i in dat) {
+                    var item = dat[i]
+                    // console.log(item)
+                    var index = +i+1
+                    // 转换成数字形式“/1”
+                    var a = dat[i].data/1
+                    var d=new Date(a*1000);
+                    var time = formatDate(d)
+                    // console.log(time);
+                    res += '<div class="ask_content">\n' +
+                        '                            <div class="ask_text" onclick="jump1('+ item.id +')">\n' +
+                        '                                '+ index +' , '+ item.discussname +'\n' +
+                        '                            </div>\n' +
+                        '                            <div class="to_view_ask">\n' +
+                        '                                <div class="ask_information">\n' +
+                        '                                    <span>'+ item.rname +'</span>\n' +
+                        '                                    <span>'+ time +'</span>\n' +
+                        '                                    <span>回复'+ item.num +'</span>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="dividing_line"></div>\n' +
+                        '                        </div>'
+                }
+                $('.ask_questions_con').html(res)
+                //分页
+                $("#page").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,   //bootstrap版本
+                    currentPage: PageNum,  //当前页数
+                    totalPages: data.page,   //总页数
+                    numberOfPages: 3,    //分页器每页展示页码数
+                    shouldShowPage: true,   //所有的按钮都展示
+                    itemTexts: function (type, page, current) {
+                        // console.log(type)
+                        //设置分页控件每部分的显示文字
+                        switch (type) {
+                            case "first":
+                                return "第一页"
+                            case "prev":
+                                return "上一页"
+                            case "next":
+                                return "下一页"
+                            case "last":
+                                return "最后一页"
+                            case "page":
+                                return page
+                            case "jump":
+                                return "跳转"
+                        }
+                    }, onPageClicked: function(event, originalEvent, type, page) {
+                        //点击事件
+                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                        pageNum = page
+                        // 查询
+                        select_discussion(pageNum, num)
+                    }
+                })
             },
             error: function (e) {
                 console.log(e)
@@ -345,27 +424,149 @@
         })
     }
 
+    //  按评论数排序查询
+    function comments_num() {
+        var num = 1
+        select_discussion(PageNum, num)
+    }
+    //  按时间排序查询
+    function time_order() {
+        select_discussion(PageNum)
+    }
+
+    //  提问答疑查询
+    function select_discussion_question(PageNum, num) {
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Studymanage/set_question",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                cid: 1,
+                page: PageNum,
+                order: num
+            },
+            success: function (data) {
+                console.log(data)
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.warning("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                var dat = data[0]
+                var res = ""
+                for (var i in dat) {
+                    var item = dat[i]
+                    // console.log(item)
+                    var index = +i+1
+                    // 转换成数字形式“/1”
+                    var a = dat[i].data/1
+                    var d=new Date(a*1000);
+                    var time = formatDate(d)
+                    // console.log(time);
+                    res += '<div class="ask_content">\n' +
+                        '                            <div class="ask_text" onclick="jump2('+ item.id +')">\n' +
+                        '                                '+ index +' , '+ item.name +'\n' +
+                        '                            </div>\n' +
+                        '                            <div class="to_view_ask">\n' +
+                        '                                <div class="ask_information">\n' +
+                        '                                    <span>'+ item.qname +'</span>\n' +
+                        '                                    <span>'+ time +'</span>\n' +
+                        '                                    <span>回复'+ item.num +'</span>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="dividing_line"></div>\n' +
+                        '                        </div>'
+                }
+                $('.ask_questions_con2').html(res)
+                //分页
+                $("#page2").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,   //bootstrap版本
+                    currentPage: PageNum,  //当前页数
+                    totalPages: data.page,   //总页数
+                    numberOfPages: 3,    //分页器每页展示页码数
+                    shouldShowPage: true,   //所有的按钮都展示
+                    itemTexts: function (type, page, current) {
+                        // console.log(type)
+                        //设置分页控件每部分的显示文字
+                        switch (type) {
+                            case "first":
+                                return "第一页"
+                            case "prev":
+                                return "上一页"
+                            case "next":
+                                return "下一页"
+                            case "last":
+                                return "最后一页"
+                            case "page":
+                                return page
+                            case "jump":
+                                return "跳转"
+                        }
+                    }, onPageClicked: function(event, originalEvent, type, page) {
+                        //点击事件
+                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                        pageNum = page
+                        // 查询
+                        select_discussion_question(pageNum, num)
+                    }
+                })
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+    //  按评论数排序查询
+    function comments_num2() {
+        var num = 1
+        select_discussion_question(PageNum, num)
+    }
+    //  按时间排序查询
+    function time_order2() {
+        select_discussion_question(PageNum)
+    }
+
     // 切换按钮，
     function classroom_area() {
         $(".classroom_area_content").show()
         $(".ask_questions_content").hide()
         $(".classroom_area").addClass("active2")
         $(".ask_questions_area").removeClass("active2")
-        // select_classroom()
+        select_discussion(PageNum)
     }
     function ask_question() {
         $(".classroom_area_content").hide()
         $(".ask_questions_content").show()
         $(".ask_questions_area").addClass("active2")
         $(".classroom_area").removeClass("active2")
-        // select_ask_question(pageNum)
+        select_discussion_question(PageNum)
     }
     // 跳页
-    function jump1() {
-        $(location).attr('href','./stu_discussion_communication.html');
+    function jump1(id) {
+        $(location).attr('href','./stu_discussion_communication.html?id='+ id +'');
     }
-    function jump2() {
-        $(location).attr('href','./stu_discussion_question.html');
+    function jump2(id) {
+        $(location).attr('href','./stu_discussion_question.html?id='+ id +'');
+    }
+
+    // 时间戳
+    function formatDate(now) {
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var date=now.getDate();
+        var hour=now.getHours();
+        var minute=now.getMinutes();
+        var second=now.getSeconds();
+        return year+"-"+month+"-"+date;
     }
 
 </script>

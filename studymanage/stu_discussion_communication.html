@@ -66,10 +66,12 @@
                     讨论区
                 </div>
                 <div class="communication_reply">
-                    <div class="founder_information">
-                        <p>话题创建人： 张三</p>
-                        <p>话题创建时间： 2019-06-14</p>
-                        <p>话题内容： 水泥的标准制作流程和制作方式</p>
+                    <div class="founder_information1">
+                        <div class="founder_information">
+                            <p>话题创建人： 张三</p>
+                            <p>话题创建时间： 2019-06-14</p>
+                            <p>话题内容： 水泥的标准制作流程和制作方式</p>
+                        </div>
                     </div>
                     <div class="reply_content">
                         <textarea class="reply_text" placeholder="请输入回复内容"></textarea>
@@ -84,12 +86,14 @@
                     </div>
                     <div class="other_reply">
                         <div class="one_reply">
-                            <img src="../img/teach.png">
+                            <div class="user_head_img">
+                                <img src="../img/teach.png">
+                            </div>
                             <div class="other_reply_text">
                                 <p>欢迎大家来到讨论区！请学员们认真阅读下面各讨论区板块的内容说明。选择正确的讨论区发贴，这样才能够得到相应的关注。注意：不要有问题，马上发贴，而是先看看在相应讨论区（如共性问题回答区）是不是已经有人发过类似帖子了</p>
                                 <div class="other_reply_text2">
                                     <div>
-                                        <span>风云</span> 于2019-06-14发表
+                                        <div class="user_name"><span>风云</span></div> 于2019-06-14发表
                                     </div>
                                     <div>
                                         <span class="glyphicon glyphicon-heart-empty dianzan"></span>
@@ -238,26 +242,207 @@
     </div>
 </div>
 <!-- 登录模态框结束 -->
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
+<!-- 分页器 -->
+<script src="../lib/bootstrap-paginator.js"></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- 对话框样式 -->
+<script src="../lib/confirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
+    var PageNum = 1
+    var stu_url = location.href
+    var stu_urlarr = stu_url.split("=")
+    var com_id = stu_urlarr[stu_urlarr.length - 1]
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
+        select_comm_theme(com_id)
+        select_discussion_ask(PageNum, com_id)
     })
+
+    //  讨论主题查询
+    function select_comm_theme(c_id) {
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Studymanage/set_forum",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                id: c_id,
+            },
+            success: function (data) {
+                console.log(data)
+                var res = ""
+                for (var i in data) {
+                    var item = data[i]
+                    var a = data[i].data/1
+                    var d=new Date(a*1000);
+                    var time = formatDate(d)
+                    res += '<div class="founder_information">\n' +
+                        '                            <p>话题创建人： '+ item.rname +'</p>\n' +
+                        '                            <p>话题创建时间： '+ time +'</p>\n' +
+                        '                            <p>话题内容： '+ item.discussname +'</p>\n' +
+                        '                        </div>'
+                }
+                $(".founder_information1").html(res)
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    //  查看所有回复信息
+    function select_discussion_ask(PageNum,d_id, num) {
+        // loading显示
+        console.log(d_id)
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Studymanage/set_details",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                did: d_id,
+                page: PageNum,
+                order: num
+            },
+            success: function (data) {
+                console.log(data)
+                if (0 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.warning("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                }
+                var res = ""
+                // for (var i in data) {
+                    var item = data[0]
+                    console.log(item)
+                    // var index = +i+1
+                    // 转换成数字形式“/1”
+                    var a = item.data/1
+                    var d=new Date(a*1000);
+                    var time = formatDate(d)
+
+                    var topic = item.topic
+                    var res2 = ""
+                    var res3 = ""
+                    for (var j in topic) {
+                        var item2 = topic[j]
+                        res2 += '<img src="'+ imgsrc3 + item2.logo +'">'
+                        res3 += '<span>'+ item2.username +'</span>'
+                        console.log(item2.username)
+                    }
+                    $(".user_head_img").html(res2)
+                    $(".user_name").html(res3)
+                    res += '<div class="one_reply">\n' +
+                        '                            <div class="user_head_img">\n' +
+                        '                                '+ res2 +'\n' +
+                        '                            </div>\n' +
+                        '                            <div class="other_reply_text">\n' +
+                        '                                <p>'+ item.name +'</p>\n' +
+                        '                                <div class="other_reply_text2">\n' +
+                        '                                    <div>\n' +
+                        '                                        <div class="user_name">'+ res3 +'</div> 于'+ time +'发表\n' +
+                        '                                    </div>\n' +
+                        '                                    <div>\n' +
+                        '                                        <span class="glyphicon glyphicon-heart-empty dianzan"></span>\n' +
+                        '                                        点赞'+ item.praise +'\n' +
+                        '                                    </div>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                        </div>'
+                // }
+                $('.other_reply').html(res)
+                //分页
+                $("#page").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,   //bootstrap版本
+                    currentPage: PageNum,  //当前页数
+                    totalPages: data.page,   //总页数
+                    numberOfPages: 3,    //分页器每页展示页码数
+                    shouldShowPage: true,   //所有的按钮都展示
+                    itemTexts: function (type, page, current) {
+                        // console.log(type)
+                        //设置分页控件每部分的显示文字
+                        switch (type) {
+                            case "first":
+                                return "第一页"
+                            case "prev":
+                                return "上一页"
+                            case "next":
+                                return "下一页"
+                            case "last":
+                                return "最后一页"
+                            case "page":
+                                return page
+                            case "jump":
+                                return "跳转"
+                        }
+                    }, onPageClicked: function(event, originalEvent, type, page) {
+                        //点击事件
+                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                        pageNum = page
+                        // 查询
+                        select_discussion(pageNum, num)
+                    }
+                })
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+
+
+    // 时间戳
+    function formatDate(now) {
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var date=now.getDate();
+        var hour=now.getHours();
+        var minute=now.getMinutes();
+        var second=now.getSeconds();
+        return year+"-"+month+"-"+date;
+    }
 
     $(".dianzan").on("click", function() {
         console.log("点")
-        $(this).toggleClass("isactive");
+        if ($(this).hasClass("isactive")) {
+            $(this).removeClass('isactive');
+        } else {
+            $(this).addClass('isactive');
+        }
+        // $(this).toggleClass("isactive");
     });
-
-
-
-
 </script>
 </html>
