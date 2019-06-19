@@ -29,6 +29,9 @@
     border: none;
     border-radius: 10px;
 }
+.reply_btn button:hover {
+    background-color: #33b150;
+}
 .other_reply_area {
     margin-top: 40px;
 }
@@ -51,7 +54,12 @@
     justify-content: space-between;
     align-items: center;
 }
-.one_reply>img {
+.user_head_img {
+    width: 70px;
+    height: 70px;
+}
+
+.one_reply img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
