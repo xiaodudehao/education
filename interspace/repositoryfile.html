@@ -752,7 +752,8 @@
                 sl:sl,
                 page: pageN,
             }
-    
+            console.log(param);
+            
             // loading显示
             $("#loadingModal").modal("show")
             var CouIntrAjax = $.ajax({
@@ -795,7 +796,7 @@
                                             '<div class="down"><a href="http://192.168.1.112/lanhong/index.php/Admin/Amount/excel_user' +'" >下载</a></div>\n'+
                                         '</div>\n'+
                                     '</div>\n'+
-                                    '<div class="imgtext" title="'+ data[0][i].name  +'">\n'+
+                                    '<div class="imgtext" title="'+ data[0][i].name +'">\n'+
                                         data[0][i].name.substring(0, 5) +'\n'+
                                     ' </div>=\n'+
                                 '</div>'

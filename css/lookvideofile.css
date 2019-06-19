@@ -462,6 +462,7 @@ input::-ms-clear {
   margin-top: -120px;
 }
 .mainstudy {
+  min-width: 1200px;
   background-color: #fafafa;
   min-height: 700px;
 }
@@ -482,6 +483,15 @@ input::-ms-clear {
   text-align: center;
   color: #fff;
   border-radius: 15px;
+}
+.mainstudy .lefcontent .textcontent {
+  border: 1px solid #ccc;
+  width: 780px;
+  min-height: 500px;
+}
+.mainstudy .lefcontent .textcontent iframe {
+  width: 778px;
+  height: 645px;
 }
 .mainstudy .lefcontent .mainvideo {
   width: 800px;
@@ -506,7 +516,7 @@ input::-ms-clear {
   text-align: center;
   font-size: 18px;
   line-height: 40px;
-  color: #333;
+  color: #999;
 }
 .mainstudy .rigcontent .titlebutton .questionbutton:hover,
 .mainstudy .rigcontent .titlebutton .notebutton:hover {
@@ -523,24 +533,38 @@ input::-ms-clear {
   width: 340px;
   resize: none;
   border-radius: 15px;
-  border: 1px solid lime;
+  border: 1px solid #ccc;
   outline: none;
   padding: 10px 10px 10px 10px;
 }
 .mainstudy .rigcontent .noteimport {
   display: none;
 }
-.mainstudy .rigcontent .present {
+.mainstudy .rigcontent .statebox {
+  position: relative;
+}
+.mainstudy .rigcontent .statebox .present {
   width: 160px;
   height: 40px;
-  color: #fff;
-  background-color: #33b150;
+  color: #999;
+  background-color: #80c47f;
   border-radius: 5px;
   text-align: center;
   font-size: 18px;
   line-height: 40px;
-  margin: 20px auto;
-  margin-bottom: 60px;
+  margin: 43px auto;
+  margin-bottom: 20px;
+}
+.mainstudy .rigcontent .statebox .present:hover {
+  background-color: #33b150;
+  color: #fff;
+}
+.mainstudy .rigcontent .statebox .privacy {
+  position: absolute;
+  left: 224px;
+  top: -37px;
+  color: #999;
+  display: none;
 }
 .mainstudy .rigcontent .questiontable {
   margin: 0 auto;

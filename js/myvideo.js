@@ -67,26 +67,28 @@
 
 
        // 禁止快进功能。
-    //    var sym;
-    //    var sym=0;
-    //    var max=0;
-    //    var video=document.querySelector("#cc")
-    //    setInterval(function () {
-    //        var time=video.currentTime
-    //        // 当前值减去之前值大于1
-    //        if(time-sym>1&&time>max){
-    //            // 如果当前值大于最大值就返回到之前的位置。
-    //            // 如果没有就可以跳到那个位置
-    //            // video.currentTime=max
-    //            video.currentTime=sym
-    //        }
-    //        sym=video.currentTime
-    //        // 如果当前的值大于历史最大值就保存
-    //        if(sym>max){
-    //            max = sym;
-    //        }
-    //        console.log(video.currentTime);
-    //    },500);
+       var sym;
+       var sym=0;
+       var max=0;
+       var video=document.querySelector("#cc")
+       setInterval(function () {
+           var time=video.currentTime
+           // 当前值减去之前值大于1
+           if(time-sym>1&&time>max){
+               // 如果当前值大于最大值就返回到之前的位置。
+               // 如果没有就可以跳到那个位置
+               // video.currentTime=max
+               video.currentTime=sym
+               console.log(video.currentTime);
+               
+           }
+           sym=video.currentTime
+           // 如果当前的值大于历史最大值就保存
+           if(sym>max){
+               max = sym;
+           }
+           console.log(video.currentTime);
+       },500);
 
    /* 
      功能2：视频的全屏功能

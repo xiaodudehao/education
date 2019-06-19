@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>系统公告</title>
+    <title>看一看-视频</title>
+    <!-- 用网络上的cdn可以解决火狐字体图标不显示的问题 -->
+  <!-- <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- 表单校验插件的css样式 -->
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    <!-- <link rel="stylesheet" href="../css/teacherinterspace.css"> -->
-    <link rel="stylesheet" href="../css/lookfile.css">
+    <!-- 这个html的css -->
+    <link rel="stylesheet" href="../css/lookvideofile.css">
+    <!-- 分页的css -->
     <link rel="stylesheet" href="../css/page.css">
+    <!-- 日历插件的css -->
     <link rel="stylesheet" href="../package/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <!-- 这个项目视频播放的css -->
+    <!-- <link rel="stylesheet" href="../css/mypublic/myvideo.css"> -->
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <!--  对话框样式  -->
+    <!-- <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet"> -->
 </head>
 <body>
     <div class="maincontent">
-    
         <div class="header">
             <div class="banxin">
                 <img src="../img/未标题-10.png" class="logo" alt="">
@@ -39,7 +49,6 @@
                 </div>
             </div>
         </div>
-    
         <div class="mainstudy">
             <!-- 撒发生大法师打鬼地方个地方好的风景房管局福达合金开个会开个会
             撒发生大法师打鬼地方个地方好的风景房管局福达合金开个会开个会 -->
@@ -48,7 +57,41 @@
                     <a href="" class="topbutton">
                         返回在线学习
                     </a>
-                    <div class="textcontent" ></div>
+                    <div class="textcontent" >
+                        <iframe  src="http://192.168.1.126/lanhong/Application/Home/Public/text/5d09965d2994b.txt" frameborder="0"></iframe>
+                    </div>
+                    <!-- <div class="mainvideo box">
+                        <div class="main">
+                            <div class="movie">
+                                <video id="cc" src=""></video>
+                            </div>
+                            <div class="toolbar">
+                                <span class="glyphicon glyphicon-play switch"></span>
+                                <div class="schedule" ><span>23:25</span>/<span>25:23</span></div>
+                                
+                                <div class="range1">
+                                    <div class="videoprogress">
+                                        <div class="progressbotton"></div>
+                                        <div class="progressline"></div>
+                                    </div>
+                                </div>
+                                
+                                <span class="fa fa-volume-up icon-volume  voice	glyphicon glyphicon-volume-down">
+                             
+                                <div class="glyphicon-volume-downchildren">
+                                    <div class="range2">
+                                        <div class="rangetwobutton">
+                                        </div>
+                                        <div class="rangetwoline"></div>
+                                    </div>
+                                </div>
+                                </span>
+                                <div class="times">1X</div>
+                                <div class="definition">高清</div>
+                                <span class="glyphicon glyphicon-fullscreen"></span>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
                 <div class="rigcontent ">
                     <div class="titlebutton clearfix">
@@ -61,8 +104,15 @@
                     </div>
                     <textarea name="" id="" cols="30" rows="10" class="questionimport"></textarea>
                     <textarea name="" id="" cols="30" rows="10" class="noteimport"></textarea>
-                    <div class="present">
-                        提交
+                    
+                    <div class="statebox">
+                        <div class="privacy">
+                            不公开 <input  type="radio" name="Question1" value="2"  checked="checked"/>
+                            公开 <input  type="radio" name="Question1" value="1"/>
+                        </div>
+                        <div class="present">
+                            提交
+                        </div>
                     </div>
                     <div class="questiontable ">
                         <span class="myquestion activetitle">我的提问</span>
@@ -70,144 +120,152 @@
                         <span class="herquestion ">他人提问</span>
                     </div>
                     <div id="boxscroll" class="askquestions">
-                        <div class="eachquestion clearfix">
-                            <img class="usericon fl" src="../img/teach.png" alt="">
-                            <div class="usercontent fl">
-                                <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
-                                </div>
-                                <div class="userdate">
-                                    2009.8.8
-                                </div>
-                                <div class="usertext">
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                </div>
-                                <div class="useroption clearfix">
-                                    <div class="comment fl">
-                                        <img src="../img/评论.png" alt="">评论30
+                        <div class="askquestionchild">
+                                <!-- <div class="eachquestion clearfix">
+                                        <img class="usericon fl" src="../img/teach.png" alt="">
+                                        <div class="usercontent fl">
+                                            <div class="username">
+                                                凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                            </div>
+                                            <div class="userdate">
+                                                2009.8.8
+                                            </div>
+                                            <div class="usertext">
+                                                无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                                无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                            </div>
+                                            <div class="useroption clearfix">
+                                                <div class="comment fl">
+                                                    <img src="../img/评论.png" alt="">评论30
+                                                </div>
+                                                <div class="praise fl">
+                                                    <img src="../img/点赞.png" alt="">点赞20
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="praise fl">
-                                        <img src="../img/点赞.png" alt="">点赞20
+                                    <div class="eachquestion clearfix">
+                                        <img class="usericon fl" src="../img/teach.png" alt="">
+                                        <div class="usercontent fl">
+                                            <div class="username">
+                                                凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                            </div>
+                                            <div class="userdate">
+                                                2009.8.8
+                                            </div>
+                                            <div class="usertext">
+                                                无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                                无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                            </div>
+                                            <div class="useroption clearfix">
+                                                <div class="comment fl">
+                                                    <img src="../img/评论.png" alt="">评论30
+                                                </div>
+                                                <div class="praise fl">
+                                                    <img src="../img/点赞.png" alt="">点赞20
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                    <div class="eachquestion clearfix">
+                                        <img class="usericon fl" src="../img/teach.png" alt="">
+                                        <div class="usercontent fl">
+                                            <div class="username">
+                                                凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
+                                            </div>
+                                            <div class="userdate">
+                                                2009.8.8
+                                            </div>
+                                            <div class="usertext">
+                                                无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                                无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                            </div>
+                                            <div class="useroption clearfix">
+                                                <div class="comment fl">
+                                                    <img src="../img/评论.png" alt="">评论30
+                                                </div>
+                                                <div class="praise fl">
+                                                    <img src="../img/点赞.png" alt="">点赞20
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
                         </div>
-                        <div class="eachquestion clearfix">
-                            <img class="usericon fl" src="../img/teach.png" alt="">
-                            <div class="usercontent fl">
-                                <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
-                                </div>
-                                <div class="userdate">
-                                    2009.8.8
-                                </div>
-                                <div class="usertext">
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                </div>
-                                <div class="useroption clearfix">
-                                    <div class="comment fl">
-                                        <img src="../img/评论.png" alt="">评论30
+
+                    </div>
+                    <div class="myaskquestion">
+                        <div class="myaskquestionchild">
+                            <!-- <div class="eachquestion clearfix">
+                                    <img class="usericon fl" src="../img/teach.png" alt="">
+                                    <div class="usercontent fl">
+                                        <div class="username">
+                                            夏娜，三千院凪，亚里亚，神乐，阿尔冯斯
+                                        </div>
+                                        <div class="userdate">
+                                            2009.8.8
+                                        </div>
+                                        <div class="usertext">
+                                            无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                            无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                        </div>
+                                        <div class="useroption clearfix">
+                                            <div class="comment fl">
+                                                <img src="../img/评论.png" alt="">评论30
+                                            </div>
+                                            <div class="praise fl">
+                                                <img src="../img/点赞.png" alt="">点赞20
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="praise fl">
-                                        <img src="../img/点赞.png" alt="">点赞20
+                                </div>
+                                <div class="eachquestion clearfix">
+                                    <img class="usericon fl" src="../img/teach.png" alt="">
+                                    <div class="usercontent fl">
+                                        <div class="username">
+                                            夏娜，三千院凪，亚里亚，神乐，阿尔冯斯
+                                        </div>
+                                        <div class="userdate">
+                                            2009.8.8
+                                        </div>
+                                        <div class="usertext">
+                                            无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                            无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                        </div>
+                                        <div class="useroption clearfix">
+                                            <div class="comment fl">
+                                                <img src="../img/评论.png" alt="">评论30
+                                            </div>
+                                            <div class="praise fl">
+                                                <img src="../img/点赞.png" alt="">点赞20
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="eachquestion clearfix">
+                                    <img class="usericon fl" src="../img/teach.png" alt="">
+                                    <div class="usercontent fl">
+                                        <div class="username">
+                                            夏娜，三千院凪，亚里亚，神乐，阿尔冯斯
+                                        </div>
+                                        <div class="userdate">
+                                            2009.8.8
+                                        </div>
+                                        <div class="usertext">
+                                            无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                            无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
+                                        </div>
+                                        <div class="useroption clearfix">
+                                            <div class="comment fl">
+                                                <img src="../img/评论.png" alt="">评论30
+                                            </div>
+                                            <div class="praise fl">
+                                                <img src="../img/点赞.png" alt="">点赞20
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>            -->
                         </div>
-                        <div class="eachquestion clearfix">
-                            <img class="usericon fl" src="../img/teach.png" alt="">
-                            <div class="usercontent fl">
-                                <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
-                                </div>
-                                <div class="userdate">
-                                    2009.8.8
-                                </div>
-                                <div class="usertext">
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                </div>
-                                <div class="useroption clearfix">
-                                    <div class="comment fl">
-                                        <img src="../img/评论.png" alt="">评论30
-                                    </div>
-                                    <div class="praise fl">
-                                        <img src="../img/点赞.png" alt="">点赞20
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="eachquestion clearfix">
-                            <img class="usericon fl" src="../img/teach.png" alt="">
-                            <div class="usercontent fl">
-                                <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
-                                </div>
-                                <div class="userdate">
-                                    2009.8.8
-                                </div>
-                                <div class="usertext">
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                </div>
-                                <div class="useroption clearfix">
-                                    <div class="comment fl">
-                                        <img src="../img/评论.png" alt="">评论30
-                                    </div>
-                                    <div class="praise fl">
-                                        <img src="../img/点赞.png" alt="">点赞20
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="eachquestion clearfix">
-                            <img class="usericon fl" src="../img/teach.png" alt="">
-                            <div class="usercontent fl">
-                                <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
-                                </div>
-                                <div class="userdate">
-                                    2009.8.8
-                                </div>
-                                <div class="usertext">
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                </div>
-                                <div class="useroption clearfix">
-                                    <div class="comment fl">
-                                        <img src="../img/评论.png" alt="">评论30
-                                    </div>
-                                    <div class="praise fl">
-                                        <img src="../img/点赞.png" alt="">点赞20
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="eachquestion clearfix">
-                            <img class="usericon fl" src="../img/teach.png" alt="">
-                            <div class="usercontent fl">
-                                <div class="username">
-                                    凉宫春日,长门有希，朝比奈实瑠，古泉树一，虚
-                                </div>
-                                <div class="userdate">
-                                    2009.8.8
-                                </div>
-                                <div class="usertext">
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                    无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月无尽的八月
-                                </div>
-                                <div class="useroption clearfix">
-                                    <div class="comment fl">
-                                        <img src="../img/评论.png" alt="">评论30
-                                    </div>
-                                    <div class="praise fl">
-                                        <img src="../img/点赞.png" alt="">点赞20
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                     
                     </div>
                 </div>
             </div>
@@ -346,7 +404,6 @@
                                         ⓧ 验证码错误
                                     </div>
                               </div>
-    
                               <div class="loginbutton">立即登录</div>
                               <div class="else">
     
@@ -366,198 +423,56 @@
         <!-- 登录模态框结束 -->
 
 
-        <!-- -->
-        <!-- <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content modalcenter">
-                    <div class="registertitle">
-                        课程基本设置
-                    </div>
-                    <form class="curriculumprovision" action="">
-                        <div class="curriculumname clearfix">
-                           课程名称<input type="text">
-                        </div>
-                        <div class="curriculumschool clearfix">
-                            所属学校/单位 <input type="text">
-                        </div>
-                        <div class="curriculumclass clearfix">
-                            所属专业大类  
-                            <select name="" id="">
-                                <option value="">
-                                    123434
-                                </option>
-                                <option value="">
-                                    5768
-                                </option>
-                            </select>
-                        </div>
 
-                    </form>    
-                    <div class="save">
-                        保存
-                    </div>
 
-                </div>
-            </div>
-        </div> -->
-        <!--  -->
-</body>
-<script type="text/html" id="tintroduce" >
-    <img class="fl" src="<%= imgsrc==undefined?'':imgsrc %><%= person[0].logo==undefined?'':person[0].logo %> " alt="">
-    <div class="fl teacherna" >
-        <div><%= person[0].name==undefined?'':person[0].name %></div>
-        <div>欢迎您来到教师空间! <%= person.logo %> </div>
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
     </div>
-</script>
-<script type="text/html" id="schedule" >
-        <a data-toggle="modal"  data-target="#myModal2" class="courseicon">
-            <div class="add">+</div>
-            <div class="addtext">添加课程</div>
-        </a>
-        <% for(var i=0; i< person.length; i++){ %>
-            <a href="./course_introduction.html?cid=<%= person[i].id %>" class="courseimg">
-                <img class="courseshow" src="../img/ <%= person[i].logo==undefined?'':person[i].logo %> " alt="" />
-                <div class="imgtext">
-                    <%= person[i].name==undefined?'':person[i].name %>
-                </div>
-            </a>
-        <%}%>
-</script>
-<script type="text/html" id="teacheruser">
-    <div class="headline">
-        基本资料
-    </div>
-    <div class="nickname">
-        <input name="nickname" placeholder="<%= person[0].name %> " type="text">
-    </div>
-    <div class="time">
-        <input name="time" placeholder="<%= person[0].data %> " size="16" type="text"  readonly class="form_datetime">
-    </div>
-    <div class="sex">
-        性别：
-        <select name="sex" id="">
-           <% if(person[0].sex=="1"){ %>
-                <option selected value="1">男</option>
-                <option value="2">女</option>
-                <option value="3">其它</option>
-                <% }else if(person[0].sex=="女"){ %>
-                <option value="1">男</option>
-                <option selected value="2">女</option>
-                <option value="3">其它</option>
-                <% }else{ %>
-                <option value="1">男</option>
-                <option value="2">女</option>
-                <option selected value="3">其它</option>
-            <% } %> 
-        </select>
-    </div>
-    <textarea  class="signature" name="text" id="" ><%= person[0].text %></textarea>
-</script>
-<!-- 课程分类模板开始 -->
-<script type="text/html" id="professional">
-    <% for(var i=0; i< person.length; i++){ %>
-        <option value="<%= person[i].name == undefined ? '' : person[i].name %>"> <%= person[i].name == undefined ? '' :  person[i].name %> </option>
-    <%  } %>
-</script>
-<!-- 课程分类模板结束 -->
-
+</div>
 <!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<!-- 模板引擎 -->
 <script src="../node_modules/art-template/lib/template-web.js" ></script>
+<!-- 表单校验插件 -->
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<!-- 日历插件 -->
 <script src="../package/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+<!-- 这个项目的公共js -->
 <script src="../js/public.js" ></script>
-
-
-<script src="../package/jquery.nicescroll.min.js" ></script>
-<!-- <script src="../package/jquerypage.js" ></script> -->
+<!-- 对话框样式 -->
+<!-- <script src="../lib/confirm/jquery-confirm.min.js"></script> -->
+<!-- 播放视频的js -->
+<!-- <script src="../js/myvideo.js"></script> -->
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- 这个页面的js -->
+<script src="../js/look.js"></script>
 <script type="text/javascript">
 $(function(){
-    // 保存图片地址的变量
-    var imgsrc = "http://192.168.1.112/lanhong/Public/img/";
-    // 保存头像图片名称的变量。
-    var imgname;
-    // $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-    // 模态框居中
-    modalCenter('#myModal')
-    modalCenter('#myModal1')
-    modalCenter('#myModal2')
-    // 当添加课程的时候
-		
-
-    $(document).ready(function() {
-        $("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#0f0",boxzoom:false});
-    });
-    
-    // askquestions
-
-
-
-    // lang
-    line(".username",30)
-    line(".usertext",70)
-    var param = {
-                cid: 1,
-                sl: "DESC",
-                page: 1,
-            }
-    var question;
-    var note;
-    var state;
-    // $(".import").on("change",function(){
-    //     question=$(".import").val()
-    //     console.log(question);
-    // })
-    
-    $(".questionbutton").on("click",function(){
-        $(this).addClass("activebutton")
-        $(".notebutton").removeClass("activebutton")
-        // 控制文本框显示与隐藏
-        $(".questionimport").css({"display":"inline-block"})
-        $(".noteimport").css({"display":"none"})
-        state =0;
-    })
-    $(".notebutton").on("click",function(){
-        $(this).addClass("activebutton")
-        $(".questionbutton").removeClass("activebutton")
-        // 控制文本框显示与隐藏
-        $(".questionimport").css({"display":"none"})
-        $(".noteimport").css({"display":"inline-block"})
-        state = 1;
-    })
-
-    $(".present").on("click",function(){
-        var value;
-        var url;
-        if(state){
-            // 笔记内容
-            value = $(".noteimport").val()
-            url = "Studymanage/add_note"
-        }else{
-            // 提问内容
-           value = $(".questionimport").val()
-           url ="Studymanage/add_ask"
-        }
-        console.log(value);
+    // 将ajax获取的视频播放位置赋值
+        max = 100;
+            // 获取视频进度 用户id，课程id，视频id
+            $("#loadingModal").modal("show")
         $.ajax({
-            url: HTTP_URLH + url,
+            url: HTTP_URLH + "Studymanage/t_ask",
             type: "post",
             data: {
                 id: 1,
-                zid: 13,
-                state: 1,
-                cid: 1,
-                text: value
+                cid: 1
             },
             dataType: "json",
             success: function (data) {
-                console.log(data);
-                // toastr.success("操作成功")
+                // console.log(data);
+               
             },
             error: function (e) {
-                // toastr.error("网络开小猜了，请稍后再试")
+                toastr.error("网络开小差了，请稍后再试")
                 console.log(e)
             },
             complete: function (xhr, status) {
@@ -565,12 +480,21 @@ $(function(){
                 $("#loadingModal").modal("hide")
             }
         })
-        
-    })
-    // http://192.168.1.112/lanhong/Application/Home/Public/text/5cff6200f1e7c.txt
+        // 当视频暂停时
+        $("#cc").on("pause",function(){
+            console.log("shipingzantingle");
 
-
+        })
+        // video.addEventListener('',function(){  
+        // }); 
+        // 离开页面时触发的事件
+        window.onunload = function(){
+            alert("要退出吗")
+            // localStorage.removeItem('schoo',123456789);
+            return "你确定要离开吗"
+        }
 })
 
 </script>
 </html>
+
