@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>讨论区-交流</title>
+    <title>讨论区-交流评论</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!--  公共部分样式（除右侧主要内容）  -->
@@ -63,7 +63,7 @@
             </div>
             <div class="rightresult">
                 <div class="righttitle">
-                    讨论区
+                    讨论区-课堂交流
                 </div>
                 <div class="communication_reply">
                     <div class="founder_information1">
@@ -77,12 +77,12 @@
                         <textarea class="reply_text" placeholder="请输入回复内容"></textarea>
                     </div>
                     <div class="reply_btn">
-                        <button>发表回复</button>
+                        <button onclick="reply_discuss()">发表回复</button>
                     </div>
                 </div>
                 <div class="other_reply_area">
                     <div class="reply_choose_order">
-                        <span class="other_choose_text">按时间排序</span>｜<span class="other_choose_text">按点赞量排序</span>
+                        <span onclick="time_order()" class="other_choose_text">按时间排序</span>｜<span onclick="comments_num()" class="other_choose_text">按点赞量排序</span>
                     </div>
                     <div class="other_reply">
                         <div class="one_reply">
@@ -96,7 +96,7 @@
                                         <div class="user_name"><span>风云</span></div> 于2019-06-14发表
                                     </div>
                                     <div>
-                                        <span class="glyphicon glyphicon-heart-empty dianzan"></span>
+                                        <span onclick="dianzan()" class="glyphicon glyphicon-heart-empty dianzan"></span>
                                         点赞45
                                     </div>
                                 </div>
@@ -111,6 +111,7 @@
                                         <span>风云</span> 于2019-06-14发表
                                     </div>
                                     <div>
+                                        <span onclick="dianzan()" class="glyphicon glyphicon-heart-empty dianzan"></span>
                                         点赞45
                                     </div>
                                 </div>
@@ -125,6 +126,7 @@
                                         <span>风云</span> 于2019-06-14发表
                                     </div>
                                     <div>
+                                        <span onclick="dianzan()" class="glyphicon glyphicon-heart-empty dianzan"></span>
                                         点赞45
                                     </div>
                                 </div>
@@ -139,11 +141,15 @@
                                         <span>风云</span> 于2019-06-14发表
                                     </div>
                                     <div>
+                                        <span onclick="dianzan()" class="glyphicon glyphicon-heart-empty dianzan"></span>
                                         点赞45
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="page_area">
+                        <ul id="page"></ul>
                     </div>
                 </div>
 
@@ -276,7 +282,7 @@
         select_discussion_ask(PageNum, com_id)
     })
 
-    //  讨论主题查询
+    //  讨论主题查询--头部
     function select_comm_theme(c_id) {
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
@@ -318,7 +324,6 @@
     //  查看所有回复信息
     function select_discussion_ask(PageNum,d_id, num) {
         // loading显示
-        console.log(d_id)
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
             url: HTTP_URLH + "Studymanage/set_details",
@@ -339,15 +344,15 @@
                     $("#loadingModal").modal("hide")
                 }
                 var res = ""
-                // for (var i in data) {
-                    var item = data[0]
-                    console.log(item)
-                    // var index = +i+1
+                for (var i=0;i<data.length-1;i++) {
+                    var item = data[i]
+                    // console.log(item)
+                    // console.log(item.id)
+                    var k = +i+1
                     // 转换成数字形式“/1”
                     var a = item.data/1
                     var d=new Date(a*1000);
                     var time = formatDate(d)
-
                     var topic = item.topic
                     var res2 = ""
                     var res3 = ""
@@ -355,7 +360,6 @@
                         var item2 = topic[j]
                         res2 += '<img src="'+ imgsrc3 + item2.logo +'">'
                         res3 += '<span>'+ item2.username +'</span>'
-                        console.log(item2.username)
                     }
                     $(".user_head_img").html(res2)
                     $(".user_name").html(res3)
@@ -370,19 +374,20 @@
                         '                                        <div class="user_name">'+ res3 +'</div> 于'+ time +'发表\n' +
                         '                                    </div>\n' +
                         '                                    <div>\n' +
-                        '                                        <span class="glyphicon glyphicon-heart-empty dianzan"></span>\n' +
+                        '                                        <span data-id="'+ item.id +'" class="glyphicon glyphicon-heart-empty dianzan dianzan'+ k +'"></span>\n' +
                         '                                        点赞'+ item.praise +'\n' +
                         '                                    </div>\n' +
                         '                                </div>\n' +
                         '                            </div>\n' +
                         '                        </div>'
-                // }
+                    select_dianzan(item.id, k)
+                }
                 $('.other_reply').html(res)
                 //分页
                 $("#page").bootstrapPaginator({
                     bootstrapMajorVersion: 3,   //bootstrap版本
                     currentPage: PageNum,  //当前页数
-                    totalPages: data.page,   //总页数
+                    totalPages: data[data.length-1].page,   //总页数
                     numberOfPages: 3,    //分页器每页展示页码数
                     shouldShowPage: true,   //所有的按钮都展示
                     itemTexts: function (type, page, current) {
@@ -407,9 +412,46 @@
                         //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
                         pageNum = page
                         // 查询
-                        select_discussion(pageNum, num)
+                        select_discussion_ask(pageNum,com_id, num)
                     }
                 })
+                $(".dianzan").on("click", function() {
+                    console.log("点")
+                    if ($(this).hasClass("isactive")) {
+                        $(this).removeClass('isactive');
+                    } else {
+                        $(this).addClass('isactive');
+                    }
+
+                    var thisid = $(this).data("id")
+                    console.log(thisid)
+
+                    var DianZanAjax = $.ajax({
+                        url: HTTP_URLH + "Studymanage/praise",
+                        type: "post",
+                        timeout: 5000,
+                        dataType: "json",
+                        // async:false,    //不进行异步刷新
+                        data: {
+                            id: 1,
+                            praise: thisid,
+                            val: 2,
+                        },
+                        success: function (data) {
+                            console.log(data)
+                            select_discussion_ask(PageNum, com_id)
+
+                        },
+                        error: function (e) {
+                            console.log(e)
+                            toastr.error("网络开小猜了，请稍后再试！")
+                        },
+                        complete: function (xhr, status) {
+                            // 隐藏loading
+                            $("#loadingModal").modal("hide")
+                        }
+                    })
+                });
             },
             error: function (e) {
                 console.log(e)
@@ -422,7 +464,77 @@
         })
     }
 
+    // 查询点过赞的人
+    function select_dianzan(id, k) {
+        // console.log(k)
+        var DianZanSelAjax = $.ajax({
+            url: HTTP_URLH + "Studymanage/estimate",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                id: id,
+            },
+            success: function (data) {
+                // console.log(data)
+                data.includes("1") ? $(".dianzan"+k).addClass('isactive') : ""
 
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    //  按评论数排序查询
+    function comments_num() {
+        var num = 1
+        select_discussion_ask(PageNum, com_id, num)
+    }
+    //  按时间排序查询
+    function time_order() {
+        select_discussion_ask(PageNum, com_id)
+    }
+    
+    // 回复讨论
+    function reply_discuss() {
+        var text = $(".reply_text").val()
+        console.log(text)
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Studymanage/reply",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                id: 1,  // 个人id
+                did: com_id,  // 讨论id
+                cid: 1,  // 课程id
+                text: text, // 输入的回复信息
+            },
+            success: function (data) {
+                // console.log(data)
+                $(".reply_text").val("")
+                select_discussion_ask(PageNum, com_id)
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+        
+    }
 
     // 时间戳
     function formatDate(now) {
@@ -435,14 +547,14 @@
         return year+"-"+month+"-"+date;
     }
 
-    $(".dianzan").on("click", function() {
+    function dianzan() {
         console.log("点")
-        if ($(this).hasClass("isactive")) {
-            $(this).removeClass('isactive');
+        if ($(".dianzan").hasClass("isactive")) {
+            $(".dianzan").removeClass('isactive');
         } else {
-            $(this).addClass('isactive');
+            $(".dianzan").addClass('isactive');
         }
         // $(this).toggleClass("isactive");
-    });
+    }
 </script>
 </html>

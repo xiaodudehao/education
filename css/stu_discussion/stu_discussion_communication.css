@@ -79,10 +79,31 @@
 .other_reply_text2 span {
     color: #333333;
 }
+.dianzan {
+    cursor: pointer;
+}
 
-
+/* 点赞样式 */
 .isactive {
     color: #81d283 !important;
+}
+
+/* 分页器 */
+.page_area {
+    text-align: center;
+    /*cursor: pointer;*/
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #81d283;
+    border-color: #ddd;
+}
+.pagination>li>a, .pagination>li>span {
+    color: #81d283;
+    cursor: pointer;
+}
+.pagination>li>a, .pagination>li>span {
+    padding: 5px 15px;
+    font-size: 14px;
 }
 
 
