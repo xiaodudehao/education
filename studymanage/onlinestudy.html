@@ -274,16 +274,19 @@
 
 <script type="text/javascript">
 $(function(){
+    var cid = 1 ;
+    var uid = 1 ;
+
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
 
     $(".tcdPageCode").createPage({ 
-    pageCount:20, 
-    current:1, 
-    backFn:function(p){ 
-    console.log(p); 
-    } 
+        pageCount:20, 
+        current:1, 
+        backFn:function(p){ 
+        console.log(p); 
+        } 
     }); 
     //  设置学校名称字数超出显示省略号……
     function ellipsis(num) {
@@ -303,7 +306,7 @@ $(function(){
     $.ajax({
         url: HTTP_URL + "Resource/set_section",
         type: "post",
-        data: {cid: 1},
+        data: {cid: cid},
         dataType: "json",
         success: function (data) {
             // var cc = {};
@@ -335,14 +338,17 @@ $(function(){
                             '<div class="detail">\n'
                             if( data[i].children[j].children !== undefined ){
                                 for(var k=0; k<data[i].children[j].children.length; k++){
+                                    // 渲染文件所属的种类id，还有文件的章节id
                                     var id;
                                     // 判断是看一看还是做一做，并保存id
-                                    if(data[i].children[j].children[k].function == "看一看"){
-                                        id = "data-vid="+data[i].children[j].children[k].id
-                                    }else if(data[i].children[j].children[k].function == "做一做"){
-                                        id = "data-wid="+data[i].children[j].children[k].id
-                                    }
-
+                                    // if(data[i].children[j].children[k].function == "看一看"){
+                                    //     id = "data-vid="+data[i].children[j].children[k].id
+                                    // }else if(data[i].children[j].children[k].function == "做一做"){
+                                    //     id = "data-wid="+data[i].children[j].children[k].id
+                                    // }
+                                    id = "data-wid="+data[i].children[j].children[k].id+" data-rid="+data[i].children[j].children[k].rid
+                                     
+                                    
                                     str +=  '<div '+ id +' class="detailtitle">\n'+
                                                 '<span>'+ data[i].children[j].children[k].function +' </span> '+ data[i].children[j].children[k].courseware +'\n'+
                                             '</div>\n'
@@ -387,14 +393,13 @@ $(function(){
     $(".rightcontent").on("click",".detailtitle",function(){
         // console.log($(this).data("qid"));
         // 看一看做一做
-        if($(this).data("vid") != "" && $(this).data("vid") != undefined){
-            window.location.href = "./lookvideofile.html?vid="+$(this).data("vid")+"&clas="+4
-        }else if($(this).data("wid") != ""){
-            window.location.href = "./lookfile.html?wid="+$(this).data("wid")+"&clas="+1
-        }
+        // if($(this).data("vid") != "" && $(this).data("vid") != undefined){
+        //     window.location.href = "./lookvideofile.html?vid="+$(this).data("vid")+"&clas="+4
+        // }else if($(this).data("wid") != ""){
+        //     window.location.href = "./lookfile.html?wid="+$(this).data("wid")+"&clas="+1
+        // }
+        window.location.href = "./lookvideofile.html?wid="+$(this).data("wid")+"&rid="+$(this).data("rid")
     })
-
-
 })
 
 </script>

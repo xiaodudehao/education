@@ -1,6 +1,7 @@
 $(function(){
-        // 保存图片地址的变量
-
+    var uid = 1;
+    var cid = 1;
+    var videofileid;
     
     // 保存头像图片名称的变量。
     var imgname;
@@ -24,7 +25,7 @@ $(function(){
     line(".username",30)
     line(".usertext",70)
     var param = {
-                cid: 1,
+                cid: cid,
                 sl: "DESC",
                 page: 1,
             }
@@ -75,10 +76,10 @@ $(function(){
             // 获取是否公开
             pubval = $('input:radio[name="Question1"]:checked').val();
             data =  {
-                id: 1,
+                id: uid,
                 zid: 13,
                 state: 1,
-                cid: 1,
+                cid: cid,
                 text: value,
                 state: pubval,
             }
@@ -92,10 +93,10 @@ $(function(){
                 return 
             }
             data =  {
-                id: 1,
+                id: uid,
                 zid: 13,
                 state: 1,
-                cid: 1,
+                cid: cid,
                 text: value
             }
             url ="Studymanage/add_ask"
@@ -298,8 +299,8 @@ $(function(){
         url: HTTP_URLH + "Studymanage/t_ask",
         type: "post",
         data: {
-            id: 1,
-            cid: 1
+            id: uid,
+            cid: cid
         },
         dataType: "json",
         success: function (data) {
@@ -327,8 +328,8 @@ $(function(){
         url: HTTP_URLH + "Studymanage/z_ask",
         type: "post",
         data: {
-            id: 1,
-            cid: 1
+            id: uid,
+            cid: cid
         },
         dataType: "json",
         success: function (data) {
@@ -361,34 +362,114 @@ $(function(){
         window.location.href = "./stu_discussion_question.html?qid="+$(this).data("qid")
     })
 
+    // 视频或者文件章节的id
+    var wid = getSearch ("wid");
+    // 视频或者文件的大类的id
+    var rid = getSearch ("rid");  
+        // 根据章节id和大类id来获取视频地址并渲染到页面
+        $("#loadingModal").modal("show")
+        $.ajax({
+            url: HTTP_URLH + "Studymanage/set_resource",
+            type: "post",
+            data: {
+                id: wid,
+                val: rid
+            },
+            dataType: "json",
+            success: function (data) {
+                // // 判断是视频大类渲染视频
+                if( 4 == rid){
+                    $(".mainvideo").css({"display": "inline-block"})
+                    $("#cc").attr("src",videosrc+ "vedio/" + data[0].savename)
+                    toastr.success("操作成功")
+                }else{
+                    $(".textcontent").css({"display": "block"})
+                    $(".textcontent iframe").attr("src",videosrc+"text/"+data[0].savename)
+                    console.log("文本地址为",videosrc+"text/"+data[0].savename);
+                    
+                }
+                console.log('视频',data);
+                // 视频id
+                videofileid = data[0].id
+
+                // 获取视频播放到的位置
+                $.ajax({
+                    url: HTTP_URLH + "Video/set_time",
+                    type: "post",
+                    data: {
+                        zid: videofileid,
+                        uid: uid
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("视频播放时间",data);
+                        // 渲染时间到视频上
+                        max = data[0].data;
+                        video.currentTime = data[0].data
+                        
+                    },
+                    error: function (e) {
+                        toastr.error("网络开小差了，请稍后再试")
+                        console.log(e)
+                    },
+                    complete: function (xhr, status) {
+                        // 隐藏loading
+                        $("#loadingModal").modal("hide")
+                    }
+                })
 
 
-
-
-    // 根据章节id和大类id来获取视频地址并渲染到页面
-    $("#loadingModal").modal("show")
-    $.ajax({
-        url: HTTP_URLH + "Studymanage/set_resource",
-        type: "post",
-        data: {
-            id: getSearch ("vid"),
-            val: getSearch ("clas")
-        },
-        dataType: "json",
-        success: function (data) {
-            // console.log('视频',data[0].savename);
-            $("#cc").attr("src",videosrc+ "vedio/" + data[0].savename)
-            toastr.success("操作成功")
-        },
-        error: function (e) {
-            toastr.error("网络开小差了，请稍后再试")
-            console.log(e)
-        },
-        complete: function (xhr, status) {
-            // 隐藏loading
-            $("#loadingModal").modal("hide")
+            },
+            error: function (e) {
+                toastr.error("网络开小差了，请稍后再试")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    
+        // 当视频暂停时
+        $("#cc").on("pause",function(){
+            console.log("shipingzantingle");
+            // if(video.currentTime >max){
+            //     //max时最大播放时间
+            //     max = video.currentTime;
+            // }
+            pausevideo( video.currentTime )
+        })
+        // 离开页面时触发的事件
+        $(window).unload(function(){
+            pausevideo( video.currentTime )
+        });
+        // 如果当前时间是最大时间那么就保存
+        function pausevideo(time){
+            if(time > max){
+                $.ajax({
+                    url: HTTP_URLH + "Video/video_time",
+                    type: "post",
+                    data: {
+                        uid: uid,
+                        cid: cid,
+                        data: time,
+                        resourceid: videofileid
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    error: function (e) {
+                        toastr.error("网络开小差了，请稍后再试")
+                        console.log(e)
+                    },
+                    complete: function (xhr, status) {
+                        // 隐藏loading
+                        $("#loadingModal").modal("hide")
+                    }
+                })
+            }
         }
-    })
 
 
 

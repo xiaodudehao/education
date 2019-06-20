@@ -87,7 +87,7 @@
            if(sym>max){
                max = sym;
            }
-           console.log(video.currentTime);
+        //    console.log(video.currentTime);
        },500);
 
    /* 

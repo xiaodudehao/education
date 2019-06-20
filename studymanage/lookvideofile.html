@@ -95,6 +95,9 @@
                         </div>
                         
                     </div>
+                    <div class="textcontent" >
+                        <iframe  src="" frameborder="0"></iframe>
+                    </div>
                 </div>
                 <div class="rigcontent ">
                     <div class="titlebutton clearfix">
@@ -486,18 +489,13 @@ $(function(){
                 $("#loadingModal").modal("hide")
             }
         })
-        // 当视频暂停时
-        $("#cc").on("pause",function(){
-            console.log("shipingzantingle");
-
-        })
         // video.addEventListener('',function(){  
         // }); 
         // 离开页面时触发的事件
         window.onunload = function(){
             alert("要退出吗")
             // localStorage.removeItem('schoo',123456789);
-        return "你确定要离开吗"
+            return "你确定要离开吗"
         }
 })
 
