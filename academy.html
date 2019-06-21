@@ -8,79 +8,133 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/academy.css">
     <link rel="stylesheet" href="package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    
+    <!-- 提示框样式 -->
+    <!-- <link href="./lib/toastr/toastr.min.css" type="text/css" rel="stylesheet"> -->
+    <!--  对话框样式  -->
+    <link href="./lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div class="maincontent clearfix">
-    <!-- 头部导航栏开始 -->
-        <div class="header">
-            <div class="banxin">
-                <img src="img/未标题-10.png" class="logo" alt="">
-                <ul>
-                    <li><a href="">首页</a></li>
-                    <li><a href="calssify.html">课程</a></li>
-                    <li><a href="search.html">院校</a></li>
-                    <li><a href="">立体教材</a></li>
-                </ul>
-                <div class="search">
-                    <img class="searchicon" src="img/未标题-1.png" ></img>
-                    <input class="searchinput" type="text" placeholder="搜索课程或学校">
+    <div class="maincontent">
+            <!-- 头部导航栏开始 -->
+            <div class="header">
+                    <!-- 由于里面子盒子的margin-top会影响父盒子的外边距，造成高度塌陷，所以要用clearfix -->
+                    <div class="banxin clearfix">
+                        <img src="img/未标题-10.png" class="logo" alt="">
+                        <ul class="clearfix">
+                            <li><a href="">首页</a></li>
+                            <li><a href="calssify.html">课程</a></li>
+                            <li><a href="search.html">院校</a></li>
+                            <li><a href="">立体教材</a></li>
+                        </ul>
+                        <div class="search">
+                            <img class="searchicon" src="img/未标题-1.png" ></img>
+                            <input class="searchinput" type="text" placeholder="搜索课程或学校">
+                        </div>
+                        <div class="login">
+                            <a href="">
+                                <img class="loginicon" src="img/未标题-2.png"></img>
+                            </a>
+                            <!-- 这里的模态框用js实现 -->
+                            <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                            <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                            <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="login">
-                    <a href="">
-                        <img class="loginicon" src="img/未标题-2.png"></img>
-                    </a>
-                    <!-- 这里的模态框用js实现 -->
-                    <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
-                    <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
-                    <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="academychild">
-            <div class="banxin">
-                <div class="bigbox">
-                    
+                <div class="academychild ">
+                    <div class="banxin clearfix">
+                            <div class="headline">
+                                <div class="line"></div>
+                                <div class="font">院校</div>
+                               
+                            </div>
+                        <div class="bigbox">
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                            <a class="academynameeach " href="">
+                                <div class="academyimg">
+                                    <img  src="img/schoolimg.png" alt="">
+                                </div>
+                                <div class="academyname">
+                                    上海城市科技学校上海城市科技学校
+                                </div>
+                            </a>
+                    </div>
+            
+                    </div>
                 </div>
-                <a class="academynameeach" href="">
-                    <img class="academyimg" src="img/schoolimg.png" alt="">
-                    <div class="academyname">
-                        上海城市科技学校
-                    </div>
-                </a>
-                <a class="academynameeach" href="">
-                    <img class="academyimg" src="img/schoolimg.png" alt="">
-                    <div class="academyname">
-                        上海城市科技学校
-                    </div>
-                </a>
-                <a class="academynameeach" href="">
-                    <img class="academyimg" src="img/schoolimg.png" alt="">
-                    <div class="academyname">
-                        上海城市科技学校
-                    </div>
-                </a>
-                <a class="academynameeach" href="">
-                    <img class="academyimg" src="img/schoolimg.png" alt="">
-                    <div class="academyname">
-                        上海城市科技学校
-                    </div>
-                </a>  
-                <a class="academynameeach" href="">
-                    <img class="academyimg" src="img/schoolimg.png" alt="">
-                    <div class="academyname">
-                        上海城市科技学校
-                    </div>
-                </a>
-                <a class="academynameeach" href="">
-                    <img class="academyimg" src="img/schoolimg.png" alt="">
-                    <div class="academyname">
-                        上海城市科技学校
-                    </div>
-                </a>              
-            </div>
-        </div>
+            
     </div>
 
     <!-- 公司信息结束 -->
@@ -124,7 +178,6 @@
                         <option value="">监狱学园</option>
                         <option value="">其它</option>
                     </select>
-                    
                  </div>
                   <!-- <div class="nameexist">该用户名已存在</div> -->
                   <div class="registerbutton">立即注册</div>
@@ -224,16 +277,68 @@
         </div>
     </div>
     <!-- 登录模态框结束 -->
-  
+  <!-- loading Modal start-->
+    <div class="modal fade" id="loadingModal" data-backdrop="static">
+        <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+            <div class="progress progress-striped active" style="margin-bottom: 0;">
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+            <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+        </div>
+    </div>
 </body>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
 <script src="node_modules/art-template/lib/template-web.js" ></script>
 <script src="package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<!-- 对话框样式 -->
+<!-- <script src="./lib/confirm/jquery-confirm.min.js"></script> -->
+<!-- 提示框插件 -->
+<script src="./lib/toastr/toastr.min.js"></script>
 <script src="js/public.js" ></script>
-<script src="js/index.js" ></script>
+
+
+
 <script>
-    $(".aa").css({"height":$("body").height()-120-90})
+    $(function(){
+        
+
+
+
+
+        $("#loadingModal").modal("show")
+        $.ajax({
+            url: HTTP_URLH + "Index/set_sch_ool",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                toastr.success("操作成功")
+                console.log(data);
+                var str = "";
+                for(var i =0;i<data.length;i++){
+                    str += `<a class="academynameeach " target="_blank" href="http://${data[i].url}">
+                                <div class="academyimg">
+                                    <img  src="${imgsrc4 + data[i].src}" alt="">
+                                </div>
+                                <div class="academyname">
+                                    ${data[i].name}
+                                </div>
+                            </a>`
+                }
+                $(".bigbox").html(str)
+            },
+            error: function (e) {
+                toastr.error("网络开小差了，请稍后再试")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+
+
+    })
    
 
 </script>

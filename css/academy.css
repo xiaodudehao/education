@@ -61,7 +61,7 @@ input::-ms-clear {
   color: #333;
   text-decoration: none;
 }
-.header ul li:nth-child(1) a {
+.header ul .activehead a {
   color: #32b251;
 }
 .header ul li:hover a {
@@ -461,10 +461,59 @@ input::-ms-clear {
 .footercontenter {
   margin-top: -120px;
 }
-.academychild {
-  min-height: 700px;
+.maincontent {
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #fafafa;
+  padding-top: 0px;
+  padding-bottom: 120px;
+  min-width: 1200px;
 }
-.academychild .academynameeach {
+.maincontent .header ul {
+  float: left;
+}
+.maincontent .academychild .banxin {
+  overflow: hidden;
+  padding-top: 30px;
+}
+.maincontent .academychild .banxin .headline {
+  height: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.maincontent .academychild .banxin .headline .line {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  height: 1px;
+  width: 200px;
+  background-color: #ccc;
+}
+.maincontent .academychild .banxin .headline .font {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  background-color: #fafafa;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 24px;
+}
+.maincontent .academychild .banxin .headline .viewmore {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  color: #32b251;
+  text-decoration: none;
+  font-size: 18px;
+}
+.maincontent .academychild .banxin .bigbox {
+  width: 1300px;
+}
+.maincontent .academychild .banxin .bigbox .academynameeach {
   display: block;
   width: 165px;
   height: 168px;
@@ -474,10 +523,23 @@ input::-ms-clear {
   text-decoration: none;
   text-align: center;
 }
-.academychild .academynameeach .academyimg {
+.maincontent .academychild .banxin .bigbox .academynameeach .academyimg {
+  width: 165px;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+}
+.maincontent .academychild .banxin .bigbox .academynameeach .academyimg img {
   width: 80px;
   height: 80px;
+  transition: all .3;
 }
-.academychild .academynameeach .academyname {
+.maincontent .academychild .banxin .bigbox .academynameeach .academyname {
   font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.footer {
+  margin-top: -120px;
 }

@@ -61,7 +61,7 @@ input::-ms-clear {
   color: #333;
   text-decoration: none;
 }
-.header ul li:nth-child(1) a {
+.header ul .activehead a {
   color: #32b251;
 }
 .header ul li:hover a {

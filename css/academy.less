@@ -1,30 +1,112 @@
 @import "public.less";
 
-
-
-
-    .academychild{
-        min-height: 700px;
-        .academynameeach{
-            display: block;
-            width: 165px;
-            height: 168px;
+.maincontent{
+    min-height: 100%;
+    overflow: hidden;
+    background-color: #fafafa;
+    padding-top: 0px;
+    min-width: 1200px;
+    padding-bottom: 120px;
+    // background-color: lime;
+    min-width: 1200px;
+    .header{
+        ul{
             float: left;
-            margin-right: 93px;
-            color: #999;
-            text-decoration: none;
-            text-align: center;
-            .academyimg{
-                width: 80px;
-                height: 80px;
-            }
-            .academyname{
-                font-size: 16px;
-
-            }
         }
-
     }
+    .academychild{
+        .banxin{
+            overflow: hidden;
+            padding-top: 30px;
+            // 带横杠的标题开始
+            .headline{
+                height: 30px;
+                position: relative;
+                // flex布局只能用在标准流中，如果子元素设置absolute在ie11就不作用了。
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //  线条宽度固定用的是绝对定位。
+                .line{
+                    position: absolute;
+                    transform: translate(-50%,-50%);
+                    left: 50%;
+                    top: 50%;
+                    height: 1px; 
+                    width: 200px;
+                    background-color: #ccc;
+                }
+                // 文字宽度不固定，用的是flex布局固定，用position:absolute;让字体出现在线条上方。
+                .font{
+                    position: absolute;
+                    transform: translate(-50%,-50%);
+                    left: 50%;
+                    top: 50%;
+                    background-color: @background-color;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    font-size: 24px;
+                    
+                }
+                .viewmore{
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    color: @font-color;
+                    text-decoration: none;
+                    font-size: 18px;
+                }
+            }
+            // 带横杠的标题结束
+            .bigbox{
+                width: 1300px;
+                .academynameeach{
+                    display: block;
+                    width: 165px;
+                    height: 168px;
+                    float: left;
+                    margin-right: 93px;
+                    color: #999;
+                    text-decoration: none;
+                    text-align: center;
+                    .academyimg{
+                        width: 165px;
+                        height: 140px;
+                        line-height: 140px;
+                        text-align: center;
+                        img{
+                            width: 80px;
+                            height: 80px;
+                            transition: all .3;
+                        }
+
+                    }
+                    // .academyimg:hover img{
+                    //     width: 100px;
+                    //     height: 100px;
+                    // }
+                    .academyname{
+                        font-size: 16px;
+                        // 超出隐藏的js
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space:nowrap;
+                        
+                    }
+                }
+            }
+
+        }
+    }
+
+    
+}
+.footer{
+    margin-top: -120px;
+}
+
+
+
 
 
 

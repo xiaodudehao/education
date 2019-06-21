@@ -5,6 +5,7 @@ var HTTP_URLH ="http://192.168.1.126/lanhong/index.php/Home/"
 var imgsrc = "http://192.168.1.126/lanhong/Public/img/";
 var imgsrc2 = "http://192.168.1.126/lanhong/Application/Admin/Public/upload/";
 var imgsrc3 = "http://192.168.1.126/lanhong/Application/Home/Public/touxiang/";
+var imgsrc4 =  "http://192.168.1.126/lanhong/Application/Admin/Public/school/";
 //保存视频地址
 var videosrc = "http://192.168.1.126/lanhong/Application/Home/Public/";
 // 保存头像图片名称的变量。
@@ -19,7 +20,14 @@ var urlarr = url.split("=")
 var cid = urlarr[urlarr.length - 1]
 // console.log(cid)
 
-
+//提示框初始化，toast-top-center表示提示框的位置
+toastr.options = {
+    positionClass: 'toast-top-center', // 提示框位置
+    closeButton: true  // 是否显示关闭按钮
+}
+// 模态框居中
+modalCenter('#myModal')
+modalCenter('#myModal1')
 
 // 从localastorage中取学校数据渲染到页面注册模态框中的多选框。
 function school(){
@@ -402,3 +410,20 @@ $(".check").on('click',function(){
 // $(".login").append("<div class='exit'><a href=''>退出</a></div>")
 // $(".log").css({"display":"none"});
 // $(".register").css({"display":"none"});
+
+// 当搜索图标被单击后发送请求，并携带数据。
+$(".searchicon").on("click", function () {
+    var val = $('.searchinput').val();
+    // 此处写ajax请求
+    $.ajax({
+        url: HTTP_URLH + "Calssify/search",
+        type: 'get',
+        datatype: 'json',
+        success: function () {
+            window.location.href=("http://www.lanhong.com/index.php/Home/Calssify/search?name="+ val)
+            //alert(window.location.host)
+        }
+    });
+    // alert("被单击了"+val)
+    // console.log("被单击了"+val)
+})
