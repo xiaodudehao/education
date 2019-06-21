@@ -59,6 +59,8 @@ input::-ms-clear{display:none;}
     ul{
         display: block;
         list-style: none;
+        float: left;
+        height: 80px;
         li{
             margin-left: 62px;
             float: left;
@@ -75,6 +77,15 @@ input::-ms-clear{display:none;}
         li:hover a {
             color: @font-color;
         }
+    }
+    ul:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+        // 
     }
     .search{
         margin-left: 60px;

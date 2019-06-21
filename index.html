@@ -417,20 +417,7 @@
 
 
 
-        $.ajax({
-            type:"get",
-            url: "http://192.168.1.110/lanhong/index.php/Home/Index/set_school",
-            dataType:"json",
-           
-            success:function(data){
-                console.log("学校",data);
-                schoolname = data
-                school()
-            },
-            error:function(jqXHR){
-                console.log("发生错误:"+jqXHR.status);
-            }
-        });
+
    
         $(".teacherloginbutton").on("click",function(){
             alert(11)

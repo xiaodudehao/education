@@ -51,6 +51,8 @@ input::-ms-clear {
 .header ul {
   display: block;
   list-style: none;
+  float: left;
+  height: 80px;
 }
 .header ul li {
   margin-left: 62px;
@@ -66,6 +68,14 @@ input::-ms-clear {
 }
 .header ul li:hover a {
   color: #32b251;
+}
+.header ul:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 .header .search {
   margin-left: 60px;

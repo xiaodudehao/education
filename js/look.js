@@ -486,5 +486,9 @@ $(function(){
         // var s = date.getSeconds();
         return Y+M+D;
     }
-
+    $(".topbutton").on("click",function(){
+        console.log(3333333333);
+        
+        history.go(-1)
+    })
 })

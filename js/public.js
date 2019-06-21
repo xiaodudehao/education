@@ -20,15 +20,30 @@ var urlarr = url.split("=")
 var cid = urlarr[urlarr.length - 1]
 // console.log(cid)
 
-//提示框初始化，toast-top-center表示提示框的位置
-toastr.options = {
-    positionClass: 'toast-top-center', // 提示框位置
-    closeButton: true  // 是否显示关闭按钮
-}
+// //提示框初始化，toast-top-center表示提示框的位置
+// toastr.options = {
+//     positionClass: 'toast-top-center', // 提示框位置
+//     closeButton: true  // 是否显示关闭按钮
+// }
 // 模态框居中
 modalCenter('#myModal')
 modalCenter('#myModal1')
 
+//获取学校下拉框中要展示的内容
+$.ajax({
+    type:"get",
+    url: "http://192.168.1.110/lanhong/index.php/Home/Index/set_school",
+    dataType:"json",
+   
+    success:function(data){
+        console.log("学校",data);
+        schoolname = data
+        school()
+    },
+    error:function(jqXHR){
+        console.log("发生错误:"+jqXHR.status);
+    }
+});
 // 从localastorage中取学校数据渲染到页面注册模态框中的多选框。
 function school(){
     if(schoolname != undefined){
@@ -58,7 +73,7 @@ function school(){
         $(".selectvalue").html(str);
     }
 }   
-// school()
+school()
     
 
 $(".course_resources").attr('href','./repository.html?cid='+ cid +'');
@@ -83,6 +98,14 @@ $(".log").on('click',function(){
     }
 })
 
+// 当为file协议时跳转前的地址会拼接到地址中，http协议就不会
+$(".leftcatalogue .cataloguenam a:nth-child(1)").attr('href','coursehomepage?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(2)").attr('href','./scoresranking?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(3)").attr('href','./announcement?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(4)").attr('href','./standard?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(5)").attr('href','./onlinestudy?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(6)").attr('href','./coursehomepage?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(7),.leftcatalogue .cataloguenam a:nth-child(8)").attr('href','./stu_discussion_communication?cid='+ cid +'');
 // bootstrap注册和登录模态框居中
 function modalCenter(modalId){
     $(modalId).on('show.bs.modal', function (e) {
@@ -390,6 +413,7 @@ function getSearch (k) {
     // 解码成中文
     str = decodeURI(str);
     str = str.slice(1);
+    
     var arr = str.split("&");
     var obj = {};
     // 获取键和值
@@ -405,6 +429,22 @@ $(".check").on('click',function(){
     $('.codeimg').click();
 })
 
+// 判断导航栏的几个页面，如果是这几个页面，字体变绿。
+var arrurl = location.href.split("/");
+var htmlurl = arrurl[arrurl.length -1].split(".")[0]
+console.log("arr", htmlurl );
+//首页
+if(htmlurl == "index"){
+ $(".header ul li").eq(0).addClass("activehead")
+// 课程
+}else if(htmlurl == "calssify"){
+    $(".header ul li").eq(1).addClass("activehead")
+//院校
+}else if(htmlurl == "academy"){
+    $(".header ul li").eq(2).addClass("activehead")
+
+}
+    
 // 当用户登录之后调用的css
 // $(".loginicon").addClass("checkloginicon");
 // $(".login").append("<div class='exit'><a href=''>退出</a></div>")
