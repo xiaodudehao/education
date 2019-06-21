@@ -7,6 +7,10 @@
     <title>讨论区-交流评论</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <!--  对话框样式  -->
+    <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  公共部分样式（除右侧主要内容）  -->
     <link rel="stylesheet" href="../css/stu_discussion/stu_discussion_public.css">
     <link rel="stylesheet" href="../css/stu_discussion/stu_discussion_communication.css">
@@ -295,7 +299,7 @@
                 id: c_id,
             },
             success: function (data) {
-                console.log(data)
+                // console.log(data)
                 var res = ""
                 for (var i in data) {
                     var item = data[i]
@@ -337,7 +341,7 @@
                 order: num
             },
             success: function (data) {
-                console.log(data)
+                // console.log(data)
                 if (0 == data.length) {
                     // 没有数据，显示提示
                     toastr.warning("未查询到可用数据")
@@ -375,7 +379,7 @@
                         '                                    </div>\n' +
                         '                                    <div>\n' +
                         '                                        <span data-id="'+ item.id +'" class="glyphicon glyphicon-heart-empty dianzan dianzan'+ k +'"></span>\n' +
-                        '                                        点赞'+ item.praise +'\n' +
+                        '                                        <span class="'+ item.id +'" >点赞'+ item.praise +'</span>\n' +
                         '                                    </div>\n' +
                         '                                </div>\n' +
                         '                            </div>\n' +
@@ -416,7 +420,7 @@
                     }
                 })
                 $(".dianzan").on("click", function() {
-                    console.log("点")
+                    // console.log("点")
                     if ($(this).hasClass("isactive")) {
                         $(this).removeClass('isactive');
                     } else {
@@ -433,13 +437,38 @@
                         dataType: "json",
                         // async:false,    //不进行异步刷新
                         data: {
-                            id: 1,
+                            id: 1, // 自身id
                             praise: thisid,
                             val: 2,
                         },
                         success: function (data) {
-                            console.log(data)
-                            select_discussion_ask(PageNum, com_id)
+                            // console.log(data)
+                            // select_discussion_ask(PageNum, com_id)
+                            // $("."+thisid).html("10")
+                            //  刷新点赞数
+                            var DianZanAjax = $.ajax({
+                                url: HTTP_URLH + "Studymanage/discuss_num",
+                                type: "post",
+                                timeout: 5000,
+                                dataType: "json",
+                                // async:false,    //不进行异步刷新
+                                data: {
+                                    id: thisid, // 自身id
+                                },
+                                success: function (data) {
+                                    console.log(data)
+                                    var res = '点赞'+ data +''
+                                    $("."+thisid).html(res)
+                                },
+                                error: function (e) {
+                                    console.log(e)
+                                    toastr.error("网络开小猜了，请稍后再试！")
+                                },
+                                complete: function (xhr, status) {
+                                    // 隐藏loading
+                                    $("#loadingModal").modal("hide")
+                                }
+                            })
 
                         },
                         error: function (e) {
@@ -478,6 +507,7 @@
             },
             success: function (data) {
                 // console.log(data)
+                // "1" 本人id
                 data.includes("1") ? $(".dianzan"+k).addClass('isactive') : ""
 
             },
@@ -505,35 +535,38 @@
     // 回复讨论
     function reply_discuss() {
         var text = $(".reply_text").val()
-        console.log(text)
-        $("#loadingModal").modal("show")
-        var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Studymanage/reply",
-            type: "post",
-            timeout: 5000,
-            dataType: "json",
-            // async:false,    //不进行异步刷新
-            data: {
-                id: 1,  // 个人id
-                did: com_id,  // 讨论id
-                cid: 1,  // 课程id
-                text: text, // 输入的回复信息
-            },
-            success: function (data) {
-                // console.log(data)
-                $(".reply_text").val("")
-                select_discussion_ask(PageNum, com_id)
-            },
-            error: function (e) {
-                console.log(e)
-                toastr.error("网络开小猜了，请稍后再试！")
-            },
-            complete: function (xhr, status) {
-                // 隐藏loading
-                $("#loadingModal").modal("hide")
-            }
-        })
-        
+        // console.log(text)
+        if (text == ""){
+            toastr.warning("请输入评论内容！")
+        } else {
+            $("#loadingModal").modal("show")
+            var CouIntrAjax = $.ajax({
+                url: HTTP_URLH + "Studymanage/reply",
+                type: "post",
+                timeout: 5000,
+                dataType: "json",
+                // async:false,    //不进行异步刷新
+                data: {
+                    id: 1,  // 个人id
+                    did: com_id,  // 讨论id
+                    cid: 1,  // 课程id
+                    text: text, // 输入的回复信息
+                },
+                success: function (data) {
+                    // console.log(data)
+                    $(".reply_text").val("")
+                    select_discussion_ask(PageNum, com_id)
+                },
+                error: function (e) {
+                    console.log(e)
+                    toastr.error("网络开小猜了，请稍后再试！")
+                },
+                complete: function (xhr, status) {
+                    // 隐藏loading
+                    $("#loadingModal").modal("hide")
+                }
+            })
+        }
     }
 
     // 时间戳
@@ -547,14 +580,42 @@
         return year+"-"+month+"-"+date;
     }
 
-    function dianzan() {
-        console.log("点")
-        if ($(".dianzan").hasClass("isactive")) {
-            $(".dianzan").removeClass('isactive');
+    //  点击点赞后加载样式
+    $(".dianzan").on("click", function() {
+        // console.log("点")
+        if ($(this).hasClass("isactive")) {
+            $(this).removeClass('isactive');
         } else {
-            $(".dianzan").addClass('isactive');
+            $(this).addClass('isactive');
         }
-        // $(this).toggleClass("isactive");
+    }
+
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
+    /**
+     *对话框
+     * @param content  提示内容
+     * @param func      点击对话框确认按钮做什么，类型为function
+     */
+    function confirmBySelf(content, func) {
+        $.confirm({
+            confirmButtonClass: "btn-primary",   //设置ok按钮样式
+            closeIcon: true,        //对话框右上角关闭
+            confirmButton: "确认", //确认按钮标题
+            cancelButton: "取消", //取消按钮标题
+            title: "提示",        //标题
+            content: content,        //对话内容
+            confirm: function () {
+                //点击确认后做什么
+                func()
+            },
+            cancel:function () {
+                //点击取消后做什么
+            }
+        })
     }
 </script>
 </html>

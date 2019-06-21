@@ -248,27 +248,33 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案A</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项A</label>
                         <div class="col-sm-6">
                             <input class="form-control options_a" name="options_a" type="text" placeholder="请输入选项" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案B</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项B</label>
                         <div class="col-sm-6">
                             <input class="form-control options_b" name="options_b" type="text" placeholder="请输入选项" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案C</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项C</label>
                         <div class="col-sm-6">
                             <input class="form-control options_c" name="options_c" type="text" placeholder="请输入选项" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案D</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项D</label>
                         <div class="col-sm-6">
                             <input class="form-control options_d" name="options_d" type="text" placeholder="请输入选项" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">答案</label>
+                        <div class="col-sm-6">
+                            <input class="form-control answer" name="answer" type="text" placeholder="请输入问题答案的选项" />
                         </div>
                     </div>
                 </div>
@@ -309,27 +315,33 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案A</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项A</label>
                         <div class="col-sm-6">
                             <input class="form-control options_a" name="options_a" type="text" placeholder="请输入选项" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案B</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项B</label>
                         <div class="col-sm-6">
                             <input class="form-control options_b" name="options_b" type="text" placeholder="请输入选项" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案C</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项C</label>
                         <div class="col-sm-6">
                             <input class="form-control options_c" name="options_c" type="text" placeholder="请输入选项" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-sm-offset-1 control-label">答案D</label>
+                        <label class="col-sm-3 col-sm-offset-1 control-label">选项D</label>
                         <div class="col-sm-6">
                             <input class="form-control options_d" name="options_d" type="text" placeholder="请输入选项" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-1 control-label">答案</label>
+                        <div class="col-sm-6">
+                            <input class="form-control answer" name="answer" type="text" placeholder="请输入问题答案的选项" />
                         </div>
                     </div>
                 </div>
@@ -413,7 +425,7 @@
     // 查询
     function select_question(pageN) {
         var param = {
-            cid: cid,
+            cid: 1,
             page: pageN,
         }
 
@@ -427,7 +439,7 @@
             // async:false,    //不进行异步刷新
             data: param,
             success: function (data) {
-                // console.log(data)
+                console.log(data)
                 if (0 == data[0].length) {
                     // 没有数据，显示提示
                     toastr.error("未查询到可用数据")
@@ -519,6 +531,7 @@
         $("#detail_modal .options_b").val(item.b)
         $("#detail_modal .options_c").val(item.c)
         $("#detail_modal .options_d").val(item.d)
+        $("#detail_modal .answer").val(item.answer)
         // 显示模态框
         $("#detail_modal").modal("show")
     }
@@ -536,13 +549,14 @@
         var options_b = $("#detail_modal .options_b").val()
         var options_c = $("#detail_modal .options_c").val()
         var options_d = $("#detail_modal .options_d").val()
+        var answer = $("#detail_modal .answer").val()
 
         //  修改信息网络请求
         var UpdateQuestionAjax = $.ajax({
             url: HTTP_URL + "Test/upitem",
             type: "post",
             data: {
-                cid: cid,
+                cid: 1,
                 id: id,
                 name: name,
                 type: type,
@@ -550,6 +564,7 @@
                 B: options_b,
                 C: options_c,
                 D: options_d,
+                answer: answer,
             },
             dataType: "json",
             success: function (data) {
@@ -583,18 +598,20 @@
         var options_b = $("#new_modal .options_b").val()
         var options_c = $("#new_modal .options_c").val()
         var options_d = $("#new_modal .options_d").val()
+        var answer = $("#new_modal .answer").val()
         // 请求
         var AddTeacherAjax = $.ajax({
             url: HTTP_URL + "Test/add",
             type: "post",
             data: {
-                cid: cid,
+                cid: 1,
                 name: name,
                 type: type,
                 A: options_a,
                 B: options_b,
                 C: options_c,
                 D: options_d,
+                answer: answer
             },
             dataType: "json",
             success: function (data) {
