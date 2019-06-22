@@ -16,7 +16,7 @@ $(function(){
     // 获取文件章节id
     var zid =  getSearch ("vid")
     //提示框初始化，toast-top-center表示提示框的位置
-        toastr.options = {
+    toastr.options = {
         positionClass: 'toast-top-center', // 提示框位置
         closeButton: true  // 是否显示关闭按钮
     }
@@ -116,6 +116,7 @@ $(function(){
                     $(".noteimport").val("")
                 }else{
                     $(".questionimport").val("")
+                    myquiz()
                 }
                 // toastr.success("操作成功")
             },
@@ -304,7 +305,7 @@ $(function(){
         },
         dataType: "json",
         success: function (data) {
-            // console.log(data);
+            console.log("他人提问数组取反",data.reverse());
             // 将数据赋值给“我的问题”
             herdata = data
             // 转化时间戳
@@ -313,7 +314,7 @@ $(function(){
             // toastr.success("操作成功")
         },
         error: function (e) {
-            toastr.error("网络开小猜了，请稍后再试")
+            // toastr.error("网络开小猜了，请稍后再试")
             console.log(e)
         },
         complete: function (xhr, status) {
@@ -324,33 +325,35 @@ $(function(){
 
     // 获取我的提问
     $("#loadingModal").modal("show")
-    $.ajax({
-        url: HTTP_URLH + "Studymanage/z_ask",
-        type: "post",
-        data: {
-            id: uid,
-            cid: cid
-        },
-        dataType: "json",
-        success: function (data) {
-            // console.log(data);
-            // 将数据赋值给“我的问题”
-            mydata = data
-            // 转化时间戳
-            // mydata[i].data = mydata[i].data-0;
-            scrollmyquestion()
-            // toastr.success("操作成功")
-        },
-        error: function (e) {
-            toastr.error("网络开小猜了，请稍后再试")
-            console.log(e)
-        },
-        complete: function (xhr, status) {
-            // 隐藏loading
-            $("#loadingModal").modal("hide")
-        }
-    })
-
+    function myquiz(){
+        $.ajax({
+            url: HTTP_URLH + "Studymanage/z_ask",
+            type: "post",
+            data: {
+                id: uid,
+                cid: cid
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log("我的提问数组取反",data.reverse());
+                // 将数据赋值给“我的问题”
+                mydata = data
+                // 转化时间戳
+                // mydata[i].data = mydata[i].data-0;
+                scrollmyquestion()
+                // toastr.success("操作成功")
+            },
+            error: function (e) {
+                // toastr.error("网络开小猜了，请稍后再试")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })     
+    }
+    myquiz()
 
     // 事件委托，给每个提问跳转事件。
     // 点击他人提问时跳转页面
@@ -381,7 +384,7 @@ $(function(){
                 if( 4 == rid){
                     $(".mainvideo").css({"display": "inline-block"})
                     $("#cc").attr("src",videosrc+ "vedio/" + data[0].savename)
-                    toastr.success("操作成功")
+                    // toastr.success("操作成功")
                 }else{
                     $(".textcontent").css({"display": "block"})
                     $(".textcontent iframe").attr("src",videosrc+"text/"+data[0].savename)
@@ -409,7 +412,7 @@ $(function(){
                         
                     },
                     error: function (e) {
-                        toastr.error("网络开小差了，请稍后再试")
+                        // toastr.error("网络开小差了，请稍后再试")
                         console.log(e)
                     },
                     complete: function (xhr, status) {
@@ -421,7 +424,7 @@ $(function(){
 
             },
             error: function (e) {
-                toastr.error("网络开小差了，请稍后再试")
+                // toastr.error("网络开小差了，请稍后再试")
                 console.log(e)
             },
             complete: function (xhr, status) {

@@ -463,34 +463,7 @@
 <script type="text/javascript">
 $(function(){
     // 将ajax获取的视频播放位置赋值
-        max = 100;
 
-
-            // 获取视频进度 用户id，课程id，视频id
-            $("#loadingModal").modal("show")
-        $.ajax({
-            url: HTTP_URLH + "Studymanage/t_ask",
-            type: "post",
-            data: {
-                id: 1,
-                cid: 1
-            },
-            dataType: "json",
-            success: function (data) {
-                // console.log(data);
-               
-            },
-            error: function (e) {
-                toastr.error("网络开小差了，请稍后再试")
-                console.log(e)
-            },
-            complete: function (xhr, status) {
-                // 隐藏loading
-                $("#loadingModal").modal("hide")
-            }
-        })
-        // video.addEventListener('',function(){  
-        // }); 
         // 离开页面时触发的事件
         window.onunload = function(){
             alert("要退出吗")

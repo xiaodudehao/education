@@ -32,7 +32,7 @@ modalCenter('#myModal1')
 //获取学校下拉框中要展示的内容
 $.ajax({
     type:"get",
-    url: "http://192.168.1.110/lanhong/index.php/Home/Index/set_school",
+    url: HTTP_URLH+"Index/set_school",
     dataType:"json",
    
     success:function(data){
@@ -98,14 +98,15 @@ $(".log").on('click',function(){
     }
 })
 
-// 当为file协议时跳转前的地址会拼接到地址中，http协议就不会
-$(".leftcatalogue .cataloguenam a:nth-child(1)").attr('href','coursehomepage?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(2)").attr('href','./scoresranking?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(3)").attr('href','./announcement?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(4)").attr('href','./standard?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(5)").attr('href','./onlinestudy?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(6)").attr('href','./coursehomepage?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(7),.leftcatalogue .cataloguenam a:nth-child(8)").attr('href','./stu_discussion_communication?cid='+ cid +'');
+//课程学习页面的路由
+// 当为file协议时跳转前的地址会拼接到地址中，http协议不会
+$(".leftcatalogue .cataloguenam a:nth-child(1)").attr('href','coursehomepage.html?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(2)").attr('href','./scoresranking.html?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(3)").attr('href','./announcement.html?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(4)").attr('href','./standard.html?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(5)").attr('href','./onlinestudy.html?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(6)").attr('href','./coursehomepage.html?cid='+ cid +'');
+$(".leftcatalogue .cataloguenam a:nth-child(7)").attr('href','./stu_discussion_communication.html?cid='+ cid +'');
 // bootstrap注册和登录模态框居中
 function modalCenter(modalId){
     $(modalId).on('show.bs.modal', function (e) {
@@ -432,7 +433,7 @@ $(".check").on('click',function(){
 // 判断导航栏的几个页面，如果是这几个页面，字体变绿。
 var arrurl = location.href.split("/");
 var htmlurl = arrurl[arrurl.length -1].split(".")[0]
-console.log("arr", htmlurl );
+// console.log("arr", htmlurl );
 //首页
 if(htmlurl == "index"){
  $(".header ul li").eq(0).addClass("activehead")
