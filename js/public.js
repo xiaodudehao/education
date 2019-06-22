@@ -32,7 +32,7 @@ modalCenter('#myModal1')
 //获取学校下拉框中要展示的内容
 $.ajax({
     type:"get",
-    url: "http://192.168.1.110/lanhong/index.php/Home/Index/set_school",
+    url: "http://192.168.1.126/lanhong/index.php/Home/Index/set_school",
     dataType:"json",
    
     success:function(data){
@@ -88,6 +88,16 @@ $(".course_class").attr('href','./add_class.html?cid='+ cid +'');
 $(".course_sum").attr('href','./coursestatistics.html?cid='+ cid +'');
 $(".course_study_sum").attr('href','./learstatistics.html?cid='+ cid +'');
 
+//  学生课程页面跳转
+$(".left_menu_coursehomepage").attr('href','./coursehomepage.html?c_id='+ cid +'');
+$(".left_menu_scoresranking").attr('href','./scoresranking.html?c_id='+ cid +'');
+$(".left_menu_announcement").attr('href','./announcement.html?c_id='+ cid +'');
+$(".left_menu_standard").attr('href','./standard.html?c_id='+ cid +'');
+$(".left_menu_onlinestudy").attr('href','./onlinestudy.html?c_id='+ cid +'');
+$(".left_menu_test").attr('href','./coursehomepage.html?c_id='+ cid +'');
+$(".left_menu_discussion").attr('href','./stu_discussion.html?c_id='+ cid +'');
+
+
 
 $(".log").on('click',function(){
     document.onkeydown = function(e) {
@@ -99,13 +109,13 @@ $(".log").on('click',function(){
 })
 
 // 当为file协议时跳转前的地址会拼接到地址中，http协议就不会
-$(".leftcatalogue .cataloguenam a:nth-child(1)").attr('href','coursehomepage?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(2)").attr('href','./scoresranking?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(3)").attr('href','./announcement?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(4)").attr('href','./standard?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(5)").attr('href','./onlinestudy?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(6)").attr('href','./coursehomepage?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(7),.leftcatalogue .cataloguenam a:nth-child(8)").attr('href','./stu_discussion_communication?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(1)").attr('href','coursehomepage?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(2)").attr('href','./scoresranking?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(3)").attr('href','./announcement?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(4)").attr('href','./standard?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(5)").attr('href','./onlinestudy?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(6)").attr('href','./coursehomepage?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(7),.leftcatalogue .cataloguenam a:nth-child(8)").attr('href','./stu_discussion_communication?cid='+ cid +'');
 // bootstrap注册和登录模态框居中
 function modalCenter(modalId){
     $(modalId).on('show.bs.modal', function (e) {
@@ -467,3 +477,28 @@ $(".searchicon").on("click", function () {
     // alert("被单击了"+val)
     // console.log("被单击了"+val)
 })
+
+$(function(){
+    // 模态框居中
+    var user_id = $.cookie("course")
+    console.log("dsfaasdf" + user_id)
+})
+
+
+
+//  获取cookie
+try {
+    var user_id = $.cookie("course");
+}catch (e) {
+    
+}
+
+
+
+
+
+
+
+
+
+
