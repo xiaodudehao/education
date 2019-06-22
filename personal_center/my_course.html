@@ -75,7 +75,7 @@
     <!--  中间内容  -->
     <div class="personal_question_content">
         <div class="question_content">
-            <div class="one_course">
+            <a class="one_course" href="../studymanage/coursehomepage.html">
                 <span class="glyphicon glyphicon-remove-circle"></span>
                 <img src="../images/kecheng1.png" />
                 <div class="course_progress">
@@ -90,7 +90,7 @@
                 <div class="course_name">
                     水泥的制作
                 </div>
-            </div>
+            </a>
             <div class="one_course">
                 <span class="glyphicon glyphicon-remove-circle"></span>
                 <img src="../images/kecheng1.png" />
@@ -293,6 +293,8 @@
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
+<!-- cookie插件 -->.
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <!-- 提示框插件 -->
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
@@ -311,6 +313,8 @@
                 console.log(p);
             }
         });
+
+
         select_my_course()
     })
 
@@ -332,7 +336,7 @@
                 var res = ""
                 for (var i in data) {
                     var item = data[i]
-                    res += '<div class="one_course">\n' +
+                    res += '<a class="one_course">\n' +
                         '                <span onclick="delete_course('+ item.cid +')" class="glyphicon glyphicon-remove-circle"></span>\n' +
                         '                <img src="'+ imgsrc2 + item.logo +'" />\n' +
                         '                <div class="course_progress">\n' +
@@ -347,8 +351,8 @@
                         '                <div class="course_name">\n' +
                         '                    '+ item.name +'\n' +
                         '                </div>\n' +
-                        '            </div>'
-
+                        '            </a>'
+                    $(".one_course").attr('href','../studymanage/coursehomepage.html?cid='+ item.cid +'');
                 }
                 $(".question_content").html(res)
             },

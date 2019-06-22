@@ -42,6 +42,7 @@ function select_student_informasion(){
             id: 1
         },
         success: function (data) {
+            // $.cookie("course", data[0].id)
             // console.log(data)
             if (0 == data.length) {
                 // 没有数据，显示提示
@@ -52,6 +53,9 @@ function select_student_informasion(){
             for (var i in data) {
                 var item = data[i]
                 // console.log(item)
+                var nima = data[0].id
+                console.log("nima"+nima)
+                $.cookie("course", nima);
                 var res = '<div class="student_information">\n' +
                     '            <img class="backgroundimg" src="../img/interspace.png" alt="">\n' +
                     '            <div class="lucency"></div>\n' +
@@ -76,6 +80,8 @@ function select_student_informasion(){
         }
     })
 }
+
+
 
 
 

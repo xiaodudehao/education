@@ -55,14 +55,13 @@
                     <!-- <div class="coursenam">建筑材料性能检测</div> -->
                 </div>
                 <div class="cataloguenam">
-                    <a href="">课程首页</a>
-                    <a href="scoresranking.html" >学习排行</a>
-                    <a href="">系统公告</a>
-                    <a href="">评分标准</a>
-                    <a href="">在线学习</a>
-                    <a href="">作业与测试</a>
-                    <a href="">考试</a>
-                    <a href="" class="active">讨论区</a>
+                    <a class="left_menu_coursehomepage" href="" >课程首页</a>
+                    <a class="left_menu_scoresranking" href="" >学习排行</a>
+                    <a class="left_menu_announcement" href="">系统公告</a>
+                    <a class="left_menu_standard" href="" >评分标准</a>
+                    <a class="left_menu_onlinestudy" href="">在线学习</a>
+                    <a class="left_menu_test" href="">作业与测试</a>
+                    <a class="left_menu_discussion active" href="">讨论</a>
                 </div>
             </div>
             <div class="rightresult">
@@ -591,31 +590,32 @@
     }
 
     //提示框初始化，toast-top-center表示提示框的位置
-    toastr.options = {
-        positionClass: 'toast-top-center', // 提示框位置
-        closeButton: true  // 是否显示关闭按钮
-    }
-    /**
-     *对话框
-     * @param content  提示内容
-     * @param func      点击对话框确认按钮做什么，类型为function
-     */
-    function confirmBySelf(content, func) {
-        $.confirm({
-            confirmButtonClass: "btn-primary",   //设置ok按钮样式
-            closeIcon: true,        //对话框右上角关闭
-            confirmButton: "确认", //确认按钮标题
-            cancelButton: "取消", //取消按钮标题
-            title: "提示",        //标题
-            content: content,        //对话内容
-            confirm: function () {
-                //点击确认后做什么
-                func()
-            },
-            cancel:function () {
-                //点击取消后做什么
-            }
-        })
-    }
+    // toastr.options = {
+    //     positionClass: 'toast-top-center', // 提示框位置
+    //     closeButton: true  // 是否显示关闭按钮
+    // }
+    // /**
+    //  *对话框
+    //  * @param content  提示内容
+    //  * @param func      点击对话框确认按钮做什么，类型为function
+    //  */
+    // function confirmBySelf(content, func) {
+    //     $.confirm({
+    //         confirmButtonClass: "btn-primary",   //设置ok按钮样式
+    //         closeIcon: true,        //对话框右上角关闭
+    //         confirmButton: "确认", //确认按钮标题
+    //         cancelButton: "取消", //取消按钮标题
+    //         title: "提示",        //标题
+    //         content: content,        //对话内容
+    //         confirm: function () {
+    //             //点击确认后做什么
+    //             func()
+    //         },
+    //         cancel:function () {
+    //             //点击取消后做什么
+    //         }
+    //     })
+    // }
+    )
 </script>
 </html>
