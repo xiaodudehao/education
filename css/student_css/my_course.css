@@ -20,6 +20,7 @@
 }
 .one_course:hover {
     box-shadow: 0px 0px 8px #999;
+    text-decoration: none;
 }
 .one_course:hover .glyphicon {
     display: block;

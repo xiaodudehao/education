@@ -314,7 +314,6 @@
             }
         });
 
-
         select_my_course()
     })
 
@@ -336,7 +335,7 @@
                 var res = ""
                 for (var i in data) {
                     var item = data[i]
-                    res += '<a class="one_course">\n' +
+                    res += '<a href="../studymanage/coursehomepage.html?cid='+ item.cid +'" class="one_course">\n' +
                         '                <span onclick="delete_course('+ item.cid +')" class="glyphicon glyphicon-remove-circle"></span>\n' +
                         '                <img src="'+ imgsrc2 + item.logo +'" />\n' +
                         '                <div class="course_progress">\n' +
@@ -352,7 +351,7 @@
                         '                    '+ item.name +'\n' +
                         '                </div>\n' +
                         '            </a>'
-                    $(".one_course").attr('href','../studymanage/coursehomepage.html?cid='+ item.cid +'');
+                    // $(".one_course").attr('href','../studymanage/coursehomepage.html?cid='+ item.cid +'');
                 }
                 $(".question_content").html(res)
             },
