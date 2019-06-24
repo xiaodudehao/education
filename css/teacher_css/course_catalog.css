@@ -17,7 +17,7 @@
     margin-top: 20px;
     padding: 10px;
     width: 150px;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     background-color: #81d283;
     border: none;
@@ -83,8 +83,34 @@
 }
 .contentbox .maincatalogue .project .task .detail .detailtitle .delete_icon span {
     margin-right: 50px;
+    cursor: pointer;
+    /*color: red;*/
+}
+.contentbox .maincatalogue .project .task .detail .detailtitle .delete_icon span:hover {
+    /*margin-right: 50px;*/
     color: red;
 }
 .modal-content {
     min-height: auto;
+}
+
+/* 目录字体 */
+.contentbox .maincatalogue .project .projecttitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+.contentbox .maincatalogue .project .task .taskbox .tasktitle {
+    float: left;
+    font-size: 16px;
+    /*line-height: 16px;*/
+    margin-left: 25px;
+}
+.contentbox .maincatalogue .project .task .detail {
+    font-size: 14px;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: 2px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
 }

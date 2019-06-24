@@ -10,7 +10,7 @@
     margin-top: 20px;
     padding: 10px;
     width: 150px;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     background-color: #81d283;
     border: none;
@@ -34,11 +34,11 @@
     justify-content: space-between;
 }
 .stu_dis_num {
-    font-size: 18px;
+    font-size: 16px;
     color: #33b150;
 }
 .stu_dis_choose {
-    font-size: 18px;
+    font-size: 16px;
     color: #33b150;
 }
 .stu_way_text:hover {
@@ -54,7 +54,7 @@
 }
 .ask_content {
     margin: 20px 0 40px;
-    font-size: 16px;
+    font-size: 14px;
 }
 .dividing_line {
     margin-top: 20px;

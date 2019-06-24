@@ -89,6 +89,9 @@
             </div>
             <!--  主要内容-课堂讨论区  -->
             <div class="classroom_area_content">
+                <div class="no_data_tea">
+                    没有数据！……
+                </div>
                 <div class="classroom_area_card">
                     <div class="problem_content">
                         <div class="problem_text">
@@ -125,6 +128,9 @@
             </div>
             <!--  主要内容-提问答疑区  -->
             <div class="ask_questions_content">
+                <div class="no_data_tea">
+                    没有数据！……
+                </div>
                 <div class="ask_questions_con">
                     <div class="ask_content">
                         <div class="ask_text">
@@ -345,7 +351,7 @@
         modalCenter('#myModal')
         modalCenter('#myModal1')
         ellipsis(70);//要显示的字符数 Number
-        // select_classroom()
+        select_classroom()
     })
     
     function classroom_area() {
@@ -361,7 +367,7 @@
         $(".ask_questions_content").show()
         $(".ask_questions_area").addClass("active2")
         $(".classroom_area").removeClass("active2")
-        // select_ask_question(pageNum)
+        select_ask_question(pageNum)
     }
 
     //  查询课堂讨论区
@@ -375,29 +381,31 @@
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                cid: cid
+                cid: 1
             },
             success: function (data) {
                 // console.log(data)
+                var res = ""
                 if (0 == data.length) {
                     // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
+                    // toastr.error("未查询到可用数据")
                     $("#loadingModal").modal("hide")
-                }
-                var res = ""
-                for (var i in data) {
-                    var item = data[i]
-                    // console.log(item)
-                    var index = +i + 1
-                    res += '<div class="problem_content">\n' +
-                        '                    <div class="problem_text">\n' +
-                        '                        <p class="problem_content_text">'+ index +'、'+ item.discussname +'</p>\n' +
-                        '                    </div>\n' +
-                        '                    <div class="to_view">\n' +
-                        '                        <span class="discussion_detail">查看讨论情况</span>\n' +
-                        '                        <span class="glyphicon glyphicon-remove-circle" onclick="delete_discussion('+ item.id +')"></span>\n' +
-                        '                    </div>\n' +
-                        '                </div>'
+                    $(".no_data_tea").show()
+                } else {
+                    for (var i in data) {
+                        var item = data[i]
+                        // console.log(item)
+                        var index = +i + 1
+                        res += '<div class="problem_content">\n' +
+                            '                    <div class="problem_text">\n' +
+                            '                        <p class="problem_content_text">'+ index +'、'+ item.discussname +'</p>\n' +
+                            '                    </div>\n' +
+                            '                    <div class="to_view">\n' +
+                            '                        <span class="discussion_detail">查看讨论情况</span>\n' +
+                            '                        <span class="glyphicon glyphicon-remove-circle" onclick="delete_discussion('+ item.id +')"></span>\n' +
+                            '                    </div>\n' +
+                            '                </div>'
+                    }
                 }
                 $('.classroom_area_card').html(res)
                 ellipsis2(80)
@@ -430,7 +438,7 @@
             url: HTTP_URL + "Test/discuss",
             type: "post",
             data: {
-                cid: cid,
+                cid: 1,
                 name: name,
                 rname: rname,
             },
@@ -485,6 +493,7 @@
     function select_ask_question(pageNum) {
         // loading显示
         $("#loadingModal").modal("show")
+
         var ClassroomAjax = $.ajax({
             url: HTTP_URL + "Test/setquerstion",
             type: "post",
@@ -492,76 +501,80 @@
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                cid: cid,
+                cid: 1,
                 page: pageNum
             },
             success: function (data) {
                 // console.log(data)
-                if (0 == data.length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    $("#loadingModal").modal("hide")
-                }
                 var dat = data[0]
                 var res = ""
-                for (var i in dat) {
-                    var item = dat[i]
-                    // console.log(item)
-                    var index = +i + 1
-                    var a = dat[i].data/1
-                    var d=new Date(a*1000);
-                    var time = formatDate(d)
-                    res += '<div class="ask_content">\n' +
-                        '                    <div class="ask_text">\n' +
-                        '                        <p class="ask_text_con">'+ index +'、'+ item.name +'</p>\n' +
-                        '                    </div>\n' +
-                        '                    <div class="to_view_ask">\n' +
-                        '                        <span class="discussion_ask_detail">查看讨论情况</span>\n' +
-                        '                        <div class="ask_information_area">\n' +
-                        '                            <div class="ask_information">\n' +
-                        '                                <span>'+ item.qname +'</span>\n' +
-                        '                                <span>'+ time +'</span>\n' +
-                        '                                <span>回复 '+ item.num +'</span>\n' +
-                        '                            </div>\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                    <div class="dividing_line"></div>\n' +
-                        '                </div>'
-                }
-                $('.ask_questions_con').html(res)
-                //分页
-                $("#page").bootstrapPaginator({
-                    bootstrapMajorVersion: 3,   //bootstrap版本
-                    totalPages: data[1],   //总页数
-                    currentPage: pageNum,  //当前页数
-                    numberOfPages: 3,    //分页器每页展示页码数
-                    shouldShowPage: true,   //所有的按钮都展示
-                    itemTexts: function (type, page, current) {
-                        // console.log(type)
-                        //设置分页控件每部分的显示文字
-                        switch (type) {
-                            case "first":
-                                return "第一页"
-                            case "prev":
-                                return "上一页"
-                            case "next":
-                                return "下一页"
-                            case "last":
-                                return "最后一页"
-                            case "page":
-                                return page
-                            case "jump":
-                                return "跳转"
-                        }
-                    }, onPageClicked: function(event, originalEvent, type, page) {
-                        //点击事件
-                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-                        pageNum = page
-                        // 查询
-                        select_ask_question(pageNum)
+                if ("" == dat) {
+                    // 没有数据，显示提示
+                    // toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_tea").show()
+                    $('.ask_questions_con').html(res)
+                } else {
+                    for (var i in dat) {
+                        var item = dat[i]
+                        // console.log(item)
+                        var index = +i + 1
+                        var a = dat[i].data/1
+                        var d=new Date(a*1000);
+                        var time = formatDate(d)
+                        res += '<div class="ask_content">\n' +
+                            '                    <div class="ask_text">\n' +
+                            '                        <p class="ask_text_con">'+ index +'、'+ item.name +'</p>\n' +
+                            '                    </div>\n' +
+                            '                    <div class="to_view_ask">\n' +
+                            '                        <span class="discussion_ask_detail">查看讨论情况</span>\n' +
+                            '                        <div class="ask_information_area">\n' +
+                            '                            <div class="ask_information">\n' +
+                            '                                <span>'+ item.qname +'</span>\n' +
+                            '                                <span>'+ time +'</span>\n' +
+                            '                                <span>回复 '+ item.num +'</span>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                    <div class="dividing_line"></div>\n' +
+                            '                </div>'
                     }
-                })
-                //  分页结束
+                    $('.ask_questions_con').html(res)
+                    //分页
+                    $("#page").bootstrapPaginator({
+                        bootstrapMajorVersion: 3,   //bootstrap版本
+                        totalPages: data[1],   //总页数
+                        currentPage: pageNum,  //当前页数
+                        numberOfPages: 3,    //分页器每页展示页码数
+                        shouldShowPage: true,   //所有的按钮都展示
+                        itemTexts: function (type, page, current) {
+                            // console.log(type)
+                            //设置分页控件每部分的显示文字
+                            switch (type) {
+                                case "first":
+                                    return "第一页"
+                                case "prev":
+                                    return "上一页"
+                                case "next":
+                                    return "下一页"
+                                case "last":
+                                    return "最后一页"
+                                case "page":
+                                    return page
+                                case "jump":
+                                    return "跳转"
+                            }
+                        }, onPageClicked: function(event, originalEvent, type, page) {
+                            //点击事件
+                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                            pageNum = page
+                            // 查询
+                            select_ask_question(pageNum)
+                        }
+                    })
+                    //  分页结束
+                }
+
             },
             error: function (e) {
                 console.log(e)

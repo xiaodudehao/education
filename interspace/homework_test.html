@@ -85,6 +85,9 @@
             <div class="add_announcement_btn">
                 <button onclick="new_detail()">新增测验</button>
             </div>
+            <div class="no_data_tea">
+                没有数据！……
+            </div>
             <!--  公告主体内容  -->
             <div class="announcement_content">
                 <div class="announcement_information" style="height: 230px">
@@ -396,12 +399,12 @@
                 console.log(p);
             }
         });
-        // select_homework(pageNum)
+        select_homework(pageNum)
     })
     // 查询
     function select_homework(pageN) {
         var param = {
-            cid: cid,
+            cid: 1,
             page: pageN,
         }
 
@@ -415,69 +418,72 @@
             // async:false,    //不进行异步刷新
             data: param,
             success: function (data) {
-                // console.log(data)
-                if (0 == data[0].length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    // $("#loadingModal").modal("hide")
-                }
+                console.log(data)
                 var res = ""
                 var dat = data[0]
-                for (var i in dat) {
-                    var item = dat[i]
-                    // console.log(item)
-                    var index = +i+1
-                    // 时间戳转换
-                    res += '<div class="announcement_information" style="height: 230px">\n' +
-                        '                    <div class="announcement_btn">\n' +
-                        '                        <button onclick="homework_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
-                        '                        <span>|</span>\n' +
-                        '                        <button onclick="delete_homework('+ item.id +')">删除</button>\n' +
-                        '                    </div>\n' +
-                        '                    <div class="announcement_text">\n' +
-                        '                        <p>'+ index +'、'+ item.name +'</p>\n' +
-                        '                        <p>测验总分： '+ item.count +'分</p>\n' +
-                        '                        <p>测验规定时间： '+ item.gtime +'分钟</p>\n' +
-                        '                        <p>测验起止日期： <span class="announcement_text_content">'+ item.time +' - '+ item.data +'</span></p>\n' +
-                        '                        <p>测验所属章节： '+ item.section +'</p>\n' +
-                        '                    </div>\n' +
-                        '                </div>'
+                if ("" == dat) {
+                    // 没有数据，显示提示
+                    // toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_tea").show()
+                    $('.announcement_content').html(res)
+                } else {
+                    for (var i in dat) {
+                        var item = dat[i]
+                        // console.log(item)
+                        var index = +i+1
+                        // 时间戳转换
+                        res += '<div class="announcement_information" style="height: 230px">\n' +
+                            '                    <div class="announcement_btn">\n' +
+                            '                        <button onclick="homework_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
+                            '                        <span>|</span>\n' +
+                            '                        <button onclick="delete_homework('+ item.id +')">删除</button>\n' +
+                            '                    </div>\n' +
+                            '                    <div class="announcement_text">\n' +
+                            '                        <p>'+ index +'、'+ item.name +'</p>\n' +
+                            '                        <p>测验总分： '+ item.count +'分</p>\n' +
+                            '                        <p>测验规定时间： '+ item.gtime +'分钟</p>\n' +
+                            '                        <p>测验起止日期： <span class="announcement_text_content">'+ item.time +' - '+ item.data +'</span></p>\n' +
+                            '                        <p>测验所属章节： '+ item.section +'</p>\n' +
+                            '                    </div>\n' +
+                            '                </div>'
+                    }
+                    $('.announcement_content').html(res)
+                    //分页
+                    $("#page").bootstrapPaginator({
+                        bootstrapMajorVersion: 3,   //bootstrap版本
+                        totalPages: data[1],   //总页数
+                        currentPage: pageN,  //当前页数
+                        numberOfPages: 3,    //分页器每页展示页码数
+                        shouldShowPage: true,   //所有的按钮都展示
+                        itemTexts: function (type, page, current) {
+                            // console.log(type)
+                            //设置分页控件每部分的显示文字
+                            switch (type) {
+                                case "first":
+                                    return "第一页"
+                                case "prev":
+                                    return "上一页"
+                                case "next":
+                                    return "下一页"
+                                case "last":
+                                    return "最后一页"
+                                case "page":
+                                    return page
+                                case "jump":
+                                    return "跳转"
+                            }
+                        }, onPageClicked: function(event, originalEvent, type, page) {
+                            //点击事件
+                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                            pageNum = page
+                            // 查询
+                            select_homework(pageNum)
+                        }
+                    })
+                    //  分页结束
                 }
 
-                $('.announcement_content').html(res)
-                //分页
-                $("#page").bootstrapPaginator({
-                    bootstrapMajorVersion: 3,   //bootstrap版本
-                    totalPages: data[1],   //总页数
-                    currentPage: pageN,  //当前页数
-                    numberOfPages: 3,    //分页器每页展示页码数
-                    shouldShowPage: true,   //所有的按钮都展示
-                    itemTexts: function (type, page, current) {
-                        // console.log(type)
-                        //设置分页控件每部分的显示文字
-                        switch (type) {
-                            case "first":
-                                return "第一页"
-                            case "prev":
-                                return "上一页"
-                            case "next":
-                                return "下一页"
-                            case "last":
-                                return "最后一页"
-                            case "page":
-                                return page
-                            case "jump":
-                                return "跳转"
-                        }
-                    }, onPageClicked: function(event, originalEvent, type, page) {
-                        //点击事件
-                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-                        pageNum = page
-                        // 查询
-                        select_homework(pageNum)
-                    }
-                })
-                //  分页结束
             },
             error: function (e) {
                 console.log(e)

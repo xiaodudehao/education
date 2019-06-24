@@ -1,8 +1,9 @@
 /* 中间模块 */
 .personal_question_content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .question_content {
     margin-top: 60px;

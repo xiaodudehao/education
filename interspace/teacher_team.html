@@ -81,6 +81,9 @@
             <div class="tt_content_right_title">
                 教师团队
             </div>
+            <div class="no_data_tea">
+                没有数据！……
+            </div>
             <!--  主要内容  -->
             <div class="tt_team">
                 <div class="tt_information">
@@ -396,34 +399,36 @@
             },
             success: function (data) {
                 console.log(data)
+                var res = ""
                 if (0 == data.length) {
                     // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
+                    // toastr.error("未查询到可用数据")
                     $("#loadingModal").modal("hide")
-                }
-                var res = ""
-                for (var i in data) {
-                    var item = data[i]
-                    // console.log(item)
-                    var imgsrc = ""
-                    if (item.photo == null) {
-                        imgsrc = imgsrc2 + "mo.png"
-                    } else {
-                        imgsrc = imgsrc2 + item.photo
+                    $(".no_data_tea").show()
+                } else {
+                    for (var i in data) {
+                        var item = data[i]
+                        // console.log(item)
+                        var imgsrc = ""
+                        if (item.photo == null) {
+                            imgsrc = imgsrc2 + "mo.png"
+                        } else {
+                            imgsrc = imgsrc2 + item.photo
+                        }
+                        res += '<div class="tt_information">\n' +
+                            '                    <img src="'+ imgsrc +'">\n' +
+                            '                    <div class="tt_Introduction">\n' +
+                            '                        <div class="tt_Introduction_text">\n' +
+                            '                            <p class="tt_Introduction_title">'+ item.name +' &nbsp;&nbsp; '+ item.duty +'</p>\n' +
+                            '                            <p class="tt_text">'+ item.text +'</p>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="action_buttons">\n' +
+                            '                            <button type="button" class="btn btn-link" onclick="teacher_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ') ">编辑</button>\n' +
+                            '                            <button type="button" class="btn btn-link" onclick="delete_teacher(' + item.id + ')">删除</button>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                </div>'
                     }
-                    res += '<div class="tt_information">\n' +
-                        '                    <img src="'+ imgsrc +'">\n' +
-                        '                    <div class="tt_Introduction">\n' +
-                        '                        <div class="tt_Introduction_text">\n' +
-                        '                            <p class="tt_Introduction_title">'+ item.name +' &nbsp;&nbsp; '+ item.duty +'</p>\n' +
-                        '                            <p class="tt_text">'+ item.text +'</p>\n' +
-                        '                        </div>\n' +
-                        '                        <div class="action_buttons">\n' +
-                        '                            <button type="button" class="btn btn-link" onclick="teacher_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ') ">编辑</button>\n' +
-                        '                            <button type="button" class="btn btn-link" onclick="delete_teacher(' + item.id + ')">删除</button>\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                </div>'
                 }
                 $('.tt_team').html(res)
                 // 调用字数超出显示省略号……

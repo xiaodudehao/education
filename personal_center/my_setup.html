@@ -368,6 +368,7 @@
     }
 
     function select_input() {
+        $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
             url: HTTP_URLH + "Personal/ex_personal",
             type: "post",

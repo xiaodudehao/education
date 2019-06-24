@@ -38,7 +38,7 @@ $.ajax({
     dataType:"json",
    
     success:function(data){
-        console.log("学校",data);
+        // console.log("学校",data);
         schoolname = data
         school()
     },
@@ -49,7 +49,7 @@ $.ajax({
 // 从localastorage中取学校数据渲染到页面注册模态框中的多选框。
 function school(){
     if(schoolname != undefined){
-        console.log(schoolname);
+        // console.log(schoolname);
         localStorage.setItem('schoolname',JSON.stringify(schoolname));
         var str="";
         for(var i=0;i<schoolname.length;i++){
@@ -113,13 +113,13 @@ $(".log").on('click',function(){
 
 //课程学习页面的路由
 // 当为file协议时跳转前的地址会拼接到地址中，http协议不会
-$(".leftcatalogue .cataloguenam a:nth-child(1)").attr('href','coursehomepage.html?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(2)").attr('href','./scoresranking.html?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(3)").attr('href','./announcement.html?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(4)").attr('href','./standard.html?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(5)").attr('href','./onlinestudy.html?cid='+ cid +'');
-// $(".leftcatalogue .cataloguenam a:nth-child(6)").attr('href','./coursehomepage.html?cid='+ cid +'');
-$(".leftcatalogue .cataloguenam a:nth-child(7)").attr('href','./stu_discussion_communication.html?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(1)").attr('href','coursehomepage.html?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(2)").attr('href','./scoresranking.html?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(3)").attr('href','./announcement.html?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(4)").attr('href','./standard.html?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(5)").attr('href','./onlinestudy.html?cid='+ cid +'');
+// // $(".leftcatalogue .cataloguenam a:nth-child(6)").attr('href','./coursehomepage.html?cid='+ cid +'');
+// $(".leftcatalogue .cataloguenam a:nth-child(7)").attr('href','./stu_discussion_communication.html?cid='+ cid +'');
 
 // bootstrap注册和登录模态框居中
 function modalCenter(modalId){
@@ -483,6 +483,7 @@ $(".searchicon").on("click", function () {
     // console.log("被单击了"+val)
 })
 
+
 // $(function(){
 //     // 模态框居中
 //     var user_id = $.cookie("course")
@@ -497,6 +498,10 @@ $(".searchicon").on("click", function () {
 // }catch (e) {
     
 // }
+
+
+
+
 
 
 

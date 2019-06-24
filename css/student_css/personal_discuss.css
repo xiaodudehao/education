@@ -2,8 +2,9 @@
 /* 中间模块 */
 .personal_discuss_content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .discuss_content {
     margin-top: 60px;
@@ -63,7 +64,7 @@
 }
 .my_discuss {
     margin: 20px 0 0 20px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 

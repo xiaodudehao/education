@@ -11,9 +11,9 @@
 }
 /* 系统公告的一块内容 */
 .announcement_information {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 30px;
-    height: 200px;
+    height: 170px;
     border: 1px solid #81d283;
     border-radius: 20px;
 }
@@ -24,7 +24,7 @@
 }
 .announcement_btn button {
     padding: 5px;
-    font-size: 18px;
+    font-size: 16px;
     color: #81d283;
     background: none;
     border: none;
@@ -33,10 +33,10 @@
     color: #81d283;
 }
 .announcement_text p {
-    font-size: 18px;
+    font-size: 16px;
 }
 .announcement_text .announcement_text_content {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
 }
 /* 满分框 */
@@ -61,7 +61,7 @@
 }
 /* 添加按钮 */
 .add_criteria_btn {
-    /*margin-top: 20px;*/
+    margin-top: 20px;
     padding: 20px;
     text-align: right;
     display: flex;
@@ -70,7 +70,7 @@
     align-items: center;
 }
 .criteria_title {
-    font-size: 20px;
+    font-size: 18px;
     /*font-weight: bold;*/
     display: flex;
     flex-direction: row;
@@ -79,14 +79,14 @@
 .add_criteria_btn button {
     padding: 10px;
     width: 150px;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     background-color: #81d283;
     border: none;
     border-radius: 10px;
 }
 .add_criteria_btn button:hover {
-    background-color: #579c59;
+    background-color: #33b150;
 }
 /* 模态框 */
 .modal-content {

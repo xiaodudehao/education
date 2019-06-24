@@ -87,6 +87,10 @@
                     <div class="reply_choose_order">
                         <span onclick="time_order()" class="other_choose_text">按时间排序</span>｜<span onclick="comments_num()" class="other_choose_text">按点赞量排序</span>
                     </div>
+                    <!--  没有数据时  -->
+                    <div class="no_data">
+                        没有数据！……
+                    </div>
                     <div class="other_reply">
                         <div class="one_reply">
                             <div class="user_head_img">
@@ -265,13 +269,13 @@
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
-<script src="../js/public.js" ></script>
 <!-- 分页器 -->
 <script src="../lib/bootstrap-paginator.js"></script>
 <!-- 提示框插件 -->
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
+<script src="../js/public.js" ></script>
 <script type="text/javascript">
     var PageNum = 1
     var stu_url = location.href
@@ -341,83 +345,88 @@
             },
             success: function (data) {
                 // console.log(data)
-                if (0 == data.length) {
-                    // 没有数据，显示提示
-                    toastr.warning("未查询到可用数据")
-                    $("#loadingModal").modal("hide")
-                }
                 var res = ""
-                for (var i=0;i<data.length-1;i++) {
-                    var item = data[i]
-                    // console.log(item)
-                    // console.log(item.id)
-                    var k = +i+1
-                    // 转换成数字形式“/1”
-                    var a = item.data/1
-                    var d=new Date(a*1000);
-                    var time = formatDate(d)
-                    var topic = item.topic
-                    var res2 = ""
-                    var res3 = ""
-                    for (var j in topic) {
-                        var item2 = topic[j]
-                        res2 += '<img src="'+ imgsrc3 + item2.logo +'">'
-                        res3 += '<span>'+ item2.username +'</span>'
-                    }
-                    $(".user_head_img").html(res2)
-                    $(".user_name").html(res3)
-                    res += '<div class="one_reply">\n' +
-                        '                            <div class="user_head_img">\n' +
-                        '                                '+ res2 +'\n' +
-                        '                            </div>\n' +
-                        '                            <div class="other_reply_text">\n' +
-                        '                                <p>'+ item.name +'</p>\n' +
-                        '                                <div class="other_reply_text2">\n' +
-                        '                                    <div>\n' +
-                        '                                        <div class="user_name">'+ res3 +'</div> 于'+ time +'发表\n' +
-                        '                                    </div>\n' +
-                        '                                    <div>\n' +
-                        '                                        <span data-id="'+ item.id +'" class="glyphicon glyphicon-heart-empty dianzan dianzan'+ k +'"></span>\n' +
-                        '                                        <span class="'+ item.id +'" >点赞'+ item.praise +'</span>\n' +
-                        '                                    </div>\n' +
-                        '                                </div>\n' +
-                        '                            </div>\n' +
-                        '                        </div>'
-                    select_dianzan(item.id, k)
-                }
-                $('.other_reply').html(res)
-                //分页
-                $("#page").bootstrapPaginator({
-                    bootstrapMajorVersion: 3,   //bootstrap版本
-                    currentPage: PageNum,  //当前页数
-                    totalPages: data[data.length-1].page,   //总页数
-                    numberOfPages: 3,    //分页器每页展示页码数
-                    shouldShowPage: true,   //所有的按钮都展示
-                    itemTexts: function (type, page, current) {
-                        // console.log(type)
-                        //设置分页控件每部分的显示文字
-                        switch (type) {
-                            case "first":
-                                return "第一页"
-                            case "prev":
-                                return "上一页"
-                            case "next":
-                                return "下一页"
-                            case "last":
-                                return "最后一页"
-                            case "page":
-                                return page
-                            case "jump":
-                                return "跳转"
+                if (1 == data.length) {
+                    // 没有数据，显示提示
+                    toastr.warning("无人参与回复！")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data").show()
+                    $('.other_reply').html(res)
+                }else {
+                    for (var i=0;i<data.length-1;i++) {
+                        var item = data[i]
+                        // console.log(item)
+                        // console.log(item.id)
+                        var k = +i+1
+                        // 转换成数字形式“/1”
+                        var a = item.data/1
+                        var d=new Date(a*1000);
+                        var time = formatDate(d)
+                        var topic = item.topic
+                        var res2 = ""
+                        var res3 = ""
+                        for (var j in topic) {
+                            var item2 = topic[j]
+                            res2 += '<img src="'+ imgsrc3 + item2.logo +'">'
+                            res3 += '<span>'+ item2.username +'</span>'
                         }
-                    }, onPageClicked: function(event, originalEvent, type, page) {
-                        //点击事件
-                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-                        pageNum = page
-                        // 查询
-                        select_discussion_ask(pageNum,com_id, num)
+                        $(".user_head_img").html(res2)
+                        $(".user_name").html(res3)
+                        res += '<div class="one_reply">\n' +
+                            '                            <div class="user_head_img">\n' +
+                            '                                '+ res2 +'\n' +
+                            '                            </div>\n' +
+                            '                            <div class="other_reply_text">\n' +
+                            '                                <p>'+ item.name +'</p>\n' +
+                            '                                <div class="other_reply_text2">\n' +
+                            '                                    <div>\n' +
+                            '                                        <div class="user_name">'+ res3 +'</div> 于'+ time +'发表\n' +
+                            '                                    </div>\n' +
+                            '                                    <div>\n' +
+                            '                                        <span data-id="'+ item.id +'" class="glyphicon glyphicon-heart-empty dianzan dianzan'+ k +'"></span>\n' +
+                            '                                        <span class="'+ item.id +'" >点赞'+ item.praise +'</span>\n' +
+                            '                                    </div>\n' +
+                            '                                </div>\n' +
+                            '                            </div>\n' +
+                            '                        </div>'
+                        select_dianzan(item.id, k)
                     }
-                })
+                    $('.other_reply').html(res)
+                    //分页
+                    $("#page").bootstrapPaginator({
+                        bootstrapMajorVersion: 3,   //bootstrap版本
+                        currentPage: PageNum,  //当前页数
+                        totalPages: data[data.length-1].page,   //总页数
+                        numberOfPages: 3,    //分页器每页展示页码数
+                        shouldShowPage: true,   //所有的按钮都展示
+                        itemTexts: function (type, page, current) {
+                            // console.log(type)
+                            //设置分页控件每部分的显示文字
+                            switch (type) {
+                                case "first":
+                                    return "第一页"
+                                case "prev":
+                                    return "上一页"
+                                case "next":
+                                    return "下一页"
+                                case "last":
+                                    return "最后一页"
+                                case "page":
+                                    return page
+                                case "jump":
+                                    return "跳转"
+                            }
+                        }, onPageClicked: function(event, originalEvent, type, page) {
+                            //点击事件
+                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                            pageNum = page
+                            // 查询
+                            select_discussion_ask(pageNum,com_id, num)
+                        }
+                    })
+                }
+
+
                 $(".dianzan").on("click", function() {
                     // console.log("点")
                     if ($(this).hasClass("isactive")) {
@@ -616,6 +625,10 @@
             }
         })
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> c657c2a607833df34a45f90e2fd6db417e18dcef
 </script>
 </html>

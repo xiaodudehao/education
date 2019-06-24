@@ -5,13 +5,13 @@
     margin-top: 20px;
 }
 .active2 {
-    background-color: #579c59 !important;
+    background-color: #33b150 !important;
 }
 .switch_btn button {
     margin-top: 20px;
     padding: 10px;
     width: 150px;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     background-color: #81d283;
     border: none;
@@ -23,7 +23,7 @@
     border-radius: 0 10px 10px 0;
 }
 .switch_btn button:hover {
-    background-color: #579c59;
+    background-color: #33b150;
 }
 /* 课堂讨论区 */
 .classroom_area_content {
@@ -39,7 +39,7 @@
     margin: 10px 0;
     padding: 10px 10px;
     display: flex;
-    font-size: 16px;
+    font-size: 14px;
 }
 .problem_text {
     width: 70%;
@@ -52,6 +52,7 @@
 }
 .discussion_detail {
     color: #81d283;
+    font-size: 14px;
 }
 .glyphicon-remove-circle{
     display: none;
@@ -67,15 +68,15 @@
 .add_discussion_btn button {
     margin-top: 50px;
     padding: 10px;
-    width: 400px;
-    font-size: 20px;
+    width: 350px;
+    font-size: 16px;
     color: white;
     background-color: #81d283;
     border: none;
     border-radius: 10px;
 }
 .add_discussion_btn button:hover {
-    background-color: #579c59;
+    background-color: #33b150;
 }
 /* 提问答疑区 */
 .ask_questions_content {
@@ -85,7 +86,7 @@
 .ask_content {
     margin: 10px 0;
     padding: 10px 10px;
-    font-size: 16px;
+    font-size: 14px;
 }
 .dividing_line {
     margin-top: 20px;

@@ -74,6 +74,10 @@
     </div>
     <!--  中间内容  -->
     <div class="personal_question_content">
+    <!--  没有数据时  -->
+        <div class="no_data_per">
+            您暂时未添加任何课程！
+        </div>
         <div class="question_content">
             <a class="one_course" href="../studymanage/coursehomepage.html">
                 <span class="glyphicon glyphicon-remove-circle"></span>
@@ -291,7 +295,6 @@
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
-<script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
 <!-- cookie插件 -->.
 <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -299,6 +302,7 @@
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
+<script src="../js/public.js" ></script>
 <!--  个人信息-头像-名字 -->
 <script src="../js/student_public.js"></script>
 <script type="text/javascript">
@@ -313,7 +317,6 @@
                 console.log(p);
             }
         });
-
 
         select_my_course()
     })
@@ -334,26 +337,33 @@
             success: function (data) {
                 console.log(data)
                 var res = ""
-                for (var i in data) {
-                    var item = data[i]
-                    res += '<a class="one_course">\n' +
-                        '                <span onclick="delete_course('+ item.cid +')" class="glyphicon glyphicon-remove-circle"></span>\n' +
-                        '                <img src="'+ imgsrc2 + item.logo +'" />\n' +
-                        '                <div class="course_progress">\n' +
-                        '                    <span>学习进度： '+ item.zplan +'%</span>\n' +
-                        '                    <div class="progress">\n' +
-                        '                        <div class="progress-bar progress-bar-success" role="progressbar"\n' +
-                        '                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"\n' +
-                        '                             style="width: '+ item.zplan +'%;">\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                </div>\n' +
-                        '                <div class="course_name">\n' +
-                        '                    '+ item.name +'\n' +
-                        '                </div>\n' +
-                        '            </a>'
-                    $(".one_course").attr('href','../studymanage/coursehomepage.html?cid='+ item.cid +'');
+                if (null == data) {
+                    // toastr.warning("您暂时没有参与任何课程！")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_per").show()
+                } else {
+                    for (var i in data) {
+                        var item = data[i]
+                        res += '<a href="../studymanage/coursehomepage.html?cid='+ item.cid +'" class="one_course">\n' +
+                            '                <span onclick="delete_course('+ item.cid +')" class="glyphicon glyphicon-remove-circle"></span>\n' +
+                            '                <img src="'+ imgsrc2 + item.logo +'" />\n' +
+                            '                <div class="course_progress">\n' +
+                            '                    <span>学习进度： '+ item.zplan +'%</span>\n' +
+                            '                    <div class="progress">\n' +
+                            '                        <div class="progress-bar progress-bar-success" role="progressbar"\n' +
+                            '                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"\n' +
+                            '                             style="width: '+ item.zplan +'%;">\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                </div>\n' +
+                            '                <div class="course_name">\n' +
+                            '                    '+ item.name +'\n' +
+                            '                </div>\n' +
+                            '            </a>'
+                        // $(".one_course").attr('href','../studymanage/coursehomepage.html?cid='+ item.cid +'');
+                    }
                 }
+
                 $(".question_content").html(res)
             },
             error: function (e) {
