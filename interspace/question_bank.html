@@ -121,6 +121,9 @@
                 </tr>
                 </tbody>
             </table>
+            <div class="no_data_tea">
+                没有数据！……
+            </div>
             <div class="page_area">
                 <ul id="page"></ul>
             </div>
@@ -440,68 +443,73 @@
             data: param,
             success: function (data) {
                 console.log(data)
-                if (0 == data[0].length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    // $("#loadingModal").modal("hide")
-                }
                 var res = ""
                 var dat = data[0]
-                for (var i in dat) {
-                    var item = dat[i]
-                    // console.log(item)
-                    var num = +i+1
-                    // 时间戳转换
-                    // 转换成数字形式“/1”
-                    var a = item.data/1
-                    var d=new Date(a*1000);
-                    var time = formatDate(d)
-                    res += '<tr>\n' +
-                        '                    <td>'+ num +'</td>\n' +
-                        '                    <td>'+ item.name +'</td>\n' +
-                        '                    <td>'+ item.type +'</td>\n' +
-                        '                    <td>'+ time +'</td>\n' +
-                        '                    <td>'+ item.source +'</td>\n' +
-                        '                    <td>\n' +
-                        '                        <button class="btn btn-primary tab_btn" onclick="question_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
-                        '                        <button class="btn btn-danger tab_btn" onclick="delete_question('+ item.id +')">删除</button>\n' +
-                        '                    </td>\n' +
-                        '                </tr>'
+                if ("" == dat) {
+                    // 没有数据，显示提示
+                    // toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_tea").show()
+                    $('#tab_body').html(res)
+                } else {
+                    for (var i in dat) {
+                        var item = dat[i]
+                        // console.log(item)
+                        var num = +i+1
+                        // 时间戳转换
+                        // 转换成数字形式“/1”
+                        var a = item.data/1
+                        var d=new Date(a*1000);
+                        var time = formatDate(d)
+                        res += '<tr>\n' +
+                            '                    <td>'+ num +'</td>\n' +
+                            '                    <td>'+ item.name +'</td>\n' +
+                            '                    <td>'+ item.type +'</td>\n' +
+                            '                    <td>'+ time +'</td>\n' +
+                            '                    <td>'+ item.source +'</td>\n' +
+                            '                    <td>\n' +
+                            '                        <button class="btn btn-primary tab_btn" onclick="question_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
+                            '                        <button class="btn btn-danger tab_btn" onclick="delete_question('+ item.id +')">删除</button>\n' +
+                            '                    </td>\n' +
+                            '                </tr>'
+                    }
+
+                    $('#tab_body').html(res)
+                    //分页
+                    $("#page").bootstrapPaginator({
+                        bootstrapMajorVersion: 3,   //bootstrap版本
+                        totalPages: data[1],   //总页数
+                        numberOfPages: 3,    //分页器每页展示页码数
+                        shouldShowPage: true,   //所有的按钮都展示
+                        itemTexts: function (type, page, current) {
+                            // console.log(type)
+                            //设置分页控件每部分的显示文字
+                            switch (type) {
+                                case "first":
+                                    return "第一页"
+                                case "prev":
+                                    return "上一页"
+                                case "next":
+                                    return "下一页"
+                                case "last":
+                                    return "最后一页"
+                                case "page":
+                                    return page
+                                case "jump":
+                                    return "跳转"
+                            }
+                        }, onPageClicked: function(event, originalEvent, type, page) {
+                            //点击事件
+                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                            pageNum = page
+                            // 查询
+                            select_question(pageNum)
+                        }
+                    })
+                    //  分页结束
                 }
 
-                $('#tab_body').html(res)
-                //分页
-                $("#page").bootstrapPaginator({
-                    bootstrapMajorVersion: 3,   //bootstrap版本
-                    totalPages: data[1],   //总页数
-                    numberOfPages: 3,    //分页器每页展示页码数
-                    shouldShowPage: true,   //所有的按钮都展示
-                    itemTexts: function (type, page, current) {
-                        // console.log(type)
-                        //设置分页控件每部分的显示文字
-                        switch (type) {
-                            case "first":
-                                return "第一页"
-                            case "prev":
-                                return "上一页"
-                            case "next":
-                                return "下一页"
-                            case "last":
-                                return "最后一页"
-                            case "page":
-                                return page
-                            case "jump":
-                                return "跳转"
-                        }
-                    }, onPageClicked: function(event, originalEvent, type, page) {
-                        //点击事件
-                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-                        pageNum = page
-                        // 查询
-                        select_question(pageNum)
-                    }
-                })
-                //  分页结束
+
             },
             error: function (e) {
                 console.log(e)

@@ -494,8 +494,6 @@ $(function(){
 
 
 
-//  获取cookie
-
 
 
 

@@ -4,7 +4,7 @@
 }
 .mainpartportion .student_information {
     margin-top: -65px;
-    height: 420px;
+    height: 320px;
     position: relative;
     overflow: hidden;
 }
@@ -17,7 +17,7 @@
 }
 .mainpartportion .student_information .lucency {
     width: 1920px;
-    height: 420px;
+    height: 320px;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -31,23 +31,23 @@
     width: 1200px;
     left: 50%;
     transform: translate(-50%, 0%);
-    padding-top: 80px;
+    padding-top: 70px;
 }
 .mainpartportion .student_information .tintroduce img {
-    width: 262px;
-    height: 262px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
 }
 .mainpartportion .student_information .tintroduce .teacherna {
     margin-left: 35px;
 }
 .mainpartportion .student_information .tintroduce .teacherna div:first-child {
-    margin-top: 60px;
-    font-size: 30px;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    font-size: 24px;
+    margin-bottom: 30px;
 }
 .mainpartportion .student_information .tintroduce .teacherna div:last-child {
-    font-size: 20px;
+    font-size: 18px;
 }
 .maincontent .mainpartportion {
     padding-top: 65px;
@@ -82,7 +82,7 @@
     background-color: #81d283;
     color: white;
     border: none;
-    font-size: 20px;
+    font-size: 16px;
 }
 .menu_btn button:hover {
     background-color: #33b150;
@@ -92,4 +92,12 @@
 }
 .btn_last {
     border-radius: 0 10px 10px 0;
+}
+
+/* 没有数据时样式 */
+.no_data_per {
+    display: none;
+    margin: 0;
+    padding: 100px;
+    text-align: center;
 }

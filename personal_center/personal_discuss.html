@@ -74,6 +74,10 @@
     </div>
     <!--  中间内容  -->
     <div class="personal_discuss_content">
+        <!--  没有数据时  -->
+        <div class="no_data_per">
+            您暂时没有讨论！
+        </div>
         <div class="discuss_content">
             <!--  小模块  -->
             <div class="discuss_content_card">
@@ -250,12 +254,12 @@
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
-<script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
 <!-- 提示框插件 -->
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
+<script src="../js/public.js" ></script>
 <!--  个人信息-头像-名字 -->
 <script src="../js/student_public.js"></script>
 <script type="text/javascript">
@@ -288,53 +292,61 @@
             },
             success: function (data) {
                 console.log(data)
-                if (0 == data.length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    $("#loadingModal").modal("hide")
-                }
                 var res = ""
-                for (var i in data) {
-                    var item = data[i]
-                    var result = item.topic
-                    var res1 = ""
-                    for (var j in result) {
-                        var result1 = result[j]
-                        var result2 = result1.mine
-                        // console.log(resul2)
-                        var res2 = ""
-                        for (var k in result2) {
-                            var result3 = result2[k]
-                            var index = +k + 1
-                            res2 += '<p>我的讨论'+ index +'：'+ result3.name +' </p>'
+                if ("" == data) {
+                    // 没有数据，显示提示
+                    // toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_per").show()
+                } else {
+                    for (var i in data) {
+                        var item = data[i]
+                        var result = item.topic
+                        var res1 = ""
+                        for (var j in result) {
+                            var result1 = result[j]
+                            var result2 = result1.mine
+                            // console.log(resul2)
+                            var res2 = ""
+                            for (var k in result2) {
+                                var result3 = result2[k]
+                                var index = +k + 1
+                                res2 += '<p>我的讨论'+ index +'：'+ result3.name +' </p>'
+                            }
+                            $('.my_discuss').html(res2)
+                            res1 += '<div class="one_discuss">\n' +
+                                '                            <p class="communication_subject">课堂交流主题: '+ result1.discussname +'</p>\n' +
+                                '                            <div class="my_discuss">\n' +
+                                '                                '+ res2 +'\n' +
+                                '                            </div>\n' +
+                                '                        </div>'
                         }
-                        $('.my_discuss').html(res2)
-                        res1 += '<div class="one_discuss">\n' +
-                            '                            <p class="communication_subject">课堂交流主题: '+ result1.discussname +'</p>\n' +
-                            '                            <div class="my_discuss">\n' +
-                            '                                '+ res2 +'\n' +
-                            '                            </div>\n' +
-                            '                        </div>'
+                        $('.discuss_content_card_right').html(res1)
+                        if ("" == res1) {
+                            res += ""
+                        } else {
+                            res += '<div class="discuss_content_card">\n' +
+                                '                <div class="discuss_content_card_content">\n' +
+                                '                    <div class="discuss_content_card_left">\n' +
+                                '                        <img src="'+ imgsrc2 + item.logo+'">\n' +
+                                '                        <div class="card_left_text">\n' +
+                                '                            <p class="discuss_course_name">'+ item.name +'</p>\n' +
+                                '                            <div class="discuss_school_name">\n' +
+                                '                                <img class="school_icon" src="../img/矢量智能对象.png" />\n' +
+                                '                                '+ item.school +'\n' +
+                                '                            </div>\n' +
+                                '                        </div>\n' +
+                                '                    </div>\n' +
+                                '                    <div class="discuss_content_card_right">\n' +
+                                '                         '+ res1 +'\n' +
+                                '                    </div>\n' +
+                                '                </div>\n' +
+                                '            </div>'
+                        }
                     }
-                    $('.discuss_content_card_right').html(res1)
-
-                    res += '<div class="discuss_content_card">\n' +
-                        '                <div class="discuss_content_card_content">\n' +
-                        '                    <div class="discuss_content_card_left">\n' +
-                        '                        <img src="'+ imgsrc2 + item.logo+'">\n' +
-                        '                        <div class="card_left_text">\n' +
-                        '                            <p class="discuss_course_name">'+ item.name +'</p>\n' +
-                        '                            <div class="discuss_school_name">\n' +
-                        '                                <img class="school_icon" src="../img/矢量智能对象.png" />\n' +
-                        '                                '+ item.school +'\n' +
-                        '                            </div>\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                    <div class="discuss_content_card_right">\n' +
-                        '                         '+ res1 +'\n' +
-                        '                    </div>\n' +
-                        '                </div>\n' +
-                        '            </div>'
+                }
+                if ("" == res) {
+                    $(".no_data_per").show()
                 }
                 $('.discuss_content').html(res)
             },

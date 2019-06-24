@@ -54,7 +54,7 @@ function select_student_informasion(){
                 var item = data[i]
                 // console.log(item)
                 var nima = data[0].id
-                console.log("nima"+nima)
+                // console.log("nima"+nima)
                 // $.cookie("course", nima);
                 var res = '<div class="student_information">\n' +
                     '            <img class="backgroundimg" src="../img/interspace.png" alt="">\n' +

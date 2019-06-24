@@ -81,48 +81,50 @@
             <div class="tt_content_right_title">
                 评分标准
             </div>
-            <div class="score_criteria">
-                <div class="add_criteria_btn">
-                    <div class="criteria_title">
-                        本课堂的满分为：
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="总分">
-                            <span class="input-group-btn">
+            <div class="add_criteria_btn">
+                <div class="criteria_title">
+                    本课堂的满分为：
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="总分">
+                        <span class="input-group-btn">
                                 <button class="btn btn-default" type="button"> > </button>
                             </span>
-                        </div>
                     </div>
-                    <button onclick="new_detail()">添加标准</button>
                 </div>
-                <!--  公告主体内容  -->
-                <div class="announcement_content">
-                    <div class="announcement_information">
-                        <div class="announcement_btn">
-                            <button>编辑</button>
-                            <span>|</span>
-                            <button>删除</button>
-                        </div>
-                        <div class="announcement_text">
-                            <p>评分标准 <span class="accounted">20%</span></p>
-                            <p>评分标准内容： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
-                            亲爱的同学们亲爱的同学们</span></p>
-                        </div>
+                <button onclick="new_detail()">添加标准</button>
+            </div>
+            <!--  没有数据时  -->
+            <div class="no_data_tea">
+                没有数据！……
+            </div>
+            <!--  公告主体内容  -->
+            <div class="announcement_content">
+                <div class="announcement_information">
+                    <div class="announcement_btn">
+                        <button>编辑</button>
+                        <span>|</span>
+                        <button>删除</button>
                     </div>
-                    <div class="announcement_information">
-                        <div class="announcement_btn">
-                            <button>编辑</button>
-                            <span>|</span>
-                            <button>删除</button>
-                        </div>
-                        <div class="announcement_text">
-                            <p>评分标准 <span class="accounted">20%</span></p>
-                            <p>评分标准内容： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                    <div class="announcement_text">
+                        <p>评分标准 <span class="accounted">20%</span></p>
+                        <p>评分标准内容： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
                             亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
                             亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
                             亲爱的同学们亲爱的同学们</span></p>
-                        </div>
+                    </div>
+                </div>
+                <div class="announcement_information">
+                    <div class="announcement_btn">
+                        <button>编辑</button>
+                        <span>|</span>
+                        <button>删除</button>
+                    </div>
+                    <div class="announcement_text">
+                        <p>评分标准 <span class="accounted">20%</span></p>
+                        <p>评分标准内容： <span class="announcement_text_content">亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们，大家好请撒地方放多少十多个沙发好久好久手动阀撒地方撒沙发上高速挡按时发圣诞分
+                            亲爱的同学们亲爱的同学们</span></p>
                     </div>
                 </div>
             </div>
@@ -348,7 +350,7 @@
             }
         });
         ellipsis(130);//要显示的字符数 Number
-        // select_criteria()
+        select_criteria()
     })
     // 查询
     function select_criteria() {
@@ -364,42 +366,46 @@
                 cid: 1
             },
             success: function (data) {
-                // console.log(data)
-                if (0 == data.length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    $("#loadingModal").modal("hide")
-                }
+                console.log(data)
                 var res = ""
                 var res2 = ""
-                res2 ='<div class="criteria_title">\n' +
-                    '                        本课堂的满分为：\n' +
-                    '                        <div class="input-group">\n' +
-                    '                            <input type="text" class="form-control total_score" placeholder="'+ data[1] +'">\n' +
-                    '                            <span class="input-group-btn">\n' +
-                    '                                <button class="btn btn-default" type="button" onclick="update_total_score()"> > </button>\n' +
-                    '                            </span>\n' +
-                    '                        </div>\n' +
-                    '                    </div>' +
-                    '<button onclick="new_detail()">添加标准</button>'
-                $('.add_criteria_btn').html(res2)
-                // 输入框获取分数
-                $(".total_score").val(data[1])
                 var dat = data[0]
-                for (var i in dat) {
-                    var item = dat[i]
-                    res += '<div class="announcement_information">\n' +
-                        '                        <div class="announcement_btn">\n' +
-                        '                            <button onclick="criteria_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
-                        '                            <span>|</span>\n' +
-                        '                            <button onclick="delete_criter('+ item.id +')">删除</button>\n' +
+                if ("" == dat) {
+                    // 没有数据，显示提示
+                    // toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_tea").show()
+                } else {
+                    res2 ='<div class="criteria_title">\n' +
+                        '                        本课堂的满分为：\n' +
+                        '                        <div class="input-group">\n' +
+                        '                            <input type="text" class="form-control total_score" placeholder="'+ data[1] +'">\n' +
+                        '                            <span class="input-group-btn">\n' +
+                        '                                <button class="btn btn-default" type="button" onclick="update_total_score()"> > </button>\n' +
+                        '                            </span>\n' +
                         '                        </div>\n' +
-                        '                        <div class="announcement_text">\n' +
-                        '                            <p>'+ item.name +'<span class="accounted">'+ item.proportion +'%</span></p>\n' +
-                        '                            <p>评分标准要求： <span class="announcement_text_content">'+ item.require +'</span></p>\n' +
-                        '                        </div>\n' +
-                        '                    </div>'
+                        '                    </div>' +
+                        '<button onclick="new_detail()">添加标准</button>'
+                    $('.add_criteria_btn').html(res2)
+                    // 输入框获取分数
+                    $(".total_score").val(data[1])
+
+                    for (var i in dat) {
+                        var item = dat[i]
+                        res += '<div class="announcement_information">\n' +
+                            '                        <div class="announcement_btn">\n' +
+                            '                            <button onclick="criteria_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
+                            '                            <span>|</span>\n' +
+                            '                            <button onclick="delete_criter('+ item.id +')">删除</button>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="announcement_text">\n' +
+                            '                            <p>'+ item.name +'<span class="accounted">'+ item.proportion +'%</span></p>\n' +
+                            '                            <p>评分标准要求： <span class="announcement_text_content">'+ item.require +'</span></p>\n' +
+                            '                        </div>\n' +
+                            '                    </div>'
+                    }
                 }
+
                 $('.announcement_content').html(res)
                 // 调用字数超出显示省略号……
                 ellipsis(130)

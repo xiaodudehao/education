@@ -545,7 +545,7 @@ input::-ms-clear {
     width: 905px;
 }
 .maincontent .mainpartportion .rightresult .righttitle {
-    font-size: 24px;
+    font-size: 20px;
     color: #31b24e;
     border-bottom: 2px solid #31b24e;
     padding-bottom: 20px;
@@ -590,3 +590,12 @@ input::-ms-clear {
     border-bottom: 2px solid #31b24e;
     padding-bottom: 20px;
 }
+
+/* 没有数据时的样式 */
+.no_data {
+    display: none;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+}
+

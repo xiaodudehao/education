@@ -74,6 +74,9 @@
     </div>
     <!--  中间内容  -->
     <div class="personal_question_content">
+        <div class="no_data_per">
+            您暂时没有笔记！
+        </div>
         <div class="question_content">
             <!--  小模块  -->
             <div class="question_content_card">
@@ -273,42 +276,52 @@
             },
             success: function (data) {
                 console.log(data)
-                if (0 == data.length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    $("#loadingModal").modal("hide")
-                }
                 var res = ""
-                for (var i in data) {
-                    var item = data[i]
-                    // console.log(item)
-                    var result = item.topic
-                    var res2 = ""
-                    for (var j in result) {
-                        var item2 = result[j]
-                        var index = +j + 1
-                        res2 += '<div class="one_discuss">\n' +
-                            '                            <p class="communication_subject"><b>我的笔记'+ index +'：</b>'+ item2.name +'('+ item2.belong +')</p>\n' +
-                            '                        </div>'
+                if (null == data) {
+                    // 没有数据，显示提示
+                    // toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_per").show()
+                } else {
+                    for (var i in data) {
+                        var item = data[i]
+                        // console.log(item)
+                        var result = item.topic
+                        var res2 = ""
+                        for (var j in result) {
+                            var item2 = result[j]
+                            var index = +j + 1
+                            res2 += '<div class="one_discuss">\n' +
+                                '                            <p class="communication_subject">我的笔记'+ index +'：'+ item2.name +'('+ item2.belong +')</p>\n' +
+                                '                        </div>'
+                        }
+                        $('.question_content_card_right').html(res2)
+                        if ("" == res2) {
+                            res += ""
+                        } else {
+                            res += '<div class="question_content_card">\n' +
+                                '                <div class="question_content_card_content">\n' +
+                                '                    <div class="question_content_card_left">\n' +
+                                '                        <img src="'+ imgsrc2 + item.logo +'">\n' +
+                                '                        <div class="card_left_text">\n' +
+                                '                            <p class="discuss_course_name">'+ item.name +'</p>\n' +
+                                '                            <div class="discuss_school_name">\n' +
+                                '                                <img class="school_icon" src="../img/矢量智能对象.png" />\n' +
+                                '                                '+ item.school +'\n' +
+                                '                            </div>\n' +
+                                '                        </div>\n' +
+                                '                    </div>\n' +
+                                '                    <div class="question_content_card_right">\n' +
+                                '                        '+ res2 +'\n' +
+                                '                    </div>\n' +
+                                '                </div>\n' +
+                                '            </div>'
+                        }
+
                     }
-                    $('.question_content_card_right').html(res2)
-                    res += '<div class="question_content_card">\n' +
-                        '                <div class="question_content_card_content">\n' +
-                        '                    <div class="question_content_card_left">\n' +
-                        '                        <img src="'+ imgsrc2 + item.logo +'">\n' +
-                        '                        <div class="card_left_text">\n' +
-                        '                            <p class="discuss_course_name">'+ item.name +'</p>\n' +
-                        '                            <div class="discuss_school_name">\n' +
-                        '                                <img class="school_icon" src="../img/矢量智能对象.png" />\n' +
-                        '                                '+ item.school +'\n' +
-                        '                            </div>\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                    <div class="question_content_card_right">\n' +
-                        '                        '+ res2 +'\n' +
-                        '                    </div>\n' +
-                        '                </div>\n' +
-                        '            </div>'
+                }
+                if ("" == res) {
+                    // $(".no_data_per").show()
                 }
                 $('.question_content').html(res)
             },

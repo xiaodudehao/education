@@ -88,6 +88,9 @@
             </div>
             <!--  目录  -->
             <div class="contentbox">
+                <div class="no_data_tea">
+                    没有数据！……
+                </div>
                 <!-- 课程目录开始 -->
                 <div class="maincatalogue">
 
@@ -416,81 +419,84 @@
                 cid: 1
             },
             success: function (data) {
-                // console.log(data)
-                if (0 == data.length) {
-                    // 没有数据，显示提示
-                    toastr.error("未查询到可用数据")
-                    $("#loadingModal").modal("hide")
-                }
+                console.log(data)
                 var res = ""
-                for (var i in data){
-                    var item = data[i]
-                    // 一级目录名字
-                    // console.log(item.courseware)
-                    var res2 = ""
-                    for (var j in item.children){
-                        var result = item.children[j]
-                        // 二级目录名字
-                        // console.log(result.courseware)
-                        var res3 = ""
-                        for (var k in result.children){
-                            var child = result.children[k]
-                            // console.log(child)
-                            // console.log(child.function)
-                            // 三级目录名字
-                            // console.log(child.courseware)
-                            res3 += '<a class="detailtitle">\n' +
-                                '                                    <div>\n' +
-                                '                                        <span> '+ child.function +'</span> '+ child.courseware +'\n' +
+                if (null == data) {
+                    // 没有数据，显示提示
+                    // toastr.error("未查询到可用数据")
+                    $("#loadingModal").modal("hide")
+                    $(".no_data_tea").show()
+
+                } else {
+                    for (var i in data){
+                        var item = data[i]
+                        // 一级目录名字
+                        // console.log(item.courseware)
+                        var res2 = ""
+                        for (var j in item.children){
+                            var result = item.children[j]
+                            // 二级目录名字
+                            // console.log(result.courseware)
+                            var res3 = ""
+                            for (var k in result.children){
+                                var child = result.children[k]
+                                // console.log(child)
+                                // console.log(child.function)
+                                // 三级目录名字
+                                // console.log(child.courseware)
+                                res3 += '<a class="detailtitle">\n' +
+                                    '                                    <div>\n' +
+                                    '                                        <span> '+ child.function +'</span> '+ child.courseware +'\n' +
+                                    '                                    </div>\n' +
+                                    '                                    <div class="delete_icon" onclick="delete_catalog(' + child.id + ')">\n' +
+                                    '                                        <span class="glyphicon glyphicon-remove-circle"></span>\n' +
+                                    '                                    </div>\n' +
+                                    '                                </a>'
+                            }
+                            $(".detail").html(res3)
+                            var J = +j + 1
+                            // console.log(J)
+                            res2 += '<div class="clearfix taskbox">\n' +
+                                '                                <div class="triangle"></div>\n' +
+                                '                                <div class="tasktitle">\n' +
+                                '                                    <div class="second_catalog">\n' +
+                                '                                        <span>任务'+ J +'</span>  '+ result.courseware +'\n' +
                                 '                                    </div>\n' +
-                                '                                    <div class="delete_icon" onclick="delete_catalog(' + child.id + ')">\n' +
-                                '                                        <span class="glyphicon glyphicon-remove-circle"></span>\n' +
+                                '                                    <div class="operation_btn">\n' +
+                                '                                        <button type="button" class="btn btn-info btn-sm" onclick="add_catalog_3(' + result.id + ')">\n' +
+                                '                                            <span class="glyphicon glyphicon-plus-sign"></span> 添加目录\n' +
+                                '                                        </button>\n' +
+                                '                                        <button type="button" class="btn btn-default btn-sm" onclick="delete_catalog(' + result.id + ')">\n' +
+                                '                                            <span class="glyphicon glyphicon-remove-sign"></span> 删除\n' +
+                                '                                        </button>\n' +
                                 '                                    </div>\n' +
-                                '                                </a>'
+                                '                                </div>\n' +
+                                '                            </div>\n' +
+                                '                            <div class="detail">\n' +
+                                '                                '+ res3 +'\n' +
+                                '                            </div>'
                         }
-                        $(".detail").html(res3)
-                        var J = +j + 1
-                        // console.log(J)
-                        res2 += '<div class="clearfix taskbox">\n' +
-                            '                                <div class="triangle"></div>\n' +
-                            '                                <div class="tasktitle">\n' +
-                            '                                    <div class="second_catalog">\n' +
-                            '                                        <span>任务'+ J +'</span>  '+ result.courseware +'\n' +
-                            '                                    </div>\n' +
-                            '                                    <div class="operation_btn">\n' +
-                            '                                        <button type="button" class="btn btn-info btn-sm" onclick="add_catalog_3(' + result.id + ')">\n' +
-                            '                                            <span class="glyphicon glyphicon-plus-sign"></span> 添加目录\n' +
-                            '                                        </button>\n' +
-                            '                                        <button type="button" class="btn btn-default btn-sm" onclick="delete_catalog(' + result.id + ')">\n' +
-                            '                                            <span class="glyphicon glyphicon-remove-sign"></span> 删除\n' +
-                            '                                        </button>\n' +
-                            '                                    </div>\n' +
-                            '                                </div>\n' +
+                        $(".task").html(res2)
+                        i = +i + 1
+                        res += '<div class="project">\n' +
+                            '                        <div class="projecttitle">\n' +
+                            '                            <div>\n' +
+                            '                                <span>项目'+ i +'</span>  '+ item.courseware +'\n' +
                             '                            </div>\n' +
-                            '                            <div class="detail">\n' +
-                            '                                '+ res3 +'\n' +
-                            '                            </div>'
+                            '                            <div class="operation_btn">\n' +
+                            '                                <button type="button" class="btn btn-info btn-sm" onclick="add_catalog_2(' + item.id + ')">\n' +
+                            '                                    <span class="glyphicon glyphicon-plus-sign"></span> 添加任务\n' +
+                            '                                </button>\n' +
+                            '                                <button type="button" class="btn btn-default btn-sm" onclick="delete_catalog(' + item.id + ')">\n' +
+                            '                                    <span class="glyphicon glyphicon-remove-sign"></span> 删除\n' +
+                            '                                </button>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="task">\n' +
+                            '                            '+ res2 +'\n' +
+                            '                        </div>\n' +
+                            '                    </div>'
                     }
-                    $(".task").html(res2)
-                    i = +i + 1
-                    res += '<div class="project">\n' +
-                        '                        <div class="projecttitle">\n' +
-                        '                            <div>\n' +
-                        '                                <span>项目'+ i +'</span>  '+ item.courseware +'\n' +
-                        '                            </div>\n' +
-                        '                            <div class="operation_btn">\n' +
-                        '                                <button type="button" class="btn btn-info btn-sm" onclick="add_catalog_2(' + item.id + ')">\n' +
-                        '                                    <span class="glyphicon glyphicon-plus-sign"></span> 添加任务\n' +
-                        '                                </button>\n' +
-                        '                                <button type="button" class="btn btn-default btn-sm" onclick="delete_catalog(' + item.id + ')">\n' +
-                        '                                    <span class="glyphicon glyphicon-remove-sign"></span> 删除\n' +
-                        '                                </button>\n' +
-                        '                            </div>\n' +
-                        '                        </div>\n' +
-                        '                        <div class="task">\n' +
-                        '                            '+ res2 +'\n' +
-                        '                        </div>\n' +
-                        '                    </div>'
                 }
                 $(".maincatalogue").html(res)
                 catalog()
