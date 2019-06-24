@@ -318,7 +318,7 @@ $('#teacherloginform').bootstrapValidator({
             $(".childb").on("click",function(){
                 $(".childb").css({"color":"#33b150"})
                 $(".childa").css({"color":"#999"})
-                $(".teacherregister").css({"display":"inline-block"})
+                $(".teacherregister").css({"display":"block"})
                 $(".studentregister").css({"display":"none"});
             })
 
@@ -483,20 +483,20 @@ $(".searchicon").on("click", function () {
     // console.log("被单击了"+val)
 })
 
-$(function(){
-    // 模态框居中
-    var user_id = $.cookie("course")
-    console.log("dsfaasdf" + user_id)
-})
+// $(function(){
+//     // 模态框居中
+//     var user_id = $.cookie("course")
+//     console.log("dsfaasdf" + user_id)
+// })
 
 
 
-//  获取cookie
-try {
-    var user_id = $.cookie("course");
-}catch (e) {
+// //  获取cookie
+// try {
+//     var user_id = $.cookie("course");
+// }catch (e) {
     
-}
+// }
 
 
 

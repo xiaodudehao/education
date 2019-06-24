@@ -447,11 +447,13 @@
                 var FileController = addurl;
                 var form = new FormData();
                 form.append("cid", 1);
-                form.append("name", "word文档");
+                // form.append("name", "word文档");
                 form.append("myFile", fileObj);
                 createXMLHttpRequest();
                 xhr.onreadystatechange = handleStateChange;
                 xhr.open("post", FileController, true);
+                console.log('内容',form);
+                
                 xhr.send(form);
             }
             function handleStateChange() {

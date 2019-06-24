@@ -387,7 +387,13 @@ $(function(){
                     // toastr.success("操作成功")
                 }else{
                     $(".textcontent").css({"display": "block"})
-                    $(".textcontent iframe").attr("src",videosrc+"text/"+data[0].savename)
+                    // $(".textcontent iframe").attr("src",videosrc+videosrc+"text/"+data[0].savename"text/"+data[0].savename)
+                    // 渲染world，但是这里的地址只能为http协议
+                    $(".textcontent iframe").attr("src"," http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
+                    // var opacity = '<div class="appendx"> 222 </div>'
+                    // $(".textcontent").append(opacity);
+                    // $(".textcontent").css({"position":"relative"})
+                    // $(".appendx").css({"width":'759px',"height":"50px","background-color":"lime","position":"absolute","bottom":"0","left":"1px"})
                     console.log("文本地址为",videosrc+"text/"+data[0].savename);
                     
                 }

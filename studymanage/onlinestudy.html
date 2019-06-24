@@ -77,8 +77,8 @@
                     <div class="rightcontent">
 
                             <div class="project">
-                                    <div class="projecttitle">
-                                       <span>项目一</span>  水泥性能检测
+                                    <div class="projecttitle clearfix">
+                                       <span class="fl">项目一  水泥性能检测</span> <span class="fr">完成度99%&nbsp;&nbsp;</span>
                                     </div>
                                     <div class="task">
                                         <div class="clearfix taskbox">
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="project">
                                     <div class="projecttitle">
-                                        <span>项目二</span>  水泥性能检测
+                                        <span>项目二  水泥性能检测</span><span class="fr">完成度99%&nbsp;&nbsp;</span>
                                     </div>
                                     <div class="task">
                                         <div class="clearfix taskbox">
@@ -319,9 +319,12 @@ $(function(){
 
     $("#loadingModal").modal("show")
     $.ajax({
-        url: HTTP_URL + "Resource/set_section",
+        url: HTTP_URL + "Resource/set_resource",
         type: "post",
-        data: {cid: cid},
+        data: {
+            cid: cid,
+            uid: uid
+                },
         dataType: "json",
         success: function (data) {
             // var cc = {};
@@ -336,9 +339,26 @@ $(function(){
             // toastr.success("操作成功")
             let str = '<div class="project">'
             for(var i=0; i<data.length; i++ ){
-                // console.log("一级",data[i].courseware);
-                str += '<div class="projecttitle">\n'+
-                            '<span>项目 '+(i+1)+'</span>'+data[i].courseware+
+                var allplan=0;
+                //cc为每一个项目有几个任务数
+                var cc=0;
+                if( data[i].children !== undefined ){
+                    for(var l=0;l<data[i].children.length;l++){
+                        if( data[i].children[l].children !== undefined ){
+                            for(var m=0; m<data[i].children[l].children.length; m++){
+                                // 求得总进度的js
+                                allplan+= +data[i].children[l].children[m].plan;
+                                // console.log('进度',data[i].children[j].children[k].plan);
+                                cc++
+                            }
+                        }
+                    }
+                }
+                console.log('结果',cc);
+                
+
+                str += '<div class="projecttitle clearfix">\n'+
+                            '<span class="fl">项目 '+(i+1)+''+data[i].courseware+'</span>'+'<span class="fr">完成度'+ (cc == 0? "0" :allplan/cc) +'%&nbsp;&nbsp;</span>'+
                         '</div>\n'
                 if( data[i].children !== undefined ){
                     for(var j=0;j<data[i].children.length;j++){
@@ -346,8 +366,8 @@ $(function(){
                         str+='<div class="task">\n'+
                             '<div class="clearfix taskbox">\n'+
                                 '<div class="triangle"></div>\n'+
-                                '<div class="tasktitle">\n'+
-                                    '<span>任务'+(j+1)+'</span>'+data[i].children[j].courseware  +'\n'+
+                                '<div class="tasktitle ">\n'+
+                                    '<span>任务'+(j+1)+'</span>'+data[i].children[j].courseware +'\n'+
                                 '</div>\n'+
                             '</div>\n'+
                             '<div class="detail">\n'
@@ -367,28 +387,31 @@ $(function(){
                                     str +=  '<div '+ id +' class="detailtitle">\n'+
                                                 '<span>'+ data[i].children[j].children[k].function +' </span> '+ data[i].children[j].children[k].courseware +'\n'+
                                             '</div>\n'
+
+
                                 }
                             }
                         str+='</div>\n'+
                         '</div>'
                     }
                 }
+
+                
+                // $(".rightcontent .projecttitle").html('')
             }
-            str+='</div>';
+            str+='</div>'; 
             $(".rightcontent").html(str);
                 // 让任务中的步骤都隐藏
             $(".detail").css({"display":"none"});
             var triangle = 0;
             // 如果单击按钮就让任务中的东西展示。
             $('.triangle').on("click",function(){
-                triangle ++;
-                if(triangle == 2){
-                    triangle = 0
-                }
                 if(triangle){
-                    $(this).css({"transform":"rotate(90deg)"}).parent().next().css({"display":"block"});
-                }else{
                     $(this).css({"transform":"rotate(0deg)"}).parent().next().css({"display":"none"});
+                    triangle = 0;
+                }else{
+                    $(this).css({"transform":"rotate(90deg)"}).parent().next().css({"display":"block"});
+                    triangle = 1
                 }
             })
 

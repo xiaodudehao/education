@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <link rel="stylesheet" href="../css/coursehomepage.css">
     <!-- <link rel="stylesheet" href="../css/announcement.css"> -->
+    <!-- rwb分页的样式 -->
+    <link rel="stylesheet" href="../css/public/rwbpage.css">
+
     <link rel="stylesheet" href="../css/taskexamination.css">
     <link rel="stylesheet" href="../css/page.css">
 </head>
@@ -71,6 +74,44 @@
                         作业与测验
                     </div>
                     <div class="rightcontent">
+                        <div class="worktitle clearfix">
+                            <div class="work fl">
+                                作业与测验
+                            </div>
+                            <div class="report fl">
+                                实训报告/主观题
+                            </div>
+                        </div>
+                        <div class="boxtit">
+
+                        </div>
+                        <!-- <div class="standandcontent clearfix">
+                            <div class="ltitle fl">
+                                <div class="eachname">
+                                    1.水泥稠度用水步骤
+                                </div>
+                                <div class="eachname">
+                                    测验总分: 100分
+                                </div>
+                                <div class="eachname">
+                                    测验时间: 20分钟
+                                </div>
+                                <div class="eachname">
+                                    测验起止日期: 2019.2.1-2019.4.1
+                                </div>
+                                <div class="eachname">
+                                    测验所属章节: 项目一 任务2 水泥细度检测
+                                </div>
+                            </div>
+                            <div class="rbutton fr">
+                                <div class="titlenumber">
+                                    已答题，得分: 40分
+                                </div>
+                            </div>
+                            <div class="buttontitle">
+                                点击查看
+                            </div>
+                        </div>
                         <div class="standandcontent clearfix">
                             <div class="ltitle fl">
                                 <div class="eachname">
@@ -93,20 +134,20 @@
                                 <div class="titlenumber">
                                     已答题，得分: 40分
                                 </div>
-                                <div class="buttontitle">
-                                    点击查看
-                                </div>
                             </div>
-                        </div>
-                      
-
-
+                            <div class="buttontitle">
+                                点击查看
+                            </div>
+                        </div> -->
                     </div>
                     <!-- <div class="next">
                         <div class="tcdPageCode">
 
                         </div>
                     </div> -->
+                    <div class="page_area">
+                        <ul id="page"></ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -202,6 +243,17 @@
             </div>
         </div>
         <!-- 登录模态框结束 -->
+
+        <!-- 在ajax请求未返回数据前执行的动画 -->
+        <div class="modal fade" id="loadingModal" data-backdrop="static">
+            <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+                <div class="progress progress-striped active" style="margin-bottom: 0;">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
+                <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+            </div>
+        </div>
+    
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
@@ -209,12 +261,16 @@
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
 <script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
+<!-- 分页器 -->
+<script src="../lib/bootstrap-paginator.js"></script>
+
 <script type="text/javascript">
 $(function(){
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
-
+    var uid = 1;
+    var cid = 1;
     //  设置学校名称字数超出显示省略号……
     function ellipsis(num) {
         $(".schnam").each(function () {
@@ -235,6 +291,149 @@ $(function(){
    console.log(p); 
   } 
  }); 
+
+    // $.ajax({
+    // //几个参数需要注意一下
+    //     type: "POST",//方法类型
+    //     dataType: "json",//预期服务器返回的数据类型
+    //     url: HTTP_URLH+"Studymanage/set_exam",//url
+    //     data:  {
+    //         cid: cid,
+    //         id: uid
+    //     },
+    //     success: function (result) {
+    //         console.log('返回数据',result);//打印服务端返回的数据(调试用)
+
+    //     },
+    //     error : function() {
+    //         alert("异常！");
+    //     }
+    // });
+
+    $(".report").on("click",function(){
+        
+    })
+
+    select_announce(1)
+
+// 查询
+function select_announce(pageN) {
+var param = {
+    cid: cid,
+    id: uid,
+    page: pageN,
+}
+
+// loading显示
+$("#loadingModal").modal("show")
+var CouIntrAjax = $.ajax({
+    url: HTTP_URLH+"Studymanage/set_exam",
+    type: "post",
+    timeout: 5000,
+    dataType: "json",
+    // async:false,    //不进行异步刷新
+    data: param,
+    success: function (data) {
+        console.log('返回数据',data);//打印服务端返回的数据(调试用)
+       
+        
+        var str = "";
+        for(var i = 0; i<data[1].length; i++){
+            var item= data[1][i];
+            // 考试开始时间的数组
+            var beginarr = item.time.split("-");
+            // console.log('年',beginy);
+            //结束考试时间的数组
+            var endnarr = item.data.split("-");
+            // console.log(end);
+
+            str += `<div class="standandcontent clearfix">
+                        <div class="ltitle fl">
+                            <div class="eachname">
+                                1.水泥稠度用水步骤${item.name}
+                            </div>
+                            <div class="eachname">
+                                测验总分: ${item.count}分
+                            </div>
+                            <div class="eachname">
+                                测验时间: ${item.gtime}分钟
+                            </div>
+                            <div class="eachname">
+                                测验起止日期: ${beginarr[0]}.${beginarr[1]}.${beginarr[2]}-${endnarr[0]}.${endnarr[1]}.${endnarr[2]}
+                            </div>
+                            <div class="eachname">
+                                测验所属章节: ${item.section}
+                            </div>
+                        </div>
+                        <div class="rbutton fr">
+                            <div class="titlenumber">
+                            ${ item.score==0 ? '未答题' : ' 已答题，得分:'+item.score }
+                            </div>
+                        </div>
+                        <div class="buttontitle">
+                            点击查看
+                        </div>
+                    </div>`
+        }
+        $(".boxtit").html(str)
+
+
+        
+        //分页
+        $("#page").bootstrapPaginator({
+            bootstrapMajorVersion: 3,   //bootstrap版本
+            totalPages: data[0],   //总页数
+            numberOfPages: 3,    //分页器每页展示页码数
+            shouldShowPage: true,   //所有的按钮都展示
+            itemTexts: function (type, page, current) {
+                // console.log(type)
+                //设置分页控件每部分的显示文字
+                switch (type) {
+                    case "first":
+                        return "第一页"
+                    case "prev":
+                        return "上一页"
+                    case "next":
+                        return "下一页"
+                    case "last":
+                        return "最后一页"
+                    case "page":
+                        return page
+                    case "jump":
+                        return "跳转"
+                }
+            }, onPageClicked: function(event, originalEvent, type, page) {
+                //点击事件
+                //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                pageNum = page
+                // 查询
+                select_announce(pageNum)
+            }
+        })
+        //  分页结束
+    },
+    error: function (e) {
+        console.log(e)
+        console.log(e.statusText)
+        if ("timeout" == e.statusText) {
+            // 请求超时，终止请求
+            toastr.warning("请求超时")
+            CouIntrAjax.abort()
+        } else {
+            // toastr.error("网络开小差了，请稍后再试！")
+        }
+        $("#loadingModal").modal("hide")
+    },
+    complete: function (xhr, status) {
+        // 隐藏loading
+        $("#loadingModal").modal("hide")
+    }
+})
+}
+
+
+
+
     
 })
 

@@ -1,10 +1,55 @@
 @import "public.less";
 @import "teachpublic";
-.rightcontent{
+
+.maincontent .mainpartportion .rightresult .rightcontent{
+    padding-top: 30px;
+    .worktitle{
+        margin-bottom: 30px;
+        .work,
+        .report{
+            background-color: #81d283;
+            color: #fff;
+            // height: 55px;
+            padding:10px;
+            font-size: 18px;
+        }
+        .work{
+            border-radius: 10px 0 0 10px;
+            background-color: @font-color;
+        }
+        .report{
+            border-left: 1px solid #fff;
+            border-radius:  0 10px 10px 0;
+        }
+        .report:hover{
+            background-color: @font-color;
+        }
+    }
     .standandcontent{
+        position: relative;
         padding: 20px;
         border: 1px solid @font-color;
-        border-radius: 30px;
-        
+        border-radius: 20px;
+        font-size: 16px;
+        margin-bottom: 30px;
+        .rbutton{
+            .titlenumber{
+                height: 100%;
+            }
+        }
+        .buttontitle{
+            background-color: #81d283;
+            color: #fff;
+            width: 120px;
+            height: 50px;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 18px;
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+        }
+
     }
 }
