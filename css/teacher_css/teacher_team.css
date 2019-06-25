@@ -187,6 +187,9 @@
     text-align: center;
 }
 
-
+/* 加载中loading…… */
+.progress {
+    height: 10px;
+}
 
 

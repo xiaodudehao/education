@@ -101,3 +101,7 @@
     padding: 100px;
     text-align: center;
 }
+
+.progress{
+    height: 10px;
+}

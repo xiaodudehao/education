@@ -27,10 +27,10 @@
         <div class="banxin">
             <img src="../img/未标题-10.png" class="logo" alt="">
             <ul>
-                <li><a href="">首页</a></li>
-                <li><a href="">课程</a></li>
-                <li><a href="">院校</a></li>
-                <li><a href="">立体教材</a></li>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../calssify.html">课程</a></li>
+                <li><a href="../academy.html">院校</a></li>
+                <li><a href="#">立体教材</a></li>
             </ul>
             <div class="search">
                 <img class="searchicon" src="../img/未标题-1.png" ></img>
@@ -79,7 +79,7 @@
             您暂时未添加任何课程！
         </div>
         <div class="question_content">
-            <a class="one_course" href="../studymanage/coursehomepage.html">
+            <div class="one_course" href="../studymanage/coursehomepage.html">
                 <span class="glyphicon glyphicon-remove-circle"></span>
                 <img src="../images/kecheng1.png" />
                 <div class="course_progress">
@@ -94,7 +94,7 @@
                 <div class="course_name">
                     水泥的制作
                 </div>
-            </a>
+            </div>
             <div class="one_course">
                 <span class="glyphicon glyphicon-remove-circle"></span>
                 <img src="../images/kecheng1.png" />
@@ -332,7 +332,7 @@
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                id: 1,
+                id: 10,
             },
             success: function (data) {
                 console.log(data)
@@ -344,9 +344,11 @@
                 } else {
                     for (var i in data) {
                         var item = data[i]
-                        res += '<a href="../studymanage/coursehomepage.html?cid='+ item.cid +'" class="one_course">\n' +
+                        res += '<div class="one_course">\n' +
                             '                <span onclick="delete_course('+ item.cid +')" class="glyphicon glyphicon-remove-circle"></span>\n' +
-                            '                <img src="'+ imgsrc2 + item.logo +'" />\n' +
+                            '                <a href="../studymanage/coursehomepage.html?cid='+ item.cid +'">' +
+                            '                   <img src="'+ imgsrc2 + item.logo +'" />' +
+                            '                </a>\n' +
                             '                <div class="course_progress">\n' +
                             '                    <span>学习进度： '+ item.zplan +'%</span>\n' +
                             '                    <div class="progress">\n' +
@@ -356,10 +358,12 @@
                             '                        </div>\n' +
                             '                    </div>\n' +
                             '                </div>\n' +
-                            '                <div class="course_name">\n' +
-                            '                    '+ item.name +'\n' +
+                            '                <div class="course_name">' +
+                            '                   <a href="../studymanage/coursehomepage.html?cid='+ item.cid +'">\n' +
+                            '                       '+ item.name +'\n' +
+                            '                   </a>' +
                             '                </div>\n' +
-                            '            </a>'
+                            '            </div>'
                         // $(".one_course").attr('href','../studymanage/coursehomepage.html?cid='+ item.cid +'');
                     }
                 }
@@ -405,6 +409,7 @@
                 }
             })
         })
+        return false;
     }
 
     // 跳页

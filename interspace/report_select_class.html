@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>考试/测验</title>
+    <title>考试/测验-班级</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!--  导航栏的基本样式保证  -->
@@ -17,7 +17,7 @@
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
     <!--  课程图片上传样式  -->
     <link rel="stylesheet" href="../css/teacher_css/course_img.css">
-    <link rel="stylesheet" href="../css/teacher_css/course_test.css">
+    <link rel="stylesheet" href="../css/teacher_css/report.css">
 </head>
 <body>
 <div class="maincontent">
@@ -81,24 +81,19 @@
         <!--  右边内容  -->
         <div class="tt_content_right">
             <div class="tt_content_right_title">
-                测验/考试
+                <a class="a_class" href="./course_test.html">测验/考试</a>-<a class="a_class" href="./course_test.html">报告批阅</a>-班级
             </div>
             <div class="test_content">
-                <div class="card_1" onclick="question()">
-                    <img src="../img/图层1.png">
-                    <p>题库</p>
-                </div>
-                <div class="card_1" onclick="homework_test()">
-                    <img src="../img/图层2.png">
-                    <p>作业测验</p>
-                </div>
-                <div class="card_1" onclick="the_test()">
-                    <img src="../img/图层3.png">
-                    <p>考试</p>
-                </div>
-                <div class="card_1" onclick="lab_report()">
-                    <img src="../img/4.png">
-                    <p>报告批阅</p>
+                <div class="all_class">
+                    <a href="./report_select_personal.html" class="one_class">16软件工程2班</a>
+                    <a href="./report_select_personal.html" class="one_class">16绘画基础6班</a>
+                    <a href="./report_select_personal.html" class="one_class">16软件工程2班</a>
+                    <a href="#" class="one_class">16机电2班</a>
+                    <a href="#" class="one_class">16机械3班</a>
+                    <a href="#" class="one_class">16计算机应用技术9班</a>
+                    <a href="#" class="one_class">16软件工程2班</a>
+                    <a href="#" class="one_class">16计算机网络工程2班</a>
+                    <a href="#" class="one_class">16软件工程2班</a>
                 </div>
             </div>
         </div>
@@ -219,18 +214,6 @@
 
     })
 
-    function question() {
-        $(location).attr('href','./question_bank.html?cid='+ cid +'');
-    }
-    function homework_test() {
-        $(location).attr('href','./homework_test.html?cid='+ cid +'');
-    }
-    function the_test() {
-        $(location).attr('href','./the_test.html?cid='+ cid +'');
-    }
-    function lab_report() {
-        $(location).attr('href','./report_select_class.html?cid='+ cid +'');
-    }
 
 </script>
 

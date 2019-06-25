@@ -1,0 +1,58 @@
+.test_content {
+    margin-top: 50px;
+}
+.a_class {
+    color: #31b24e;
+}
+.a_class:hover {
+    text-decoration: none;
+}
+/* 班级样式 */
+.all_class {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.one_class {
+    margin: 20px 30px;
+    padding: 10px 20px;
+    color: #31b24e;
+    font-size: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.one_class:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #81d283;
+}
+/* 学生样式 */
+.all_student {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*justify-content: center;*/
+}
+.one_student {
+    margin: 10px 15px;
+    padding: 10px 20px;
+    color: #31b24e;
+    font-size: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.one_student:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #81d283;
+}
+
+
+
+
+
+
+

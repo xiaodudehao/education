@@ -14,21 +14,20 @@
 .one_course {
     margin: 0 10px 20px;
     padding: 5px;
-    width: 280px;
+    width: 220px;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
     position: relative;
 }
 .one_course:hover {
     box-shadow: 0px 0px 8px #999;
-    text-decoration: none;
 }
 .one_course:hover .glyphicon {
     display: block;
 }
-.one_course>img {
-    width: 270px;
-    height: 182px;
+.one_course>a>img {
+    width: 210px;
+    height: 130px;
 }
 .one_course .glyphicon {
     display: none;
@@ -37,6 +36,9 @@
     right: -5px;
     color: red;
     cursor:pointer;
+}
+.course_name>a:hover {
+    text-decoration: none;
 }
 .course_progress {
     margin-top: 10px;
@@ -48,9 +50,9 @@
 .course_name {
     margin: 10px;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
 }
-.progress {
+.course_progress .progress {
     margin: 0;
-    height: 10px;
+    height: 5px;
 }

@@ -24,7 +24,7 @@
     border-radius: 10px;
 }
 .add_catalog_btn button:hover {
-    background-color: #579c59;
+    background-color: #33b150;
 }
 .contentbox .maincatalogue .project .task .detail {
     margin-bottom: 20px;
@@ -79,7 +79,7 @@
     border: none;
 }
 .btn-info:hover {
-    background-color: #579c59;
+    background-color: #33b150;
 }
 .contentbox .maincatalogue .project .task .detail .detailtitle .delete_icon span {
     margin-right: 50px;
