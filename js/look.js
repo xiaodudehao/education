@@ -32,6 +32,8 @@ $(function(){
     var question;
     var note;
     var state;
+
+
     // $(".import").on("change",function(){
     //     question=$(".import").val()
     //     console.log(question);
@@ -380,22 +382,47 @@ $(function(){
             },
             dataType: "json",
             success: function (data) {
+                console.log('返回数据',data);
+                
                 // // 判断是视频大类渲染视频
                 if( 4 == rid){
                     $(".mainvideo").css({"display": "inline-block"})
                     $("#cc").attr("src",videosrc+ "vedio/" + data[0].savename)
                     // toastr.success("操作成功")
-                }else{
+                }else if(7 == rid){
                     $(".textcontent").css({"display": "block"})
-                    // $(".textcontent iframe").attr("src",videosrc+videosrc+"text/"+data[0].savename"text/"+data[0].savename)
-                    // 渲染world，但是这里的地址只能为http协议
-                    $(".textcontent iframe").attr("src"," http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
-                    // var opacity = '<div class="appendx"> 222 </div>'
-                    // $(".textcontent").append(opacity);
-                    // $(".textcontent").css({"position":"relative"})
-                    // $(".appendx").css({"width":'759px',"height":"50px","background-color":"lime","position":"absolute","bottom":"0","left":"1px"})
-                    console.log("文本地址为",videosrc+"text/"+data[0].savename);
+                    // console.log("文本地址为",videosrc+"text/"+data[0].turn);
+                    $(".textcontent iframe").attr("src",videosrc+ "PPT/" + data[0].turn)
+                    // 遮盖ppt的下载按钮
+                    var opacity = '<div class="appendx"><div class="fr chil"></div></div>'
+                    $(".textcontent").append(opacity);
+                    $(".textcontent").css({"position":"relative"})
+                    $(".appendx").css({"width":'759px',"height":"50px","position":"absolute","top":"0","left":"1px","background-color":"#fff"})
+                    // $(".chil").css({"width":"300px","height":"50px","background-color":"lime"})
+                    // lanhong/Application/Home/Public/PPT   
+                }else if(1 == rid){
+                    console.log('dizhi',data[0].savename);
                     
+                    if(data[0].savename.split(".")[1] == "docx" || data[0].savename.split(".")[1] == "doc"){
+                        $(".textcontent").css({"display": "block"})
+                        //下面这行代码以后要改，因为world地址必须是公共地址
+                        $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
+                        $("#iframetest").css({"width":"780","height":"500"})
+                        // 遮盖word的链接
+                        console.log(3333333333333333);
+                        
+                    // 滚动监听事件
+
+
+                        var opacity = '<div class="appendx"></div>'
+                        $(".textcontent").append(opacity);
+                        $(".textcontent").css({"position":"relative"})
+                        $(".appendx").css({"width":'759px',"height":"50px","position":"absolute","bottom":"0","left":"1px","background-color":"#fff"})
+                        
+                    }else{
+                        $(".textcontent").css({"display": "block"})
+                        $(".textcontent iframe").attr("src",videosrc+ "text/" + data[0].savename)
+                    }
                 }
                 console.log('视频',data);
                 // 视频id
@@ -415,7 +442,6 @@ $(function(){
                         // 渲染时间到视频上
                         max = data[0].data;
                         video.currentTime = data[0].data
-                        
                     },
                     error: function (e) {
                         // toastr.error("网络开小差了，请稍后再试")
@@ -495,6 +521,7 @@ $(function(){
         // var s = date.getSeconds();
         return Y+M+D;
     }
+
     $(".topbutton").on("click",function(){
         console.log(3333333333);
         

@@ -809,15 +809,51 @@
                     $(".delet").on("click",function(){
                         // 获取id
                         var fileid =  $(this).parent().data("obj")
+                        // 获取地址栏后面的信息
+                        var clas = getSearch("class");
+                        var site;
 
                         // 提示用户要不要修改
                         confirmBySelf('确定删除吗？', function () {
                             // 用户点击确认时
                             //删除文件
-                            
+                                   
+                            if(clas == 1){
+                                // 要删除的地址
+                                site = "Resource/de_text"
+                            }else if(clas == 2){
+                                // 要删除的地址
+                                site = "Resource/de_photo"
+                            }else if(clas == 3){
+                                // 要删除的地址
+                                site = "Resource/de_audio"
+                            }else if(clas == 4){
+                                // 要查询的地址
+                                site = "Resource/de_vedio"
+                            }else if(clas == 5){
+                                // 要查询的地址
+                                site = "Resource/de_cartoon"
+                                $(".tt_content_right_title").text("动画类");
+                            }else if(clas == 6){
+                                // 要查询的地址
+                                site = "Resource/de_dummy"
+                                $(".tt_content_right_title").text("虚拟仿真类");
+                            }else if(clas == 7){
+                                // 要查询的地址
+                                site = "Resource/de_class"
+                                $(".tt_content_right_title").text("电子课件");
+                            }else if(clas == 8){
+                                // 要查询的地址
+                                site = "Resource/de_webpage"
+                                $(".tt_content_right_title").text("网页类");
+                            }else if(clas == 9){
+                                // 要查询的地址
+                                site = "Resource/de_book"
+                                $(".tt_content_right_title").text("电子图书/教材");
+                            }
                                 $.ajax({
                                     type:"post",
-                                    url: HTTP_URL+"Resource/de_text",
+                                    url: HTTP_URL+site,
                                     dataType:"json",
                                     data: {id: fileid},
                                     success:function(data){
@@ -836,8 +872,6 @@
                         $("#new_modal").modal("show")
                         // // 获取ID
                         fileid =  $(this).parent().data("obj")
-                        
-                        
                         // // 修改名称的ajax
                         // ajax(fileid,"Resource/up_text")
                         // //重新渲染

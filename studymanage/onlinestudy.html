@@ -381,7 +381,7 @@ $(function(){
                                     // }else if(data[i].children[j].children[k].function == "做一做"){
                                     //     id = "data-wid="+data[i].children[j].children[k].id
                                     // }
-                                    id = "data-wid="+data[i].children[j].children[k].id+" data-rid="+data[i].children[j].children[k].rid
+                                    id = "data-wid="+data[i].children[j].children[k].id+" data-rid="+data[i].children[j].children[k].rid+" data-resouce="+data[i].children[j].children[k].resourceid
                                      
                                     
                                     str +=  '<div '+ id +' class="detailtitle">\n'+
@@ -436,6 +436,8 @@ $(function(){
         // }else if($(this).data("wid") != ""){
         //     window.location.href = "./lookfile.html?wid="+$(this).data("wid")+"&clas="+1
         // }
+        
+        // if($(this).data("resouce"))
         window.location.href = "./lookvideofile.html?wid="+$(this).data("wid")+"&rid="+$(this).data("rid")
     })
     // //提示框初始化，toast-top-center表示提示框的位置

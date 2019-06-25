@@ -443,7 +443,7 @@ function getSearch (k) {
 $(".check").on('click',function(){
     $('.codeimg').click();
 })
-
+$(".check").click();
 // 判断导航栏的几个页面，如果是这几个页面，字体变绿。
 var arrurl = location.href.split("/");
 var htmlurl = arrurl[arrurl.length -1].split(".")[0]

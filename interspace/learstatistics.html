@@ -107,7 +107,7 @@
                         <div id="lefthistogram">
 
                         </div>
-                        <a class="linkgrade" href="">查看详情</a>
+                        <a class="linkgrade" href="./leargrade.html">查看详情</a>
                     </div>
                     <div class="righthistogram fl">
                         <div class="histogramtitle">
@@ -116,7 +116,7 @@
                         <div id="righthistogram">
 
                         </div>
-                        <a class="linkgrade" href="learschedule.html">查看详情</a>
+                        <a class="linkgrade" href="./learschedule.html">查看详情</a>
                     </div>
 
                 </div>
@@ -242,6 +242,10 @@
         modalCenter('#myModal1')
         modalCenter('#new_modal')
 
+        $('.linkgrade').on('click',function(){
+            var aa =  $(this).attr('href')
+            $(this).attr('href',aa+"?cid="+cid);
+        })
 
         // // 获取班级中的数据
         $.ajax({
@@ -251,7 +255,6 @@
             data: {cid:1},
             success:function(data){
                 // console.log("进度plan",data);
-             
             // 基于准备好的dom，初始化echarts实例
             var myChart1 = echarts.init(document.getElementById('righthistogram'));
             // 指定图表的配置项和数据
