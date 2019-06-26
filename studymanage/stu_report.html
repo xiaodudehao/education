@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>考试/测验-报告-班级-学生-报告打分</title>
+    <title>实训报告</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
-    <!--  导航栏的基本样式保证  -->
-    <link rel="stylesheet" href="../css/teacherinterspace.css">
-    <!--  左边栏样式保证  -->
-    <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
     <!-- 提示框样式 -->
     <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
     <!--  对话框样式  -->
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
-    <!--  课程图片上传样式  -->
-    <link rel="stylesheet" href="../css/teacher_css/course_img.css">
-    <link rel="stylesheet" href="../css/teacher_css/report.css">
+    <!--  公共部分样式（除右侧主要内容）  -->
+    <link rel="stylesheet" href="../css/stu_discussion/stu_discussion_public.css">
+    <link rel="stylesheet" href="../css/stu_discussion/stu_report.css">
 </head>
 <body>
 <div class="maincontent">
@@ -26,10 +22,10 @@
         <div class="banxin">
             <img src="../img/未标题-10.png" class="logo" alt="">
             <ul>
-                <li><a href="">首页</a></li>
-                <li><a href="">课程</a></li>
-                <li><a href="">院校</a></li>
-                <li><a href="">立体教材</a></li>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../calssify.html">课程</a></li>
+                <li><a href="../academy.html">院校</a></li>
+                <li><a href="#">立体教材</a></li>
             </ul>
             <div class="search">
                 <img class="searchicon" src="../img/未标题-1.png" ></img>
@@ -47,85 +43,66 @@
         </div>
     </div>
     <!-- 头部导航栏结束 -->
-
-    <!--  中间内容开始  -->
-    <div class="tt_content">
-        <!--  左边内容  -->
-        <div class="tt_content_left">
-
-            <form action="">
-                <div class="headimg clearfix" >
-                    <img  src="../images/kecheng.png" id="preview" class="headicon fl">
-                    <div class="imgtitle ">
-                        <input name="logo" type="file" id="filebtn" class="filebtn">
+    <div class="mainpartportion">
+        <div class="banxin clearfix">
+            <div class="leftcatalogue">
+                <div class="schoolnam clearfix">
+                    <img src="../img/schoolimg.png" alt="" class="fl schoollogo">
+                    <div class="fl schnam">上海职业技术学院</div>
+                </div>
+                <div class="course">
+                    <img src="../images/kecheng1.png" alt="" class="courseimg">
+                    <!-- <div class="coursenam">建筑材料性能检测</div> -->
+                </div>
+                <div class="cataloguenam">
+                    <a class="left_menu_coursehomepage" href="" >课程首页</a>
+                    <a class="left_menu_scoresranking" href="" >学习排行</a>
+                    <a class="left_menu_announcement" href="">系统公告</a>
+                    <a class="left_menu_standard" href="" >评分标准</a>
+                    <a class="left_menu_onlinestudy" href="">在线学习</a>
+                    <a class="left_menu_test" href="">作业与测试</a>
+                    <a class="left_menu_report active" href="">实训报告</a>
+                    <a class="left_menu_discussion" href="">讨论</a>
+                </div>
+            </div>
+            <div class="rightresult">
+                <div class="righttitle">
+                    实训报告
+                </div>
+                <div class="stu_report_content">
+                    <div class="report_content_text">
+                        <p><b>报告模版：</b>点击右侧下载实训报告模版</p>
+                        <span>点击下载模版</span>
+                    </div>
+                    <div class="report_content_text">
+                        <p><b>报告上传：</b>点击右侧选择已经整理好的报告进行上传</p>
+                        <span onclick="upload_report()">点击上传报告</span>
+                    </div>
+                    <div class="report_content_text">
+                        <p><b>个人报告：</b>点击右侧查看个人已有报告</p>
+                        <span>查看我的报告</span>
                     </div>
                 </div>
-            </form>
-
-            <!--  <img src="../images/kecheng1.png">  -->
-            <div class="tt_content_leftmenu">
-                <a href="" class="introduction_href">课程简介</a>
-                <a class="teacher_href" href="">教师团队</a>
-                <a class="course_resources" href="" >课程资源</a>
-                <a class="catalog_href" href="">课程目录</a>
-                <a class="announcement_href" href="">系统公告</a>
-                <a class="criteria_href" href="">评分表准</a>
-                <a class="test_href active" href="">测验/考试</a>
-                <a class="course_discussion" href="">讨论区</a>
-                <a class="course_class" href="">班级</a>
-                <a class="course_student" href="">学生</a>
-                <a class="course_sum" href="">课程统计</a>
-                <a class="course_study_sum" href="">学习统计</a>
-            </div>
-        </div>
-        <!--  右边内容  -->
-        <div class="tt_content_right">
-            <div class="tt_content_right_title">
-                <a class="a_class" href="./course_test.html">测验/考试</a>-<a class="a_class" href="./course_test.html">报告批阅</a>-<a class="a_class" href="./report_select_class.html">班级</a>-<a class="a_class" href="./report_select_personal.html">学生</a>-报告批阅
-            </div>
-            <div class="test_content">
-                <div class="report_score">
-
-                    <div class="report_title_text">
-                        报告预览:
-                    </div>
-
-                    <div class="textcontent" >
-                        <iframe id="iframetest" src='http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx' width='100%' height='100%' frameborder='1'></iframe>
-                    </div>
-
-                    <div class="report_title_text2">
-                        评分:
-                        <input class="input_score" placeholder="请输入报告得分"/>
-                    </div>
-                    <div class="report_title_text3">
-                        评语: &nbsp;
-                        <textarea class="comment_input" placeholder="请输入报告评语"></textarea>
-                    </div>
-                    <div class="sub_btn">
-                        <button>提交</button>
-                    </div>
 
 
-                </div>
             </div>
         </div>
     </div>
-    <!--  中间内容结束  -->
-    <!-- 底部开始 -->
-    <div class="footercontenter">
-        <div class="footer">
-            <div class="banxin footerbanxin">
-                <div class="footercenter">
-                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 底部结束 -->
 </div>
 
+<!-- 底部开始 -->
+<div class="footercontenter">
+    <div class="footer">
+        <div class="banxin footerbanxin">
+            <div class="footercenter">
+                沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部结束 -->
 <!-- 注册模态框开始 -->
+<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -203,15 +180,47 @@
     </div>
 </div>
 <!-- 登录模态框结束 -->
+<!--  上传模态框  -->
+<div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 100%; height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">上传报告</h4>
+            </div>
+            <form class="head_img_upload" action="">
+                <div class="headimg2 clearfix">
+                    <img  src="../img/未标题-10.png" id="preview2" class="headicon fl">
+                    <div class="imgtitle ">
+                        <input name="logo" type="file" id="filebtn2" class="filebtn2">
+                    </div>
+                    <div class="fl">
+                        <div id="imgsubmit1">保存头像</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <input type="submit" class="btn btn-primary" value="保存" />
+                </div>
+            </form>
 
+        </div>
+    </div>
+</div>
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
 </body>
 <script src="../node_modules/echarts/dist/echarts.common.js" ></script>
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
-<script src="../package/jquerypage.js" ></script>
-<!-- 播放视频的js -->
-<script src="../js/myvideo.js"></script>
 <!-- 分页器 -->
 <script src="../lib/bootstrap-paginator.js"></script>
 <!-- 提示框插件 -->
@@ -219,30 +228,16 @@
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
 <script src="../js/public.js" ></script>
-<!-- 课程图片上传 -->
-<script src="../js/course_img.js"></script>
 <script type="text/javascript">
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-
-        // $("#iframetext").scroll(function(){
-        //     var topp = $("#iframetext").scrollTop();
-        //     console.log(topp);
-        // })
-
-        $(".textcontent").css({"display": "block"})
-        //下面这行代码以后要改，因为world地址必须是公共地址
-        $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
-        $("#iframetest").css({"width":"780","height":"500"})
-        // 遮盖word的链接
-        console.log(3333333333333333);
-
     })
 
+    function upload_report() {
+        $("#new_modal").modal("show")
+    }
 
 </script>
-
 </html>
-
