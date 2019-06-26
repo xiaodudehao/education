@@ -57,11 +57,11 @@
                     <div class="cataloguenam">
                         <a href="" >课程首页</a>
                         <a href="scoresranking.html" >学习排行</a>
-                        <a href="" class="active">系统公告</a>
+                        <a href="">系统公告</a>
                         <a href="" >评分标准</a>
                         <a href="">在线学习</a>
-                        <a href="">作业与测试</a>
-                        <a href="">考试</a>
+                        <a href="" class="active">作业与测试/考试</a>
+                        <a href="">报告</a>
                         <a href="">讨论</a>
                     </div>
                     <div class="share">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="rightresult">
                     <div class="righttitle">
-                        作业与测验
+                        作业与测验/考试
                     </div>
                     <div class="rightcontent">
                         <div class="worktitle clearfix">
@@ -79,75 +79,31 @@
                                 作业与测验
                             </div>
                             <div class="report fl">
-                                实训报告/主观题
+                                考试
                             </div>
                         </div>
-                        <div class="boxtit">
+                        <!-- 测试页面公告 -->
+                        <div class="testbox">
+                            <div class="boxtit">
 
-                        </div>
-                        <!-- <div class="standandcontent clearfix">
-                            <div class="ltitle fl">
-                                <div class="eachname">
-                                    1.水泥稠度用水步骤
-                                </div>
-                                <div class="eachname">
-                                    测验总分: 100分
-                                </div>
-                                <div class="eachname">
-                                    测验时间: 20分钟
-                                </div>
-                                <div class="eachname">
-                                    测验起止日期: 2019.2.1-2019.4.1
-                                </div>
-                                <div class="eachname">
-                                    测验所属章节: 项目一 任务2 水泥细度检测
-                                </div>
                             </div>
-                            <div class="rbutton fr">
-                                <div class="titlenumber">
-                                    已答题，得分: 40分
-                                </div>
-                            </div>
-                            <div class="buttontitle">
-                                点击查看
-                            </div>
-                        </div>
-                        <div class="standandcontent clearfix">
-                            <div class="ltitle fl">
-                                <div class="eachname">
-                                    1.水泥稠度用水步骤
-                                </div>
-                                <div class="eachname">
-                                    测验总分: 100分
-                                </div>
-                                <div class="eachname">
-                                    测验时间: 20分钟
-                                </div>
-                                <div class="eachname">
-                                    测验起止日期: 2019.2.1-2019.4.1
-                                </div>
-                                <div class="eachname">
-                                    测验所属章节: 项目一 任务2 水泥细度检测
-                                </div>
-                            </div>
-                            <div class="rbutton fr">
-                                <div class="titlenumber">
-                                    已答题，得分: 40分
-                                </div>
-                            </div>
-                            <div class="buttontitle">
-                                点击查看
-                            </div>
-                        </div> -->
-                    </div>
-                    <!-- <div class="next">
-                        <div class="tcdPageCode">
 
+                            <div class="page_area">
+                                <ul id="pagec"></ul>
+                            </div>
                         </div>
-                    </div> -->
-                    <div class="page_area">
-                        <ul id="page"></ul>
+                        <!-- 考试页面公告 -->
+                        <div class="examinebox">
+                            <div class="boxexamine">
+                                222222222
+                            </div>
+
+                            <div class="page_area">
+                                <ul id="pageb"></ul>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -266,6 +222,7 @@
 
 <script type="text/javascript">
 $(function(){
+    var statebutton = 0;
     // 模态框居中
     modalCenter('#myModal')
     modalCenter('#myModal1')
@@ -284,157 +241,311 @@ $(function(){
         }
     ellipsis(7);//要显示的字符数 Number
 
- $(".tcdPageCode").createPage({ 
-  pageCount:20, 
-  current:1, 
-  backFn:function(p){ 
-   console.log(p); 
-  } 
- }); 
+    $(".tcdPageCode").createPage({ 
+    pageCount:20, 
+    current:1, 
+    backFn:function(p){ 
+    console.log(p); 
+    } 
+    }); 
 
-    // $.ajax({
-    // //几个参数需要注意一下
-    //     type: "POST",//方法类型
-    //     dataType: "json",//预期服务器返回的数据类型
-    //     url: HTTP_URLH+"Studymanage/set_exam",//url
-    //     data:  {
-    //         cid: cid,
-    //         id: uid
-    //     },
-    //     success: function (result) {
-    //         console.log('返回数据',result);//打印服务端返回的数据(调试用)
+        // $.ajax({
+        // //几个参数需要注意一下
+        //     type: "POST",//方法类型
+        //     dataType: "json",//预期服务器返回的数据类型
+        //     url: HTTP_URLH+"Studymanage/set_exam",//url
+        //     data:  {
+        //         cid: cid,
+        //         id: uid
+        //     },
+        //     success: function (result) {
+        //         console.log('返回数据',result);//打印服务端返回的数据(调试用)
 
-    //     },
-    //     error : function() {
-    //         alert("异常！");
-    //     }
-    // });
+        //     },
+        //     error : function() {
+        //         alert("异常！");
+        //     }
+        // });
 
-    $(".report").on("click",function(){
-        
-    })
 
-    select_announce(1)
 
-// 查询
-function select_announce(pageN) {
-var param = {
-    cid: cid,
-    id: uid,
-    page: pageN,
-}
 
-// loading显示
-$("#loadingModal").modal("show")
-var CouIntrAjax = $.ajax({
-    url: HTTP_URLH+"Studymanage/set_exam",
-    type: "post",
-    timeout: 5000,
-    dataType: "json",
-    // async:false,    //不进行异步刷新
-    data: param,
-    success: function (data) {
-        console.log('返回数据',data);//打印服务端返回的数据(调试用)
-       
-        
-        var str = "";
-        for(var i = 0; i<data[1].length; i++){
-            var item= data[1][i];
-            // 考试开始时间的数组
-            var beginarr = item.time.split("-");
-            // console.log('年',beginy);
-            //结束考试时间的数组
-            var endnarr = item.data.split("-");
-            // console.log(end);
-
-            str += `<div class="standandcontent clearfix">
-                        <div class="ltitle fl">
-                            <div class="eachname">
-                                1.水泥稠度用水步骤${item.name}
-                            </div>
-                            <div class="eachname">
-                                测验总分: ${item.count}分
-                            </div>
-                            <div class="eachname">
-                                测验时间: ${item.gtime}分钟
-                            </div>
-                            <div class="eachname">
-                                测验起止日期: ${beginarr[0]}.${beginarr[1]}.${beginarr[2]}-${endnarr[0]}.${endnarr[1]}.${endnarr[2]}
-                            </div>
-                            <div class="eachname">
-                                测验所属章节: ${item.section}
-                            </div>
-                        </div>
-                        <div class="rbutton fr">
-                            <div class="titlenumber">
-                            ${ item.score==0 ? '未答题' : ' 已答题，得分:'+item.score }
-                            </div>
-                        </div>
-                        <div class="buttontitle">
-                            点击查看
-                        </div>
-                    </div>`
+    // 单击测试页
+    $(".work").on("click",function(){
+        $(".testbox").css({"display":"block"})
+        $(".examinebox").css({"display":"none"})
+        // 改变按钮颜色
+        $(this).css({"background-color":"#33b150"})
+        $('.report').css({"background-color":"#81d282"})
+        statebutton = 0;
+        select_announce(1)
+        // 查询
+        function select_announce(pageN) {
+        var param = {
+            cid: cid,
+            id: uid,
+            page: pageN,
         }
-        $(".boxtit").html(str)
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH+"Studymanage/set_exam",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: param,
+            success: function (data) {
+                console.log('返回数据',data);//打印服务端返回的数据(调试用)
+                if(data == ""){
+                    console.log("无数据");
+                    $(".boxtit").html("<div>无数据</div>")
+                }else{
+                    
+                var str = "";
+                for(var i = 0; i<data[1].length; i++){
+                    var item= data[1][i];
+                    // 考试开始时间的数组
+                    var beginarr = item.time.split("-");
+                    // console.log('年',beginy);
+                    //结束考试时间的数组
+                    var endnarr = item.data.split("-");
+                    // console.log(end);
 
-
-        
-        //分页
-        $("#page").bootstrapPaginator({
-            bootstrapMajorVersion: 3,   //bootstrap版本
-            totalPages: data[0],   //总页数
-            numberOfPages: 3,    //分页器每页展示页码数
-            shouldShowPage: true,   //所有的按钮都展示
-            itemTexts: function (type, page, current) {
-                // console.log(type)
-                //设置分页控件每部分的显示文字
-                switch (type) {
-                    case "first":
-                        return "第一页"
-                    case "prev":
-                        return "上一页"
-                    case "next":
-                        return "下一页"
-                    case "last":
-                        return "最后一页"
-                    case "page":
-                        return page
-                    case "jump":
-                        return "跳转"
+                    str += `<div class="standandcontent clearfix">
+                                <div class="ltitle fl">
+                                    <div class="eachname">
+                                        ${(pageN-1)*4+i+1}.${item.name}
+                                    </div>
+                                    <div class="eachname">
+                                        测验总分: ${item.count}分
+                                    </div>
+                                    <div class="eachname">
+                                        测验时间: ${item.gtime}分钟
+                                    </div>
+                                    <div class="eachname">
+                                        测验起止日期: ${beginarr[0]}.${beginarr[1]}.${beginarr[2]}-${endnarr[0]}.${endnarr[1]}.${endnarr[2]}
+                                    </div>
+                                    <div class="eachname">
+                                        测验所属章节: ${item.section}
+                                    </div>
+                                </div>
+                                <div class="rbutton fr">
+                                    <div class="titlenumber">
+                                    ${ item.state==0 ? '未答题' : ' 已答题，得分:'+item.score }
+                                    </div>
+                                </div>
+                                <div class="buttontitle" data-ce="${ item.id }"  data-sta="${ item.state }" >
+                                ${ item.state == 0 ? '开始测验' : '查看' }
+                                </div>
+                            </div>`
                 }
-            }, onPageClicked: function(event, originalEvent, type, page) {
-                //点击事件
-                //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-                pageNum = page
-                // 查询
-                select_announce(pageNum)
+                $(".boxtit").html(str)
+
+
+                
+                //分页
+                $("#pagec").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,   //bootstrap版本
+                    totalPages: data[0],   //总页数
+                    numberOfPages: 3,    //分页器每页展示页码数
+                    shouldShowPage: true,   //所有的按钮都展示
+                    itemTexts: function (type, page, current) {
+                        // console.log(type)
+                        //设置分页控件每部分的显示文字
+                        switch (type) {
+                            case "first":
+                                return "第一页"
+                            case "prev":
+                                return "上一页"
+                            case "next":
+                                return "下一页"
+                            case "last":
+                                return "最后一页"
+                            case "page":
+                                return page
+                            case "jump":
+                                return "跳转"
+                        }
+                    }, onPageClicked: function(event, originalEvent, type, page) {
+                        //点击事件
+                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                        pageNum = page
+                        // 查询
+                        select_announce(pageNum)
+                    }
+                })
+                //  分页结束
+                }
+
+            },
+            error: function (e) {
+                console.log(e)
+                console.log(e.statusText)
+                if ("timeout" == e.statusText) {
+                    // 请求超时，终止请求
+                    toastr.warning("请求超时")
+                    CouIntrAjax.abort()
+                } else {
+                    // toastr.error("网络开小差了，请稍后再试！")
+                }
+                $("#loadingModal").modal("hide")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
             }
         })
-        //  分页结束
-    },
-    error: function (e) {
-        console.log(e)
-        console.log(e.statusText)
-        if ("timeout" == e.statusText) {
-            // 请求超时，终止请求
-            toastr.warning("请求超时")
-            CouIntrAjax.abort()
-        } else {
-            // toastr.error("网络开小差了，请稍后再试！")
         }
-        $("#loadingModal").modal("hide")
-    },
-    complete: function (xhr, status) {
-        // 隐藏loading
-        $("#loadingModal").modal("hide")
-    }
-})
-}
+    })
+
+    // 页面开始的时候单击一下测试按钮
+    $(".work").click()
+    // 隐藏考试公告的内容
+    $(".examinebox").css({"display":"none"})
+
+
+    //单击考试页
+    $(".report").on("click",function(){
+        $(".testbox").css({"display":"none"})
+        $(".examinebox").css({"display":"block"})
+        // 改变按钮颜色
+        $(this).css({"background-color":"#33b150"})
+        $('.work').css({"background-color":"#81d282"})
+
+        select_announce(1)
+        // 查询
+        function select_announce(pageN) {
+        var param = {
+            cid: cid,
+            id: uid,
+            page: pageN,
+        }
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH+"Studymanage/set_ination",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: param,
+            success: function (data) {
+                console.log('返回考试数据',data);//打印服务端返回的数据(调试用)
+
+                if(data == ""){
+                    $(".boxexamine").html("<div>无数据</div>")
+                }else{
+                        var str = "";
+                    for(var i = 0; i<data[1].length; i++){
+                        var item= data[1][i];
+                        // 考试开始时间的数组
+                        var beginarr = item.time.split("-");
+                        // console.log('年',beginy);
+                        //结束考试时间的数组
+                        var endnarr = item.data.split("-");
+                        // console.log(end);
+
+                        str += `<div class="standandcontent clearfix">
+                                    <div class="ltitle fl">
+                                        <div class="eachname">
+                                            ${(pageN-1)*4+i+1}.${item.name}
+                                        </div>
+                                        <div class="eachname">
+                                            测验总分: ${item.count}分
+                                        </div>
+                                        <div class="eachname">
+                                            测验时间: ${item.gtime}分钟
+                                        </div>
+                                        <div class="eachname">
+                                            测验起止日期: ${beginarr[0]}.${beginarr[1]}.${beginarr[2]}-${endnarr[0]}.${endnarr[1]}.${endnarr[2]}
+                                        </div>
+                                    </div>
+                                    <div class="rbutton fr">
+                                        <div class="titlenumber">
+                                        ${ item.state==0 ? '未答题' : ' 已答题，得分:'+item.score }
+                                        </div>
+                                    </div>
+                                    <div class="buttontitle" data-ce="${ item.id }" data-sta="${ item.state }" >
+                                    ${ item.state==0 ? '开始测验' : '查看' }
+                                    </div>
+                                </div>`
+                    }
+                    $(".boxexamine").html(str)
+                    // boxexamine
+
+                    
+                    //分页
+                    $("#pageb").bootstrapPaginator({
+                        bootstrapMajorVersion: 3,   //bootstrap版本
+                        totalPages: data[0],   //总页数
+                        numberOfPages: 3,    //分页器每页展示页码数
+                        shouldShowPage: true,   //所有的按钮都展示
+                        itemTexts: function (type, page, current) {
+                            // console.log(type)
+                            //设置分页控件每部分的显示文字
+                            switch (type) {
+                                case "first":
+                                    return "第一页"
+                                case "prev":
+                                    return "上一页"
+                                case "next":
+                                    return "下一页"
+                                case "last":
+                                    return "最后一页"
+                                case "page":
+                                    return page
+                                case "jump":
+                                    return "跳转"
+                            }
+                        }, onPageClicked: function(event, originalEvent, type, page) {
+                            //点击事件
+                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                            pageNum = page
+                            // 查询
+                            select_announce(pageNum)
+                        }
+                    })
+                    //  分页结束
+                }
 
 
 
+            },
+            error: function (e) {
+                console.log(e)
+                console.log(e.statusText)
+                if ("timeout" == e.statusText) {
+                    // 请求超时，终止请求
+                    toastr.warning("请求超时")
+                    CouIntrAjax.abort()
+                } else {
+                    // toastr.error("网络开小差了，请稍后再试！")
+                }
+                $("#loadingModal").modal("hide")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+        }
+        statebutton = 1;
 
-    
+    })
+
+    //点击跳转页面或者点击查看
+    $(".rightcontent").on("click",".buttontitle", function(event){
+        
+        console.log('每次公告的id',$(this).data("ce"));
+        console.log('是否批阅',$(this).data("sta"));
+        if($(this).data("sta") == "已批阅"){
+            window.location.href="examine.html?uid="+uid+"&exid="+$(this).data("ce")+"&cid="+cid;
+        }else{
+            window.location.href="thetestpage.html?uid="+uid+"&exid="+$(this).data("ce")+"&cid="+cid;
+        }
+
+    })
 })
 
 </script>

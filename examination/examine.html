@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作用与测验-查看</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../css/coursehomepage.css">
+    <!-- <link rel="stylesheet" href="../css/announcement.css"> -->
+    <!-- rwb分页的样式 -->
+    <link rel="stylesheet" href="../css/public/rwbpage.css">
+
+    <!-- <link rel="stylesheet" href="../css/taskexamination.css"> -->
+    <link rel="stylesheet" href="../css/page.css">
+    <link rel="stylesheet" href="../css/examine.css">
+</head>
+<body>
+    <div class="maincontent">
+    <!-- 头部导航栏开始 -->
+    <div class="header">
+        <div class="banxin">
+            <img src="../img/未标题-10.png" class="logo" alt="">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">院校</a></li>
+                <li><a href="">立体教材</a></li>
+            </ul>
+            <div class="search">
+                <img class="searchicon" src="../img/未标题-1.png" ></img>
+                <input type="text" placeholder="搜索课程或学校">
+            </div>
+            <div class="login">
+                <a href="">
+                    <img class="loginicon" src="../img/未标题-2.png"></img>
+                </a>
+                <!-- 这里的模态框用js实现 -->
+                <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航栏结束 -->
+        <div class="mainpartportion">
+            <div class="banxin clearfix">
+                <div class="leftcatalogue">
+                    <div class="schoolnam clearfix">
+                        <img src="../img/schoolimg.png" alt="" class="fl schoollogo">
+                        <div class="fl schnam">上海职业技术学院</div>
+                    </div>
+                    <div class="course">
+                        <img src="../images/kecheng1.png" alt="" class="courseimg">
+                        <!-- <div class="coursenam">建筑材料性能检测</div> -->
+                    </div>
+                    <div class="cataloguenam">
+                        <a href="" >课程首页</a>
+                        <a href="scoresranking.html" >学习排行</a>
+                        <a href="">系统公告</a>
+                        <a href="" >评分标准</a>
+                        <a href="">在线学习</a>
+                        <a href="" class="active">作业与测试/考试</a>
+                        <a href="">报告</a>
+                        <a href="">讨论</a>
+                    </div>
+                    <div class="share">
+                        <div></div>
+                        <a href=""></a>
+                    </div>
+                </div>
+                <div class="rightresult">
+                    <div class="righttitle">
+                        作业与测验/考试
+                    </div>
+                    <div class="rightcontent">
+                        <div class="tablebox">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th width="50px">序号</th>
+                                            <th width="300px">提交时间</th>
+                                            <th width="150px">用时</th>
+                                            <th width="150px">批阅状态</th>
+                                            <th width="130px">得分</th>
+                                            <th width="90px">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                        <div class="page_area">
+                            <ul id="page"></ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>  
+       
+    <!-- 底部开始 -->
+    <div class="footercontenter">
+        <div class="footer">
+            <div class="banxin footerbanxin">
+                <div class="footercenter">
+                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部结束 -->
+        <!-- 注册模态框开始 -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="registertitle">
+                        用户注册
+                  </div>
+                  <form id="registerform" name="register"  class="registerform" action="">
+                      <div class="form-group">
+                           
+                            <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                      </div>
+                      <div class="form-group">
+                            
+                            <input name="username" placeholder="输入用户名" class="username" type="text">
+                      </div>
+                      <div class="form-group">
+                
+                            <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                      </div>
+                      <!-- <div class="nameexist">该用户名已存在</div> -->
+                      <div class="registerbutton">立即注册</div>
+                      <div class="elseregister">
+                        <span>其它登录方式</span>  
+                          <a href=""><img src="../img/qq.png" alt=""></a>
+                          <a href=""><img src="../img/weixin.png" alt=""></a>
+                          <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                          <div class="nameexist">该用户名已存在</div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        <!-- 注册模态框结束 -->
+        <!-- 登录模态框开始 -->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="registertitle">
+                                用户登录
+                          </div>
+                          <form class="registerform loginform" id="loginform" action="">
+                              <div class="form-group">
+                              <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                              </div>
+                              <div class="form-group">
+                                    <input placeholder="输入密码" name="password" class="username" type="password">
+                              </div>
+    
+                              <div class="codefather clearfix">
+                                    <input  placeholder="输入验证码" name="code" class="code" type="text">
+                                    <img src="../img/code.png" class="codeimg"></img>
+                                    <div class="check">换一张</div>
+                                    <div class="codeerr uperr">
+                                        ⓧ 用户名或密码错误
+                                    </div>
+                                    <div class="codeerr cerr">
+                                        ⓧ 验证码错误
+                                    </div>
+                              </div>
+    
+                              <div class="loginbutton">立即登录</div>
+                              <div class="else">
+    
+                                <div class="linkregister">注册</div>
+                                <div class="forget">忘记密码</div>
+                                <span>其它登录方式</span>  
+            
+                                  
+                                 <a href=""><img src="../img/qq.png" alt=""></a>
+                                 <a href=""> <img src="../img/weixin.png" alt=""></a>
+                                 <a href=""><img  src="../img/xinlang.png" alt=""></a>   
+                              </div>
+                          </form>
+                </div>
+            </div>
+        </div>
+        <!-- 登录模态框结束 -->
+
+        <!-- 在ajax请求未返回数据前执行的动画 -->
+        <div class="modal fade" id="loadingModal" data-backdrop="static">
+            <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+                <div class="progress progress-striped active" style="margin-bottom: 0;">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
+                <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+            </div>
+        </div>
+    
+</body>
+<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../js/public.js" ></script>
+<script src="../package/jquerypage.js" ></script>
+<!-- 分页器 -->
+<script src="../lib/bootstrap-paginator.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    // 模态框居中
+    modalCenter('#myModal')
+    modalCenter('#myModal1')
+    var cid = getSearch("cid");
+    var uid = getSearch("uid");
+    var exid = getSearch("exid");
+    console.log(cid,uid,exid);
+    
+
+    //  设置学校名称字数超出显示省略号……
+    function ellipsis(num) {
+        $(".schnam").each(function () {
+            var maxwidth = num;
+            console.log($(this).text());
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '…');
+            }
+        });
+        }
+    ellipsis(7);//要显示的字符数 Number
+
+ $(".tcdPageCode").createPage({ 
+  pageCount:20, 
+  current:1, 
+  backFn:function(p){ 
+   console.log(p); 
+  } 
+ }); 
+
+
+
+
+
+
+    select_announce(1)
+    // 查询
+    function select_announce(pageN) {
+    var param = {
+        cid: cid,
+        id: uid,
+        eid: exid,
+        page: pageN,
+    }
+
+    // loading显示
+    $("#loadingModal").modal("show")
+    var CouIntrAjax = $.ajax({
+        url: HTTP_URLH+"Studymanage/look_ination",
+        type: "post",
+        timeout: 5000,
+        dataType: "json",
+        // async:false,    //不进行异步刷新
+        data: param,
+        success: function (data) {
+            console.log('返回考试公告数据',data);//打印服务端返回的数据(调试用)
+
+            if(data == ""){
+                $("tbody").html("<tr><td>无数据</td></tr>")
+            }else{
+                var str = "";
+                for(var i = 0; i<data.shuju.length; i++){
+
+                    // // 考试开始时间的数组
+                    // var beginarr = item.time.split("-");
+                    // // console.log('年',beginy);
+                    // //结束考试时间的数组
+                    // var endnarr = item.data.split("-");
+                    // // console.log(end);
+                    var date = new Date(date);
+                    console.log(date);
+                    
+                    console.log('时间',data.shuju[i].time);     
+                    str += `<tr>
+                                <th width="50px"> ${ (pageN-1)*12 + i + 1 } </th>
+                                <th width="300px"> ${ timestampToTime(data.shuju[i].data) } </th>
+                                <th width="150px"> ${ data.shuju[i].time } </th>
+                                <th width="150px"> ${ data.shuju[i].state } </th>
+                                <th width="130px"> ${ data.shuju[i].score } </th>
+                                <th width="90px" class="operate">查看</th>
+                            </tr>`
+                }
+                $("tbody").html(str)
+                $(".operate").css("color","#33b150")
+                //分页
+                $("#page").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,   //bootstrap版本
+                    totalPages: data[0],   //总页数
+                    numberOfPages: 3,    //分页器每页展示页码数
+                    shouldShowPage: true,   //所有的按钮都展示
+                    itemTexts: function (type, page, current) {
+                        // console.log(type)
+                        //设置分页控件每部分的显示文字
+                        switch (type) {
+                            case "first":
+                                return "第一页"
+                            case "prev":
+                                return "上一页"
+                            case "next":
+                                return "下一页"
+                            case "last":
+                                return "最后一页"
+                            case "page":
+                                return page
+                            case "jump":
+                                return "跳转"
+                        }
+                    }, onPageClicked: function(event, originalEvent, type, page) {
+                        //点击事件
+                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                        pageNum = page
+                        // 查询
+                        select_announce(pageNum)
+                    }
+                })
+                //  分页结束
+            }
+            
+
+
+
+        },
+        error: function (e) {
+            console.log(e)
+            console.log(e.statusText)
+            if ("timeout" == e.statusText) {
+                // 请求超时，终止请求
+                toastr.warning("请求超时")
+                CouIntrAjax.abort()
+            } else {
+                // toastr.error("网络开小差了，请稍后再试！")
+            }
+            $("#loadingModal").modal("hide")
+        },
+        complete: function (xhr, status) {
+            // 隐藏loading
+            $("#loadingModal").modal("hide")
+        }
+    })
+    }
+    // 单击查看按钮
+    $(".rightcontent").on("click",".operate",function(){
+        alert(000)
+    })
+
+    // 事件戳转时间的函数
+    function timestampToTime(timestamp) {
+        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var D = date.getDate();
+        // var h = date.getHours() + ':';
+
+        // var m = date.getMinutes() + ':';
+        // var s = date.getSeconds();
+        return Y+M+D;
+    }
+})
+
+</script>
+</html>

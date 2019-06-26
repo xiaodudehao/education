@@ -400,6 +400,13 @@
             }
         });
         select_test(pageNum)
+
+        $(".tt_content_right").on("click",".addexamin",function(){
+            console.log($(this).data("exaid"));
+            console.log(cid,uid);
+            
+            // window.location.href = "addexamination.html?exaid"+exaid+"&cid="+cid
+        })
     })
     // 查询
     function select_test(pageN) {
@@ -435,6 +442,8 @@
                         // 时间戳转换
                         res += '<div class="announcement_information">\n' +
                             '                    <div class="announcement_btn">\n' +
+                            '                        <button data-exaid="'+ item.id +'" class="addexamin">添加试卷题目</button>\n'+    
+                            '                        <span>|</span>\n' +
                             '                        <button onclick="test_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
                             '                        <span>|</span>\n' +
                             '                        <button onclick="delete_test('+ item.id +')">删除</button>\n' +
@@ -665,6 +674,7 @@
             }
         })
     }
+
 </script>
 
 </html>
