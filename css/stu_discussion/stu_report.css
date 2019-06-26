@@ -1,0 +1,60 @@
+/* 实训报告上传样式 */
+.stu_report_content {
+    margin-top: 60px;
+    padding: 0 40px;
+}
+.report_content_text p{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.report_content_text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.report_content_text span {
+    cursor: pointer;
+    color: #81d283;
+}
+.report_content_text span:hover {
+    color: #31b24e;
+}
+.modal-content {
+    min-height: auto;
+}
+/* 个人报告 */
+/* 系统公告的内容 */
+.announcement_content {
+    margin-top: 10px;
+}
+/* 系统公告的一块内容 */
+.announcement_information {
+    margin-bottom: 40px;
+    padding: 30px;
+    height: 220px;
+    border: 1px solid #81d283;
+    border-radius: 20px;
+}
+.announcement_btn{
+    float: right;
+    position: relative;
+    top: -10px;
+}
+.announcement_btn button {
+    padding: 5px;
+    font-size: 16px;
+    color: #81d283;
+    background: none;
+    border: none;
+}
+.announcement_btn span {
+    color: #81d283;
+}
+.announcement_text p {
+    font-size: 16px;
+}
+.announcement_text .announcement_text_content {
+    font-size: 14px;
+    font-weight: normal;
+}
