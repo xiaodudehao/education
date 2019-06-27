@@ -80,7 +80,7 @@
                     </div>
                     <div class="report_content_text">
                         <p><b>个人报告：</b>点击右侧查看个人已有报告</p>
-                        <span>查看我的报告</span>
+                        <span onclick="report_mine()">查看我的报告</span>
                     </div>
                 </div>
 
@@ -237,6 +237,9 @@
 
     function upload_report() {
         $("#new_modal").modal("show")
+    }
+    function report_mine() {
+        $(location).attr('href','./stu_report_mine.html');
     }
 
 </script>
