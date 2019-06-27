@@ -386,6 +386,7 @@
 <script src="../js/course_img.js"></script>
 <!--<script src="../js/course_announcement.js"></script>-->
 <script type="text/javascript">
+
     var pageNum = 1
     $(function(){
         // 模态框居中
@@ -400,6 +401,14 @@
             }
         });
         select_homework(pageNum)
+
+        // 单击“添加试卷题目”按钮时
+        $(".tt_content_right").on("click",".addexamin",function(){
+            var exaid = $(this).data("exaid");
+            console.log(cid,exaid);
+            // 当测试页面时为1,考试页面为2
+            window.location.href = "addexamination.html?exaid="+exaid+"&sta="+1+"&cid="+cid
+        })
     })
     // 查询
     function select_homework(pageN) {
@@ -435,6 +444,8 @@
                         // 时间戳转换
                         res += '<div class="announcement_information" style="height: 230px">\n' +
                             '                    <div class="announcement_btn">\n' +
+                            '                        <button data-exaid="'+ item.id +'" class="addexamin">添加试卷题目</button>\n'+  
+                            '                        <span>|</span>\n' +
                             '                        <button onclick="homework_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
                             '                        <span>|</span>\n' +
                             '                        <button onclick="delete_homework('+ item.id +')">删除</button>\n' +

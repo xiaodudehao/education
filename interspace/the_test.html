@@ -402,10 +402,10 @@
         select_test(pageNum)
 
         $(".tt_content_right").on("click",".addexamin",function(){
-            console.log($(this).data("exaid"));
-            console.log(cid,uid);
-            
-            // window.location.href = "addexamination.html?exaid"+exaid+"&cid="+cid
+            var exaid = $(this).data("exaid");
+            console.log(cid,exaid);
+            // 当测试页面时为1,考试页面为2
+            window.location.href = "addexamination.html?exaid="+exaid+"&sta="+2+"&cid="+cid
         })
     })
     // 查询
