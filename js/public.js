@@ -97,6 +97,7 @@ $(".left_menu_announcement").attr('href','./announcement.html?c_id='+ cid +'');
 $(".left_menu_standard").attr('href','./standard.html?c_id='+ cid +'');
 $(".left_menu_onlinestudy").attr('href','./onlinestudy.html?c_id='+ cid +'');
 $(".left_menu_test").attr('href','./coursehomepage.html?c_id='+ cid +'');
+$(".left_menu_report").attr('href','./stu_report.html?c_id='+ cid +'');
 $(".left_menu_discussion").attr('href','./stu_discussion.html?c_id='+ cid +'');
 
 

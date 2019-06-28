@@ -23,20 +23,30 @@
 .modal-content {
     min-height: auto;
 }
+/* 文件模态框 */
+.imgtitle {
+    margin: 30px 100px;
+}
 /* 个人报告 */
 
 .righttitle a {
-    color: #81d283;
+    color: #31b24e;
 }
 .righttitle a:hover {
-    color: #31b24e;
     text-decoration: none;
 }
-/* 系统公告的内容 */
+/* 没有数据时的样式 */
+.no_data_tea {
+    display: none;
+    margin: 0;
+    padding: 100px;
+    text-align: center;
+}
+/* 个人报告的内容 */
 .announcement_content {
     margin-top: 70px;
 }
-/* 系统公告的一块内容 */
+/*  个人报告的一块内容 */
 .announcement_information {
     margin-bottom: 40px;
     padding: 30px;
@@ -56,13 +66,37 @@
     background: none;
     border: none;
 }
-.announcement_btn span {
-    color: #81d283;
+.announcement_btn button:hover {
+    color: #31b24e;
 }
+
 .announcement_text p {
     font-size: 16px;
 }
 .announcement_text .announcement_text_content {
     font-size: 14px;
     font-weight: normal;
+}
+
+/* 报告预览 */
+.preview_content {
+    margin-top: 50px;
+}
+.report_title_text {
+    margin: 20px 0px;
+    font-size: 18px;
+}
+/* 文档预览样式 */
+.textcontent {
+    /*border: 1px solid #ccc;*/
+    width: 900px;
+    min-height: 500px;
+    display: none;
+}
+.textcontent iframe {
+    width: 900px !important;
+    height: 645px;
+    border: 1px solid #CCCCCC;
+    /*border-radius: 5px;*/
+    box-shadow: 0px 0px 5px #CCCCCC;
 }

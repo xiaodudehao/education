@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>实训报告</title>
+    <title>实训报告-个人报告</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
     <!-- 提示框样式 -->
@@ -67,23 +67,18 @@
             </div>
             <div class="rightresult">
                 <div class="righttitle">
-                    实训报告
-                </div>
-                <div class="stu_report_content">
-                    <div class="report_content_text">
-                        <p><b>报告模版：</b>点击右侧下载实训报告模版</p>
-                        <a href="">点击下载模版</a>
-                    </div>
-                    <div class="report_content_text">
-                        <p><b>报告上传：</b>点击右侧选择已经整理好的报告进行上传</p>
-                        <span onclick="upload_report()">点击上传报告</span>
-                    </div>
-                    <div class="report_content_text">
-                        <p><b>个人报告：</b>点击右侧查看个人已有报告</p>
-                        <span onclick="report_mine()">查看我的报告</span>
-                    </div>
+                    <a href="./stu_report.html">实训报告</a>-<a href="./stu_report_mine.html">个人报告</a>-预览
                 </div>
 
+                <div class="preview_content">
+                    <div class="report_title_text">
+                        个人报告预览:
+                    </div>
+                    <!-- 文档预览 -->
+                    <div class="textcontent" >
+                        <iframe id="iframetest"></iframe>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -180,30 +175,6 @@
     </div>
 </div>
 <!-- 登录模态框结束 -->
-<!--  上传模态框  -->
-<div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content" style="width: 100%; height: auto">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">上传报告</h4>
-            </div>
-
-            <form class="head_img_upload" action="javascript: upload()">
-                <div class="headimg2 clearfix">
-                    <div class="imgtitle">
-                        <input name="logo" type="file" id="filebtn" class="filebtn">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <input type="submit" class="btn btn-primary" value="保存" />
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
 <!-- loading Modal start-->
 <div class="modal fade" id="loadingModal" data-backdrop="static">
     <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
@@ -230,76 +201,13 @@
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-        modalCenter('#new_modal')
 
-        download()
+        $(".textcontent").css({"display": "block"})
+        //下面这行代码以后要改，因为world地址必须是公共地址
+        $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
+        $("#iframetest").css({"width":"780","height":"600"})
+        // 遮盖word的链接
     })
-
-    function upload_report() {
-        $("#new_modal").modal("show")
-    }
-    function report_mine() {
-        $(location).attr('href','./stu_report_mine.html');
-    }
-
-    // 原生ajax发送头像信息开始
-    var xhr;
-    function createXMLHttpRequest() {
-        if (window.ActiveXObject) {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-        } else if (window.XMLHttpRequest) {
-            xhr = new XMLHttpRequest();
-        }
-    }
-    function UpladFile() {
-        console.log("jin")
-        var fileObj = document.getElementById("filebtn").files[0];
-        console.log(fileObj);
-
-        var FileController = HTTP_URLH + "Report/report";
-        var form = new FormData();
-        form.append("myFile", fileObj);
-        form.append("id", 1);
-        form.append("cid", 1);
-
-        createXMLHttpRequest();
-        xhr.onreadystatechange = handleStateChange;
-        xhr.open("post", FileController, true);
-        xhr.send(form);
-    }
-    function handleStateChange() {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200 || xhr.status == 0) {
-                // history.go(0)
-            }
-        }
-    }
-    function upload() {
-        UpladFile()
-    }
-    
-    //  下载报告模版
-    function download() {
-        var DownloadAjax = $.ajax({
-            url: HTTP_URLH + "Report/set_template",
-            type: "post",
-            data: {
-                cid: 1,
-            },
-            dataType: "json",
-            success: function (data) {
-                console.log(data)
-            },
-            error: function (e) {
-                toastr.error("网络开小猜了，请稍后再试！")
-                console.log(e)
-            },
-            complete: function (xhr, status) {
-                // 隐藏loading
-                $("#loadingModal").modal("hide")
-            }
-        })
-    }
 
 
 </script>
