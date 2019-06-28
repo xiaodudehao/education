@@ -15,7 +15,7 @@
     <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="../css/taskexamination.css"> -->
     <link rel="stylesheet" href="../css/addexmation.css">
-    <link rel="stylesheet" href="../css/page.css">
+    <!-- <link rel="stylesheet" href="../css/page.css"> -->
 </head>
 <body>
     <div class="maincontent">
@@ -266,38 +266,6 @@ $(function(){
         closeButton: true  // 是否显示关闭按钮
     }
 
-
-    // $(".tcdPageCode").createPage({ 
-    // pageCount:20, 
-    // current:1, 
-    // backFn:function(p){ 
-    // console.log(p); 
-    // } 
-    // }); 
-
-        // $.ajax({
-        // //几个参数需要注意一下
-        //     type: "POST",//方法类型
-        //     dataType: "json",//预期服务器返回的数据类型
-        //     url: HTTP_URLH+"Studymanage/set_exam",//url
-        //     data:  {
-        //         cid: cid,
-        //         id: uid
-        //     },
-        //     success: function (result) {
-        //         console.log('返回数据',result);//打印服务端返回的数据(调试用)
-
-        //     },
-        //     error : function() {
-        //         alert("异常！");
-        //     }
-        // });
-
-
-
-
-
-
         select_announce(1)
         // 查询
         function select_announce(pageN) {
@@ -439,86 +407,100 @@ $(function(){
 
     // 当单击提交试卷题目按钮时
     $(".exabutton").on("click",function(){
-        // 是从作业页还是考试页跳转过来的
-        var sta = getSearch("sta")
         
-        if(sta == 1){
-            $("#loadingModal").modal("show")
-            $.ajax({
-                url: HTTP_URLH + "Studymanage/comprise",
-                type: 'post',
-                data: {
-                    eid: getSearch("exaid"),
-                    val: arrexamination
-                },
-                datatype: 'json',
-                success: function () {
-                    console.log("提交成功");
-
-                    // 提交成功后题库的选择按钮刷新
-                    arrexamination = [];
-                    $(".checkinput").prop("checked",false);
-                    
-                    //alert(window.location.host)
-                    $("#loadingModal").modal("hide")
-                    toastr.success("提交成功")
-                },
-                error: function (e) {
-                console.log(e)
-                console.log(e.statusText)
-                if ("timeout" == e.statusText) {
-                    // 请求超时，终止请求
-                    toastr.warning("请求超时")
-                    CouIntrAjax.abort()
-                } else {
-                    toastr.error("网络开小差了，请稍后再试！")
-                }
-                $("#loadingModal").modal("hide")
-                },
-                complete: function (xhr, status) {
-                    // 隐藏loading
-                    $("#loadingModal").modal("hide")
-                }
-            });
-
-        }else{
-            $("#loadingModal").modal("show")
-            $.ajax({
-                url: HTTP_URLH + "Studymanage/ination_comprise",
-                type: 'post',
-                data: {
-                    eid: getSearch("exaid"),
-                    val: arrexamination
-                },
-                datatype: 'json',
-                success: function () {
-                    console.log("提交成功");
-                    
-
-                    arrexamination = [];
-                    $(".checkinput").prop("checked",false);
-                    //alert(window.location.host)
-                    $("#loadingModal").modal("hide")
-                    toastr.success("提交成功")
-                },
-                error: function (e) {
-                console.log(e)
-                console.log(e.statusText)
-                if ("timeout" == e.statusText) {
-                    // 请求超时，终止请求
-                    toastr.warning("请求超时")
-                    CouIntrAjax.abort()
-                } else {
-                    toastr.error("网络开小差了，请稍后再试！")
-                }
-                $("#loadingModal").modal("hide")
-                },
-                complete: function (xhr, status) {
-                    // 隐藏loading
-                    $("#loadingModal").modal("hide")
-                }
-            });
+        var sta = getSearch("sta")
+        if(arrexamination.length == 0){
+            $(".exanumber").text("未选中任何题目");
+            return;
         }
+
+        // 判断总分能否被题目数整除。
+        if(100%arrexamination.length == 0){
+            // 判断是从作业页还是考试页跳转过来的
+            if(sta == 1){
+                $("#loadingModal").modal("show")
+                $.ajax({
+                    url: HTTP_URLH + "Studymanage/comprise",
+                    type: 'post',
+                    data: {
+                        eid: getSearch("exaid"),
+                        val: arrexamination
+                    },
+                    datatype: 'json',
+                    success: function () {
+                        console.log("提交成功");
+
+                        // 提交成功后题库的选择按钮刷新
+                        arrexamination = [];
+                        $(".checkinput").prop("checked",false);
+                        
+                        //alert(window.location.host)
+                        $("#loadingModal").modal("hide")
+                        toastr.success("提交成功")
+                    },
+                    error: function (e) {
+                    console.log(e)
+                    console.log(e.statusText)
+                    if ("timeout" == e.statusText) {
+                        // 请求超时，终止请求
+                        toastr.warning("请求超时")
+                        CouIntrAjax.abort()
+                    } else {
+                        toastr.error("网络开小差了，请稍后再试！")
+                    }
+                    $("#loadingModal").modal("hide")
+                    },
+                    complete: function (xhr, status) {
+                        // 隐藏loading
+                        $("#loadingModal").modal("hide")
+                    }
+                });
+
+            }else{
+                $("#loadingModal").modal("show")
+                $.ajax({
+                    url: HTTP_URLH + "Studymanage/ination_comprise",
+                    type: 'post',
+                    data: {
+                        eid: getSearch("exaid"),
+                        val: arrexamination
+                    },
+                    datatype: 'json',
+                    success: function () {
+                        console.log("提交成功");
+                        
+                        // 清空选择的数组
+                        arrexamination = [];
+                        // 让当前页的多选框都清空选中。
+                        $(".checkinput").prop("checked",false);
+                        //alert(window.location.host)
+                        $("#loadingModal").modal("hide")
+                        toastr.success("提交成功")
+                    },
+                    error: function (e) {
+                    console.log(e)
+                    console.log(e.statusText)
+                    if ("timeout" == e.statusText) {
+                        // 请求超时，终止请求
+                        toastr.warning("请求超时")
+                        CouIntrAjax.abort()
+                    } else {
+                        toastr.error("网络开小差了，请稍后再试！")
+                    }
+                    $("#loadingModal").modal("hide")
+                    },
+                    complete: function (xhr, status) {
+                        // 隐藏loading
+                        $("#loadingModal").modal("hide")
+                    }
+                });
+            }
+        }else{
+            $(".exanumber").text("已选题目"+arrexamination.length+",当前题目数无法整除总分(100分),请适当增减题目");
+        }
+
+
+
     })
 
 })

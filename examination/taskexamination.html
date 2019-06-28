@@ -239,13 +239,13 @@ $(function(){
         }
     ellipsis(7);//要显示的字符数 Number
 
-    $(".tcdPageCode").createPage({ 
-    pageCount:20, 
-    current:1, 
-    backFn:function(p){ 
-    console.log(p); 
-    } 
-    }); 
+    // $(".tcdPageCode").createPage({ 
+    // pageCount:20, 
+    // current:1, 
+    // backFn:function(p){ 
+    // console.log(p); 
+    // } 
+    // }); 
 
         // $.ajax({
         // //几个参数需要注意一下
@@ -333,7 +333,7 @@ $(function(){
                                     ${ item.state==0 ? '未答题' : ' 已答题，得分:'+item.score }
                                     </div>
                                 </div>
-                                <div class="buttontitle" data-ce="${ item.id }"  data-sta="${ item.state }" >
+                                <div class="buttontitle" data-ce="${ item.id }" data-time="${ item.gtime }" data-titname="${ item.name }"  data-sta="${ item.state }" >
                                 ${ item.state == 0 ? '开始测验' : '查看' }
                                 </div>
                             </div>`
@@ -410,6 +410,7 @@ $(function(){
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.work').css({"background-color":"#81d282"})
+        statebutton = 1;
 
         select_announce(1)
         // 查询
@@ -464,7 +465,7 @@ $(function(){
                                         ${ item.state==0 ? '未答题' : ' 已答题，得分:'+item.score }
                                         </div>
                                     </div>
-                                    <div class="buttontitle" data-ce="${ item.id }" data-sta="${ item.state }" >
+                                    <div class="buttontitle" data-ce="${ item.id }" data-time="${ item.gtime }" data-titname="${ item.name }" data-sta="${ item.state }" >
                                     ${ item.state==0 ? '开始测验' : '查看' }
                                     </div>
                                 </div>`
@@ -528,8 +529,6 @@ $(function(){
             }
         })
         }
-        statebutton = 1;
-
     })
 
     //点击跳转页面或者点击查看
@@ -538,9 +537,9 @@ $(function(){
         console.log('每次公告的id',$(this).data("ce"));
         console.log('是否批阅',$(this).data("sta"));
         if($(this).data("sta") == "已批阅"){
-            window.location.href="examine.html?uid="+uid+"&exid="+$(this).data("ce")+"&cid="+cid;
+            window.location.href="examine.html?uid="+uid+"&sta="+statebutton+ "&time="+ $(this).data("time")+'&titname='+ $(this).data("titname") +"&exid="+$(this).data("ce")+"&cid="+cid;
         }else{
-            window.location.href="thetestpage.html?uid="+uid+"&exid="+$(this).data("ce")+"&cid="+cid;
+            window.location.href="thetestpage.html?uid="+uid+"&sta="+statebutton+ "&time="+ $(this).data("time")+'&titname='+ $(this).data("titname") +"&exid="+$(this).data("ce")+"&cid="+cid;
         }
 
     })
