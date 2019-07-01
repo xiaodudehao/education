@@ -20,6 +20,13 @@
 .report_content_text span:hover {
     color: #31b24e;
 }
+.report_content_text a {
+    color: #81d283;
+    text-decoration: none;
+}
+.report_content_text a:hover {
+    color: #31b24e;
+}
 .modal-content {
     min-height: auto;
 }
@@ -99,4 +106,20 @@
     border: 1px solid #CCCCCC;
     /*border-radius: 5px;*/
     box-shadow: 0px 0px 5px #CCCCCC;
+}
+
+/* 分页器 */
+.page_area {
+    text-align: center;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #81d283;
+    border-color: #ddd;
+}
+.pagination>li>a, .pagination>li>span {
+    color: #81d283;
+}
+.pagination>li>a, .pagination>li>span {
+    padding: 10px 20px;
+    font-size: 12px;
 }

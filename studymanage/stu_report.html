@@ -72,7 +72,7 @@
                 <div class="stu_report_content">
                     <div class="report_content_text">
                         <p><b>报告模版：</b>点击右侧下载实训报告模版</p>
-                        <a href="">点击下载模版</a>
+                        <a class="report_template" href="">点击下载模版</a>
                     </div>
                     <div class="report_content_text">
                         <p><b>报告上传：</b>点击右侧选择已经整理好的报告进行上传</p>
@@ -83,8 +83,6 @@
                         <span onclick="report_mine()">查看我的报告</span>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -288,7 +286,8 @@
             },
             dataType: "json",
             success: function (data) {
-                console.log(data)
+                console.log(data[0].savename)
+                $(".report_template").attr('href',''+ videosrc+ 'report/' + data[0].savename +'');
             },
             error: function (e) {
                 toastr.error("网络开小猜了，请稍后再试！")
@@ -299,6 +298,12 @@
                 $("#loadingModal").modal("hide")
             }
         })
+    }
+
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
     }
 
 

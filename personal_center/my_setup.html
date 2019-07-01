@@ -452,6 +452,12 @@
     function mysetup() {
         $(location).attr('href','./my_setup.html');
     }
+
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
     /**
      *对话框
      * @param content  提示内容

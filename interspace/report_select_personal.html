@@ -81,9 +81,13 @@
         <!--  右边内容  -->
         <div class="tt_content_right">
             <div class="tt_content_right_title">
-                <a class="a_class" href="./course_test.html">测验/考试</a>-<a class="a_class" href="./course_test.html">报告批阅</a>-<a class="a_class" href="./report_select_class.html">班级</a>-学生
+                <a class="a_class" href="">测验/考试</a>-<a class="a_class" href="">报告批阅</a>-<a class="a_class2" href="">班级</a>-学生
             </div>
             <div class="test_content">
+                <!-- 没有数据时 -->
+                <div class="no_data">
+                    没有数据！……
+                </div>
                 <div class="all_student">
                     <a href="./report_score.html" class="one_student">宋哥哥诶</a>
                     <a href="./report_score.html" class="one_student">小杜哥哥</a>
@@ -229,12 +233,66 @@
 <!-- 课程图片上传 -->
 <script src="../js/course_img.js"></script>
 <script type="text/javascript">
+
+    var url1 = location.href
+    var urlarr1 = url1.split("=")
+    var urlarr2 = urlarr1[urlarr1.length - 2]
+    var urlarr3 = urlarr2.split("&")
+    var class_id = urlarr3[0]
+    console.log(class_id)
+
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
+        $(".a_class").attr('href','./course_test.html?cid='+ cid +'');
+        $(".a_class2").attr('href','./report_select_class.html?cid='+ cid +'');
+
+        select_report_personal()
     })
 
+    function select_report_personal() {
+        $("#loadingModal").modal("show")
+        var SelectClassAJAX = $.ajax({
+            url: HTTP_URLH + "Report/student",
+            type: "post",
+            data: {
+                cid: 1,
+                class: class_id,
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                res = ""
+                if ("" == data) {
+                    $("#loadingModal").modal("hide")
+                    $(".no_data").show()
+                    $(".all_student").html(res)
+                } else {
+                    for (var i in data) {
+                        var item = data[i]
+                        res += '<a href="./report_score.html?name='+ item.name +'&cid='+ cid +'" class="one_student">'+ item.name +'</a>'
+                    }
+                    $(".all_student").html(res)
+                }
+
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
 
 </script>
 

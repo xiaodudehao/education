@@ -7,6 +7,15 @@
 .a_class:hover {
     text-decoration: none;
 }
+.a_class2,.a_class3 {
+    color: #31b24e;
+}
+.a_class2:hover {
+    text-decoration: none;
+}
+.a_class3:hover {
+    text-decoration: none;
+}
 /* 班级样式 */
 .all_class {
     display: flex;
@@ -107,6 +116,14 @@
 }
 .sub_btn button:hover {
     background-color: #31b24e;
+}
+
+/* 没有数据时的样式 */
+.no_data {
+    display: none;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
 }
 
 

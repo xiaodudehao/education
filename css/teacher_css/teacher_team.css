@@ -58,12 +58,12 @@
 }
 /* 图片 */
 .tt_information img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 .tt_Introduction {
-    width: 750px;
+    width: 770px;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
@@ -128,7 +128,7 @@
 }
 .pagination>li>a, .pagination>li>span {
     padding: 5px 15px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 

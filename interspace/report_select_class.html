@@ -81,9 +81,13 @@
         <!--  右边内容  -->
         <div class="tt_content_right">
             <div class="tt_content_right_title">
-                <a class="a_class" href="./course_test.html">测验/考试</a>-<a class="a_class" href="./course_test.html">报告批阅</a>-班级
+                <a class="a_class" href="">测验/考试</a>-<a class="a_class" href="">报告批阅</a>-班级
             </div>
             <div class="test_content">
+                <!-- 没有数据时 -->
+                <div class="no_data">
+                    没有数据！……
+                </div>
                 <div class="all_class">
                     <a href="./report_select_personal.html" class="one_class">16软件工程2班</a>
                     <a href="./report_select_personal.html" class="one_class">16绘画基础6班</a>
@@ -95,6 +99,7 @@
                     <a href="#" class="one_class">16计算机网络工程2班</a>
                     <a href="#" class="one_class">16软件工程2班</a>
                 </div>
+
             </div>
         </div>
     </div>
@@ -196,7 +201,6 @@
 <script src="../node_modules/jquery/dist/jquery.min.js" ></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
-<script src="../js/public.js" ></script>
 <script src="../package/jquerypage.js" ></script>
 <!-- 分页器 -->
 <script src="../lib/bootstrap-paginator.js"></script>
@@ -204,6 +208,7 @@
 <script src="../lib/toastr/toastr.min.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
+<script src="../js/public.js" ></script>
 <!-- 课程图片上传 -->
 <script src="../js/course_img.js"></script>
 <script type="text/javascript">
@@ -211,10 +216,51 @@
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-
+        $(".a_class").attr('href','./course_test.html?cid='+ cid +'');
+        select_report_class()
     })
+    
+    // 查询班级
+    function select_report_class() {
+        $("#loadingModal").modal("show")
+        var SelectClassAJAX = $.ajax({
+            url: HTTP_URL + "Learn/setclass",
+            type: "get",
+            data: {
+                cid: 1,
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                res = ""
+                if ("" == data) {
+                    $("#loadingModal").modal("hide")
+                    $(".no_data").show()
+                    $(".all_class").html(res)
+                } else {
+                    for (var i in data) {
+                        var item = data[i]
+                        res += '<a href="./report_select_personal.html?class_id='+ item.id +'&cid='+ cid +'" class="one_class">'+ item.name +'</a>'
+                    }
+                    $(".all_class").html(res)
+                }
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
 
-
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
 </script>
 
 </html>

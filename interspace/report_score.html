@@ -81,7 +81,7 @@
         <!--  右边内容  -->
         <div class="tt_content_right">
             <div class="tt_content_right_title">
-                <a class="a_class" href="./course_test.html">测验/考试</a>-<a class="a_class" href="./course_test.html">报告批阅</a>-<a class="a_class" href="./report_select_class.html">班级</a>-<a class="a_class" href="./report_select_personal.html">学生</a>-报告批阅
+                <a class="a_class" href="">测验/考试</a>-<a class="a_class" href="">报告批阅</a>-<a class="a_class2" href="">班级</a>-<a class="a_class3" href="">学生</a>-报告批阅
             </div>
             <div class="test_content">
                 <div class="report_score">
@@ -222,10 +222,20 @@
 <!-- 课程图片上传 -->
 <script src="../js/course_img.js"></script>
 <script type="text/javascript">
+    var url1 = location.href
+    var urlarr1 = url1.split("=")
+    var urlarr2 = urlarr1[urlarr1.length - 2]
+    var urlarr3 = urlarr2.split("&")
+    var stu_name = urlarr3[0]
+    console.log(stu_name)
+
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
+
+        $(".a_class").attr('href','./course_test.html?cid='+ cid +'');
+        $(".a_class2").attr('href','./report_select_class.html?cid='+ cid +'');
 
         // $("#iframetext").scroll(function(){
         //     var topp = $("#iframetext").scrollTop();
@@ -237,10 +247,73 @@
         $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
         $("#iframetest").css({"width":"780","height":"500"})
         // 遮盖word的链接
-        console.log(3333333333333333);
-
+        select_stu_report()
     })
 
+    // 查询学生报告
+    function select_stu_report() {
+        $("#loadingModal").modal("show")
+        var SelectClassAJAX = $.ajax({
+            url: HTTP_URLH + "Report/set_report",
+            type: "post",
+            data: {
+                cid: 1,
+                zm: stu_name,
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                var rid = data[0].id
+                var btn = '<button onclick="get_score('+ rid +')">提交</button>'
+                $(".sub_btn").html(btn)
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    // 打分
+    function get_score(rid) {
+        $("#loadingModal").modal("show")
+        var score = $(".input_score").val()
+        var comment = $(".comment_input").val()
+        var SelectClassAJAX = $.ajax({
+            url: HTTP_URLH + "Report/read_over",
+            type: "post",
+            data: {
+                rid: rid,
+                sid: 2,
+                score: score,
+                text: comment,
+            },
+            dataType: "json",
+            success: function (data) {
+                toastr.success("操作成功")
+                $(".input_score").val("")
+                $(".comment_input").val("")
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
 
 </script>
 

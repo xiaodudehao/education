@@ -39,13 +39,14 @@
     margin: 30px 20px 0 0 ;
     padding: 10px 30px;
     float: right;
-    font-size: 20px;
+    font-size: 16px;
     color: white;
     background-color: #81d283;
     border: none;
     border-radius: 10px;
-
 }
-
+.tt_content_right button:hover {
+    background-color: #31b24e;
+}
 
 
