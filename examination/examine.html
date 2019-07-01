@@ -248,8 +248,15 @@ $(function(){
  }); 
 
 
-
-
+    var urlex;
+    // 考试页面
+    var sta =getSearch("sta");
+    if(sta==0){
+        urlex = "Studymanage/look_exam"
+    // 测试页面
+    }else{
+        urlex = "Studymanage/look_ination"
+    }
 
 
     select_announce(1)
@@ -262,10 +269,11 @@ $(function(){
         page: pageN,
     }
 
+
     // loading显示
     $("#loadingModal").modal("show")
     var CouIntrAjax = $.ajax({
-        url: HTTP_URLH+"Studymanage/look_ination",
+        url: HTTP_URLH+urlex,
         type: "post",
         timeout: 5000,
         dataType: "json",

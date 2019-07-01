@@ -587,6 +587,11 @@ input::-ms-clear {
   background-color: #81d282;
   border-radius: 5px;
 }
+.maincontent .mainpartportion .rightresult .rightcontent .bodyexamination .preptitle {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}
 .maincontent .mainpartportion .rightresult .rightcontent .bodyexamination .eachquestion {
   font-size: 16px;
   margin-bottom: 40px;
@@ -599,4 +604,15 @@ input::-ms-clear {
 }
 .maincontent .mainpartportion .rightresult .rightcontent .bodyexamination .eachquestion .answertitl .answereach input {
   margin-right: 10px;
+}
+.maincontent .mainpartportion .rightresult .rightcontent .bodyexamination .submitexa .submitchild {
+  width: 100px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #fff;
+  margin: 0 auto;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ccc;
 }
