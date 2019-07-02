@@ -67,7 +67,7 @@
             </div>
             <div class="rightresult">
                 <div class="righttitle">
-                    <a href="./stu_report.html">实训报告</a>-<a href="./stu_report_mine.html">个人报告</a>-预览
+                    <a class="stu_report" href="">实训报告</a>-<a class="mine_repport" href="">个人报告</a>-预览
                 </div>
 
                 <div class="preview_content">
@@ -201,13 +201,51 @@
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
+        my_report()
+
+        // 跳页-报告首页
+        $(".stu_report").attr("href", './stu_report.html?c_id='+ cid +'')
+        $(".mine_repport").attr("href", './stu_report_mine.html?c_id='+ cid +'')
 
         $(".textcontent").css({"display": "block"})
         //下面这行代码以后要改，因为world地址必须是公共地址
-        $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
-        $("#iframetest").css({"width":"780","height":"600"})
+        // $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
+        // $("#iframetest").css({"width":"780","height":"600"})
         // 遮盖word的链接
     })
+
+    function my_report(pageNum) {
+        $("#loadingModal").modal("show")
+        var MyReportAjax = $.ajax({
+            url: HTTP_URLH + "Report/me_report",
+            type: "post",
+            data: {
+                id: 1,
+                cid: 1,
+                page: pageNum
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                var result = data.shuju[0]
+                var src = result.savename
+                // $("#iframetest").attr("src",''+ videosrc+ 'report/' + src +'')
+                $("#iframetest").attr("src",'http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx')
+                $("#iframetest").css({"width":"780","height":"600"})
+
+
+            },
+            error: function (e) {
+                toastr.error("网络开小猜了，请稍后再试！")
+                console.log(e)
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
 
 
 </script>

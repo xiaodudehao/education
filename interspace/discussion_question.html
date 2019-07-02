@@ -11,6 +11,11 @@
     <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
     <!--  对话框样式  -->
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
+    <!--  左边栏样式保证  -->
+    <link rel="stylesheet" href="../css/teacher_css/teacher_team.css">
+    <!--  课程图片上传样式  -->
+    <link rel="stylesheet" href="../css/teacher_css/course_img.css">
+    <link rel="stylesheet" href="../css/teacher_css/discussion.css">
     <!--  公共部分样式（除右侧主要内容）  -->
     <link rel="stylesheet" href="../css/stu_discussion/stu_discussion_public.css">
     <link rel="stylesheet" href="../css/stu_discussion/stu_discussion_communication.css">
@@ -46,23 +51,29 @@
     <div class="mainpartportion">
         <div class="banxin clearfix">
             <div class="leftcatalogue">
-                <div class="schoolnam clearfix">
-                    <img src="../img/schoolimg.png" alt="" class="fl schoollogo">
-                    <div class="fl schnam">上海职业技术学院</div>
-                </div>
-                <div class="course">
-                    <img src="../images/kecheng1.png" alt="" class="courseimg">
-                    <!-- <div class="coursenam">建筑材料性能检测</div> -->
-                </div>
-                <div class="cataloguenam">
-                    <a class="left_menu_coursehomepage" href="" >课程首页</a>
-                    <a class="left_menu_scoresranking" href="" >学习排行</a>
-                    <a class="left_menu_announcement" href="">系统公告</a>
-                    <a class="left_menu_standard" href="" >评分标准</a>
-                    <a class="left_menu_onlinestudy" href="">在线学习</a>
-                    <a class="left_menu_test" href="">作业与测试</a>
-                    <a class="left_menu_report" href="">实训报告</a>
-                    <a class="left_menu_discussion active" href="">讨论</a>
+                <form action="">
+                    <div class="headimg clearfix" >
+                        <img  src="../images/kecheng.png" id="preview" class="headicon fl">
+                        <div class="imgtitle ">
+                            <input name="logo" type="file" id="filebtn" class="filebtn">
+                        </div>
+                    </div>
+                </form>
+
+                <!--  <img src="../images/kecheng1.png">  -->
+                <div class="tt_content_leftmenu">
+                    <a href="" class="introduction_href">课程简介</a>
+                    <a class="teacher_href" href="">教师团队</a>
+                    <a class="course_resources" href="" >课程资源</a>
+                    <a class="catalog_href" href="">课程目录</a>
+                    <a class="announcement_href" href="">系统公告</a>
+                    <a class="criteria_href" href="">评分表准</a>
+                    <a class="test_href" href="">测验/考试</a>
+                    <a class="course_discussion active" href="">讨论区</a>
+                    <a class="course_class" href="">班级</a>
+                    <a class="course_student" href="">学生</a>
+                    <a class="course_sum" href="">课程统计</a>
+                    <a class="course_study_sum" href="">学习统计</a>
                 </div>
             </div>
             <div class="rightresult">
@@ -283,8 +294,8 @@
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-        select_comm_theme(com_id)
-        select_discussion_ask(PageNum, com_id)
+        // select_comm_theme(com_id)
+        // select_discussion_ask(PageNum, com_id)
     })
 
     //  讨论主题查询--头部
@@ -425,99 +436,6 @@
                         }
                     })
                 }
-
-
-                $(".dianzan").on("click", function() {
-                    console.log("点")
-                    if ($(this).hasClass("isactive")) {
-                        $(this).removeClass('isactive');
-                    } else {
-                        $(this).addClass('isactive');
-                    }
-
-                    var thisid = $(this).data("id")
-                    console.log(thisid)
-
-                    var DianZanAjax = $.ajax({
-                        url: HTTP_URLH + "Studymanage/praise",
-                        type: "post",
-                        timeout: 5000,
-                        dataType: "json",
-                        // async:false,    //不进行异步刷新
-                        data: {
-                            id: 1, // 自身id
-                            praise: thisid,
-                            val: 1,
-                        },
-                        success: function (data) {
-                            console.log(data)
-                            // select_discussion_ask(PageNum, com_id)
-                            // $("."+thisid).html("10")
-
-                            var DianZanAjax = $.ajax({
-                                url: HTTP_URLH + "Studymanage/answer_num",
-                                type: "post",
-                                timeout: 5000,
-                                dataType: "json",
-                                // async:false,    //不进行异步刷新
-                                data: {
-                                    id: thisid, // 自身id
-                                },
-                                success: function (data) {
-                                    console.log(data)
-                                    var res = '点赞'+ data +''
-                                    $("."+thisid).html(res)
-                                },
-                                error: function (e) {
-                                    console.log(e)
-                                    toastr.error("网络开小猜了，请稍后再试！")
-                                },
-                                complete: function (xhr, status) {
-                                    // 隐藏loading
-                                    $("#loadingModal").modal("hide")
-                                }
-                            })
-
-                        },
-                        error: function (e) {
-                            console.log(e)
-                            toastr.error("网络开小猜了，请稍后再试！")
-                        },
-                        complete: function (xhr, status) {
-                            // 隐藏loading
-                            $("#loadingModal").modal("hide")
-                        }
-                    })
-                });
-            },
-            error: function (e) {
-                console.log(e)
-                toastr.error("网络开小猜了，请稍后再试！")
-            },
-            complete: function (xhr, status) {
-                // 隐藏loading
-                $("#loadingModal").modal("hide")
-            }
-        })
-    }
-
-    // 查询点过赞的人
-    function select_dianzan(id, k) {
-        // console.log(k)
-        var DianZanSelAjax = $.ajax({
-            url: HTTP_URLH + "Studymanage/es_answer",
-            type: "post",
-            timeout: 5000,
-            dataType: "json",
-            // async:false,    //不进行异步刷新
-            data: {
-                id: id,
-            },
-            success: function (data) {
-                // console.log(data)
-                // "1" 本人的id
-                data.includes("1") ? $(".dianzan"+k).addClass('isactive') : ""
-
             },
             error: function (e) {
                 console.log(e)
@@ -578,8 +496,6 @@
 
     }
 
-
-
     // 时间戳
     function formatDate(now) {
         var year=now.getFullYear();
@@ -590,16 +506,6 @@
         var second=now.getSeconds();
         return year+"-"+month+"-"+date;
     }
-
-    $(".dianzan").on("click", function() {
-        console.log("点")
-        if ($(this).hasClass("isactive")) {
-            $(this).removeClass('isactive');
-        } else {
-            $(this).addClass('isactive');
-        }
-        // $(this).toggleClass("isactive");
-    });
 
     //提示框初始化，toast-top-center表示提示框的位置
     toastr.options = {

@@ -114,7 +114,7 @@
 
 /* 分页 */
 /* 分页器 */
-.page_area {
+.page_area, .page_area1 {
     text-align: center;
     /*cursor: pointer;*/
 }
