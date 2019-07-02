@@ -67,7 +67,7 @@
             </div>
             <div class="rightresult">
                 <div class="righttitle">
-                    <a href="./stu_report.html">实训报告</a>-个人报告
+                    <a class="stu_report" href="">实训报告</a>-个人报告
                 </div>
                 <!--  没有数据时  -->
                 <div class="no_data_tea">
@@ -261,10 +261,12 @@
         modalCenter('#myModal1')
         my_report(pageNum)
         ellipsis(200)
+        // 跳页-报告首页
+        $(".stu_report").attr("href", './stu_report.html?c_id='+ cid +'')
     })
 
     function preview_report() {
-        $(location).attr("href", "./stu_report_preview.html")
+        $(location).attr("href", './stu_report_preview.html?c_id='+ cid)
     }
 
     // 查询我的报告

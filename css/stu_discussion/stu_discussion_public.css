@@ -599,3 +599,8 @@ input::-ms-clear {
     text-align: center;
 }
 
+/* loading 样式 */
+.progress {
+    height: 10px;
+}
+

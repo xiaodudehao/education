@@ -229,7 +229,6 @@
         modalCenter('#myModal')
         modalCenter('#myModal1')
         modalCenter('#new_modal')
-
         download()
     })
 
@@ -237,7 +236,7 @@
         $("#new_modal").modal("show")
     }
     function report_mine() {
-        $(location).attr('href','./stu_report_mine.html');
+        $(location).attr('href','./stu_report_mine.html?c_id='+ cid +'');
     }
 
     // 原生ajax发送头像信息开始

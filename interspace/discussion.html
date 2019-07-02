@@ -121,6 +121,10 @@
                         </div>
                     </div>
                 </div>
+                <!--  分页  -->
+                <div class="page_area1">
+                    <ul id="page1"></ul>
+                </div>
 
                 <div class="add_discussion_btn">
                     <button onclick="new_detail()">添加讨论主题</button>
@@ -212,7 +216,6 @@
             </div>
             <form id="registerform" name="register"  class="registerform" action="">
                 <div class="form-group">
-
                     <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
                 </div>
                 <div class="form-group">
@@ -351,7 +354,7 @@
         modalCenter('#myModal')
         modalCenter('#myModal1')
         ellipsis(70);//要显示的字符数 Number
-        select_classroom()
+        select_classroom(pageNum)
     })
     
     function classroom_area() {
@@ -359,7 +362,7 @@
         $(".ask_questions_content").hide()
         $(".classroom_area").addClass("active2")
         $(".ask_questions_area").removeClass("active2")
-        select_classroom()
+        select_classroom(pageNum)
     }
     
     function ask_question() {
@@ -371,7 +374,7 @@
     }
 
     //  查询课堂讨论区
-    function select_classroom() {
+    function select_classroom(pageNum) {
         // loading显示
         $("#loadingModal").modal("show")
         var ClassroomAjax = $.ajax({
@@ -381,16 +384,19 @@
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                cid: 1
+                cid: 1,
+                page: pageNum
             },
-            success: function (data) {
-                // console.log(data)
+            success: function (data1) {
+                console.log(data1)
+                var data = data1.shuju
                 var res = ""
                 if (0 == data.length) {
                     // 没有数据，显示提示
                     // toastr.error("未查询到可用数据")
                     $("#loadingModal").modal("hide")
                     $(".no_data_tea").show()
+                    $('.classroom_area_card').html(res)
                 } else {
                     for (var i in data) {
                         var item = data[i]
@@ -401,13 +407,47 @@
                             '                        <p class="problem_content_text">'+ index +'、'+ item.discussname +'</p>\n' +
                             '                    </div>\n' +
                             '                    <div class="to_view">\n' +
-                            '                        <span class="discussion_detail">查看讨论情况</span>\n' +
+                            '                        <span class="discussion_detail" onclick="jump_detail()">查看讨论情况</span>\n' +
                             '                        <span class="glyphicon glyphicon-remove-circle" onclick="delete_discussion('+ item.id +')"></span>\n' +
                             '                    </div>\n' +
                             '                </div>'
                     }
+                    $('.classroom_area_card').html(res)
+                    //分页
+                    $("#page1").bootstrapPaginator({
+                        bootstrapMajorVersion: 3,   //bootstrap版本
+                        totalPages: data1.pge,   //总页数
+                        currentPage: pageNum,  //当前页数
+                        numberOfPages: 3,    //分页器每页展示页码数
+                        shouldShowPage: true,   //所有的按钮都展示
+                        itemTexts: function (type, page, current) {
+                            // console.log(type)
+                            //设置分页控件每部分的显示文字
+                            switch (type) {
+                                case "first":
+                                    return "第一页"
+                                case "prev":
+                                    return "上一页"
+                                case "next":
+                                    return "下一页"
+                                case "last":
+                                    return "最后一页"
+                                case "page":
+                                    return page
+                                case "jump":
+                                    return "跳转"
+                            }
+                        }, onPageClicked: function(event, originalEvent, type, page) {
+                            //点击事件
+                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                            pageNum = page
+                            // 查询
+                            select_classroom(pageNum)
+                        }
+                    })
+                    //  分页结束
                 }
-                $('.classroom_area_card').html(res)
+
                 ellipsis2(80)
             },
             error: function (e) {
@@ -419,6 +459,16 @@
                 $("#loadingModal").modal("hide")
             }
         })
+    }
+
+    // 跳页-详情页
+    function jump_detail() {
+        console.log("445256")
+        $(location).attr('href','./discussion_communication.html?cid='+ cid +'')
+    }
+    function jump_detail_question() {
+        console.log("445256")
+        $(location).attr('href','./discussion_question.html?cid='+ cid +'')
     }
 
     // 新增
@@ -527,7 +577,7 @@
                             '                        <p class="ask_text_con">'+ index +'、'+ item.name +'</p>\n' +
                             '                    </div>\n' +
                             '                    <div class="to_view_ask">\n' +
-                            '                        <span class="discussion_ask_detail">查看讨论情况</span>\n' +
+                            '                        <span class="discussion_ask_detail" onclick="jump_detail_question()">查看讨论情况</span>\n' +
                             '                        <div class="ask_information_area">\n' +
                             '                            <div class="ask_information">\n' +
                             '                                <span>'+ item.qname +'</span>\n' +

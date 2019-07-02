@@ -53,8 +53,13 @@
 .discussion_detail {
     color: #81d283;
     font-size: 14px;
+    cursor: pointer;
+}
+.discussion_detail:hover {
+    color: #31b24e;
 }
 .glyphicon-remove-circle{
+    margin-left: 40px;
     display: none;
     color: #aaaaaa;
 }
@@ -102,6 +107,10 @@
 }
 .discussion_ask_detail {
     color: #81d283;
+    cursor: pointer;
+}
+.discussion_ask_detail:hover {
+    color: #31b24e;
 }
 .ask_information_area {
     display: flex;
