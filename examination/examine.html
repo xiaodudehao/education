@@ -97,6 +97,11 @@
                         <div class="page_area">
                             <ul id="page"></ul>
                         </div>
+                        <div class="doitagain clearfix">
+                            <div class="againchild fr ">
+                                再做一遍
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -382,6 +387,14 @@ $(function(){
         // var s = date.getSeconds();
         return Y+M+D;
     }
+
+    if(getSearch("sta") == 0){
+        $(".againchild").on("click",function(){
+            // console.log();
+            window.location.href="thetestpage.html?"+window.location.href.split("?")[1];
+        })
+    }
+    
 })
 
 </script>

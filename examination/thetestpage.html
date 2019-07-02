@@ -12,6 +12,8 @@
     <!-- rwb分页的样式 -->
     <!--  对话框样式  -->
     <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="../css/public/rwbpage.css">
 
     <link rel="stylesheet" href="../css/thetestpage.css">
@@ -275,6 +277,10 @@
 <script src="../lib/bootstrap-paginator.js"></script>
 <!-- 对话框样式 -->
 <script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- cookie插件 -->
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script type="text/javascript">
 $(function(){
     var statebutton = 0;
@@ -284,11 +290,29 @@ $(function(){
     var uid = 1;
     var cid = 1;
     // 存储选择题答案数组
-    var numberarr;
+    var numberarr = [];
     // 储存id
-    var numid;
+    var numid = [];
     //用于判断是否声明了保存答案的数组。
     var flag = true;
+    //判断当前是否提交了试卷。
+    var ajaxstate = true;
+    // 存储答案数组，题目id，用户id，kechengid，测验或试卷id，测验或试卷分类
+    var uiddata = {};
+
+                                    
+    var user_id = JSON.parse($.cookie("exarr"));
+    console.log( user_id);
+    //如果用户名相同，课程名相同，试卷id相同，同为考试或测验。
+    if(user_id.uid == getSearch("uid")&& user_id.cid == getSearch("cid") && user_id.exid == getSearch("exid") && user_id.sta == getSearch("sta")){
+        if(user_id.numberarr != undefined){
+        numberarr = user_id.numberarr
+        }
+        if(user_id.numid != undefined){
+            numid = user_id.numid
+        }
+    }
+
 
     //  设置学校名称字数超出显示省略号……
     function ellipsis(num) {
@@ -302,6 +326,33 @@ $(function(){
         });
         }
     ellipsis(7);//要显示的字符数 Number
+    // 用定时器来做倒计时功能。
+    var cc = 1;
+    // var alltime = (1)*60;
+    var alltime = 20;
+    var int=setInterval(function(){
+        console.log(999);
+        var s;
+        var m;
+        m = parseInt((alltime-cc)/60)
+        s=(alltime-cc)%60
+        if(s < 10){
+            s = "0"+s;
+        }
+        cc++
+        if(cc == alltime){
+                subajax()
+                clearInterval(int)
+                $(".countdown").text("倒计时结束")
+        }else{
+            $(".countdown").text("倒计时"+m+":"+s);
+        }
+    },1000);   
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
 
         // 测试页
     if(getSearch("sta") == 0 ){
@@ -335,31 +386,13 @@ $(function(){
                     console.log("无数据");
                     $(".rightcontent").html("<div>无数据</div>")
                 }else{
-                    var cc = 1;
-                    var alltime = (1)*60;
-                    var int=setInterval(function(){
-                        console.log(999);
-                        var s;
-                        var m;
-                        m = parseInt((alltime-cc)/60)
-                        s=(alltime-cc)%60
-                        if(s < 10){
-                            s = "0"+s;
-                        }
-                        cc++
-                        if(cc == alltime){
-                                clearInterval(int)
-                                $(".countdown").text("倒计时结束")
-                        }else{
-                            $(".countdown").text("倒计时"+m+":"+s);
-                        }
-                    },1000);   
+
 
                 var str = "";
                 for(var i = 0; i<data.shuju.length; i++){
                     var yy = "";
                     // 判断这题以前有没有选中过答案。
-                    if(numberarr != undefined){
+                    if(numberarr != []){
                         str+=`<div class="eachquestion">
                                     <div class="questitl">
                                         ${ (pageN-1)*4+i+1 + '、' + data.shuju[i].name }
@@ -393,28 +426,32 @@ $(function(){
                     $(".examinationcontent").prepend(preptitle);
                 }
                 
-                // 只在第一页的时候声明数组
-                if(flag){
-                    // // 声明一个数组保存选择题的答案
-                    var allarr = new  Array(data.num);
-                    // // 给数组中的每一项赋值默认值
-                    for(var i=0;i<allarr.length;i++){
-                        allarr[i] = 0;
-                    }
-                    // 将数组中的值传到全局。
-                    numberarr = allarr;
+                // 如果cookie中有了值，就不再声明数组了。
+                if( user_id == undefined){
+                    // 只在第一页的时候声明数组
+                    if(flag){
+                        // // 声明一个数组保存选择题的答案
+                        var allarr = new  Array(data.num);
+                        // // 给数组中的每一项赋值默认值
+                        for(var i=0;i<allarr.length;i++){
+                            allarr[i] = 0;
+                        }
+                        // 将数组中的值传到全局。
+                        numberarr = allarr;
 
-                    //声明一个数组保存每一题的id
-                    var allid = new  Array(data.num);
-                    // // 给数组中的每一项赋值默认值
-                    for(var i=0;i<allid.length;i++){
-                        allid[i] = -1;
-                    }
-                    // 将数组中的值传到全局。
-                    numid = allid;
+                        //声明一个数组保存每一题的id
+                        var allid = new  Array(data.num);
+                        // // 给数组中的每一项赋值默认值
+                        for(var i=0;i<allid.length;i++){
+                            allid[i] = -1;
+                        }
+                        // 将数组中的值传到全局。
+                        numid = allid;
 
-                    flag = false;
+                        flag = false;
+                    }
                 }
+
 
                 // 默认显示的数据
                queans()
@@ -499,53 +536,67 @@ $(function(){
             console.log('获取的值数组',numberarr);
             console.log('获取的id数组',numid);
             
-            if(queans){
+            if(queans() == true){
                 console.log("可以提交");
 
                 // 提示用户要不要提交
                 confirmBySelf('确定要提交试卷吗？', function () {
                     // 用户点击确认时
                     subajax()
+                    //停止定时器
+                    clearInterval(int)
                 },"提示")
 
             }else{
                 console.log("不可以提交");
+                // 请求超时，终止请求
+                toastr.warning("请全部做完后再提交")
             }
 
         })
         // 提交的ajax
         function subajax(){
             console.log("可以提交");
-            var parma= {
+            // 判断是否提交过，如果提交过就不能再次提交了。
+            if(ajaxstate){
+                var parma= {
                 number: numid,
                 option: numberarr,
                 cid: cid,
                 uid: uid,
                 eid: getSearch("exid")
-            };
-            var sta = getSearch("sta");
-            var subanswer;
-            //考试地址
-            if(sta == 1){
-                subanswer = "Studymanage/sub_ination";
-            //测试地址
-            }else {
-                subanswer = "Studymanage/sub_answer";
+                };
+                var sta = getSearch("sta");
+                var subanswer;
+                //考试地址
+                if(sta == 1){
+                    subanswer = "Studymanage/sub_ination";
+                //测试地址
+                }else {
+                    subanswer = "Studymanage/sub_answer";
+                }
+
+                $.ajax({
+                    type:"post",
+                    url: HTTP_URLH + subanswer,
+                    dataType:"json",
+                    data: parma,
+                    success:function(data){
+                        console.log(data);
+                        // 当提交试卷的时候将cookie中存储的答案清空。
+                        $.cookie('exarr', null);
+                        // 提交成功
+                        toastr.success("提交成功")
+                    },
+                    error:function(jqXHR){
+                        // 请求超时，终止请求
+                        toastr.warning("提交失败")
+                        console.log("发生错误:"+jqXHR.status);
+                    }
+                });
+                ajaxstate = false;
             }
 
-            $.ajax({
-                type:"post",
-                url: HTTP_URLH + subanswer,
-                dataType:"json",
-                data: parma,
-                success:function(data){
-                    console.log(data);
-                    
-                },
-                error:function(jqXHR){
-                    console.log("发生错误:"+jqXHR.status);
-                }
-            });
         }
 
         // 判断做了多少题
@@ -584,6 +635,25 @@ $(function(){
         })
     }
 
+    // 当页面刷新时。
+    $(window).unload(function(){
+        uiddata.numberarr = numberarr;
+        uiddata.numid = numid;
+        uiddata.uid = getSearch("uid");
+        uiddata.sta = getSearch("sta");
+        uiddata.exid = getSearch("exid");
+        uiddata.cid = getSearch("cid");
+        console.log('uiddata',uiddata);
+        
+        $.cookie("exarr",JSON.stringify(uiddata))
+      
+        // localStorage.setItem('exarr',JSON.stringify(uiddata));
+        // localStorage.removeItem('exarr');
+        // schoolname = JSON.parse(localStorage.getItem('uiddata'));
+
+    });
+   
+    
 })
 
 </script>
