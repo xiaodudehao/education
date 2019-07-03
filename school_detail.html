@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>院校介绍</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <!-- 提示框样式 -->
+    <link href="./lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="css/classifyteacher.css">
+    <link rel="stylesheet" href="./css/school_detail.css">
+</head>
+<body>
+<!-- 头部导航栏开始 -->
+<div class="header">
+    <div class="banxin">
+        <img src="img/未标题-10.png" class="logo" alt="">
+        <ul>
+            <li><a href="./index.html">首页</a></li>
+            <li><a href="./calssify.html">课程</a></li>
+            <li><a href="./academy.html">院校</a></li>
+            <li><a href="">立体教材</a></li>
+        </ul>
+        <div class="search">
+            <img class="searchicon" src="img/未标题-1.png" ></img>
+            <input type="text" placeholder="搜索课程或学校">
+        </div>
+        <div class="login">
+            <a href="">
+                <img class="loginicon" src="img/未标题-2.png"></img>
+            </a>
+            <!-- 这里的模态框用js实现 -->
+            <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+            <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+            <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+        </div>
+    </div>
+</div>
+<!-- 头部导航栏结束 -->
+<!-- 显示搜索多少条开始 -->
+<div class="mainpart">
+    <div class="banxin teach">
+        <img src="./img/上海市城市科技2.jpg" class="teachleft">
+        <div class="teachright">
+            <div class="teachtitle">
+                <img class="locationicon" src="img/未标题-15.png" alt="图片出错">
+                <div class="teachschool">上海市城市科技学校</div>
+            </div>
+            <p class="teachintroduce">
+                简介： 上海市城市科技学校创建于1996年，毗邻松江大学城国际教育园区，是首批国家级重点中等专业学校、国家中等职业教育改革发展示范学校建设单位（上海仅6所，全国300所），是上海市文明单位、上海市现代化标志性中等职业学校（上海仅10所）、上海市职业教育先进单位、上海市花园单位、上海市平安单位、上海市中小学行为规范示范校。学校设有建筑工程系、汽车工程系、智能工程系、旅宾管理系、综合教育系、数控技术系等6个系部，涵盖了土木水利类、交通运输类、加工制造类、电气信息类、旅游服务类5大专业群18个专业，其中上海市精品特色专业3个，上海市重点建设专业2个，上海市示范性品牌建设专业1个，上海市品牌建设专业2个。
+            </p>
+        </div>
+    </div>
+    <div class="more">
+        <div class="banxin">
+            相关课程
+        </div>
+    </div>
+    <div class="searchresult">
+        <div class="courselearning" >
+            <a class="courselearningchild">
+                <div class="banxin">
+                    <img class="searchimg" src="images/kecheng1.png" alt="">
+                    <div class="searchright">
+                        <div class="searchtitle">建筑材料性能检测</div>
+                        <div class="searchnarrate">
+                                <span class="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">简介： 十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空
+                                沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生
+                                栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="courselearning" >
+            <a class="courselearningchild">
+                <div class="banxin">
+                    <img class="searchimg" src="images/kecheng1.png" alt="">
+                    <div class="searchright">
+                        <div class="searchtitle">建筑材料性能检测</div>
+                        <div class="searchnarrate">
+                                <span class="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空
+                                沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生
+                                栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="courselearning" >
+            <a class="courselearningchild">
+                <div class="banxin">
+                    <img class="searchimg" src="images/kecheng1.png" alt="">
+                    <div class="searchright">
+                        <div class="searchtitle">建筑材料性能检测</div>
+                        <div class="searchnarrate">
+                                <span class="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空
+                                沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生
+                                栋覆屋二胎时代沙发是的发顺丰杀对方水电费杀对方水电费生栋覆屋二十多生栋覆屋二胎时代</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="page_area">
+        <ul id="page"></ul>
+    </div>
+</div>
+
+<!-- 显示搜索多少条结束 -->
+
+<!-- 底部开始 -->
+<div class="footer">
+    <div class="banxin footerbanxin">
+        <div class="footercenter">
+            沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+        </div>
+    </div>
+</div>
+<!-- 底部结束 -->
+<!-- 注册模态框开始 -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户注册
+            </div>
+            <form id="registerform" name="register"  class="registerform" action="">
+                <div class="form-group">
+
+                    <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input name="username" placeholder="输入用户名" class="username" type="text">
+                </div>
+                <div class="form-group">
+
+                    <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                </div>
+                <!-- <div class="nameexist">该用户名已存在</div> -->
+                <div class="registerbutton">立即注册</div>
+                <div class="elseregister">
+                    <span>其它登录方式</span>
+                    <a href=""><img src="img/qq.png" alt=""></a>
+                    <a href=""><img src="img/weixin.png" alt=""></a>
+                    <a href=""><img  src="img/xinlang.png" alt=""></a>
+                    <div class="nameexist">该用户名已存在</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 注册模态框结束 -->
+<!-- 登录模态框开始 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="registertitle">
+                用户登录
+            </div>
+            <form class="registerform loginform" id="loginform" action="">
+                <div class="form-group">
+                    <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                </div>
+                <div class="form-group">
+                    <input placeholder="输入密码" name="password" class="username" type="password">
+                </div>
+
+                <div class="codefather clearfix">
+                    <input  placeholder="输入验证码" name="code" class="code" type="text">
+                    <img src="img/code.png" class="codeimg"></img>
+                    <div class="check">换一张</div>
+                    <div class="codeerr uperr">
+                        ⓧ 用户名或密码错误
+                    </div>
+                    <div class="codeerr cerr">
+                        ⓧ 验证码错误
+                    </div>
+                </div>
+
+                <div class="loginbutton">立即登录</div>
+                <div class="else">
+
+                    <div class="linkregister">注册</div>
+                    <div class="forget">忘记密码</div>
+                    <span>其它登录方式</span>
+
+
+                    <a href=""><img src="img/qq.png" alt=""></a>
+                    <a href=""> <img src="img/weixin.png" alt=""></a>
+                    <a href=""><img  src="img/xinlang.png" alt=""></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 登录模态框结束 -->
+<!-- loading Modal start-->
+<div class="modal fade" id="loadingModal" data-backdrop="static">
+    <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+        <div class="progress progress-striped active" style="margin-bottom: 0;">
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+        <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+    </div>
+</div>
+
+</body>
+<script src="node_modules/jquery/dist/jquery.js" ></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
+<script src="node_modules/art-template/lib/template-web.js" ></script>
+<script src="package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js"></script>
+<!-- 分页器 -->
+<script src="./lib/bootstrap-paginator.js"></script>
+<!-- 提示框插件 -->
+<script src="./lib/toastr/toastr.min.js"></script>
+<script src="js/public.js"></script>
+<!-- <script src="js/classify.js" ></script> -->
+<script>
+    var pageNum = 1
+    $(function(){
+        //bootstrap模态框居中代码
+        modalCenter('#myModal')
+        modalCenter('#myModal1')
+        line(".teachintroduce",168);
+        select_school(pageNum)
+    })
+
+    // 查询
+    function select_school(pageNum) {
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH + "Calssify/set_school",
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: {
+                sid: 1,
+                page: pageNum,
+            },
+            success: function (data) {
+                console.log(data)
+                // 学院简介
+                var res = ""
+                for (var i in data) {
+                    var item = data[i]
+                    res += '<img src="'+ imgsrc4 + item.logo +'" class="teachleft">\n' +
+                        '        <div class="teachright">\n' +
+                        '            <div class="teachtitle">\n' +
+                        '                <img class="locationicon" src="img/未标题-15.png" alt="图片出错">\n' +
+                        '                <div class="teachschool">'+ item.name +'</div>\n' +
+                        '            </div>\n' +
+                        '            <p class="teachintroduce">\n' +
+                        '            简介： '+ item.text +'\n' +
+                        '            </p>\n' +
+                        '        </div>'
+                }
+                $(".teach").html(res)
+
+                // 学院课程简介
+                for (var j in data) {
+                    var item2 = data[j].topic.shuju
+                    // console.log(item2)
+                    var res2 = ""
+                    for (var k in item2) {
+                        var item3 = item2[k]
+                        var src = ""
+                        if ("" == item3.logo || null == item3.logo) {
+                            src = imgsrc2 + 'mo.png'
+                        } else {
+                            src = imgsrc2 + item3.logo
+                        }
+                        res2 += '<div class="courselearning" >\n' +
+                            '            <a class="courselearningchild">\n' +
+                            '                <div class="banxin">\n' +
+                            '                    <img class="searchimg" src="'+ src +'" alt="">\n' +
+                            '                    <div class="searchright">\n' +
+                            '                        <div class="searchtitle">'+ item3.name +'</div>\n' +
+                            '                        <div class="searchnarrate">\n' +
+                            '                                <span class="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">简介： 十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空\n' +
+                            '                                简介： '+ item3.text +'</span>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                </div>\n' +
+                            '            </a>\n' +
+                            '        </div>'
+                    }
+                    $(".searchresult").html(res2)
+                    //分页
+                    $("#page").bootstrapPaginator({
+                        bootstrapMajorVersion: 3,   //bootstrap版本
+                        currentPage: pageNum,  //当前页数
+                        totalPages: data[0].topic.pge,   //总页数
+                        numberOfPages: 3,    //分页器每页展示页码数
+                        shouldShowPage: true,   //所有的按钮都展示
+                        itemTexts: function (type, page, current) {
+                            // console.log(type)
+                            //设置分页控件每部分的显示文字
+                            switch (type) {
+                                case "first":
+                                    return "第一页"
+                                case "prev":
+                                    return "上一页"
+                                case "next":
+                                    return "下一页"
+                                case "last":
+                                    return "最后一页"
+                                case "page":
+                                    return page
+                                case "jump":
+                                    return "跳转"
+                            }
+                        }, onPageClicked: function(event, originalEvent, type, page) {
+                            //点击事件
+                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                            pageNum = page
+                            // 查询
+                            select_school(pageNum)
+                        }
+                    })
+                    //  分页结束
+                }
+            },
+            error: function (e) {
+                console.log(e)
+                toastr.error("网络开小猜了，请稍后再试！")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+    }
+
+    //提示框初始化，toast-top-center表示提示框的位置
+    toastr.options = {
+        positionClass: 'toast-top-center', // 提示框位置
+        closeButton: true  // 是否显示关闭按钮
+    }
+
+    //  设置字数超出显示省略号……
+    function ellipsis(num) {
+        $(".teachintroduce").each(function () {
+            var maxwidth = num;
+            // console.log($(this).text());
+            // console.log($(this).text().length);
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '…');
+            }
+        });
+    }
+</script>
+</html>
