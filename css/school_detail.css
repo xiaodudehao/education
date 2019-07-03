@@ -1,0 +1,73 @@
+.mainpart {
+    min-height: auto !important;
+    padding: 0 0 100px 0;
+}
+.teachschool {
+    margin-left: 5px !important;
+    font-size: 20px;
+}
+.teachtitle {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.teachintroduce {
+    margin: 0 !important;
+    font-size: 14px !important;
+    color: #333333 !important;
+    line-height: 1.8;
+}
+.more {
+    margin: 40px 0 30px !important;
+    font-size: 24px !important;
+}
+.courselearningchild {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+}
+.searchright {
+    height: auto !important;
+}
+.searchnarrate {
+    margin-top: 10px !important;
+}
+.searchtitle {
+    margin: 0 !important;
+    font-size: 18px !important;
+}
+.wareNameText {
+    font-size: 14px;
+    color: #333333;
+}
+.searchimg {
+    width: 270px !important;
+    height: auto !important;
+}
+
+/* 加载中loading…… */
+.progress {
+    height: 10px;
+}
+
+/* 分页器 */
+.page_area, .page_area1 {
+    text-align: center;
+    /*cursor: pointer;*/
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #81d283;
+    border-color: #ddd;
+}
+.pagination>li>a, .pagination>li>span {
+    color: #81d283;
+    cursor: pointer;
+}
+.pagination>li>a, .pagination>li>span {
+    padding: 5px 15px;
+    font-size: 12px;
+}
+
+
