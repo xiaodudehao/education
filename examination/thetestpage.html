@@ -299,19 +299,28 @@ $(function(){
     var ajaxstate = true;
     // 存储答案数组，题目id，用户id，kechengid，测验或试卷id，测验或试卷分类
     var uiddata = {};
+    // 用定时器来做倒计时功能。
+    var newtime = 1;
 
-                                    
-    var user_id = JSON.parse($.cookie("exarr"));
-    console.log( user_id);
-    //如果用户名相同，课程名相同，试卷id相同，同为考试或测验。
-    if(user_id.uid == getSearch("uid")&& user_id.cid == getSearch("cid") && user_id.exid == getSearch("exid") && user_id.sta == getSearch("sta")){
-        if(user_id.numberarr != undefined){
-        numberarr = user_id.numberarr
+    // 如果cookie没有值的话
+    if($.cookie("exarr") != undefined && JSON.parse($.cookie("exarr")) != null){
+        var user_id = JSON.parse($.cookie("exarr"));
+        console.log('cookie中的数据',user_id);
+        //如果用户名相同，课程名相同，试卷id相同，同为考试或测验。
+        if(user_id.uid == getSearch("uid")&& user_id.cid == getSearch("cid") && user_id.exid == getSearch("exid") && user_id.sta == getSearch("sta")){
+            if(user_id.numberarr != undefined){
+                numberarr = user_id.numberarr
+            }
+            if(user_id.numid != undefined){
+                numid = user_id.numid
+            }
+            if(user_id.newtime != undefined){
+                newtime = user_id.newtime
+            }
+
         }
-        if(user_id.numid != undefined){
-            numid = user_id.numid
-        }
-    }
+    }                      
+
 
 
     //  设置学校名称字数超出显示省略号……
@@ -324,23 +333,23 @@ $(function(){
                 $(this).html($(this).html() + '…');
             }
         });
-        }
+    }
     ellipsis(7);//要显示的字符数 Number
-    // 用定时器来做倒计时功能。
-    var cc = 1;
+
     // var alltime = (1)*60;
     var alltime = 20;
     var int=setInterval(function(){
         console.log(999);
         var s;
         var m;
-        m = parseInt((alltime-cc)/60)
-        s=(alltime-cc)%60
+        m = parseInt((alltime-newtime)/60)
+        s=(alltime-newtime)%60
         if(s < 10){
             s = "0"+s;
         }
-        cc++
-        if(cc == alltime){
+        newtime++
+        // 如果倒计时结束就提交试卷。
+        if(newtime == alltime){
                 subajax()
                 clearInterval(int)
                 $(".countdown").text("倒计时结束")
@@ -348,6 +357,7 @@ $(function(){
             $(".countdown").text("倒计时"+m+":"+s);
         }
     },1000);   
+
     //提示框初始化，toast-top-center表示提示框的位置
     toastr.options = {
         positionClass: 'toast-top-center', // 提示框位置
@@ -425,32 +435,32 @@ $(function(){
                     var preptitle = `<div class="preptitle">${getSearch("titname")}</div>`
                     $(".examinationcontent").prepend(preptitle);
                 }
-                
-                // 如果cookie中有了值，就不再声明数组了。
-                if( user_id == undefined){
-                    // 只在第一页的时候声明数组
-                    if(flag){
-                        // // 声明一个数组保存选择题的答案
-                        var allarr = new  Array(data.num);
-                        // // 给数组中的每一项赋值默认值
-                        for(var i=0;i<allarr.length;i++){
-                            allarr[i] = 0;
+                // 如果cookie中没有值，就声明数组。
+                if($.cookie("exarr") != undefined){
+                    if( JSON.parse($.cookie("exarr"))  == null ){
+                        // 只在第一页的时候声明数组
+                        if(flag){
+                            // // 声明一个数组保存选择题的答案
+                            var allarr = new  Array(data.num);
+                            // // 给数组中的每一项赋值默认值
+                            for(var i=0;i<allarr.length;i++){
+                                allarr[i] = 0;
+                            }
+                            // 将数组中的值传到全局。
+                            numberarr = allarr;
+                            //声明一个数组保存每一题的id
+                            var allid = new  Array(data.num);
+                            // // 给数组中的每一项赋值默认值
+                            for(var i=0;i<allid.length;i++){
+                                allid[i] = -1;
+                            }
+                            // 将数组中的值传到全局。
+                            numid = allid;
+                            flag = false;
                         }
-                        // 将数组中的值传到全局。
-                        numberarr = allarr;
-
-                        //声明一个数组保存每一题的id
-                        var allid = new  Array(data.num);
-                        // // 给数组中的每一项赋值默认值
-                        for(var i=0;i<allid.length;i++){
-                            allid[i] = -1;
-                        }
-                        // 将数组中的值传到全局。
-                        numid = allid;
-
-                        flag = false;
                     }
                 }
+
 
 
                 // 默认显示的数据
@@ -489,10 +499,6 @@ $(function(){
                 })
                 //  分页结束
                 }
-
-
-
-                
 
             },
             error: function (e) {
@@ -535,7 +541,6 @@ $(function(){
         $(".submitchild").on("click",function(){
             console.log('获取的值数组',numberarr);
             console.log('获取的id数组',numid);
-            
             if(queans() == true){
                 console.log("可以提交");
 
@@ -607,6 +612,8 @@ $(function(){
                     checkall++
                 }
             }
+            console.log("已做");
+            
             $(".checknum").text("已做"+checkall+"/"+numberarr.length)
             if(checkall == numberarr.length){
                 $(".submitchild").css({"background-color":"#81d282"});
@@ -639,13 +646,18 @@ $(function(){
     $(window).unload(function(){
         uiddata.numberarr = numberarr;
         uiddata.numid = numid;
+        uiddata.newtime = newtime;
         uiddata.uid = getSearch("uid");
         uiddata.sta = getSearch("sta");
         uiddata.exid = getSearch("exid");
         uiddata.cid = getSearch("cid");
+
         console.log('uiddata',uiddata);
-        
-        $.cookie("exarr",JSON.stringify(uiddata))
+        // 如果已经提交，那么就不再往cookie中存储数据。
+        if(ajaxstate){
+            $.cookie("exarr",JSON.stringify(uiddata))
+        }
+
       
         // localStorage.setItem('exarr',JSON.stringify(uiddata));
         // localStorage.removeItem('exarr');

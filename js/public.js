@@ -337,8 +337,7 @@ $('#teacherloginform').bootstrapValidator({
                                 if (result.resultCode == 200) {
                                     alert("SUCCESS");
                                     console.log("成功"); 
-                                }
-                                ;
+                                };
                             },
                             error : function() {
                                 // alert("异常！");

@@ -524,7 +524,7 @@ $(function(){
 
     $(".topbutton").on("click",function(){
         console.log(3333333333);
-        
-        history.go(-1)
+        window.location.href = "onlinestudy.html?cid=" + cid;
+        // history.go(-1)
     })
 })

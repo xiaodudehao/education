@@ -258,11 +258,13 @@ $(function(){
     var sta =getSearch("sta");
     if(sta==0){
         urlex = "Studymanage/look_exam"
+
     // 测试页面
     }else{
         urlex = "Studymanage/look_ination"
+        // 考试页没有再做一遍的功能
+        $(".doitagain").css({"display":"none"})
     }
-
 
     select_announce(1)
     // 查询
@@ -309,7 +311,7 @@ $(function(){
                                 <th width="150px"> ${ data.shuju[i].time } </th>
                                 <th width="150px"> ${ data.shuju[i].state } </th>
                                 <th width="130px"> ${ data.shuju[i].score } </th>
-                                <th width="90px" class="operate">查看</th>
+                                <th width="90px" class="operate" data-num="${ data.shuju[i].number }" >查看</th>
                             </tr>`
                 }
                 $("tbody").html(str)
@@ -372,7 +374,9 @@ $(function(){
     }
     // 单击查看按钮
     $(".rightcontent").on("click",".operate",function(){
-        alert(000)
+        // alert(000)
+        console.log( $(this).data("num") );
+        window.location.href="displaythepag.html?num="+ $(this).data("num") +"&"+window.location.href.split("?")[1];
     })
 
     // 事件戳转时间的函数

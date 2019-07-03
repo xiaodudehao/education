@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试页面</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../package/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../css/coursehomepage.css">
+    <!-- <link rel="stylesheet" href="../css/announcement.css"> -->
+    <!-- rwb分页的样式 -->
+    <!--  对话框样式  -->
+    <link href="../lib/confirm/jquery-confirm.min.css" type="text/css" rel="stylesheet">
+    <!-- 提示框样式 -->
+    <link href="../lib/toastr/toastr.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/public/rwbpage.css">
+
+    <link rel="stylesheet" href="../css/thetestpage.css">
+    <link rel="stylesheet" href="../css/page.css">
+</head>
+<body>
+    <div class="maincontent">
+    <!-- 头部导航栏开始 -->
+    <div class="header">
+        <div class="banxin">
+            <img src="../img/未标题-10.png" class="logo" alt="">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">课程</a></li>
+                <li><a href="">院校</a></li>
+                <li><a href="">立体教材</a></li>
+            </ul>
+            <div class="search">
+                <img class="searchicon" src="../img/未标题-1.png" ></img>
+                <input type="text" placeholder="搜索课程或学校">
+            </div>
+            <div class="login">
+                <a href="">
+                    <img class="loginicon" src="../img/未标题-2.png"></img>
+                </a>
+                <!-- 这里的模态框用js实现 -->
+                <div class="register" data-toggle="modal" data-target="#myModal">注册</div>
+                <!-- 要显示新模态框，修改data-target中的ID就可以了 -->
+                <div class="log" data-toggle="modal" data-target="#myModal1">登录</div>
+            </div>
+        </div>
+    </div>
+    <!-- 头部导航栏结束 -->
+        <div class="mainpartportion">
+            <div class="banxin clearfix">
+                <div class="leftcatalogue">
+                    <div class="schoolnam clearfix">
+                        <img src="../img/schoolimg.png" alt="" class="fl schoollogo">
+                        <div class="fl schnam">上海职业技术学院</div>
+                    </div>
+                    <div class="course">
+                        <img src="../images/kecheng1.png" alt="" class="courseimg">
+                        <!-- <div class="coursenam">建筑材料性能检测</div> -->
+                    </div>
+                    <div class="cataloguenam">
+                        <a href="" >课程首页</a>
+                        <a href="scoresranking.html" >学习排行</a>
+                        <a href="">系统公告</a>
+                        <a href="" >评分标准</a>
+                        <a href="">在线学习</a>
+                        <a href="" class="active">作业与测试/考试</a>
+                        <a href="">报告</a>
+                        <a href="">讨论</a>
+                    </div>
+                    <div class="share">
+                        <div></div>
+                        <a href=""></a>
+                    </div>
+                </div>
+                <div class="rightresult">
+                    <div class="righttitle">
+                        作业与测验/考试
+                    </div>
+                    <div class="rightcontent">
+                        <div class="underwayexamination clearfix">
+                            <div class="countdown fr">
+                                倒计时120:50
+                            </div>
+                            <div class="checknum fl">
+                                已做
+                            </div>
+                        </div>
+                        <div class="bodyexamination">
+                            <div class="examinationcontent">
+                                <div class="eachquestion">
+                                    <div class="questitl">
+                                        以下哪个国家位于南美洲？
+                                    </div>
+                                    <div class="answertitl">
+                                        <div class="answereach">
+                                            <input name="1" type="radio">A.中国
+                                        </div>
+                                        <div class="answereach">
+                                            <input name="1" type="radio">B.美国
+                                        </div>
+                                        <div class="answereach">
+                                            <input name="1" type="radio">C.巴西
+                                        </div>
+                                        <div class="answereach">
+                                            <input name="1" type="radio">D.澳大利亚
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="eachquestion">
+                                    <div class="questitl">
+                                        以下哪个国家位于大洋洲？
+                                    </div>
+                                    <div class="answertitl">
+                                        <div class="answereach">
+                                            <input name="1" type="radio">A.中国
+                                        </div>
+                                        <div class="answereach">
+                                            <input name="1" type="radio">B.美国
+                                        </div>
+                                        <div class="answereach">
+                                            <input name="1" type="radio">C.巴西
+                                        </div>
+                                        <div class="answereach">
+                                            <input name="1" type="radio">D.澳大利亚
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="page_area">
+                                <ul id="page"></ul>
+                            </div>
+                            <div class="submitexa">
+                                <div class="submitchild">提交</div>
+                            </div>
+                        </div>
+                        <!-- <div class="worktitle clearfix">
+                            <div class="work fl">
+                                作业与测验
+                            </div>
+                            <div class="report fl">
+                                考试
+                            </div>
+                        </div>
+                        <div class="testbox">
+                            <div class="boxtit">
+                            </div>
+                            <div class="page_area">
+                                <ul id="pagec"></ul>
+                            </div>
+                        </div>
+                        <div class="examinebox">
+                            <div class="boxexamine"> 
+                            </div>
+                            <div class="page_area">
+                                <ul id="pageb"></ul>
+                            </div>
+                        </div> -->
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>  
+       
+    <!-- 底部开始 -->
+    <div class="footercontenter">
+        <div class="footer">
+            <div class="banxin footerbanxin">
+                <div class="footercenter">
+                    沪公网备案  *****号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYRIGHT © 2008-2012 兰鸿科技
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部结束 -->
+        <!-- 注册模态框开始 -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="registertitle">
+                        用户注册
+                  </div>
+                  <form id="registerform" name="register"  class="registerform" action="">
+                      <div class="form-group">
+                           
+                            <input  name="telephoneemail" placeholder="输入邮箱或手机号" class="telephone" type="text">
+                      </div>
+                      <div class="form-group">
+                            
+                            <input name="username" placeholder="输入用户名" class="username" type="text">
+                      </div>
+                      <div class="form-group">
+                
+                            <input id="password" name="password" placeholder="输入密码" class="password" type="password">
+                      </div>
+                      <!-- <div class="nameexist">该用户名已存在</div> -->
+                      <div class="registerbutton">立即注册</div>
+                      <div class="elseregister">
+                        <span>其它登录方式</span>  
+                          <a href=""><img src="../img/qq.png" alt=""></a>
+                          <a href=""><img src="../img/weixin.png" alt=""></a>
+                          <a href=""><img  src="../img/xinlang.png" alt=""></a>
+                          <div class="nameexist">该用户名已存在</div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        <!-- 注册模态框结束 -->
+        <!-- 登录模态框开始 -->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="registertitle">
+                                用户登录
+                          </div>
+                          <form class="registerform loginform" id="loginform" action="">
+                              <div class="form-group">
+                              <input  placeholder="输入用户名" name="username" class="telephone" type="text">
+                              </div>
+                              <div class="form-group">
+                                    <input placeholder="输入密码" name="password" class="username" type="password">
+                              </div>
+    
+                              <div class="codefather clearfix">
+                                    <input  placeholder="输入验证码" name="code" class="code" type="text">
+                                    <img src="../img/code.png" class="codeimg"></img>
+                                    <div class="check">换一张</div>
+                                    <div class="codeerr uperr">
+                                        ⓧ 用户名或密码错误
+                                    </div>
+                                    <div class="codeerr cerr">
+                                        ⓧ 验证码错误
+                                    </div>
+                              </div>
+    
+                              <div class="loginbutton">立即登录</div>
+                              <div class="else">
+    
+                                <div class="linkregister">注册</div>
+                                <div class="forget">忘记密码</div>
+                                <span>其它登录方式</span>  
+            
+                                  
+                                 <a href=""><img src="../img/qq.png" alt=""></a>
+                                 <a href=""> <img src="../img/weixin.png" alt=""></a>
+                                 <a href=""><img  src="../img/xinlang.png" alt=""></a>   
+                              </div>
+                          </form>
+                </div>
+            </div>
+        </div>
+        <!-- 登录模态框结束 -->
+
+        <!-- 在ajax请求未返回数据前执行的动画 -->
+        <div class="modal fade" id="loadingModal" data-backdrop="static">
+            <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+                <div class="progress progress-striped active" style="margin-bottom: 0;">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
+                <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+            </div>
+        </div>
+    
+</body>
+<script src="../node_modules/echarts/dist/echarts.common.js" ></script>
+<script src="../node_modules/jquery/dist/jquery.min.js" ></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../package/bootstrapvalidator-master/dist/js/bootstrapValidator.min.js" ></script>
+<script src="../js/public.js" ></script>
+<script src="../package/jquerypage.js" ></script>
+<!-- 分页器 -->
+<script src="../lib/bootstrap-paginator.js"></script>
+<!-- 对话框样式 -->
+<script src="../lib/confirm/jquery-confirm.min.js"></script>
+<!-- 提示框插件 -->
+<script src="../lib/toastr/toastr.min.js"></script>
+<!-- cookie插件 -->
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    // var statebutton = 0;
+    // // 模态框居中
+    // modalCenter('#myModal')
+    // modalCenter('#myModal1')
+    // var uid = 1;
+    // var cid = 1;
+    // // 存储选择题答案数组
+    // var numberarr = [];
+    // // 储存id
+    // var numid = [];
+    // //用于判断是否声明了保存答案的数组。
+    // var flag = true;
+    // //判断当前是否提交了试卷。
+    // var ajaxstate = true;
+    // // 存储答案数组，题目id，用户id，kechengid，测验或试卷id，测验或试卷分类
+    // var uiddata = {};
+    // // 用定时器来做倒计时功能。
+    // var newtime = 1;
+
+    $.ajax({
+        type:"post",
+        url: HTTP_URLH + "Studymanage/classify",
+        dataType:"json",
+        data: {
+            uid: getSearch("uid"),
+            eid: getSearch("exid"),
+            number: getSearch("num"), 
+            page: 1
+        },
+        success:function(data){
+            console.log('试卷答案',data);
+            // 当提交试卷的时候将cookie中存储的答案清空。
+            // $.cookie('exarr', null);
+            // 提交成功
+            toastr.success("提交成功")
+        },
+        error:function(jqXHR){
+            // 请求超时，终止请求
+            toastr.warning("提交失败")
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });
+
+
+
+    // // 如果cookie没有值的话
+    // if($.cookie("exarr") != undefined && JSON.parse($.cookie("exarr")) != null){
+    //     var user_id = JSON.parse($.cookie("exarr"));
+    //     console.log('cookie中的数据',user_id);
+    //     //如果用户名相同，课程名相同，试卷id相同，同为考试或测验。
+    //     if(user_id.uid == getSearch("uid")&& user_id.cid == getSearch("cid") && user_id.exid == getSearch("exid") && user_id.sta == getSearch("sta")){
+    //         if(user_id.numberarr != undefined){
+    //             numberarr = user_id.numberarr
+    //         }
+    //         if(user_id.numid != undefined){
+    //             numid = user_id.numid
+    //         }
+    //         if(user_id.newtime != undefined){
+    //             newtime = user_id.newtime
+    //         }
+
+    //     }
+    // }                      
+
+
+
+    // //  设置学校名称字数超出显示省略号……
+    // function ellipsis(num) {
+    //     $(".schnam").each(function () {
+    //         var maxwidth = num;
+    //         console.log($(this).text());
+    //         if ($(this).text().length > maxwidth) {
+    //             $(this).text($(this).text().substring(0, maxwidth));
+    //             $(this).html($(this).html() + '…');
+    //         }
+    //     });
+    // }
+    // ellipsis(7);//要显示的字符数 Number
+
+    // // // var alltime = (1)*60;
+    // // var alltime = 20;
+    // // var int=setInterval(function(){
+    // //     console.log(999);
+    // //     var s;
+    // //     var m;
+    // //     m = parseInt((alltime-newtime)/60)
+    // //     s=(alltime-newtime)%60
+    // //     if(s < 10){
+    // //         s = "0"+s;
+    // //     }
+    // //     newtime++
+    // //     // 如果倒计时结束就提交试卷。
+    // //     if(newtime == alltime){
+    // //             subajax()
+    // //             clearInterval(int)
+    // //             $(".countdown").text("倒计时结束")
+    // //     }else{
+    // //         $(".countdown").text("倒计时"+m+":"+s);
+    // //     }
+    // // },1000);   
+
+    // //提示框初始化，toast-top-center表示提示框的位置
+    // toastr.options = {
+    //     positionClass: 'toast-top-center', // 提示框位置
+    //     closeButton: true  // 是否显示关闭按钮
+    // }
+
+    //     // 测试页
+    // if(getSearch("sta") == 0 ){
+    //     select_announce(1,'Studymanage/answer')
+
+
+    //     // 考试页
+    // }else{
+    //     select_announce(1,'Studymanage/ination_answer')
+    // }
+    //     console.log(getSearch("time"));
+        
+    //     // 查询
+    //     function select_announce(pageN,exurl) {
+    //     var param = {
+    //         eid: getSearch("exid"),
+    //         page: pageN,
+    //     }
+    //     // loading显示
+    //     $("#loadingModal").modal("show")
+    //     var CouIntrAjax = $.ajax({
+    //         url: HTTP_URLH+exurl,
+    //         type: "post",
+    //         timeout: 5000,
+    //         dataType: "json",
+    //         // async:false,    //不进行异步刷新
+    //         data: param,
+    //         success: function (data) {
+    //             console.log('返回数据',data);//打印服务端返回的数据(调试用)
+    //             if(data.shuju.length == 0){
+    //                 console.log("无数据");
+    //                 $(".rightcontent").html("<div>无数据</div>")
+    //             }else{
+
+
+    //             var str = "";
+    //             for(var i = 0; i<data.shuju.length; i++){
+    //                 var yy = "";
+    //                 // 判断这题以前有没有选中过答案。
+    //                 if(numberarr != []){
+    //                     str+=`<div class="eachquestion">
+    //                                 <div class="questitl">
+    //                                     ${ (pageN-1)*4+i+1 + '、' + data.shuju[i].name }
+    //                                 </div>
+    //                                 <div class="answertitl">
+    //                                     ${ data.shuju[i].a == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "A"? "checked": "" } value="A" name="${ (pageN-1)*4+i }" type="radio">A.&nbsp;${ data.shuju[i].a }</div>` }
+    //                                     ${ data.shuju[i].b == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "B"? "checked": "" } value="B" name="${ (pageN-1)*4+i }" type="radio">B.&nbsp;${ data.shuju[i].b }</div>` }
+    //                                     ${ data.shuju[i].c == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "C"? "checked": "" } value="C" name="${ (pageN-1)*4+i }" type="radio">C.&nbsp;${ data.shuju[i].c }</div>` }
+    //                                     ${ data.shuju[i].d == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "D"? "checked": "" } value="D" name="${ (pageN-1)*4+i }" type="radio">D.&nbsp;${ data.shuju[i].d }</div>` }      
+    //                                 </div>
+    //                             </div>`
+    //                 }else{
+    //                     str+=`<div class="eachquestion">
+    //                                 <div class="questitl">
+    //                                     ${ (pageN-1)*4+i+1 + '、' + data.shuju[i].name }
+    //                                 </div>
+    //                                 <div class="answertitl">
+    //                                     ${ data.shuju[i].a == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="A" name="${ (pageN-1)*4+i }" type="radio">A.&nbsp;${ data.shuju[i].a }</div>` }
+    //                                     ${ data.shuju[i].b == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="B" name="${ (pageN-1)*4+i }" type="radio">B.&nbsp;${ data.shuju[i].b }</div>` }
+    //                                     ${ data.shuju[i].c == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="C" name="${ (pageN-1)*4+i }" type="radio">C.&nbsp;${ data.shuju[i].c }</div>` }
+    //                                     ${ data.shuju[i].d == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="D" name="${ (pageN-1)*4+i }" type="radio">D.&nbsp;${ data.shuju[i].d }</div>` }      
+    //                                 </div>
+    //                             </div>`
+    //                 }
+    //             }
+    //             $(".examinationcontent").html(str)
+
+    //             //给第一页加个标题。
+    //             if(pageN == 1){
+    //                 var preptitle = `<div class="preptitle">${getSearch("titname")}</div>`
+    //                 $(".examinationcontent").prepend(preptitle);
+    //             }
+    //             // 如果cookie中没有值，就声明数组。
+    //             if( JSON.parse($.cookie("exarr"))  == null ){
+    //                 // 只在第一页的时候声明数组
+    //                 if(flag){
+    //                     // // 声明一个数组保存选择题的答案
+    //                     var allarr = new  Array(data.num);
+    //                     // // 给数组中的每一项赋值默认值
+    //                     for(var i=0;i<allarr.length;i++){
+    //                         allarr[i] = 0;
+    //                     }
+    //                     // 将数组中的值传到全局。
+    //                     numberarr = allarr;
+    //                     //声明一个数组保存每一题的id
+    //                     var allid = new  Array(data.num);
+    //                     // // 给数组中的每一项赋值默认值
+    //                     for(var i=0;i<allid.length;i++){
+    //                         allid[i] = -1;
+    //                     }
+    //                     // 将数组中的值传到全局。
+    //                     numid = allid;
+    //                     flag = false;
+    //                 }
+    //             }
+
+
+    //             // 默认显示的数据
+    //            queans()
+                        
+    //             //分页
+    //             $("#page").bootstrapPaginator({
+    //                 bootstrapMajorVersion: 3,   //bootstrap版本
+    //                 totalPages: data.pag,   //总页数
+    //                 numberOfPages: 3,    //分页器每页展示页码数
+    //                 shouldShowPage: true,   //所有的按钮都展示
+    //                 itemTexts: function (type, page, current) {
+    //                     // console.log(type)
+    //                     //设置分页控件每部分的显示文字
+    //                     switch (type) {
+    //                         case "first":
+    //                             return "第一页"
+    //                         case "prev":
+    //                             return "上一页"
+    //                         case "next":
+    //                             return "下一页"
+    //                         case "last":
+    //                             return "最后一页"
+    //                         case "page":
+    //                             return page
+    //                         case "jump":
+    //                             return "跳转"
+    //                     }
+    //                 }, onPageClicked: function(event, originalEvent, type, page) {
+    //                     //点击事件
+    //                     //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+    //                     pageNum = page
+    //                     // 查询
+    //                     select_announce(pageNum,exurl)
+    //                 }
+    //             })
+    //             //  分页结束
+    //             }
+
+    //         },
+    //         error: function (e) {
+    //             console.log(e)
+    //             console.log(e.statusText)
+    //             if ("timeout" == e.statusText) {
+    //                 // 请求超时，终止请求
+    //                 toastr.warning("请求超时")
+    //                 CouIntrAjax.abort()
+    //             } else {
+    //                 // toastr.error("网络开小差了，请稍后再试！")
+    //             }
+    //             $("#loadingModal").modal("hide")
+    //         },
+    //         complete: function (xhr, status) {
+    //             // 隐藏loading
+    //             $("#loadingModal").modal("hide")
+    //         }
+    //     })
+    //     }
+
+        
+    //     //获取单击input时的值。
+    //     $(".examinationcontent").on("click","input",function(){
+    //         // 获取值
+    //         // console.log($(this).attr("name"));
+    //         // console.log($(this).val());
+    //         var inputname =$(this).attr("name")
+    //         var inputval = $(this).val();
+    //         // 将这个input的值存到数组中
+    //         numberarr[+inputname] = inputval;
+    //         //将这个input的id存到数组中
+    //         numid[+inputname] = $(this).data("queid");
+    //         queans()
+    //         console.log(numberarr);
+    //         console.log(numid);
+            
+    //     })
+    //     //单击提交按钮时
+    //     $(".submitchild").on("click",function(){
+    //         console.log('获取的值数组',numberarr);
+    //         console.log('获取的id数组',numid);
+    //         if(queans() == true){
+    //             console.log("可以提交");
+
+    //             // 提示用户要不要提交
+    //             confirmBySelf('确定要提交试卷吗？', function () {
+    //                 // 用户点击确认时
+    //                 subajax()
+    //                 //停止定时器
+    //                 clearInterval(int)
+    //             },"提示")
+
+    //         }else{
+    //             console.log("不可以提交");
+    //             // 请求超时，终止请求
+    //             toastr.warning("请全部做完后再提交")
+    //         }
+
+    //     })
+    //     // 提交的ajax
+    //     function subajax(){
+    //         console.log("可以提交");
+    //         // 判断是否提交过，如果提交过就不能再次提交了。
+    //         if(ajaxstate){
+    //             var parma= {
+    //             number: numid,
+    //             option: numberarr,
+    //             cid: cid,
+    //             uid: uid,
+    //             eid: getSearch("exid")
+    //             };
+    //             var sta = getSearch("sta");
+    //             var subanswer;
+    //             //考试地址
+    //             if(sta == 1){
+    //                 subanswer = "Studymanage/sub_ination";
+    //             //测试地址
+    //             }else {
+    //                 subanswer = "Studymanage/sub_answer";
+    //             }
+
+    //             $.ajax({
+    //                 type:"post",
+    //                 url: HTTP_URLH + subanswer,
+    //                 dataType:"json",
+    //                 data: parma,
+    //                 success:function(data){
+    //                     console.log(data);
+    //                     // 当提交试卷的时候将cookie中存储的答案清空。
+    //                     $.cookie('exarr', null);
+    //                     // 提交成功
+    //                     toastr.success("提交成功")
+    //                 },
+    //                 error:function(jqXHR){
+    //                     // 请求超时，终止请求
+    //                     toastr.warning("提交失败")
+    //                     console.log("发生错误:"+jqXHR.status);
+    //                 }
+    //             });
+    //             ajaxstate = false;
+    //         }
+
+    //     }
+
+    //     // 判断做了多少题
+    //     function queans(){
+    //         var checkall =0;
+    //         for(var i=0;i<numberarr.length;i++){
+    //             if(numberarr[i] != 0){
+    //                 checkall++
+    //             }
+    //         }
+    //         console.log("已做");
+            
+    //         $(".checknum").text("已做"+checkall+"/"+numberarr.length)
+    //         if(checkall == numberarr.length){
+    //             $(".submitchild").css({"background-color":"#81d282"});
+    //             return true;
+    //         }
+    //         return false;
+    //     }
+
+
+
+    // function confirmBySelf(content, func,tit) {
+    //     $.confirm({
+    //         confirmButtonClass: "btn-primary",   //设置ok按钮样式
+    //         closeIcon: true,        //对话框右上角关闭
+    //         confirmButton: "确认", //确认按钮标题
+    //         cancelButton: "取消", //取消按钮标题
+    //         title: tit,        //标题
+    //         content: content,        //对话内容
+    //         confirm: function () {
+    //             //点击确认后做什么
+    //             func()
+    //         },
+    //         cancel:function () {
+    //             //点击取消后做什么
+    //         }
+    //     })
+    // }
+
+    // // 当页面刷新时。
+    // $(window).unload(function(){
+    //     uiddata.numberarr = numberarr;
+    //     uiddata.numid = numid;
+    //     uiddata.newtime = newtime;
+    //     uiddata.uid = getSearch("uid");
+    //     uiddata.sta = getSearch("sta");
+    //     uiddata.exid = getSearch("exid");
+    //     uiddata.cid = getSearch("cid");
+
+    //     console.log('uiddata',uiddata);
+    //     // 如果已经提交，那么就不再往cookie中存储数据。
+    //     if(ajaxstate){
+    //         $.cookie("exarr",JSON.stringify(uiddata))
+    //     }
+
+      
+    //     // localStorage.setItem('exarr',JSON.stringify(uiddata));
+    //     // localStorage.removeItem('exarr');
+    //     // schoolname = JSON.parse(localStorage.getItem('uiddata'));
+
+    // });
+   
+    
+})
+
+</script>
+</html>
