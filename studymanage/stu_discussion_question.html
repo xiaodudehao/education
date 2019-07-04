@@ -367,8 +367,18 @@
                         var res3 = ""
                         for (var j in topic) {
                             var item2 = topic[j]
-                            res2 += '<img src="'+ imgsrc3 + item2.logo +'">'
-                            res3 += '<span>'+ item2.username +'</span>'
+                            var img = ""
+                            var name = ""
+                            if (undefined == item2.photo) {
+                                img = imgsrc3 + item2.logo
+                                name = item2.username
+                            } else {
+                                img = imgsrc2 + item2.photo
+                                name = item2.name
+                            }
+
+                            res2 += '<img src="'+ img +'">'
+                            res3 += '<span>'+ name +'</span>'
                         }
                         $(".user_head_img").html(res2)
                         $(".user_name").html(res3)
@@ -428,7 +438,6 @@
 
 
                 $(".dianzan").on("click", function() {
-                    console.log("点")
                     if ($(this).hasClass("isactive")) {
                         $(this).removeClass('isactive');
                     } else {
@@ -450,10 +459,9 @@
                             val: 1,
                         },
                         success: function (data) {
-                            console.log(data)
+                            // console.log(data)
                             // select_discussion_ask(PageNum, com_id)
                             // $("."+thisid).html("10")
-
                             var DianZanAjax = $.ajax({
                                 url: HTTP_URLH + "Studymanage/answer_num",
                                 type: "post",
@@ -464,7 +472,7 @@
                                     id: thisid, // 自身id
                                 },
                                 success: function (data) {
-                                    console.log(data)
+                                    // console.log(data)
                                     var res = '点赞'+ data +''
                                     $("."+thisid).html(res)
                                 },

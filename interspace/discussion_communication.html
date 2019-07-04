@@ -286,26 +286,30 @@
     var PageNum = 1
     var stu_url = location.href
     var stu_urlarr = stu_url.split("=")
-    var com_id = stu_urlarr[stu_urlarr.length - 1]
+    var a = stu_urlarr[stu_urlarr.length - 2]
+    var b = a.split("&")
+    var did = b[0]
+
+
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-        // select_comm_theme(com_id)
-        // select_discussion_ask(PageNum, com_id)
+        select_comm_theme(did)
+        select_discussion_ask(PageNum, did)
     })
 
     //  讨论主题查询--头部
-    function select_comm_theme(c_id) {
+    function select_comm_theme(did) {
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Studymanage/set_forum",
+            url: HTTP_URL + "Test/set_forum",
             type: "post",
             timeout: 5000,
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                id: c_id,
+                id: did,
             },
             success: function (data) {
                 // console.log(data)
@@ -339,7 +343,7 @@
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Studymanage/set_details",
+            url: HTTP_URL + "Test/set_details",
             type: "post",
             timeout: 5000,
             dataType: "json",
@@ -395,7 +399,6 @@
                             '                                </div>\n' +
                             '                            </div>\n' +
                             '                        </div>'
-                        select_dianzan(item.id, k)
                     }
                     $('.other_reply').html(res)
                     //分页
@@ -427,7 +430,7 @@
                             //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
                             pageNum = page
                             // 查询
-                            select_discussion_ask(pageNum,com_id, num)
+                            select_discussion_ask(pageNum,d_id, num)
                         }
                     })
                 }
@@ -446,7 +449,7 @@
     //  按评论数排序查询
     function comments_num() {
         var num = 1
-        select_discussion_ask(PageNum, com_id, num)
+        select_discussion_ask(PageNum, did, num)
     }
     //  按时间排序查询
     function time_order() {

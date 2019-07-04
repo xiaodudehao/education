@@ -103,8 +103,15 @@
 }
 .pagination>li>a, .pagination>li>span {
     padding: 5px 15px;
-    font-size: 14px;
+    font-size: 12px;
 }
+.pagination>li>span>input {
+    height: 17px !important;
+}
+.pagination>li>span>input {
+    height: 17px !important;
+}
+
 
 
 

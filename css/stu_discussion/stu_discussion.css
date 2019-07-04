@@ -89,7 +89,7 @@
 
 
 /* 分页器 */
-.page_area {
+.page_area, .page_area2 {
     text-align: center;
     /*cursor: pointer;*/
 }
@@ -103,7 +103,10 @@
 }
 .pagination>li>a, .pagination>li>span {
     padding: 5px 15px;
-    font-size: 14px;
+    font-size: 12px;
+}
+.pagination>li>span>input {
+    height: 17px !important;
 }
 
 

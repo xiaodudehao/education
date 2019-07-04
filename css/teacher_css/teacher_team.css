@@ -130,6 +130,9 @@
     padding: 5px 15px;
     font-size: 12px;
 }
+.pagination>li>span>input {
+    height: 17px !important;
+}
 
 
 /* 头像 */
