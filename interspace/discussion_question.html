@@ -289,26 +289,28 @@
     var PageNum = 1
     var stu_url = location.href
     var stu_urlarr = stu_url.split("=")
-    var com_id = stu_urlarr[stu_urlarr.length - 1]
+    var a = stu_urlarr[stu_urlarr.length - 2]
+    var b = a.split("&")
+    var did = b[0]
     $(function(){
         // 模态框居中
         modalCenter('#myModal')
         modalCenter('#myModal1')
-        // select_comm_theme(com_id)
-        // select_discussion_ask(PageNum, com_id)
+        select_comm_theme(did)
+        select_discussion_ask(PageNum, did)
     })
 
     //  讨论主题查询--头部
-    function select_comm_theme(c_id) {
+    function select_comm_theme(did) {
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Studymanage/set_quiz",
+            url: HTTP_URL + "Test/set_quiz",
             type: "post",
             timeout: 5000,
             dataType: "json",
             // async:false,    //不进行异步刷新
             data: {
-                id: c_id,
+                id: did,
             },
             success: function (data) {
                 // console.log(data)
@@ -342,7 +344,7 @@
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
-            url: HTTP_URLH + "Studymanage/set_answer",
+            url: HTTP_URL + "Test/set_answer",
             type: "post",
             timeout: 5000,
             dataType: "json",
@@ -378,8 +380,18 @@
                         var res3 = ""
                         for (var j in topic) {
                             var item2 = topic[j]
-                            res2 += '<img src="'+ imgsrc3 + item2.logo +'">'
-                            res3 += '<span>'+ item2.username +'</span>'
+                            var img = ""
+                            var name = ""
+                            if (undefined == item2.photo) {
+                                img = imgsrc3 + item2.logo
+                                name = item2.username
+                            } else {
+                                img = imgsrc2 + item2.photo
+                                name = item2.name
+                            }
+
+                            res2 += '<img src="'+ img +'">'
+                            res3 += '<span>'+ name +'</span>'
                         }
                         $(".user_head_img").html(res2)
                         $(".user_name").html(res3)
@@ -400,7 +412,6 @@
                             '                                </div>\n' +
                             '                            </div>\n' +
                             '                        </div>'
-                        select_dianzan(item.id, k)
                     }
                     $('.other_reply').html(res)
                     //分页
@@ -432,7 +443,7 @@
                             //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
                             pageNum = page
                             // 查询
-                            select_discussion_ask(pageNum,com_id, num)
+                            select_discussion_ask(pageNum,d_id, num)
                         }
                     })
                 }
@@ -451,37 +462,37 @@
     //  按评论数排序查询
     function comments_num() {
         var num = 1
-        select_discussion_ask(PageNum, com_id, num)
+        select_discussion_ask(PageNum, did, num)
     }
     //  按时间排序查询
     function time_order() {
-        select_discussion_ask(PageNum, com_id)
+        select_discussion_ask(PageNum, did)
     }
 
     // 回复讨论
     function reply_discuss() {
         var text = $(".reply_text").val()
-        console.log(text)
+        // console.log(text)
         if (text == "") {
             toastr.warning("请输入评论内容")
         } else {
             $("#loadingModal").modal("show")
             var CouIntrAjax = $.ajax({
-                url: HTTP_URLH + "Studymanage/ask_reply",
+                url: HTTP_URL + "Test/ask_reply",
                 type: "post",
                 timeout: 5000,
                 dataType: "json",
                 // async:false,    //不进行异步刷新
                 data: {
                     id: 1,  // 个人id
-                    qid: com_id,  //  问题id
+                    qid: did,  //  问题id
                     // cid: 1,  // 课程id
                     text: text, // 输入的回复信息
                 },
                 success: function (data) {
                     // console.log(data)
                     $(".reply_text").val("")
-                    select_discussion_ask(PageNum, com_id)
+                    select_discussion_ask(PageNum, did)
                 },
                 error: function (e) {
                     console.log(e)

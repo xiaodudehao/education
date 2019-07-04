@@ -309,7 +309,7 @@
                 console.log(data);
                 var str = "";
                 for(var i =0;i<data.length;i++){
-                    str += `<a class="academynameeach " target="_blank" href="http://${data[i].url}">
+                    str += `<a class="academynameeach" onclick="school_detail(`+ data[i].id +`)" href="">
                                 <div class="academyimg">
                                     <img  src="${imgsrc4 + data[i].src}" alt="">
                                 </div>
@@ -330,6 +330,14 @@
             }
         })
     })
+
+    function school_detail(id) {
+        console.log(id)
+        $(".academynameeach").attr("href",'./school_detail.html?s_id='+ id)
+    }
+
+
+
 
 </script>
 </html>

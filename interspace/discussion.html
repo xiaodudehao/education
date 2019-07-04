@@ -26,10 +26,10 @@
         <div class="banxin">
             <img src="../img/未标题-10.png" class="logo" alt="">
             <ul>
-                <li><a href="">首页</a></li>
-                <li><a href="">课程</a></li>
-                <li><a href="">院校</a></li>
-                <li><a href="">立体教材</a></li>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../calssify.html">课程</a></li>
+                <li><a href="../academy.html">院校</a></li>
+                <li><a href="#">立体教材</a></li>
             </ul>
             <div class="search">
                 <img class="searchicon" src="../img/未标题-1.png" ></img>
@@ -407,7 +407,7 @@
                             '                        <p class="problem_content_text">'+ index +'、'+ item.discussname +'</p>\n' +
                             '                    </div>\n' +
                             '                    <div class="to_view">\n' +
-                            '                        <span class="discussion_detail" onclick="jump_detail()">查看讨论情况</span>\n' +
+                            '                        <span class="discussion_detail" onclick="jump_detail('+ item.id +')">查看讨论情况</span>\n' +
                             '                        <span class="glyphicon glyphicon-remove-circle" onclick="delete_discussion('+ item.id +')"></span>\n' +
                             '                    </div>\n' +
                             '                </div>'
@@ -462,13 +462,13 @@
     }
 
     // 跳页-详情页
-    function jump_detail() {
+    function jump_detail(did) {
         console.log("445256")
-        $(location).attr('href','./discussion_communication.html?cid='+ cid +'')
+        $(location).attr('href','./discussion_communication.html?did='+ did +'&cid='+ cid)
     }
-    function jump_detail_question() {
+    function jump_detail_question(did) {
         console.log("445256")
-        $(location).attr('href','./discussion_question.html?cid='+ cid +'')
+        $(location).attr('href','./discussion_question.html?did='+ did +'&cid='+ cid)
     }
 
     // 新增
@@ -577,7 +577,7 @@
                             '                        <p class="ask_text_con">'+ index +'、'+ item.name +'</p>\n' +
                             '                    </div>\n' +
                             '                    <div class="to_view_ask">\n' +
-                            '                        <span class="discussion_ask_detail" onclick="jump_detail_question()">查看讨论情况</span>\n' +
+                            '                        <span class="discussion_ask_detail" onclick="jump_detail_question('+ item.id +')">查看讨论情况</span>\n' +
                             '                        <div class="ask_information_area">\n' +
                             '                            <div class="ask_information">\n' +
                             '                                <span>'+ item.qname +'</span>\n' +
