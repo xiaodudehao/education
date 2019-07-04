@@ -437,8 +437,8 @@ input::-ms-clear {
 .searchresult .courselearning .courselearningchild .searchimg {
   display: block;
   float: left;
-  width: 300px;
-  height: 210px;
+  width: 280px;
+  height: 180px;
   background-color: purple;
 }
 .searchresult .courselearning .courselearningchild .searchright {
@@ -448,19 +448,19 @@ input::-ms-clear {
   margin-left: 55px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchtitle {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 35px;
   height: 35px;
   line-height: 35px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchschool {
   height: 23px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 23px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchnarrate {
   margin-top: 25px;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
 }
 .searchresult .courselearning:hover .courselearningchild {
@@ -636,12 +636,12 @@ input::-ms-clear {
   padding-top: 70px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationleft .detail {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 38px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationleft .detail .progressbar {
   margin-left: 10px;
-  margin-top: 7px;
+  margin-top: 2px;
   width: 302px;
   height: 20px;
   border-radius: 15px;
@@ -681,7 +681,7 @@ input::-ms-clear {
   width: 180px;
   margin: 0 auto;
   list-style: none;
-  font-size: 18px;
+  font-size: 16px;
   padding-bottom: 30px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .topformationright:hover {
@@ -714,7 +714,7 @@ input::-ms-clear {
   border-radius: 10px;
   color: #fff;
   line-height: 40px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .courseinformationbottom .bottomformationright #bottomformationright {
   position: relative;
@@ -731,5 +731,5 @@ input::-ms-clear {
   border-radius: 10px;
   color: #fff;
   line-height: 40px;
-  font-size: 18px;
+  font-size: 16px;
 }

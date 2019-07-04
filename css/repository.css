@@ -437,8 +437,8 @@ input::-ms-clear {
 .searchresult .courselearning .courselearningchild .searchimg {
   display: block;
   float: left;
-  width: 300px;
-  height: 210px;
+  width: 280px;
+  height: 180px;
   background-color: purple;
 }
 .searchresult .courselearning .courselearningchild .searchright {
@@ -448,19 +448,19 @@ input::-ms-clear {
   margin-left: 55px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchtitle {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 35px;
   height: 35px;
   line-height: 35px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchschool {
   height: 23px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 23px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchnarrate {
   margin-top: 25px;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
 }
 .searchresult .courselearning:hover .courselearningchild {

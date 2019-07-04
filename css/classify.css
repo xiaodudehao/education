@@ -437,8 +437,8 @@ input::-ms-clear {
 .searchresult .courselearning .courselearningchild .searchimg {
   display: block;
   float: left;
-  width: 300px;
-  height: 210px;
+  width: 280px;
+  height: 180px;
   background-color: purple;
 }
 .searchresult .courselearning .courselearningchild .searchright {
@@ -448,19 +448,19 @@ input::-ms-clear {
   margin-left: 55px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchtitle {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 35px;
   height: 35px;
   line-height: 35px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchschool {
   height: 23px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 23px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchnarrate {
   margin-top: 25px;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
 }
 .searchresult .courselearning:hover .courselearningchild {
@@ -526,7 +526,7 @@ input::-ms-clear {
 }
 .mainpart .classify .major .majortitle {
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   height: 40px;
   line-height: 40px;
 }
@@ -538,9 +538,9 @@ input::-ms-clear {
 .mainpart .classify .major .majorchild a {
   display: block;
   float: left;
-  font-size: 20px;
-  margin-right: 40px;
-  height: 4opx;
+  font-size: 14px;
+  margin-right: 20px;
+  height: 40px;
   line-height: 40px;
   text-decoration: none;
   text-align: center;
@@ -548,23 +548,25 @@ input::-ms-clear {
   font-family: 宋体;
 }
 .mainpart .classify .major .majorchild a:first-child {
-  margin-left: 80px;
+  margin-left: 50px;
 }
 .mainpart .classify .major .majorchild a:hover {
   color: #32b251;
 }
 .mainpart .classify .major .all {
   position: absolute;
-  height: 40px;
+  height: 30px;
   border-radius: 10px;
   text-align: center;
-  line-height: 40px;
-  left: 68px;
+  line-height: 30px;
+  left: 40px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #81d282;
   color: #fff;
   font-size: 20px;
+  margin-top: 5px;
+  font-size: 16px;
 }
 .mainpart .next {
   text-align: center;

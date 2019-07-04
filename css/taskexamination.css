@@ -437,8 +437,8 @@ input::-ms-clear {
 .searchresult .courselearning .courselearningchild .searchimg {
   display: block;
   float: left;
-  width: 300px;
-  height: 210px;
+  width: 280px;
+  height: 180px;
   background-color: purple;
 }
 .searchresult .courselearning .courselearningchild .searchright {
@@ -448,19 +448,19 @@ input::-ms-clear {
   margin-left: 55px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchtitle {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 35px;
   height: 35px;
   line-height: 35px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchschool {
   height: 23px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 23px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchnarrate {
   margin-top: 25px;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
 }
 .searchresult .courselearning:hover .courselearningchild {
@@ -635,7 +635,7 @@ input::-ms-clear {
   padding: 20px;
   border: 1px solid #32b251;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 30px;
 }
 .maincontent .mainpartportion .rightresult .rightcontent .standandcontent .rbutton .titlenumber {
@@ -644,12 +644,12 @@ input::-ms-clear {
 .maincontent .mainpartportion .rightresult .rightcontent .standandcontent .buttontitle {
   background-color: #81d283;
   color: #fff;
-  width: 120px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   border-radius: 10px;
   text-align: center;
-  line-height: 50px;
-  font-size: 18px;
+  line-height: 40px;
+  font-size: 14px;
   position: absolute;
   right: 15px;
   bottom: 15px;

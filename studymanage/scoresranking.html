@@ -47,23 +47,23 @@
         <div class="mainpartportion">
             <div class="banxin clearfix">
                 <div class="leftcatalogue">
-                    <div class="schoolnam clearfix">
-                            <img src="../img/schoolimg.png" alt="" class="fl schoollogo">
-                            <div class="fl schnam">上海职业技术学院</div>
+                    <div class="schoolnam">
+                        <img src="../img/schoolimg.png" alt="" class="schoollogo">
+                        上海职业技术学院
                     </div>
                     <div class="course">
                         <img src="../images/kecheng1.png" alt="" class="courseimg">
                         <!-- <div class="coursenam">建筑材料性能检测</div> -->
                     </div>
                     <div class="cataloguenam">
-                        <a class="left_menu_coursehomepage" href="" >课程首页</a>
-                        <a class="left_menu_scoresranking active" href="" >学习排行</a>
-                        <a class="left_menu_announcement" href="">系统公告</a>
-                        <a class="left_menu_standard" href="" >评分标准</a>
-                        <a class="left_menu_onlinestudy" href="">在线学习</a>
-                        <a class="left_menu_test" href="">作业与测试</a>
-                        <a class="left_menu_report" href="">实训报告</a>
-                        <a class="left_menu_discussion" href="">讨论</a>
+                        <a href="coursehomepage.html" >课程首页</a>
+                        <a href="scoresranking.html" class="active">学习排行</a>
+                        <a href="">系统公告</a>
+                        <a href="">评分标准</a>
+                        <a href="">在线学习</a>
+                        <a href="">作业与测试</a>
+                        <a href="">考试</a>
+                        <a href="">讨论</a>
                     </div>
                     <div class="share">
                         <div></div>
@@ -474,7 +474,17 @@
             </div>
         </div>
     </div>
+
     <!-- 登录模态框结束 -->
+        <!-- 在ajax请求未返回数据前执行的动画 -->
+        <div class="modal fade" id="loadingModal" data-backdrop="static">
+                <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+                    <div class="progress progress-striped active" style="margin-bottom: 0;">
+                        <div class="progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <h5 style="color: white; font-weight: bold">努力加载中...</h5>
+                </div>
+            </div>
 </body>
 <!-- <script src="../node_modules/echarts/dist/echarts.common.js" ></script> -->
 
@@ -562,19 +572,7 @@
 <script src="../package/jquerypage.js" ></script>
 <script> 
 
-    //  设置学校名称字数超出显示省略号……
-    function ellipsis(num) {
-        $(".schnam").each(function () {
-            var maxwidth = num;
-            console.log($(this).text());
-            if ($(this).text().length > maxwidth) {
-                $(this).text($(this).text().substring(0, maxwidth));
-                $(this).html($(this).html() + '…');
-            }
-        });
-    }
-    ellipsis(7);//要显示的字符数 Number
-    
+var HTTP_URLH ="http://192.168.1.126/lanhong/index.php/Home/"
     // 一开始进入页面发送一次ajax渲染进度数据。
     $(".tcdNumber").on("click",function(){
         alert(1)
@@ -582,94 +580,14 @@
 
     //  点击某一页，渲染那一页的数据
     //进度页码数
-    function clickpage(){
+    // function clickpage(){
 
-      //进度数据
-      $.ajax({
-            type:"GET",
-            url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pagetwo?cid=1",
-            dataType:"json",
-            // crossDomain: true,//是否跨域:是
-            // jsonp: "jsonpcallback",
-            success:function(data){
-                console.log("进度数据",data);
-                var result = data;
-                var htmlx = template("table",{person: result,page: 1});
-                $(".schedule").html(htmlx);
-            },
-            error:function(jqXHR){
-                console.log("发生错误:"+jqXHR.status);
-            }
-    });  
-    // 获取我的数据
-   
-    $.ajax({
-        type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/oneself",
-        dataType:"json",
-        data: {cid: 1,uid: 1},
-        // crossDomain: true,//是否跨域:是
-        // jsonp: "jsonpcallback",
-        success:function(data){
-            console.log('用户自身的进度数据',data);
-            var result = data;
-            var html = template("mytable",{person: result});
-            $(".mytable").html(html);
-            
-        },
-        error:function(jqXHR){
-            console.log("发生错误:"+jqXHR.status);
+    
 
 
-        }
-    }); 
-
-
-    $.ajax({
-        type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pge",
-        dataType:"json",
-        data: {cid: 1},
-        success:function(data){
-            console.log('进度页码数',data);
-            //点击分页开始
-            $(".a").createPage({ 
-                pageCount: data, 
-                current:1, 
-                backFn:function(p){ 
-                console.log(p); 
-                //进度数据
-                $.ajax({
-                    type:"GET",
-                    url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/page",
-                    dataType:"json",
-                    data: {page: p,cid: 1},
-                    // crossDomain: true,//是否跨域:是
-                    // jsonp: "jsonpcallback",
-                    success:function(data){
-                        console.log('总页码数',data);
-                        var result = data;
-                        var htmlx = template("table",{person: result,page: p});
-                        $(".schedule").html(htmlx);
-
-                    },
-                    error:function(jqXHR){
-                        console.log("发生错误:"+jqXHR.status);
-                    }
-                }); 
-                } 
-            }); 
-            //点击分页结束
-        },
-        error:function(jqXHR){
-            console.log("发生错误:"+jqXHR.status);
-        }
-    });      
-
-
-    }
+    // }
  
-    clickpage();
+    // clickpage();
 
 
 
@@ -691,7 +609,7 @@
       //成绩数据
       $.ajax({
             type:"GET",
-            url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/page?cid=1",
+            url: HTTP_URLH+"Studymanage/page?cid=1",
             dataType:"json",
             // crossDomain: true,//是否跨域:是
             // jsonp: "jsonpcallback",
@@ -708,7 +626,7 @@
     // 获取我的数据
     $.ajax({
         type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/twoself",
+        url: HTTP_URLH+"Studymanage/twoself",
         dataType:"json",
         data: {cid: 1,uid: 1},
         // crossDomain: true,//是否跨域:是
@@ -727,14 +645,15 @@
         }
     }); 
 
-
+    $("#loadingModal").modal("show")
     $.ajax({
         type:"GET",
-        url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pgeone?cid=1",
+        url: HTTP_URLH+"Studymanage/pgeone?cid=1",
         dataType:"json",
         data: {cid: 1},
         success:function(data){
             console.log('成绩页码数',data);
+            $("#loadingModal").modal("hide")
             //点击分页开始
             $(".b").createPage({ 
                 pageCount: data, 
@@ -742,9 +661,10 @@
                 backFn:function(p){ 
                 console.log(p); 
                 //进度数据
+                $("#loadingModal").modal("show")
                 $.ajax({
                     type:"GET",
-                    url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/page?cid=1",
+                    url: HTTP_URLH+"Studymanage/page?cid=1",
                     dataType:"json",
                     data: {page: p,cid: 1},
                     // crossDomain: true,//是否跨域:是
@@ -754,6 +674,7 @@
                         var result = data;
                         var htmlx = template("scoreranking",{person: result,page: p});
                         $(".schedule").html(htmlx);
+                        $("#loadingModal").modal("hide")
 
                     },
                     error:function(jqXHR){
@@ -772,7 +693,7 @@
         // 成绩的页码数//
         $.ajax({
             type:"GET",
-            url:"http://192.168.1.110/lanhong/index.php/home/Studymanage/pgeone",
+            url: HTTP_URLH+"Studymanage/pgeone",
             dataType:"json",
             data: {cid: 1},
             // crossDomain: true,//是否跨域:是
@@ -799,13 +720,99 @@
         // 改变按钮颜色
         $(this).css({"background-color":"#33b150"})
         $('.scoresbutton').css({"background-color":"#81d282"})
-     
-        clickpage();
+
+        // clickpage();
+
+      //进度数据
+      $.ajax({
+            type:"GET",
+            url:HTTP_URLH+"Studymanage/pagetwo?cid=1",
+            dataType:"json",
+            // crossDomain: true,//是否跨域:是
+            // jsonp: "jsonpcallback",
+            success:function(data){
+                console.log("进度数据",data);
+                var result = data;
+                var htmlx = template("table",{person: result,page: 1});
+                $(".schedule").html(htmlx);
+            },
+            error:function(jqXHR){
+                console.log("发生错误:"+jqXHR.status);
+            }
+    });  
+    // 获取我的数据
+   
+    $.ajax({
+        type:"GET",
+        url:HTTP_URLH+"Studymanage/oneself",
+        dataType:"json",
+        data: {cid: 1,uid: 1},
+        // crossDomain: true,//是否跨域:是
+        // jsonp: "jsonpcallback",
+        success:function(data){
+            console.log('用户自身的进度数据',data);
+            var result = data;
+            var html = template("mytable",{person: result});
+            $(".mytable").html(html);
+            
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
 
 
+        }
+    }); 
+
+    $("#loadingModal").modal("show")
+    $.ajax({
+        type:"GET",
+        url:HTTP_URLH+"Studymanage/pge",
+        dataType:"json",
+        data: {cid: 1},
+        success:function(data){
+            console.log('进度页码数',data);
+            //点击分页开始
+            $("#loadingModal").modal("hide")
+
+            $(".a").createPage({ 
+                pageCount: data, 
+                current:1, 
+                backFn:function(p){ 
+                console.log(p); 
+                //进度数据
+                  $("#loadingModal").modal("show")
+                $.ajax({
+                    type:"GET",
+                    url:HTTP_URLH+"Studymanage/page",
+                    dataType:"json",
+                    data: {page: p,cid: 1},
+                    // crossDomain: true,//是否跨域:是
+                    // jsonp: "jsonpcallback",
+                    success:function(data){
+                        console.log('总页码数',data);
+                        var result = data;
+                        var htmlx = template("table",{person: result,page: p});
+                        $(".schedule").html(htmlx);
+                        $("#loadingModal").modal("hide")
+
+                    },
+                    error:function(jqXHR){
+                        console.log("发生错误:"+jqXHR.status);
+                    }
+                }); 
+                } 
+            }); 
+            //点击分页结束
+        },
+        error:function(jqXHR){
+            console.log("发生错误:"+jqXHR.status);
+        }
+    });  
+
+    
     })
 
-
+    $('.studybutton').click()
 </script> 
 
 </html>

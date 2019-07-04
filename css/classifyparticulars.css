@@ -437,8 +437,8 @@ input::-ms-clear {
 .searchresult .courselearning .courselearningchild .searchimg {
   display: block;
   float: left;
-  width: 300px;
-  height: 210px;
+  width: 280px;
+  height: 180px;
   background-color: purple;
 }
 .searchresult .courselearning .courselearningchild .searchright {
@@ -448,19 +448,19 @@ input::-ms-clear {
   margin-left: 55px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchtitle {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 35px;
   height: 35px;
   line-height: 35px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchschool {
   height: 23px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 23px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchnarrate {
   margin-top: 25px;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
 }
 .searchresult .courselearning:hover .courselearningchild {
@@ -536,7 +536,7 @@ input::-ms-clear {
   margin-top: 5px;
   float: left;
   margin-right: 20px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .contentbox .coursehead .courseheadchild .leftimg .share .shareqq,
 .contentbox .coursehead .courseheadchild .leftimg .share .shareweixin,
@@ -557,7 +557,7 @@ input::-ms-clear {
   text-decoration: none;
 }
 .contentbox .coursehead .courseheadchild .righttxt .homepage .righttitle {
-  font-size: 28px;
+  font-size: 20px;
   margin-top: 16px;
 }
 .contentbox .coursehead .courseheadchild .righttxt .homepage .rightschool {
@@ -567,21 +567,22 @@ input::-ms-clear {
   font-size: 16px;
 }
 .contentbox .coursehead .courseheadchild .righttxt .homepage .rightclassify {
-  margin-top: 15px;
-  font-size: 16px;
+  margin-top: 5px;
+  line-height: 22px;
+  font-size: 14px;
   color: #666;
 }
 .contentbox .coursehead .courseheadchild .righttxt .addclassify {
   position: absolute;
   right: 0;
   top: 0;
-  width: 200px;
-  height: 60px;
+  width: 118px;
+  height: 50px;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
   background-color: #81d282;
   color: #fff;
-  font-size: 22px;
+  font-size: 18px;
   border-radius: 20px;
 }
 .contentbox .mainpart {
@@ -624,7 +625,7 @@ input::-ms-clear {
   text-decoration: none;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft .maincontent {
-  font-size: 19px;
+  font-size: 16px;
   line-height: 38px;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis {
@@ -633,7 +634,9 @@ input::-ms-clear {
   color: #666;
 }
 .contentbox .mainpart .mainpartchild .mainpartleft .maincontent .synopsis .synopsiscontent {
+  font-size: 14px;
   text-indent: 2em;
+  line-height: 24px;
 }
 .contentbox .mainpart .mainpartchild .mainpartright {
   padding-bottom: 80px;
@@ -642,7 +645,7 @@ input::-ms-clear {
   min-height: 800px;
 }
 .contentbox .mainpart .mainpartchild .mainpartright .teachteam {
-  font-size: 24px;
+  font-size: 18px;
   color: #81d282;
 }
 .contentbox .mainpart .mainpartchild .mainpartright .teachmember {
@@ -661,11 +664,11 @@ input::-ms-clear {
 }
 .contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachname {
   margin-top: 34px;
-  font-size: 25px;
+  font-size: 16px;
   text-align: center;
 }
 .contentbox .mainpart .mainpartchild .mainpartright .teachmember .teachexplain {
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
   margin-top: 12px;
 }
@@ -673,7 +676,7 @@ input::-ms-clear {
   margin-bottom: 26px;
 }
 .contentbox .maincatalogue .project .projecttitle {
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 30px;
 }
 .contentbox .maincatalogue .project .task {
@@ -695,12 +698,12 @@ input::-ms-clear {
 }
 .contentbox .maincatalogue .project .task .taskbox .tasktitle {
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 20px;
   margin-left: 25px;
 }
 .contentbox .maincatalogue .project .task .detail {
-  font-size: 20px;
+  font-size: 14px;
 }
 .contentbox .maincatalogue .project .task .detail .detailtitle {
   display: block;
