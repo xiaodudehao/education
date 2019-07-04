@@ -82,7 +82,7 @@
 
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td rowspan="9" width="200px">德萨发</td>
                             <td width="460px">视频</td>
                             <td width="200px">数量</td>
@@ -149,7 +149,7 @@
                         <tr>
                             <td width="460px">视频</td>
                             <td width="200px">数量</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                     <tfoot>
 
@@ -421,6 +421,7 @@ loading Modal start-->
         // select_teacher()
 
         // // 获取班级中的数据
+        $("#loadingModal").modal("show")
         $.ajax({
             type:"get",
             url: HTTP_URL+"Amount/amount",
@@ -513,6 +514,7 @@ loading Modal start-->
                 
                 // console.log(str);
                 $(".tt_team tbody").html(str);
+                $("#loadingModal").modal("hide")
 
             },
             error:function(jqXHR){

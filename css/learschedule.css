@@ -448,19 +448,19 @@ input::-ms-clear {
   margin-left: 55px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchtitle {
-  font-size: 23px;
+  font-size: 20px;
   margin-top: 35px;
   height: 35px;
   line-height: 35px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchschool {
   height: 23px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 23px;
 }
 .searchresult .courselearning .courselearningchild .searchright .searchnarrate {
   margin-top: 25px;
-  font-size: 18px;
+  font-size: 16px;
   color: #999;
 }
 .searchresult .courselearning:hover .courselearningchild {
@@ -470,6 +470,38 @@ input::-ms-clear {
 }
 .footercontenter {
   margin-top: -120px;
+}
+/* 分页器 */
+.page_area,
+.page_area1 {
+  text-align: center;
+  /*cursor: pointer;*/
+}
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  background-color: #81d283;
+  border-color: #ddd;
+}
+.pagination > li > a,
+.pagination > li > span {
+  color: #81d283;
+  cursor: pointer;
+}
+.pagination > li > a,
+.pagination > li > span {
+  padding: 5px 15px;
+  font-size: 12px;
+}
+.pagination > li > span > input {
+  height: 17px !important;
+}
+/* 加载中loading…… */
+.progress {
+  height: 10px;
 }
 /* 中间内容 */
 .tt_content {
@@ -518,7 +550,7 @@ input::-ms-clear {
   overflow: hidden;
 }
 .tt_content_right_title {
-  font-size: 24px;
+  font-size: 20px;
   color: #31b24e;
   border-bottom: 2px solid #31b24e;
   padding-bottom: 20px;

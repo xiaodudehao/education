@@ -12,9 +12,9 @@ a:hover{ text-decoration:none;}
     color: #81d283;
     display: inline-block;
     width: 60px;
-    height: 60px;
+    height: 30px;
     text-align: center;
-    line-height: 60px; 
+    line-height: 30px; 
     padding: 0 10px;
     border: 1px solid #81d283;
     margin: 0 7px;
@@ -30,8 +30,8 @@ a:hover{ text-decoration:none;}
 .tcdPageCode span.current{
     display: inline-block;
     width: 60px;
-    height: 60px;
-    line-height: 60px;
+    height: 30px;
+    line-height: 30px;
     padding: 0 10px;
     margin: 0 2px;
     color: #fff;
@@ -45,8 +45,8 @@ a:hover{ text-decoration:none;}
 } 
 .tcdPageCode span.disabled{ 
     display: inline-block;
-    height: 60px;
-    line-height: 60px;
+    height: 30px;
+    line-height: 30px;
     padding: 0 10px;
     margin: 0 2px; color: #bfbfbf;
     background: #f2f2f2;

@@ -337,6 +337,7 @@
         });
         // select_teacher()
 
+        $("#loadingModal").modal("show")
         // 获取班级中的数据
         $.ajax({
             type:"get",
@@ -344,6 +345,7 @@
             dataType:"json",
             data: {cid:1},
             success:function(data){
+                $("#loadingModal").modal("hide")
                 // console.log("班级数据",data);
                 if(0 == data.length){
                     return;

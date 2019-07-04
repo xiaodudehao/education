@@ -79,18 +79,18 @@
                     </div>
                     <div class="rightcontent">
                         <div class="underwayexamination clearfix">
-                            <div class="countdown fr">
+                            <!-- <div class="countdown fr">
                                 倒计时120:50
                             </div>
                             <div class="checknum fl">
                                 已做
-                            </div>
+                            </div> -->
                         </div>
                         <div class="bodyexamination">
                             <div class="examinationcontent">
-                                <div class="eachquestion">
+                                <!-- <div class="eachquestion">
                                     <div class="questitl">
-                                        以下哪个国家位于南美洲？
+                                        以下哪个国家位于南美洲？<span class="correctchild">✔</span>正确答案：C
                                     </div>
                                     <div class="answertitl">
                                         <div class="answereach">
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="eachquestion">
                                     <div class="questitl">
-                                        以下哪个国家位于大洋洲？
+                                        以下哪个国家位于大洋洲？<span  class="errorchild">✘</span>正确答案：D
                                     </div>
                                     <div class="answertitl">
                                         <div class="answereach">
@@ -125,14 +125,14 @@
                                             <input name="1" type="radio">D.澳大利亚
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                              <div class="page_area">
                                 <ul id="page"></ul>
                             </div>
-                            <div class="submitexa">
+                            <!-- <div class="submitexa">
                                 <div class="submitchild">提交</div>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- <div class="worktitle clearfix">
                             <div class="work fl">
@@ -302,29 +302,29 @@ $(function(){
     // // 用定时器来做倒计时功能。
     // var newtime = 1;
 
-    $.ajax({
-        type:"post",
-        url: HTTP_URLH + "Studymanage/classify",
-        dataType:"json",
-        data: {
-            uid: getSearch("uid"),
-            eid: getSearch("exid"),
-            number: getSearch("num"), 
-            page: 1
-        },
-        success:function(data){
-            console.log('试卷答案',data);
-            // 当提交试卷的时候将cookie中存储的答案清空。
-            // $.cookie('exarr', null);
-            // 提交成功
-            toastr.success("提交成功")
-        },
-        error:function(jqXHR){
-            // 请求超时，终止请求
-            toastr.warning("提交失败")
-            console.log("发生错误:"+jqXHR.status);
-        }
-    });
+    // $.ajax({
+    //     type:"post",
+    //     url: HTTP_URLH + "Studymanage/classify",
+    //     dataType:"json",
+    //     data: {
+    //         uid: getSearch("uid"),
+    //         eid: getSearch("exid"),
+    //         number: getSearch("num"), 
+    //         page: 1
+    //     },
+    //     success:function(data){
+    //         console.log('试卷答案',data);
+    //         // 当提交试卷的时候将cookie中存储的答案清空。
+    //         // $.cookie('exarr', null);
+    //         // 提交成功
+    //         toastr.success("提交成功")
+    //     },
+    //     error:function(jqXHR){
+    //         // 请求超时，终止请求
+    //         toastr.warning("提交失败")
+    //         console.log("发生错误:"+jqXHR.status);
+    //     }
+    // });
 
 
 
@@ -390,158 +390,141 @@ $(function(){
     //     closeButton: true  // 是否显示关闭按钮
     // }
 
-    //     // 测试页
-    // if(getSearch("sta") == 0 ){
-    //     select_announce(1,'Studymanage/answer')
+        // 测试页
+    if(getSearch("sta") == 0 ){
+        select_announce(1,'Studymanage/classify')
 
 
-    //     // 考试页
-    // }else{
-    //     select_announce(1,'Studymanage/ination_answer')
-    // }
-    //     console.log(getSearch("time"));
+        // 考试页
+    }else{
+        // select_announce(1,'Studymanage/ination_answer')
+    }
+        console.log(getSearch("time"));
         
-    //     // 查询
-    //     function select_announce(pageN,exurl) {
-    //     var param = {
-    //         eid: getSearch("exid"),
-    //         page: pageN,
-    //     }
-    //     // loading显示
-    //     $("#loadingModal").modal("show")
-    //     var CouIntrAjax = $.ajax({
-    //         url: HTTP_URLH+exurl,
-    //         type: "post",
-    //         timeout: 5000,
-    //         dataType: "json",
-    //         // async:false,    //不进行异步刷新
-    //         data: param,
-    //         success: function (data) {
-    //             console.log('返回数据',data);//打印服务端返回的数据(调试用)
-    //             if(data.shuju.length == 0){
-    //                 console.log("无数据");
-    //                 $(".rightcontent").html("<div>无数据</div>")
-    //             }else{
+        // 查询
+        function select_announce(pageN,exurl) {
+        var param = {
+            uid: getSearch("uid"),
+            eid: getSearch("exid"),
+            number: getSearch("num"), 
+            page: pageN,
+        }
+        // loading显示
+        $("#loadingModal").modal("show")
+        var CouIntrAjax = $.ajax({
+            url: HTTP_URLH+exurl,
+            type: "post",
+            timeout: 5000,
+            dataType: "json",
+            // async:false,    //不进行异步刷新
+            data: param,
+            success: function (data) {
+                console.log('返回试卷数据',data);//打印服务端返回的数据(调试用)
+                if(data.shuju.length == 0){
+                    console.log("无数据");
+                    $(".rightcontent").html("<div>无数据</div>")
+                }else{
+                var str = "";
+                for(var i = 0; i<data.shuju.length; i++){
+   
+                    str+=`<div class="eachquestion">
+                                <div class="questitl">
+                                    ${ (pageN-1)*10+i+1 + '、' + data.shuju[i].name+(data.shuju[i].num ==0? '<span  class="errorchild">✘</span>' : '<span class="correctchild">✔</span>' )+'正确答案：'+data.shuju[i].answer }
+                                </div>
+                                <div class="answertitl">
+                                    ${ data.shuju[i].a == undefined? '' :`<div class="answereach ${ data.shuju[i].me =="A"? "mecheck" : "" }">A.&nbsp;${ data.shuju[i].a }</div>` }
+                                    ${ data.shuju[i].b == undefined? '' :`<div class="answereach ${ data.shuju[i].me =="B"? "mecheck" : "" }">B.&nbsp;${ data.shuju[i].b }</div>` }
+                                    ${ data.shuju[i].c == undefined? '' :`<div class="answereach ${ data.shuju[i].me =="C"? "mecheck" : "" }">C.&nbsp;${ data.shuju[i].c }</div>` }
+                                    ${ data.shuju[i].d == undefined? '' :`<div class="answereach ${ data.shuju[i].me =="D"? "mecheck" : "" }">D.&nbsp;${ data.shuju[i].d }</div>` }      
+                                </div>
+                            </div>`
+                }
+                $(".examinationcontent").html(str)
 
-
-    //             var str = "";
-    //             for(var i = 0; i<data.shuju.length; i++){
-    //                 var yy = "";
-    //                 // 判断这题以前有没有选中过答案。
-    //                 if(numberarr != []){
-    //                     str+=`<div class="eachquestion">
-    //                                 <div class="questitl">
-    //                                     ${ (pageN-1)*4+i+1 + '、' + data.shuju[i].name }
-    //                                 </div>
-    //                                 <div class="answertitl">
-    //                                     ${ data.shuju[i].a == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "A"? "checked": "" } value="A" name="${ (pageN-1)*4+i }" type="radio">A.&nbsp;${ data.shuju[i].a }</div>` }
-    //                                     ${ data.shuju[i].b == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "B"? "checked": "" } value="B" name="${ (pageN-1)*4+i }" type="radio">B.&nbsp;${ data.shuju[i].b }</div>` }
-    //                                     ${ data.shuju[i].c == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "C"? "checked": "" } value="C" name="${ (pageN-1)*4+i }" type="radio">C.&nbsp;${ data.shuju[i].c }</div>` }
-    //                                     ${ data.shuju[i].d == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" ${ numberarr[(pageN-1)*4+i] == "D"? "checked": "" } value="D" name="${ (pageN-1)*4+i }" type="radio">D.&nbsp;${ data.shuju[i].d }</div>` }      
-    //                                 </div>
-    //                             </div>`
-    //                 }else{
-    //                     str+=`<div class="eachquestion">
-    //                                 <div class="questitl">
-    //                                     ${ (pageN-1)*4+i+1 + '、' + data.shuju[i].name }
-    //                                 </div>
-    //                                 <div class="answertitl">
-    //                                     ${ data.shuju[i].a == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="A" name="${ (pageN-1)*4+i }" type="radio">A.&nbsp;${ data.shuju[i].a }</div>` }
-    //                                     ${ data.shuju[i].b == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="B" name="${ (pageN-1)*4+i }" type="radio">B.&nbsp;${ data.shuju[i].b }</div>` }
-    //                                     ${ data.shuju[i].c == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="C" name="${ (pageN-1)*4+i }" type="radio">C.&nbsp;${ data.shuju[i].c }</div>` }
-    //                                     ${ data.shuju[i].d == undefined? '' :`<div class="answereach"><input data-queid="${ data.shuju[i].id }" value="D" name="${ (pageN-1)*4+i }" type="radio">D.&nbsp;${ data.shuju[i].d }</div>` }      
-    //                                 </div>
-    //                             </div>`
-    //                 }
-    //             }
-    //             $(".examinationcontent").html(str)
-
-    //             //给第一页加个标题。
-    //             if(pageN == 1){
-    //                 var preptitle = `<div class="preptitle">${getSearch("titname")}</div>`
-    //                 $(".examinationcontent").prepend(preptitle);
-    //             }
-    //             // 如果cookie中没有值，就声明数组。
-    //             if( JSON.parse($.cookie("exarr"))  == null ){
-    //                 // 只在第一页的时候声明数组
-    //                 if(flag){
-    //                     // // 声明一个数组保存选择题的答案
-    //                     var allarr = new  Array(data.num);
-    //                     // // 给数组中的每一项赋值默认值
-    //                     for(var i=0;i<allarr.length;i++){
-    //                         allarr[i] = 0;
-    //                     }
-    //                     // 将数组中的值传到全局。
-    //                     numberarr = allarr;
-    //                     //声明一个数组保存每一题的id
-    //                     var allid = new  Array(data.num);
-    //                     // // 给数组中的每一项赋值默认值
-    //                     for(var i=0;i<allid.length;i++){
-    //                         allid[i] = -1;
-    //                     }
-    //                     // 将数组中的值传到全局。
-    //                     numid = allid;
-    //                     flag = false;
-    //                 }
-    //             }
-
-
-    //             // 默认显示的数据
-    //            queans()
+                //给第一页加个标题。
+                if(pageN == 1){
+                    var preptitle = `<div class="preptitle">${getSearch("titname")}</div>`
+                    $(".examinationcontent").prepend(preptitle);
+                }
+                // // 如果cookie中没有值，就声明数组。
+                // if( JSON.parse($.cookie("exarr"))  == null ){
+                //     // 只在第一页的时候声明数组
+                //     if(flag){
+                //         // // 声明一个数组保存选择题的答案
+                //         var allarr = new  Array(data.num);
+                //         // // 给数组中的每一项赋值默认值
+                //         for(var i=0;i<allarr.length;i++){
+                //             allarr[i] = 0;
+                //         }
+                //         // 将数组中的值传到全局。
+                //         numberarr = allarr;
+                //         //声明一个数组保存每一题的id
+                //         var allid = new  Array(data.num);
+                //         // // 给数组中的每一项赋值默认值
+                //         for(var i=0;i<allid.length;i++){
+                //             allid[i] = -1;
+                //         }
+                //         // 将数组中的值传到全局。
+                //         numid = allid;
+                //         flag = false;
+                //     }
+                // }
+            //     // 默认显示的数据
+            //    queans()
                         
-    //             //分页
-    //             $("#page").bootstrapPaginator({
-    //                 bootstrapMajorVersion: 3,   //bootstrap版本
-    //                 totalPages: data.pag,   //总页数
-    //                 numberOfPages: 3,    //分页器每页展示页码数
-    //                 shouldShowPage: true,   //所有的按钮都展示
-    //                 itemTexts: function (type, page, current) {
-    //                     // console.log(type)
-    //                     //设置分页控件每部分的显示文字
-    //                     switch (type) {
-    //                         case "first":
-    //                             return "第一页"
-    //                         case "prev":
-    //                             return "上一页"
-    //                         case "next":
-    //                             return "下一页"
-    //                         case "last":
-    //                             return "最后一页"
-    //                         case "page":
-    //                             return page
-    //                         case "jump":
-    //                             return "跳转"
-    //                     }
-    //                 }, onPageClicked: function(event, originalEvent, type, page) {
-    //                     //点击事件
-    //                     //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-    //                     pageNum = page
-    //                     // 查询
-    //                     select_announce(pageNum,exurl)
-    //                 }
-    //             })
-    //             //  分页结束
-    //             }
+                //分页
+                $("#page").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,   //bootstrap版本
+                    totalPages: data.pge,   //总页数
+                    numberOfPages: 3,    //分页器每页展示页码数
+                    shouldShowPage: true,   //所有的按钮都展示
+                    itemTexts: function (type, page, current) {
+                        // console.log(type)
+                        //设置分页控件每部分的显示文字
+                        switch (type) {
+                            case "first":
+                                return "第一页"
+                            case "prev":
+                                return "上一页"
+                            case "next":
+                                return "下一页"
+                            case "last":
+                                return "最后一页"
+                            case "page":
+                                return page
+                            case "jump":
+                                return "跳转"
+                        }
+                    }, onPageClicked: function(event, originalEvent, type, page) {
+                        //点击事件
+                        //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                        pageNum = page
+                        // 查询
+                        select_announce(pageNum,exurl)
+                    }
+                })
+                //  分页结束
+                }
 
-    //         },
-    //         error: function (e) {
-    //             console.log(e)
-    //             console.log(e.statusText)
-    //             if ("timeout" == e.statusText) {
-    //                 // 请求超时，终止请求
-    //                 toastr.warning("请求超时")
-    //                 CouIntrAjax.abort()
-    //             } else {
-    //                 // toastr.error("网络开小差了，请稍后再试！")
-    //             }
-    //             $("#loadingModal").modal("hide")
-    //         },
-    //         complete: function (xhr, status) {
-    //             // 隐藏loading
-    //             $("#loadingModal").modal("hide")
-    //         }
-    //     })
-    //     }
+            },
+            error: function (e) {
+                console.log(e)
+                console.log(e.statusText)
+                if ("timeout" == e.statusText) {
+                    // 请求超时，终止请求
+                    toastr.warning("请求超时")
+                    CouIntrAjax.abort()
+                } else {
+                    // toastr.error("网络开小差了，请稍后再试！")
+                }
+                $("#loadingModal").modal("hide")
+            },
+            complete: function (xhr, status) {
+                // 隐藏loading
+                $("#loadingModal").modal("hide")
+            }
+        })
+        }
 
         
     //     //获取单击input时的值。

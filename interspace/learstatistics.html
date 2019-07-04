@@ -297,7 +297,6 @@
             success:function(data){
                 // alert(33333333333333)
                 // console.log("成绩student",data);
-
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = echarts.init(document.getElementById('lefthistogram'));
                 // 指定图表的配置项和数据
@@ -332,6 +331,7 @@
         });
 
         // 获取班级的名称，老师名称，合格率等
+        $("#loadingModal").modal("show")
         $.ajax({
             type:"get",
             url: HTTP_URL + "Amount/study",
@@ -360,7 +360,7 @@
 
                 // console.log(str);
                 $("tbody").html(str);
-
+                $("#loadingModal").modal("hide")
             },
             error:function(jqXHR){
                 console.log("发生错误:"+jqXHR.status);

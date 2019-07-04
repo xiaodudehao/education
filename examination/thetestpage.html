@@ -88,7 +88,7 @@
                         </div>
                         <div class="bodyexamination">
                             <div class="examinationcontent">
-                                <div class="eachquestion">
+                                <!-- <div class="eachquestion">
                                     <div class="questitl">
                                         以下哪个国家位于南美洲？
                                     </div>
@@ -125,7 +125,7 @@
                                             <input name="1" type="radio">D.澳大利亚
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                              <div class="page_area">
                                 <ul id="page"></ul>
@@ -293,8 +293,6 @@ $(function(){
     var numberarr = [];
     // 储存id
     var numid = [];
-    //用于判断是否声明了保存答案的数组。
-    var flag = true;
     //判断当前是否提交了试卷。
     var ajaxstate = true;
     // 存储答案数组，题目id，用户id，kechengid，测验或试卷id，测验或试卷分类
@@ -337,26 +335,9 @@ $(function(){
     ellipsis(7);//要显示的字符数 Number
 
     // var alltime = (1)*60;
-    var alltime = 20;
-    var int=setInterval(function(){
-        console.log(999);
-        var s;
-        var m;
-        m = parseInt((alltime-newtime)/60)
-        s=(alltime-newtime)%60
-        if(s < 10){
-            s = "0"+s;
-        }
-        newtime++
-        // 如果倒计时结束就提交试卷。
-        if(newtime == alltime){
-                subajax()
-                clearInterval(int)
-                $(".countdown").text("倒计时结束")
-        }else{
-            $(".countdown").text("倒计时"+m+":"+s);
-        }
-    },1000);   
+    //考试的总时长
+    var alltime = getSearch("time")*60;
+
 
     //提示框初始化，toast-top-center表示提示框的位置
     toastr.options = {
@@ -367,11 +348,32 @@ $(function(){
         // 测试页
     if(getSearch("sta") == 0 ){
         select_announce(1,'Studymanage/answer')
-
+        // 将倒计时按钮隐藏
+        $(".countdown").css({"display":"none"})
 
         // 考试页
     }else{
         select_announce(1,'Studymanage/ination_answer')
+
+            var int=setInterval(function(){
+            console.log(999);
+            var s;
+            var m;
+            m = parseInt((alltime-newtime)/60)
+            s=(alltime-newtime)%60
+            if(s < 10){
+                s = "0"+s;
+            }
+            newtime++
+            // 如果倒计时结束就提交试卷。
+            if(newtime == alltime){
+                    subajax()
+                    clearInterval(int)
+                    $(".countdown").text("倒计时结束")
+            }else{
+                $(".countdown").text("倒计时"+m+":"+s);
+            }
+        },1000);   
     }
         console.log(getSearch("time"));
         
@@ -437,9 +439,10 @@ $(function(){
                 }
                 // 如果cookie中没有值，就声明数组。
                 if($.cookie("exarr") != undefined){
-                    if( JSON.parse($.cookie("exarr"))  == null ){
-                        // 只在第一页的时候声明数组
-                        if(flag){
+                    // 如果不是这一张试卷的话就重新生成答案数组。
+                    if($.cookie("exarr").uid != getSearch("uid")|| $.cookie("exarr").cid != getSearch("cid") || $.cookie("exarr").exid != getSearch("exid") || $.cookie("exarr").sta != getSearch("sta")||JSON.parse($.cookie("exarr")).numberarr  == "" ){
+                            console.log("声明了numberarr的数组");
+                            
                             // // 声明一个数组保存选择题的答案
                             var allarr = new  Array(data.num);
                             // // 给数组中的每一项赋值默认值
@@ -456,8 +459,7 @@ $(function(){
                             }
                             // 将数组中的值传到全局。
                             numid = allid;
-                            flag = false;
-                        }
+
                     }
                 }
 
@@ -549,7 +551,9 @@ $(function(){
                     // 用户点击确认时
                     subajax()
                     //停止定时器
-                    clearInterval(int)
+                    if(getSearch("sta") == 1){
+                        clearInterval(int)
+                    }
                 },"提示")
 
             }else{
