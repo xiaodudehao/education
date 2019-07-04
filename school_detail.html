@@ -263,6 +263,7 @@
                         '        </div>'
                 }
                 $(".teach").html(res)
+                ellipsis(400)
 
                 // 学院课程简介
                 for (var j in data) {
@@ -278,13 +279,13 @@
                             src = imgsrc2 + item3.logo
                         }
                         res2 += '<div class="courselearning" >\n' +
-                            '            <a class="courselearningchild">\n' +
+                            '            <a href="" class="courselearningchild" onclick="jump_course('+ item3.id +')">\n' +
                             '                <div class="banxin">\n' +
                             '                    <img class="searchimg" src="'+ src +'" alt="">\n' +
                             '                    <div class="searchright">\n' +
                             '                        <div class="searchtitle">'+ item3.name +'</div>\n' +
                             '                        <div class="searchnarrate">\n' +
-                            '                                <span class="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">简介： 十月过后的天空猫坐在路边你吹着风不说话就很甜十月过后的天空\n' +
+                            '                                <span class="wareNameText" style="display:inline-block;word-wrap:break-word;word-break:break-all;">\n' +
                             '                                简介： '+ item3.text +'</span>\n' +
                             '                        </div>\n' +
                             '                    </div>\n' +
@@ -293,6 +294,7 @@
                             '        </div>'
                     }
                     $(".searchresult").html(res2)
+                    ellipsis2(200)
                     //分页
                     $("#page").bootstrapPaginator({
                         bootstrapMajorVersion: 3,   //bootstrap版本
@@ -301,7 +303,7 @@
                         numberOfPages: 3,    //分页器每页展示页码数
                         shouldShowPage: true,   //所有的按钮都展示
                         itemTexts: function (type, page, current) {
-                            // console.log(type)
+                            console.log(type)
                             //设置分页控件每部分的显示文字
                             switch (type) {
                                 case "first":
@@ -316,6 +318,7 @@
                                     return page
                                 case "jump":
                                     return "跳转"
+
                             }
                         }, onPageClicked: function(event, originalEvent, type, page) {
                             //点击事件
@@ -339,6 +342,12 @@
         })
     }
 
+    // 跳页
+    function jump_course(cid) {
+        $(".courselearningchild").attr("href", './studymanage/coursehomepage.html?cid='+ cid)
+    }
+
+
     //提示框初始化，toast-top-center表示提示框的位置
     toastr.options = {
         positionClass: 'toast-top-center', // 提示框位置
@@ -348,6 +357,17 @@
     //  设置字数超出显示省略号……
     function ellipsis(num) {
         $(".teachintroduce").each(function () {
+            var maxwidth = num;
+            // console.log($(this).text());
+            // console.log($(this).text().length);
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '…');
+            }
+        });
+    }
+    function ellipsis2(num) {
+        $(".wareNameText").each(function () {
             var maxwidth = num;
             // console.log($(this).text());
             // console.log($(this).text().length);
