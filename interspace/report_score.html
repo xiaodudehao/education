@@ -244,8 +244,8 @@
 
         $(".textcontent").css({"display": "block"})
         //下面这行代码以后要改，因为world地址必须是公共地址
-        $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
-        $("#iframetest").css({"width":"780","height":"500"})
+        // $("#iframetest").attr("src","http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx")
+        // $("#iframetest").css({"width":"780","height":"500"})
         // 遮盖word的链接
         select_stu_report()
     })
@@ -263,9 +263,12 @@
             dataType: "json",
             success: function (data) {
                 console.log(data)
+
                 var rid = data[0].id
                 var btn = '<button onclick="get_score('+ rid +')">提交</button>'
                 $(".sub_btn").html(btn)
+                $("#iframetest").attr("src",'http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=1&_xdoc=http://www.smilevv.cn/ppt/789.docx')
+                $("#iframetest").css({"width":"780","height":"600"})
             },
             error: function (e) {
                 toastr.error("网络开小猜了，请稍后再试！")
