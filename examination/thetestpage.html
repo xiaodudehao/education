@@ -344,9 +344,9 @@ $(function(){
         positionClass: 'toast-top-center', // 提示框位置
         closeButton: true  // 是否显示关闭按钮
     }
-
+    
         // 测试页
-    if(getSearch("sta") == 0 ){
+    if(getSearch("sta") == "0" ){
         select_announce(1,'Studymanage/answer')
         // 将倒计时按钮隐藏
         $(".countdown").css({"display":"none"})
@@ -357,6 +357,7 @@ $(function(){
 
             var int=setInterval(function(){
             console.log(999);
+
             var s;
             var m;
             m = parseInt((alltime-newtime)/60)
@@ -383,6 +384,7 @@ $(function(){
             eid: getSearch("exid"),
             page: pageN,
         }
+        
         // loading显示
         $("#loadingModal").modal("show")
         var CouIntrAjax = $.ajax({
@@ -394,6 +396,8 @@ $(function(){
             data: param,
             success: function (data) {
                 console.log('返回数据',data);//打印服务端返回的数据(调试用)
+                console.log('每次获取的cookie',JSON.parse($.cookie("exarr")));
+                
                 if(data.shuju.length == 0){
                     console.log("无数据");
                     $(".rightcontent").html("<div>无数据</div>")
@@ -440,7 +444,7 @@ $(function(){
                 // 如果cookie中没有值，就声明数组。
                 if($.cookie("exarr") != undefined){
                     // 如果不是这一张试卷的话就重新生成答案数组。
-                    if($.cookie("exarr").uid != getSearch("uid")|| $.cookie("exarr").cid != getSearch("cid") || $.cookie("exarr").exid != getSearch("exid") || $.cookie("exarr").sta != getSearch("sta")||JSON.parse($.cookie("exarr")).numberarr  == "" ){
+                    if($.cookie("exarr").uid != getSearch("uid")&& $.cookie("exarr").cid != getSearch("cid") && $.cookie("exarr").exid != getSearch("exid") && $.cookie("exarr").sta != getSearch("sta")&&JSON.parse($.cookie("exarr")).numberarr  == "" ){
                             console.log("声明了numberarr的数组");
                             
                             // // 声明一个数组保存选择题的答案
@@ -537,7 +541,10 @@ $(function(){
             queans()
             console.log(numberarr);
             console.log(numid);
-            
+            // 每次单击存储cookie
+            // load()
+            console.log('每次单击获取的cookie',JSON.parse($.cookie("exarr")));
+
         })
         //单击提交按钮时
         $(".submitchild").on("click",function(){
@@ -646,8 +653,7 @@ $(function(){
         })
     }
 
-    // 当页面刷新时。
-    $(window).unload(function(){
+    function load(){
         uiddata.numberarr = numberarr;
         uiddata.numid = numid;
         uiddata.newtime = newtime;
@@ -661,7 +667,12 @@ $(function(){
         if(ajaxstate){
             $.cookie("exarr",JSON.stringify(uiddata))
         }
+    }
 
+
+    // 当页面刷新时。
+    $(window).unload(function(){
+        load()
       
         // localStorage.setItem('exarr',JSON.stringify(uiddata));
         // localStorage.removeItem('exarr');

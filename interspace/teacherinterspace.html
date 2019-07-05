@@ -204,7 +204,10 @@
                         <div class="form-group">
                             <label class="col-sm-4  control-label">所属学校/单位</label>
                             <div class="col-sm-6">
-                                <input class="form-control schoolname" name="username" type="text" placeholder="" />
+                                <!-- <input class="form-control schoolname" name="username" type="text" placeholder="" /> -->
+                                <select name="username" class="form-control schoolname" id="">
+                                    
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -434,7 +437,7 @@
 <script type="text/javascript">
 $(function(){
     // 保存图片地址的变量
-    var imgsrc = "http://192.168.1.112/lanhong/Public/img/";
+    var imgsrc = "http://192.168.1.126/lanhong/Public/img/";
     // 保存头像图片名称的变量。
     var imgname;
 
@@ -446,7 +449,12 @@ $(function(){
     modalCenter('#myModal2')
     // 当添加课程的时候
     // lang
-
+    // schoolname
+    var schoolstr;
+    for(var i =0;i<schoolname.length;i++){
+        schoolstr+= `<option value="${ schoolname[i].name == undefined ? '' : schoolname[i].name }"> ${ schoolname[i].name == undefined ? '' : schoolname[i].name } </option>`
+    }
+    $(".schoolname").html(schoolstr)
 
     // 原生ajax发送头像信息开始
     var xhr;
