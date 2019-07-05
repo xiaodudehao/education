@@ -442,8 +442,9 @@
                         // 时间戳转换
                         res += '<div class="announcement_information">\n' +
                             '                    <div class="announcement_btn">\n' +
-                            '                        <button data-exaid="'+ item.id +'" class="addexamin">添加试卷题目</button>\n'+    
-                            '                        <span>|</span>\n' +
+                            // '                        <button data-exaid="'+ item.id +'" class="addexamin">添加试卷题目</button>\n'+    
+                            // '                        <span>|</span>\n' +
+                            (item.state == 1 ? "" : '<button data-exaid="'+ item.id +'" class="addexamin">添加试卷题目</button>\n<span>|</span>\n')+
                             '                        <button onclick="test_detail(' + JSON.stringify(item).replace(/"/g, "&quot;") + ')">编辑</button>\n' +
                             '                        <span>|</span>\n' +
                             '                        <button onclick="delete_test('+ item.id +')">删除</button>\n' +

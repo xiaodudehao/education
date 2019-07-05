@@ -299,6 +299,7 @@ $(function(){
     var uiddata = {};
     // 用定时器来做倒计时功能。
     var newtime = 1;
+    var allcheck;
 
     // 如果cookie没有值的话
     if($.cookie("exarr") != undefined && JSON.parse($.cookie("exarr")) != null){
@@ -395,8 +396,7 @@ $(function(){
             // async:false,    //不进行异步刷新
             data: param,
             success: function (data) {
-                console.log('返回数据',data);//打印服务端返回的数据(调试用)
-                console.log('每次获取的cookie',JSON.parse($.cookie("exarr")));
+
                 
                 if(data.shuju.length == 0){
                     console.log("无数据");
@@ -435,37 +435,38 @@ $(function(){
                     }
                 }
                 $(".examinationcontent").html(str)
-
+                    allcheck = data.num
+                // $(".checknum").text("已做"+numberarr.length+"/"+data.num)
                 //给第一页加个标题。
                 if(pageN == 1){
                     var preptitle = `<div class="preptitle">${getSearch("titname")}</div>`
                     $(".examinationcontent").prepend(preptitle);
                 }
                 // 如果cookie中没有值，就声明数组。
-                if($.cookie("exarr") != undefined){
-                    // 如果不是这一张试卷的话就重新生成答案数组。
-                    if($.cookie("exarr").uid != getSearch("uid")&& $.cookie("exarr").cid != getSearch("cid") && $.cookie("exarr").exid != getSearch("exid") && $.cookie("exarr").sta != getSearch("sta")&&JSON.parse($.cookie("exarr")).numberarr  == "" ){
-                            console.log("声明了numberarr的数组");
+                // if($.cookie("exarr") != undefined){
+                //     // 如果不是这一张试卷的话就重新生成答案数组。
+                //     if($.cookie("exarr").uid != getSearch("uid")&& $.cookie("exarr").cid != getSearch("cid") && $.cookie("exarr").exid != getSearch("exid") && $.cookie("exarr").sta != getSearch("sta")&&JSON.parse($.cookie("exarr")).numberarr  == "" ){
+                //             console.log("声明了numberarr的数组");
                             
-                            // // 声明一个数组保存选择题的答案
-                            var allarr = new  Array(data.num);
-                            // // 给数组中的每一项赋值默认值
-                            for(var i=0;i<allarr.length;i++){
-                                allarr[i] = 0;
-                            }
-                            // 将数组中的值传到全局。
-                            numberarr = allarr;
-                            //声明一个数组保存每一题的id
-                            var allid = new  Array(data.num);
-                            // // 给数组中的每一项赋值默认值
-                            for(var i=0;i<allid.length;i++){
-                                allid[i] = -1;
-                            }
-                            // 将数组中的值传到全局。
-                            numid = allid;
+                //             // // 声明一个数组保存选择题的答案
+                //             var allarr = new  Array(data.num);
+                //             // // 给数组中的每一项赋值默认值
+                //             for(var i=0;i<allarr.length;i++){
+                //                 allarr[i] = 0;
+                //             }
+                //             // 将数组中的值传到全局。
+                //             numberarr = allarr;
+                //             //声明一个数组保存每一题的id
+                //             var allid = new  Array(data.num);
+                //             // // 给数组中的每一项赋值默认值
+                //             for(var i=0;i<allid.length;i++){
+                //                 allid[i] = -1;
+                //             }
+                //             // 将数组中的值传到全局。
+                //             numid = allid;
 
-                    }
-                }
+                //     }
+                // }
 
 
 
@@ -539,18 +540,20 @@ $(function(){
             //将这个input的id存到数组中
             numid[+inputname] = $(this).data("queid");
             queans()
-            console.log(numberarr);
+            console.log();
             console.log(numid);
+            console.log("当前的数组",numberarr);
+            
             // 每次单击存储cookie
             // load()
-            console.log('每次单击获取的cookie',JSON.parse($.cookie("exarr")));
+            // console.log('每次单击获取的cookie',JSON.parse($.cookie("exarr")));
 
         })
         //单击提交按钮时
         $(".submitchild").on("click",function(){
             console.log('获取的值数组',numberarr);
             console.log('获取的id数组',numid);
-            if(queans() == true){
+            if( true){
                 console.log("可以提交");
 
                 // 提示用户要不要提交
@@ -619,14 +622,15 @@ $(function(){
         function queans(){
             var checkall =0;
             for(var i=0;i<numberarr.length;i++){
-                if(numberarr[i] != 0){
+                if(numberarr[i] != null){
                     checkall++
+                    console.log("有不为空的",checkall);
                 }
             }
             console.log("已做");
             
-            $(".checknum").text("已做"+checkall+"/"+numberarr.length)
-            if(checkall == numberarr.length){
+            $(".checknum").text("已做"+checkall+"/"+allcheck)
+            if(checkall == allcheck){
                 $(".submitchild").css({"background-color":"#81d282"});
                 return true;
             }
