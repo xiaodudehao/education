@@ -738,13 +738,14 @@
             $(".tt_content_right_title").text("电子图书/教材");
         }
 
-       
-
+        // 存储上一次的页码
+       var pagedata;
+        // 当单击升序和降序时，更改排序，并且跳转到当前页。
         $(".asc").on("click",function(){
-            select_announce(1,"ASC")
+            select_announce(pagedata,"ASC")
         })
         $(".desc").on("click",function(){
-            select_announce(1,"DESC")
+            select_announce(pagedata,"DESC")
         })
             // 查询
             //要跳转的页，升序或降序
@@ -755,6 +756,8 @@
                 page: pageN,
             }
             console.log(param);
+            // 将页码传到函数外
+            pagedata = pageN
             
             // loading显示
             $("#loadingModal").modal("show")
@@ -1153,7 +1156,7 @@
                             //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
                             pageNum = page
                             // 查询
-                            select_announce(pageNum)
+                            select_announce(pageNum,sl)
                         }
                     })
                     //  分页结束

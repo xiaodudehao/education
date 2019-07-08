@@ -577,9 +577,6 @@ input::-ms-clear {
   position: absolute;
   color: #999;
 }
-.tt_team .sort ul li:hover {
-  background-color: #81d283;
-}
 .tt_team .sort:hover ul {
   display: block;
   list-style: none;
@@ -588,7 +585,7 @@ input::-ms-clear {
   color: #999;
 }
 .tt_team .sort:hover ul li:hover {
-  background-color: #81d283;
+  color: #81d283;
 }
 .tt_team .filebox {
   font-size: 24px;
