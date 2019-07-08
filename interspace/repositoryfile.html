@@ -414,13 +414,18 @@
         modalCenter('#new_modal')
         modalCenter('#addasection')
         var fileid;
-        var clas;
+        var clas=getSearch("class");
         var site;
         var sectionid;
         // 页码
-        var page;
+        var page = 1;
         // 排序
-        var sort;
+        var sort = "DESC";
+        // 存储上一次的页码
+        var pagedata;
+
+
+        var cid = 7;
         //提示框初始化，toast-top-center表示提示框的位置
         toastr.options = {
             positionClass: 'toast-top-center', // 提示框位置
@@ -441,19 +446,20 @@
                 }
             }
             function UpladFile(addurl) {
+                console.log( document.getElementById("filebtn") );
+                
                 var fileObj = document.getElementById("filebtn").files[0];
                 console.log(fileObj);
                 // "http://192.168.1.110/lanhong/index.php/Admin/Resource/text"
                 var FileController = addurl;
                 var form = new FormData();
-                form.append("cid", 1);
+                form.append("cid", cid);
                 // form.append("name", "word文档");
                 form.append("myFile", fileObj);
                 createXMLHttpRequest();
                 xhr.onreadystatechange = handleStateChange;
                 xhr.open("post", FileController, true);
                 console.log('内容',form);
-                
                 xhr.send(form);
             }
             function handleStateChange() {
@@ -469,6 +475,126 @@
                 }
             }
         // 原生ajax发送头像信息结束
+        if(clas == 1){
+            // 添加文件
+            $(".tt_team").on("change",".addfile",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了文本文件",this);
+                UpladFile(HTTP_URL+"Resource/text")
+            })
+        }else if(clas == 2){
+            //图像
+            // 添加文件
+            $(".addfile").on("change",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了图像文件",this);
+                UpladFile(HTTP_URL+"Resource/photo")
+            })
+        }else if(clas == 3){
+            //音频
+            // 添加文件
+            $(".addfile").on("change",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了音频文件",this);
+                UpladFile(HTTP_URL+"Resource/audio")
+            })
+            // 拼接跳转地址
+            $(".courseshow").on("click",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                fileid = $(this).data("savename");
+                console.log(fileid );
+                window.location.href = 'repositorypreview.html?vid='+fileid+'&clas='+clas;
+            })
+        }else if(clas == 4){
+            // 视频
+            // 添加文件
+            $(".addfile").on("change",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了视频文件",this);
+                UpladFile(HTTP_URL+"Resource/vedio")
+            })
+
+            $(".courseshow").on("click",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                fileid = $(this).data("savename");
+                console.log(fileid );
+                window.location.href = 'repositorypreview.html?vid='+fileid+'&clas='+clas;
+            })
+        }else if(clas == 5){
+            // 动画
+            // 添加文件
+            $(".addfile").on("change",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了动画文件",this);
+                UpladFile(HTTP_URL+"Resource/cartoon")
+            })                        
+        }else if(clas == 6){
+            // 虚拟仿真
+            // 添加文件
+            $(".addfile").on("change",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了虚拟仿真文件",this);
+                UpladFile(HTTP_URL+"Resource/dummy")
+            })  
+        }else if(clas == 7){
+            // 电子课件
+            // 添加文件
+            $(".addfile").on("change",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了电子课件文件",this);
+                UpladFile(HTTP_URL+"Resource/eclass")
+            })  
+        }else if(clas == 8){
+            //网页
+        // 添加文件
+        $(".addfile").on("change",function(){
+            // 要重新渲染的页码
+            page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了网页文件",this);
+                UpladFile(HTTP_URL+"Resource/webpage")
+            })  
+        }else if(clas == 9){
+            // 图书
+            // 添加文件
+            $(".addfile").on("change",function(){
+                // 要重新渲染的页码
+                page = 1;
+                // // 要重新渲染的排序
+                // sort = sl;
+                console.log("当选择了图书文件",this);
+                UpladFile(HTTP_URL+"Resource/ebook")
+            })  
+        }
+
 
 
         //获取当前课程章节的数据
@@ -480,173 +606,179 @@
                 data: {cid: cid},
                 success:function(data){
                     console.log("当前课程",data);
-                    // html字符串
-                    var str = "";
-                    var str1 ="";
-                    var str2 =""
-                    // 保存当前选中的下标;
-                    var oneval;
-                    var twoval;
-                    var thrval;
-                        // 如果直接单击第二个框，因为没有oneval值会报错
-                        oneval = 0;
-                    //每个输入框里的id
-                    var id;
-                    // 获取默认的id
- 
-                    // 初始化
-                    // 渲染第一个输入框
-                    for(var i=0;i<data.length;i++){
-                       str += '<option value="'+ i +'" >'+ data[i].courseware +'</option>'
-                    }
-                    $(".selectone").html(str)
-                   
-                     // 判断并渲染第二个输入框
-                    if(data[0].children == undefined){
-                        // 如果没有第二级就渲染“无”，第三级也渲染无。
-                        $(".selectwo").html("<option >无</option>")
-                        $(".selectwo").attr("disabled","disabled")
-                        $(".selectthree").html("<option>无</option>")
-                        $(".selectthree").attr("disabled","disabled")
-                        
-                    }else{
-                        for(var i=0;i<data[0].children.length;i++){
-                        str1 += '<option value="'+ i +'">'+ data[0].children[i].courseware +'</option>';
+                    if(data != null && data != false){
+                        // html字符串
+                        var str = "";
+                        var str1 ="";
+                        var str2 =""
+                        // 保存当前选中的下标;
+                        var oneval;
+                        var twoval;
+                        var thrval;
+                            // 如果直接单击第二个框，因为没有oneval值会报错
+                            oneval = 0;
+                        //每个输入框里的id
+                        var id;
+                        // 获取默认的id
+    
+                        // 初始化
+                        // 渲染第一个输入框
+                        for(var i=0;i<data.length;i++){
+                        str += '<option value="'+ i +'" >'+ data[i].courseware +'</option>'
                         }
-                        $(".selecttwo").html(str1)
-                        // 判断并渲染第三个输入框
-                        if(data[0].children[0].children == undefined){
+                        $(".selectone").html(str)
+                    
+                        // 判断并渲染第二个输入框
+                        if(data[0].children == undefined){
+                            // 如果没有第二级就渲染“无”，第三级也渲染无。
+                            $(".selectwo").html("<option >无</option>")
+                            $(".selectwo").attr("disabled","disabled")
                             $(".selectthree").html("<option>无</option>")
                             $(".selectthree").attr("disabled","disabled")
                             
-                            return
                         }else{
-                            for(var i=0;i<data[0].children[0].children.length;i++){
-                            str2 += '<option value="'+ i +'">'+ data[0].children[0].children[i].courseware +'</option>'
-                            // console.log(str2);
+                            for(var i=0;i<data[0].children.length;i++){
+                            str1 += '<option value="'+ i +'">'+ data[0].children[i].courseware +'</option>';
                             }
-                            $(".selectthree").attr("disabled",false)
-                            $(".selectthree").html(str2)
-                        }
-
-                    }
-
-                  
-                    $(".selectone").change(function(){
-                        var str1 = ""
-                        var str2 = ""
-                        oneval = $(this).val()
-                        if(data[oneval].children == undefined){
-                            // 如果没有第二级就渲染“无”，第三级也渲染无。
-                            $(".selecttwo").html("<option>无</option>")
-                            $(".selecttwo").attr("disabled","disabled")
-
-                            $(".selectthree").html("<option>无</option>")
-                            $(".selectthree").attr("disabled","disabled")
-                            // return
-                        }else{
-                            // 渲染第二个输入框
-                            for(var i=0;i<data[oneval].children.length;i++){
-                                if(i ==0){
-                                    str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
-                                }else{
-                                    str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
-                                } 
-                            }
-                            $(".selecttwo").attr("disabled",false)
                             $(".selecttwo").html(str1)
-
-                        //    渲染第三个输入框
-                            if(data[oneval].children[0].children == undefined){
+                            // 判断并渲染第三个输入框
+                            if(data[0].children[0].children == undefined){
                                 $(".selectthree").html("<option>无</option>")
                                 $(".selectthree").attr("disabled","disabled")
-                                // console.log("wei",data[oneval].children[0].children);
                                 
+                                return
                             }else{
-                                for(var i=0;i<data[oneval].children[0].children.length;i++){
-                                str2 += '<option value="'+ i +'">'+ data[oneval].children[0].children[i].courseware +'</option>'
+                                for(var i=0;i<data[0].children[0].children.length;i++){
+                                str2 += '<option value="'+ i +'">'+ data[0].children[0].children[i].courseware +'</option>'
                                 // console.log(str2);
                                 }
                                 $(".selectthree").attr("disabled",false)
                                 $(".selectthree").html(str2)
                             }
-                        }                   
+
+                        }
+
                     
-                    })
-                    // 第二个输入框的事件
-                    $(".selecttwo").change(function(){
-                        var str2 = ""
-                        twoval = $(this).val()
-                        // 判断是否存在子一级
-                        if(data[oneval].children[twoval].children == undefined){
-                            $(".selectthree").html("<option>无</option>")
-                            $(".selectthree").attr("disabled","disabled")
-                            return
-                        }
-                        for(var i=0;i<data[oneval].children[twoval].children.length;i++){
-                        str2 += '<option value="'+ i +'">'+ data[oneval].children[twoval].children[i].courseware +'</option>'
-                        console.log(str2);
-                       }
-                       
-                       $(".selectthree").attr("disabled",false)
-                       $(".selectthree").html(str2)
-                       
-                       
-                       console.log('3id',data[oneval].children[twoval].children[0].id);
+                        $(".selectone").change(function(){
+                            var str1 = ""
+                            var str2 = ""
+                            oneval = $(this).val()
+                            if(data[oneval].children == undefined){
+                                // 如果没有第二级就渲染“无”，第三级也渲染无。
+                                $(".selecttwo").html("<option>无</option>")
+                                $(".selecttwo").attr("disabled","disabled")
 
-                    })
-                    // $(".selectwo").change()
-                    // $(".selectthree").on("change",function(){
-                    //     thrval = $(this).val()
-                    // })
-                    $(".addsection").on("click",function(){
-                        // 因为上面的的change事件无法监听选中最后一个option，所以只能重新获取值。
-                        var op1 = $(".selectone option:selected").val(); 
-                        // console.log(op1);
-                        var op2 = $(".selecttwo option:selected").val(); 
-                        // console.log(op1);
-                        var op3 = $(".selectthree option:selected").val(); 
-                        // console.log(op1);
-                        if(data[op1].children == undefined ){
-                            sectionid = data[op1].id;
-                        }else if(data[op1].children[op2].children == undefined ){
-                            sectionid = data[op1].children[op2].id
-                        }else{
-                            sectionid = data[op1].children[op2].children[op3].id
-                        }
-                        console.log("章节的id",sectionid);
-                        console.log("文件的id",fileid);
-                        console.log("当前所处的分类页面",clas);
+                                $(".selectthree").html("<option>无</option>")
+                                $(".selectthree").attr("disabled","disabled")
+                                // return
+                            }else{
+                                // 渲染第二个输入框
+                                for(var i=0;i<data[oneval].children.length;i++){
+                                    if(i ==0){
+                                        str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
+                                    }else{
+                                        str1 += '<option value="'+ i +'">'+ data[oneval].children[i].courseware +'</option>'
+                                    } 
+                                }
+                                $(".selecttwo").attr("disabled",false)
+                                $(".selecttwo").html(str1)
+
+                            //    渲染第三个输入框
+                                if(data[oneval].children[0].children == undefined){
+                                    $(".selectthree").html("<option>无</option>")
+                                    $(".selectthree").attr("disabled","disabled")
+                                    // console.log("wei",data[oneval].children[0].children);
+                                    
+                                }else{
+                                    for(var i=0;i<data[oneval].children[0].children.length;i++){
+                                    str2 += '<option value="'+ i +'">'+ data[oneval].children[0].children[i].courseware +'</option>'
+                                    // console.log(str2);
+                                    }
+                                    $(".selectthree").attr("disabled",false)
+                                    $(".selectthree").html(str2)
+                                }
+                            }                   
                         
-                       
-                        // 发送添加课程
-                        $("#loadingModal").modal("show")
-                        $.ajax({
-                            url: HTTP_URL + "Resource/gs_section",
-                            type: "post",
-                            data: {
-                                zid: sectionid,
-                                id: fileid,
-                                val: clas
-                            },
-                            dataType: "json",
-                            success: function (data) {
-                                console.log(data);
-                             
-                                toastr.success("操作成功")
-                                
-                            },
-                            error: function (e) {
-                                toastr.error("网络开小猜了，请稍后再试！")
-                                console.log(e)
-                            },
-                            complete: function (xhr, status) {
-                                // 隐藏loading
-                                $("#loadingModal").modal("hide")
-                            }
                         })
+                        // 第二个输入框的事件
+                        $(".selecttwo").change(function(){
+                            var str2 = ""
+                            twoval = $(this).val()
+                            // 判断是否存在子一级
+                            if(data[oneval].children[twoval].children == undefined){
+                                $(".selectthree").html("<option>无</option>")
+                                $(".selectthree").attr("disabled","disabled")
+                                return
+                            }
+                            for(var i=0;i<data[oneval].children[twoval].children.length;i++){
+                            str2 += '<option value="'+ i +'">'+ data[oneval].children[twoval].children[i].courseware +'</option>'
+                            console.log(str2);
+                        }
+                        
+                        $(".selectthree").attr("disabled",false)
+                        $(".selectthree").html(str2)
+                        
+                        
+                        console.log('3id',data[oneval].children[twoval].children[0].id);
 
-                    })
+                        })
+                        // $(".selectwo").change()
+                        // $(".selectthree").on("change",function(){
+                        //     thrval = $(this).val()
+                        // })
+                        $(".addsection").on("click",function(){
+                            // 因为上面的的change事件无法监听选中最后一个option，所以只能重新获取值。
+                            var op1 = $(".selectone option:selected").val(); 
+                            // console.log(op1);
+                            var op2 = $(".selecttwo option:selected").val(); 
+                            // console.log(op1);
+                            var op3 = $(".selectthree option:selected").val(); 
+                            // console.log(op1);
+                            if(data[op1].children == undefined ){
+                                sectionid = data[op1].id;
+                            }else if(data[op1].children[op2].children == undefined ){
+                                sectionid = data[op1].children[op2].id
+                            }else{
+                                sectionid = data[op1].children[op2].children[op3].id
+                            }
+                            console.log("章节的id",sectionid);
+                            console.log("文件的id",fileid);
+                            console.log("当前所处的分类页面",clas);
+                            
+                        
+                            // 发送添加课程
+                            $("#loadingModal").modal("show")
+                            $.ajax({
+                                url: HTTP_URL + "Resource/gs_section",
+                                type: "post",
+                                data: {
+                                    zid: sectionid,
+                                    id: fileid,
+                                    val: clas
+                                },
+                                dataType: "json",
+                                success: function (data) {
+                                    console.log(data);
+                                
+                                    toastr.success("操作成功")
+                                    
+                                },
+                                error: function (e) {
+                                    toastr.error("网络开小猜了，请稍后再试！")
+                                    console.log(e)
+                                },
+                                complete: function (xhr, status) {
+                                    // 隐藏loading
+                                    $("#loadingModal").modal("hide")
+                                }
+                            })
+
+                        })
+                    }else{
+                        console.log("列表数据为空");
+                        
+                    }
+
 
 
 
@@ -656,7 +788,7 @@
                 }
             });
         }
-        courseclass(1,"Resource/set_section")
+        courseclass(cid,"Resource/set_section")
 
         function confirmBySelf(content, func,tit) {
             $.confirm({
@@ -738,8 +870,7 @@
             $(".tt_content_right_title").text("电子图书/教材");
         }
 
-        // 存储上一次的页码
-       var pagedata;
+
         // 当单击升序和降序时，更改排序，并且跳转到当前页。
         $(".asc").on("click",function(){
             select_announce(pagedata,"ASC")
@@ -751,14 +882,15 @@
             //要跳转的页，升序或降序
         function select_announce(pageN,sl) {
             var param = {
-                cid: 1,
+                cid: cid,
                 sl:sl,
                 page: pageN,
             }
             console.log(param);
             // 将页码传到函数外
-            pagedata = pageN
-            
+            pagedata = pageN;
+            // 将排序传到外面
+            sort = sl;
             // loading显示
             $("#loadingModal").modal("show")
             var CouIntrAjax = $.ajax({
@@ -769,397 +901,292 @@
                 // async:false,    //不进行异步刷新
                 data: param,
                 success: function (data) {
-                    console.log("文本的数据",data)
-                    // console.log(data[0])
-                    if (0 == data.length) {
-                        // 没有数据，显示提示
-                        toastr.error("未查询到可用数据")
-                        $("#loadingModal").modal("hide")
-                    }
-                    var str ;
-                    // 只有第一页有添加文件
-                    if(pageN == 1){
-                        str ='<div data-toggle="modal"  data-target="#myModal2" class="courseicon">\n'+
-                            '<div class="add">+</div>\n'+
-                            '<div class="addtext">本地添加</div>\n'+
-                            '<input id="filebtn" type="file" class="addfile">\n'+
-                        '</div>';
-                    }else{
-                        str = ""
-                    }
+                    // 判断数据是否为空
+                    if(data!= false && data != null && data[1] != 0){
+                        console.log("文本的数据",data)
+                        // console.log(data[0])
+                        if (0 == data.length) {
+                            // 没有数据，显示提示
+                            toastr.error("未查询到可用数据")
+                            $("#loadingModal").modal("hide")
+                        }
+                        var str ;
+                        // 只有第一页有添加文件
+                        if(pageN == 1){
+                            str ='<div data-toggle="modal"  data-target="#myModal2" class="courseicon">\n'+
+                                '<div class="add">+</div>\n'+
+                                '<div class="addtext">本地添加</div>\n'+
+                                '<input id="filebtn" type="file" class="addfile">\n'+
+                            '</div>';
+                        }else{
+                            str = ""
+                        }
 
 
-                    // var str = ""
-                    for(var i=0;i<data[0].length;i++){
-                        str +='<div href="" class="courseimg">\n'+
-                                    '<div class="courseshowbox">\n'+
-                                        '<img data-savename="'+ data[0][i].savename +'" class="courseshow"'+ (clas ==2 ? 'src="http://192.168.1.112/lanhong/Application/Home/Public/upload/'+ data[0][i].savename +'"' : 'src="../img/未标题-7.png "' )+' alt="">\n'+
-                                        '<div  data-obj="'+ data[0][i].id+'" class="select">\n'+
-                                            '<div class="section">添加到章节</div>\n'+
-                                            '<div class="delet">删除</div>\n'+
-                                            '<div class="update">重命名</div>\n'+
-                                            '<div class="down"><a href="http://192.168.1.112/lanhong/index.php/Admin/Amount/excel_user' +'" >下载</a></div>\n'+
+                        // var str = ""
+                        for(var i=0;i<data[0].length;i++){
+                            str +='<div href="" class="courseimg">\n'+
+                                        '<div class="courseshowbox">\n'+
+                                            '<img data-savename="'+ data[0][i].savename +'" class="courseshow"'+ (clas ==2 ? 'src="http://192.168.1.112/lanhong/Application/Home/Public/upload/'+ data[0][i].savename +'"' : 'src="../img/未标题-7.png "' )+' alt="">\n'+
+                                            '<div  data-obj="'+ data[0][i].id+'" class="select">\n'+
+                                                '<div class="section">添加到章节</div>\n'+
+                                                '<div class="delet">删除</div>\n'+
+                                                '<div class="update">重命名</div>\n'+
+                                                '<div class="down"><a href="http://192.168.1.112/lanhong/index.php/Admin/Amount/excel_user' +'" >下载</a></div>\n'+
+                                            '</div>\n'+
                                         '</div>\n'+
-                                    '</div>\n'+
-                                    '<div class="imgtext" title="'+ data[0][i].name +'">\n'+
-                                        data[0][i].name.substring(0, 5) +'\n'+
-                                    ' </div>=\n'+
-                                '</div>'
-                    }
-                    $('.filebox').html(str);
+                                        '<div class="imgtext" title="'+ data[0][i].name +'">\n'+
+                                            data[0][i].name.substring(0, 5) +'\n'+
+                                        ' </div>=\n'+
+                                    '</div>'
+                        }
+                        $('.filebox').html(str);
 
-                    // 删除文件
-                    $(".delet").on("click",function(){
-                        // 获取id
-                        var fileid =  $(this).parent().data("obj")
-                        // 获取地址栏后面的信息
-                        var clas = getSearch("class");
-                        var site;
+                        // 删除文件
+                        $(".delet").on("click",function(){
+                            // 获取id
+                            var fileid =  $(this).parent().data("obj")
+                            // 获取地址栏后面的信息
+                            var clas = getSearch("class");
+                            var site;
 
-                        // 提示用户要不要修改
-                        confirmBySelf('确定删除吗？', function () {
-                            // 用户点击确认时
-                            //删除文件
-                                   
+                            // 提示用户要不要修改
+                            confirmBySelf('确定删除吗？', function () {
+                                // 用户点击确认时
+                                //删除文件
+                                    
+                                if(clas == 1){
+                                    // 要删除的地址
+                                    site = "Resource/de_text"
+                                }else if(clas == 2){
+                                    // 要删除的地址
+                                    site = "Resource/de_photo"
+                                }else if(clas == 3){
+                                    // 要删除的地址
+                                    site = "Resource/de_audio"
+                                }else if(clas == 4){
+                                    // 要查询的地址
+                                    site = "Resource/de_vedio"
+                                }else if(clas == 5){
+                                    // 要查询的地址
+                                    site = "Resource/de_cartoon"
+                                    $(".tt_content_right_title").text("动画类");
+                                }else if(clas == 6){
+                                    // 要查询的地址
+                                    site = "Resource/de_dummy"
+                                    $(".tt_content_right_title").text("虚拟仿真类");
+                                }else if(clas == 7){
+                                    // 要查询的地址
+                                    site = "Resource/de_class"
+                                    $(".tt_content_right_title").text("电子课件");
+                                }else if(clas == 8){
+                                    // 要查询的地址
+                                    site = "Resource/de_webpage"
+                                    $(".tt_content_right_title").text("网页类");
+                                }else if(clas == 9){
+                                    // 要查询的地址
+                                    site = "Resource/de_book"
+                                    $(".tt_content_right_title").text("电子图书/教材");
+                                }
+                                    $.ajax({
+                                        type:"post",
+                                        url: HTTP_URL+site,
+                                        dataType:"json",
+                                        data: {id: fileid},
+                                        success:function(data){
+                                            console.log("鼠标",data);
+                                            // 重新渲染页面
+                                            select_announce(pageN,sl)
+                                        },
+                                        error:function(jqXHR){
+                                            console.log("发生错误:"+jqXHR.status);
+                                        }
+                                    });
+                            },"提示")
+                            // 删除数据的ajax
+                        })
+                        $(".update").on("click",function(){
+                            $("#new_modal").modal("show")
+                            // // 获取ID
+                            fileid =  $(this).parent().data("obj")
+                            // // 修改名称的ajax
+                            // ajax(fileid,"Resource/up_text")
+                            // //重新渲染
+                            // select_announce(pageN,sl)
+                        })
+                        //修改文件名
+                        $(".saveclass").on("click",function(){
+                            var id = fileid;
+                            
+                            var name = $(".addclassname").val() 
+                            var upurl ;
+                            // var teacher = $(".addclassteacher").val() 
+                            if(name == "" ){
+                                // console.log("添加的为空");
+                                $("#new_modal").modal("hide")
+                                return
+                            }
                             if(clas == 1){
-                                // 要删除的地址
-                                site = "Resource/de_text"
+                            // 添加文件
+                            
+                                upurl = HTTP_URL+"Resource/up_text"
+                            
                             }else if(clas == 2){
-                                // 要删除的地址
-                                site = "Resource/de_photo"
+                                //图像
+                                // 添加文件
+                                    
+                                upurl = HTTP_URL+"Resource/up_photo"
+
                             }else if(clas == 3){
-                                // 要删除的地址
-                                site = "Resource/de_audio"
+                                //音频
+                                // 添加文件
+                                upurl = HTTP_URL+"Resource/up_audio"
                             }else if(clas == 4){
-                                // 要查询的地址
-                                site = "Resource/de_vedio"
+                                // 视频
+                                // 添加文件
+                                upurl = HTTP_URL+"Resource/up_vedio"
                             }else if(clas == 5){
-                                // 要查询的地址
-                                site = "Resource/de_cartoon"
-                                $(".tt_content_right_title").text("动画类");
+                                // 动画
+                                // 添加文件
+                                upurl = HTTP_URL+"Resource/up_cartoon"                  
                             }else if(clas == 6){
-                                // 要查询的地址
-                                site = "Resource/de_dummy"
-                                $(".tt_content_right_title").text("虚拟仿真类");
+                                // 虚拟仿真
+                                // 添加文件
+                                upurl = HTTP_URL+"Resource/up_dummy"
                             }else if(clas == 7){
-                                // 要查询的地址
-                                site = "Resource/de_class"
-                                $(".tt_content_right_title").text("电子课件");
+                                // 电子课件
+                                // 添加文件
+                                upurl = HTTP_URL+"Resource/up_eclass"
                             }else if(clas == 8){
-                                // 要查询的地址
-                                site = "Resource/de_webpage"
-                                $(".tt_content_right_title").text("网页类");
+                            //    网页
+                            // 添加文件
+                                upurl = HTTP_URL+"Resource/up_webpage"
                             }else if(clas == 9){
-                                // 要查询的地址
-                                site = "Resource/de_book"
-                                $(".tt_content_right_title").text("电子图书/教材");
+                                // 图书
+                                // 添加文件
+                
+                                upurl = HTTP_URL+"Resource/up_ebook"
                             }
-                                $.ajax({
-                                    type:"post",
-                                    url: HTTP_URL+site,
-                                    dataType:"json",
-                                    data: {id: fileid},
-                                    success:function(data){
-                                        console.log("鼠标",data);
-                                        // 重新渲染页面
-                                        select_announce(pageN,sl)
-                                    },
-                                    error:function(jqXHR){
-                                        console.log("发生错误:"+jqXHR.status);
-                                    }
-                                });
-                        },"提示")
-                        // 删除数据的ajax
-                    })
-                    $(".update").on("click",function(){
-                        $("#new_modal").modal("show")
-                        // // 获取ID
-                        fileid =  $(this).parent().data("obj")
-                        // // 修改名称的ajax
-                        // ajax(fileid,"Resource/up_text")
-                        // //重新渲染
-                        // select_announce(pageN,sl)
-                    })
-                    //修改文件名
-                    $(".saveclass").on("click",function(){
-                        var id = fileid;
-                        
-                        var name = $(".addclassname").val() 
-                        var upurl ;
-                        // var teacher = $(".addclassteacher").val() 
-                        if(name == "" ){
-                            // console.log("添加的为空");
-                            $("#new_modal").modal("hide")
-                            return
-                        }
-                        if(clas == 1){
-                        // 添加文件
-                        
-                            upurl = HTTP_URL+"Resource/up_text"
-                        
-                        }else if(clas == 2){
-                            //图像
-                            // 添加文件
-                                
-                            upurl = HTTP_URL+"Resource/up_photo"
+                            // console.log('页面',clas);
+                            // console.log('图片id为',id);
+                            // console.log("name",name);
+                            // console.log("地址",upurl);
 
-                        }else if(clas == 3){
-                            //音频
-                            // 添加文件
-                            upurl = HTTP_URL+"Resource/up_audio"
-                        }else if(clas == 4){
-                            // 视频
-                            // 添加文件
-                            upurl = HTTP_URL+"Resource/up_vedio"
-                        }else if(clas == 5){
-                            // 动画
-                            // 添加文件
-                            upurl = HTTP_URL+"Resource/up_cartoon"                  
-                        }else if(clas == 6){
-                            // 虚拟仿真
-                            // 添加文件
-                            upurl = HTTP_URL+"Resource/up_dummy"
-                        }else if(clas == 7){
-                            // 电子课件
-                            // 添加文件
-                            upurl = HTTP_URL+"Resource/up_eclass"
-                        }else if(clas == 8){
-                        //    网页
-                        // 添加文件
-                            upurl = HTTP_URL+"Resource/up_webpage"
-                        }else if(clas == 9){
-                            // 图书
-                            // 添加文件
-               
-                            upurl = HTTP_URL+"Resource/up_ebook"
-                        }
-                        // console.log('页面',clas);
-                        // console.log('图片id为',id);
-                        // console.log("name",name);
-                        // console.log("地址",upurl);
-
-                        $("#loadingModal").modal("show")
-                        $.ajax({
-                        type:"post",
-                        url:upurl,
-                        dataType:"json",
-                        data: {id: id,name: name},
-                        success:function(data){
-                            // console.log("班级数据",data);
-                            if(0 == data.length){
-                                return;
+                            $("#loadingModal").modal("show")
+                            $.ajax({
+                            type:"post",
+                            url:upurl,
+                            dataType:"json",
+                            data: {id: id,name: name},
+                            success:function(data){
+                                // console.log("班级数据",data);
+                                if(0 == data.length){
+                                    return;
+                                }
+                                // $("#loadingModal").modal("hide")
+                                $("#new_modal").modal("hide")
+                                //刷新页面的js
+                                // history.go(0)
+                                // 重新渲染页面
+                                select_announce(pageN,sl)
+                            },
+                            error:function(jqXHR){
+                                console.log("发生错误:"+jqXHR.status);
                             }
-                            // $("#loadingModal").modal("hide")
-                            $("#new_modal").modal("hide")
-                            //刷新页面的js
-                            // history.go(0)
-                              // 重新渲染页面
-                            select_announce(pageN,sl)
-                        },
-                        error:function(jqXHR){
-                            console.log("发生错误:"+jqXHR.status);
+                            });
+                        })
+                        // 点击添加章节按钮
+                        $(".section").on("click",function(){
+                            $("#addasection").modal("show")
+                            // // 获取ID
+                            fileid =  $(this).parent().data("obj")
+
+                            // // 修改名称的ajax
+                            // ajax(fileid,"Resource/up_text")
+                            // //重新渲染
+                            // select_announce(pageN,sl)
+                        })
+
+
+
+                        console.log(clas);
+                        // 如果为音频视频图画类，可以点击跳转页面
+                        if(clas ==3 || clas == 4 || clas == 5){
+
                         }
-                        });
-                    })
-                    // 点击添加章节按钮
-                    $(".section").on("click",function(){
-                        $("#addasection").modal("show")
-                        // // 获取ID
-                        fileid =  $(this).parent().data("obj")
+                        if(clas == 2){
 
-                        // // 修改名称的ajax
-                        // ajax(fileid,"Resource/up_text")
-                        // //重新渲染
-                        // select_announce(pageN,sl)
-                    })
-
-
-
-                    console.log(clas);
-                    // 如果为音频视频图画类，可以点击跳转页面
-                    if(clas ==3 || clas == 4 || clas == 5){
-
-                    }
-                    if(clas == 2){
-
-                    }
-
-                    if(clas == 1){
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了文本文件",this);
-                            UpladFile(HTTP_URL+"Resource/text")
-                        })
-                    }else if(clas == 2){
-                        //图像
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了图像文件",this);
-                            UpladFile(HTTP_URL+"Resource/photo")
-                        })
-                    }else if(clas == 3){
-                        //音频
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了音频文件",this);
-                            UpladFile(HTTP_URL+"Resource/audio")
-                        })
-                        // 拼接跳转地址
-                        $(".courseshow").on("click",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            fileid = $(this).data("savename");
-                            console.log(fileid );
-                            window.location.href = 'repositorypreview.html?vid='+fileid+'&clas='+clas;
-                        })
-                    }else if(clas == 4){
-                        // 视频
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了视频文件",this);
-                            UpladFile(HTTP_URL+"Resource/vedio")
-                        })
-
-                        $(".courseshow").on("click",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            fileid = $(this).data("savename");
-                            console.log(fileid );
-                            window.location.href = 'repositorypreview.html?vid='+fileid+'&clas='+clas;
-                        })
-                    }else if(clas == 5){
-                        // 动画
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了动画文件",this);
-                            UpladFile(HTTP_URL+"Resource/cartoon")
-                        })                        
-                    }else if(clas == 6){
-                        // 虚拟仿真
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了虚拟仿真文件",this);
-                            UpladFile(HTTP_URL+"Resource/dummy")
-                        })  
-                    }else if(clas == 7){
-                        // 电子课件
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了电子课件文件",this);
-                            UpladFile(HTTP_URL+"Resource/eclass")
-                        })  
-                    }else if(clas == 8){
-                        //网页
-                       // 添加文件
-                       $(".addfile").on("change",function(){
-                           // 要重新渲染的页码
-                           page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了网页文件",this);
-                            UpladFile(HTTP_URL+"Resource/webpage")
-                        })  
-                    }else if(clas == 9){
-                        // 图书
-                        // 添加文件
-                        $(".addfile").on("change",function(){
-                            // 要重新渲染的页码
-                            page = 1;
-                            // 要重新渲染的排序
-                            sort = sl;
-                            console.log("当选择了图书文件",this);
-                            UpladFile(HTTP_URL+"Resource/ebook")
-                        })  
-                    }
-
-        
+                        }
 
                       
 
+            
 
-                    //鼠标的移入移出  
-                    // for(let i=0;i<data.lis.length;i++){
-                    //     $("tbody tr").eq(i).mouseover(function (){  
-                    //         console.log();
-                    //         $(".mouseovercontent").css({"display":"block"})
-                    //         var str =   '<div>查看课程视频得分 '+ data.lis[i].video +' </div>\n'+
-                    //                     '<div>参与讨论情况得分 '+ data.lis[i].discuss +' </div>\n'+
-                    //                     '<div>提交笔记情况得分 '+ data.lis[i].note +' </div>\n'+
-                    //                     '<div>参与提问答疑得分 '+ data.lis[i].quiz +' </div>\n'+
-                    //                     '<div>参与考试/测验成绩 '+ data.lis[i].exam +' </div>'
-                    //         $(".mouseovercontent").html(str)
-                    //     }).mouseout(function (){  
-                    //         // $(".content").hide();  
-                    //         // console.log("移除",j); 
-                    //         $(".mouseovercontent").css({"display":"none"})
-                    //     });
-                    // }
+                        
 
 
-                    //分页
-                    $("#page").bootstrapPaginator({
-                        bootstrapMajorVersion: 3,   //bootstrap版本
-                        totalPages: data[1],   //总页数
-                        numberOfPages: 3,    //分页器每页展示页码数
-                        shouldShowPage: true,   //所有的按钮都展示
-                        itemTexts: function (type, page, current) {
-                            // console.log(type)
-                            //设置分页控件每部分的显示文字
-                            switch (type) {
-                                case "first":
-                                    return "第一页"
-                                case "prev":
-                                    return "上一页"
-                                case "next":
-                                    return "下一页"
-                                case "last":
-                                    return "最后一页"
-                                case "page":
-                                    return page
-                                case "jump":
-                                    return "跳转"
+                        //鼠标的移入移出  
+                        // for(let i=0;i<data.lis.length;i++){
+                        //     $("tbody tr").eq(i).mouseover(function (){  
+                        //         console.log();
+                        //         $(".mouseovercontent").css({"display":"block"})
+                        //         var str =   '<div>查看课程视频得分 '+ data.lis[i].video +' </div>\n'+
+                        //                     '<div>参与讨论情况得分 '+ data.lis[i].discuss +' </div>\n'+
+                        //                     '<div>提交笔记情况得分 '+ data.lis[i].note +' </div>\n'+
+                        //                     '<div>参与提问答疑得分 '+ data.lis[i].quiz +' </div>\n'+
+                        //                     '<div>参与考试/测验成绩 '+ data.lis[i].exam +' </div>'
+                        //         $(".mouseovercontent").html(str)
+                        //     }).mouseout(function (){  
+                        //         // $(".content").hide();  
+                        //         // console.log("移除",j); 
+                        //         $(".mouseovercontent").css({"display":"none"})
+                        //     });
+                        // }
+
+
+                        //分页
+                        $("#page").bootstrapPaginator({
+                            bootstrapMajorVersion: 3,   //bootstrap版本
+                            totalPages: data[1],   //总页数
+                            numberOfPages: 3,    //分页器每页展示页码数
+                            shouldShowPage: true,   //所有的按钮都展示
+                            itemTexts: function (type, page, current) {
+                                // console.log(type)
+                                //设置分页控件每部分的显示文字
+                                switch (type) {
+                                    case "first":
+                                        return "第一页"
+                                    case "prev":
+                                        return "上一页"
+                                    case "next":
+                                        return "下一页"
+                                    case "last":
+                                        return "最后一页"
+                                    case "page":
+                                        return page
+                                    case "jump":
+                                        return "跳转"
+                                }
+                            }, onPageClicked: function(event, originalEvent, type, page) {
+                                //点击事件
+                                //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
+                                pageNum = page
+                                // 查询
+                                select_announce(pageNum,sl)
                             }
-                        }, onPageClicked: function(event, originalEvent, type, page) {
-                            //点击事件
-                            //page表示分页控件当前的页码，用这个页码重新走网络请求，会拿到对应的数据
-                            pageNum = page
-                            // 查询
-                            select_announce(pageNum,sl)
-                        }
-                    })
-                    //  分页结束
+                        })
+                        //  分页结束
+                }else{
+                    // var addstr ;
+                    addstr ='<div data-toggle="modal"  data-target="#myModal2" class="courseicon">\n'+
+                                '<div class="add">+</div>\n'+
+                                '<div class="addtext">本地添加</div>\n'+
+                                '<input id="filebtn" type="file" class="addfile">\n'+
+                            '</div>';
+                    $('.filebox').html(addstr + "<div>没有数据...</div>");
+                    console.log("无资料数据");
+                    
+                }
                 },
                 error: function (e) {
                     console.log(e)
