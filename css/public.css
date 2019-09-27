@@ -88,7 +88,7 @@ input::-ms-clear {
   height: 40px;
   background-color: hotpink;
   margin-top: 25px;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 .header .search input {
   float: left;

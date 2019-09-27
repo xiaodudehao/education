@@ -425,7 +425,7 @@
         var pagedata;
 
 
-        var cid = 7;
+        var cid = 1;
         //提示框初始化，toast-top-center表示提示框的位置
         toastr.options = {
             positionClass: 'toast-top-center', // 提示框位置
@@ -475,6 +475,10 @@
                 }
             }
         // 原生ajax发送头像信息结束
+        
+
+
+
         if(clas == 1){
             // 添加文件
             $(".tt_team").on("change",".addfile",function(){
@@ -488,7 +492,7 @@
         }else if(clas == 2){
             //图像
             // 添加文件
-            $(".addfile").on("change",function(){
+            $(".tt_team").on("change",".addfile",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -499,7 +503,7 @@
         }else if(clas == 3){
             //音频
             // 添加文件
-            $(".addfile").on("change",function(){
+            $(".tt_team").on("change",".addfile",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -508,7 +512,8 @@
                 UpladFile(HTTP_URL+"Resource/audio")
             })
             // 拼接跳转地址
-            $(".courseshow").on("click",function(){
+            $(".tt_team").on("click",".courseshow",function(){
+            // $(".courseshow").on("click",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -520,7 +525,7 @@
         }else if(clas == 4){
             // 视频
             // 添加文件
-            $(".addfile").on("change",function(){
+            $(".tt_team").on("change",".addfile",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -528,8 +533,8 @@
                 console.log("当选择了视频文件",this);
                 UpladFile(HTTP_URL+"Resource/vedio")
             })
-
-            $(".courseshow").on("click",function(){
+            $(".tt_team").on("click",".courseshow",function(){
+            // $(".courseshow").on("click",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -541,7 +546,7 @@
         }else if(clas == 5){
             // 动画
             // 添加文件
-            $(".addfile").on("change",function(){
+            $(".tt_team").on("change",".addfile",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -552,7 +557,7 @@
         }else if(clas == 6){
             // 虚拟仿真
             // 添加文件
-            $(".addfile").on("change",function(){
+            $(".tt_team").on("change",".addfile",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -563,7 +568,7 @@
         }else if(clas == 7){
             // 电子课件
             // 添加文件
-            $(".addfile").on("change",function(){
+            $(".tt_team").on("change",".addfile",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -574,7 +579,7 @@
         }else if(clas == 8){
             //网页
         // 添加文件
-        $(".addfile").on("change",function(){
+        $(".tt_team").on("change",".addfile",function(){
             // 要重新渲染的页码
             page = 1;
                 // // 要重新渲染的排序
@@ -585,7 +590,7 @@
         }else if(clas == 9){
             // 图书
             // 添加文件
-            $(".addfile").on("change",function(){
+            $(".tt_team").on("change",".addfile",function(){
                 // 要重新渲染的页码
                 page = 1;
                 // // 要重新渲染的排序
@@ -594,6 +599,8 @@
                 UpladFile(HTTP_URL+"Resource/ebook")
             })  
         }
+
+        
 
 
 

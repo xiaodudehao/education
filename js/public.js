@@ -1,13 +1,26 @@
-var HTTP_URL = "http://192.168.1.126/lanhong/index.php/Admin/"
-var HTTP_URLH ="http://192.168.1.126/lanhong/index.php/Home/"
+// var HTTP_URL = "http://192.168.1.126/lanhong/index.php/Admin/"
+// var HTTP_URLH ="http://192.168.1.126/lanhong/index.php/Home/"
+
+// // 保存图片地址的变量
+// var imgsrc = "http://192.168.1.126/lanhong/Public/img/";
+// var imgsrc2 = "http://192.168.1.126/lanhong/Application/Admin/Public/upload/";
+// var imgsrc3 = "http://192.168.1.126/lanhong/Application/Home/Public/touxiang/";
+// var imgsrc4 =  "http://192.168.1.126/lanhong/Application/Admin/Public/school/";
+// //保存视频地址
+// var videosrc = "http://192.168.1.126/lanhong/Application/Home/Public/";
+
+var HTTP_URL = "http://www.lanhongedu.cn/index.php/Admin/"
+var HTTP_URLH ="http:/www.lanhongedu.cn/index.php/Home/"
 
 // 保存图片地址的变量
-var imgsrc = "http://192.168.1.126/lanhong/Public/img/";
-var imgsrc2 = "http://192.168.1.126/lanhong/Application/Admin/Public/upload/";
-var imgsrc3 = "http://192.168.1.126/lanhong/Application/Home/Public/touxiang/";
-var imgsrc4 =  "http://192.168.1.126/lanhong/Application/Admin/Public/school/";
+var imgsrc = "http:/www.lanhongedu.cn/Public/img/";
+var imgsrc2 = "http:/www.lanhongedu.cn/Application/Admin/Public/upload/";
+var imgsrc3 = "http:/www.lanhongedu.cn/Application/Home/Public/touxiang/";
+var imgsrc4 =  "http:/www.lanhongedu.cn/Application/Admin/Public/school/";
 //保存视频地址
-var videosrc = "http://192.168.1.126/lanhong/Application/Home/Public/";
+var videosrc = "http:/www.lanhongedu.cn/Application/Home/Public/";
+
+
 // 保存头像图片名称的变量。
 var imgname;
 //保存学校的名称数组
